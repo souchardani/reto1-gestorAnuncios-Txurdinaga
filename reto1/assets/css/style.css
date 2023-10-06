@@ -1,0 +1,121 @@
+/* EDITAR USUARIOS */
+.header-1 {
+    width: 100%;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    background-color: #E20035;
+}
+
+.titulo {
+    color: white;
+    font-size: 20px;
+    text-align: center;
+}
+
+.main-1 {
+    text-align: center;
+    width: 100%;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    background-color: rgb(200, 200, 220);
+}
+
+.form-1 {
+    display: inline-block;
+}
+
+fieldset {
+    background-color: white;
+}
+
+img {
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+}
+
+#grado,
+#nombre,
+#tele,
+#email {
+    width: 200px;
+}
+
+#perbtn {
+    height: 30px;
+    background-color: rgb(216, 233, 246);
+    color: rgb(0, 145, 234);
+}
+
+#savebtn {
+    height: 30px;
+    background-color: dodgerblue;
+    color: white;
+}
+/* PERFIL ADMINISTRADOR */
+.header-2 {
+    width: 100%;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    background-color: #D6D700;
+}
+.main-2 {
+    text-align: center;
+    width: 100%;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    background-color: rgb(200, 200, 220);
+}
+.buscador {
+    padding: 0;
+    margin: 0;
+    justify-content: center;
+    display: flex;
+    gap: 10%;
+}
+table {
+    padding-top: 40px;
+    display: inline-block;
+    justify-content: center;
+}
+th, td {
+    border: 1px solid orange;
+}
+th {
+    background-color: orange;
+    color: white;
+    height: 30px;
+}
+.anu {
+    width: 250px;
+}
+.fec {
+    width: 150px;
+}
+.est {
+    width: 150px;
+}
+.acc {
+    width: 150px;
+}
+/* CREAR ANUNCIO */
+.header-3 {
+    width: 100%;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    background-color: #BA007B;
+}
+.main-3 {
+    text-align: center;
+    width: 100%;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    background-color: rgb(200, 200, 220);
+}
+/* FOOTER */
+footer {
+    width: 100%;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    background-color: lightgreen;
+}

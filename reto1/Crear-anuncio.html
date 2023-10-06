@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <title>Crear Anuncio</title>
+</head>
+
+<body>
+  <header class="header-3">
+    <h1 class="titulo">CREAR ANUNCIO</h1>
+  </header>
+  
+  <main class="main-3">
+    <h2>Crear anuncios</h2>
+    
+    <form class="form-3">
+        <fieldset>
+          <label>Foto de Perfil: </label><br><br>
+          <img src="./assets/img/foto perfil.jpg" alt="test"><br><br>
+          <button id="perbtn">Cambiar foto de perfil</button><br><br>
+  
+          <label>Nombre Completo: </label><br>
+          <input type="text" name="nombre" maxlength="50" id="nombre"><br><br>
+  
+          <label>Email: </label><br>
+          <input type="email" name="email" id="email" placeholder="email@email.com"><br><br>
+  
+          <label>Grado: </label><br>
+          <select name="grado" id="grado">
+            <option></option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select><br><br>
+  
+          <label>Teléfono: </label><br>
+          <input type="tel" name="tele" placeholder="123-456-789" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" id="tele"><br><br>
+  
+          <button id="savebtn">Guardar Cambios</button>
+        </fieldset>
+      </form>
+  </main>
+
+  <footer>
+    FOOTER
+  </footer>
+</body>
+
+</html>
