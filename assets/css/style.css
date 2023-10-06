@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&display=swap');
+
+body {
+  	margin: 0;
+	font-family: 'PT Sans Narrow';
+}
+
+header {
+	background-color: aliceblue;
+}
+
+#header-img {
+	width: 150px;
+	height: 50px; 
+}
+
+.col-nav {
+	background-color: antiquewhite;
+	/* display: flex;
+	justify-content: space-around; */
+	margin: 5px;
+}
+
+/*FOOTER*/
+footer {
+	position: fixed;
+	background-color: aliceblue;
+	bottom: 0;
+	width: 100%;
+}
+
+.row-footer{
+	display: flex;
+	flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.footer-col{
+	width: 25%; /*espacio entre los footer-col*/
+	margin: 2em;
+	position: relative;
+}
+
+.footer-col p {
+	text-align: justify;
+	justify-items: center;
+}
+
+#footer-logo {
+	width: 30%;
+}
+
+#datos1{
+	color: #229C69;
+}
+
+#datos2 {
+	color: #FCC204;
+}
+
+#datos3 {
+	color: #1AA3BF;
+}
+
+#datos4 {
+	color: #DA0067;
+}
+
+#datos5 {
+	background-color: #191F33;
+	color: #E20035;
+}
+
+#datos6 {
+	background-color: #191F33;
+	color: #FCC204;
+}
+
+#datos7 {
+	background-color: #191F33;
+	color: #1AA3BF;
+}
+
+#datos8 {
+	background-color: #191F33;
+	color: #229C69;
+}
+
+#icon-insta {
+	padding: 10px;
+	border-radius: 100%;
+	background-color: #DA0067;
+	color: white;
+}
+
+#icon-twitter {
+	padding: 10px;
+	border-radius: 100%;
+	background-color: #1aa4c1;
+	color: white;
+}
+
+#icon-link {
+	padding: 10px;
+	border-radius: 100%;
+	background-color: #004c95;
+	color: white;
+}
+
+footer p {
+	text-align: center;
+	margin-top: 20px;
+}
+
+/*responsive footer*/
+@media(max-width: 767px){
+    .footer-col{
+        width: 30%;
+    }
+}
+
+@media(max-width: 574px){
+    .container-footer {
+        padding: 1em;
+    }
+    
+    .footer-col{
+        width: 100%;
+        padding: 0;
+    }
+
+	.footer-col img {
+		width: 50%;
+	}
+}
