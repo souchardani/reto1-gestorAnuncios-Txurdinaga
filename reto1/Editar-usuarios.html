@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Editar Usuario</title>
+  <style>
+    header {
+      width: 100%;
+      padding-top: 25px;
+      padding-bottom: 25px;
+      background-color: red;
+    }
+    .titulo {
+      color: white;
+      font-size: 20px;
+      text-align: center;
+    }
+    main {
+      text-align: center;
+      width: 100%;
+      padding-top: 25px;
+      padding-bottom: 25px;
+      background-color: rgb(200, 200, 220);
+    }
+    form {
+      display: inline-block;
+    }
+    fieldset {
+      background-color: white;
+    }
+    img {
+      border-radius: 50%;
+      width: 70px;
+      height: 70px;
+    }
+    #grado, #nombre, #tele, #email {
+      width: 200px;
+    }
+    #perbtn {
+      height: 30px;
+      background-color: rgb(216, 233, 246);
+      color: rgb(0, 145, 234);
+    }
+    #savebtn {
+      height: 30px;
+      background-color: dodgerblue;
+      color: white;
+    }
+    footer {
+      width: 100%;
+      padding-top: 25px;
+      padding-bottom: 25px;
+      background-color: lightgreen;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1 class="titulo">EDITAR USUARIO</h1>
+  </header>
+  
+  <main>
+    <h2>Información de tu perfil</h2>
+    <form>
+      <fieldset>
+        <label>Foto de Perfil: </label><br><br>
+        <img src="./assets/img/1.jpg" alt="test"><br><br>
+        <button id="perbtn">Cambiar foto de perfil</button><br><br>
+
+        <label>Nombre Completo: </label><br>
+        <input type="text" name="nombre" maxlength="50" id="nombre"><br><br>
+
+        <label>Email: </label><br>
+        <input type="email" name="email" id="email" placeholder="email@email.com"><br><br>
+
+        <label>Grado: </label><br>
+        <select name="grado" id="grado">
+          <option></option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select><br><br>
+
+        <label>Teléfono: </label><br>
+        <input type="tel" name="tele" placeholder="123-456-789" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" id="tele"><br><br>
+
+        <button id="savebtn">Guardar Cambios</button>
+      </fieldset>
+    </form>
+  </main>
+
+  <footer>
+    FOOTER
+  </footer>
+</body>
+
+</html>
