@@ -36,10 +36,12 @@ footer {
 }
 
 .container {
-  margin: 40px 200px;
   min-height: 100vh;
   text-align: center;
   padding: 40px 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 img {
@@ -53,6 +55,7 @@ img {
   overflow: hidden;
   width: 300px;
   box-shadow: 0px 12px 40px 0px rgba(0, 34, 51, 0.07);
+  transition: all ease-in-out 0.2s;
 }
 
 .columnas-anuncios {
@@ -61,12 +64,15 @@ img {
   flex-direction: row;
   flex-wrap: wrap;
   gap: 25px;
+  justify-content: center;
 }
 
 .categoria-info {
   display: flex;
   justify-content: flex-start;
   color: #767e94;
+  gap: 8px;
+  align-items: center;
 }
 
 .anuncio-body {
@@ -77,6 +83,7 @@ img {
   align-items: flex-start;
   padding: 10px 20px;
   gap: 10px;
+  overflow: hidden;
 }
 
 .anuncio-info {
@@ -94,6 +101,11 @@ img {
   color: #767e94;
 }
 
-.anuncio-info fecha {
+.anuncio-info .fecha {
   color: #ff4f4f;
+}
+
+.anuncio:hover {
+  transform: scale(1.02);
+  box-shadow: 0px 12px 40px 0px rgba(0, 34, 51, 0.5);
 }
