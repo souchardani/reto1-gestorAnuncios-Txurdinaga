@@ -1,3 +1,23 @@
+/* Estilo del fieldset de los formularios */
+fieldset {
+    background-color: white;
+}
+
+/* Estilo de Tablas de Mis Anuncios y Perfil Administrador */
+table {
+    padding-top: 40px;
+    display: inline-block;
+    justify-content: center;
+}
+th, td {
+    border: 1px solid orange;
+}
+th {
+    background-color: orange;
+    color: white;
+    height: 30px;
+}
+
 /* EDITAR USUARIOS */
 .header-1 {
     width: 100%;
@@ -21,37 +41,37 @@
 }
 
 .form-1 {
+    text-align: center;
     display: inline-block;
+    width: 30%;
 }
 
-fieldset {
-    background-color: white;
-}
-
-img {
+.img-perfil {
     border-radius: 50%;
     width: 70px;
     height: 70px;
 }
 
+/* Tamaño de Campos de texto */
 #grado,
 #nombre,
 #tele,
 #email {
-    width: 200px;
+    width: 300px;
 }
 
+/* Botones */
 #perbtn {
     height: 30px;
     background-color: rgb(216, 233, 246);
     color: rgb(0, 145, 234);
 }
-
 #savebtn {
     height: 30px;
     background-color: dodgerblue;
     color: white;
 }
+
 /* PERFIL ADMINISTRADOR */
 .header-2 {
     width: 100%;
@@ -73,19 +93,6 @@ img {
     display: flex;
     gap: 10%;
 }
-table {
-    padding-top: 40px;
-    display: inline-block;
-    justify-content: center;
-}
-th, td {
-    border: 1px solid orange;
-}
-th {
-    background-color: orange;
-    color: white;
-    height: 30px;
-}
 .anu {
     width: 250px;
 }
@@ -98,6 +105,7 @@ th {
 .acc {
     width: 150px;
 }
+
 /* CREAR ANUNCIO */
 .header-3 {
     width: 100%;
@@ -112,6 +120,115 @@ th {
     padding-bottom: 25px;
     background-color: rgb(200, 200, 220);
 }
+.form-3 {
+    display: inline-block;
+    text-align: left;
+    width: 50%;
+}
+.img-start {
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+}
+.categ-box {
+    float: left;
+    margin-right: 20px;
+}
+.anun-button {
+    text-align: right;
+}
+.img-end {
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+}
+
+/* Tamaño de Campos de texto */
+#categ,
+#sub-categ {
+    width: 200px;
+}
+#nombre-anun {
+    width: 400px;
+}
+
+/* Botones */
+#cancel {
+    height: 50px;
+    width: 100px;
+    background-color: white;
+    color: black;
+}
+#public {
+    height: 50px;
+    width: 100px;
+    background-color: orange;
+    color: white;
+}
+
+/* ANUNCIO PENDIENTE */
+.header-4 {
+    width: 100%;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    background-color: #BA007B;
+}
+.main-4 {
+    text-align: center;
+    width: 100%;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    background-color: rgb(200, 200, 220);
+}
+.form-4 {
+    display: inline-block;
+    width: 50%;
+}
+.img-check {
+    width: 150px;
+    height: 150px;
+}
+#ver-anun {
+    height: 50px;
+    width: 100px;
+    background-color: rgb(20, 170, 20);
+    color: white;
+}
+
+/* MIS ANUNCIOS */
+.header-5 {
+    width: 100%;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    background-color: #229C69;
+}
+.main-5 {
+    text-align: center;
+    width: 100%;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    background-color: rgb(200, 200, 220);
+}
+.buscador {
+    padding: 0;
+    margin: 0;
+    justify-content: center;
+    display: flex;
+    gap: 10%;
+}
+.anu {
+    width: 250px;
+}
+.fec {
+    width: 150px;
+}
+.est {
+    width: 150px;
+}
+.acc {
+    width: 150px;
+}
+
 /* FOOTER */
 footer {
     width: 100%;

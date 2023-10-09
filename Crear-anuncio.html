@@ -17,31 +17,47 @@
     <h2>Crear anuncios</h2>
     
     <form class="form-3">
-        <fieldset>
-          <label>Foto de Perfil: </label><br><br>
-          <img src="./assets/img/foto perfil.jpg" alt="test"><br><br>
-          <button id="perbtn">Cambiar foto de perfil</button><br><br>
+      <fieldset>
+        <img class="img-start" src="./assets/img/foto perfil.jpg" alt="test"><br><br>
+        <label>Crear anuncio</label><br><br>
+      </fieldset>
+      <fieldset>
+
+        <label>Nombre del Anuncio: </label><br>
+        <input type="text" name="nombre-anun" maxlength="50" id="nombre-anun" placeholder="Introduce el nombre"><br><br>
+
+        <div class="categ-box">
+          <label>Categoría: </label><br>
+          <select name="categ" id="categ">
+            <option></option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+        </div>
   
-          <label>Nombre Completo: </label><br>
-          <input type="text" name="nombre" maxlength="50" id="nombre"><br><br>
-  
-          <label>Email: </label><br>
-          <input type="email" name="email" id="email" placeholder="email@email.com"><br><br>
-  
-          <label>Grado: </label><br>
-          <select name="grado" id="grado">
+          <label>Sub-Categoría: </label><br>
+          <select name="sub-categ" id="sub-categ">
             <option></option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
           </select><br><br>
-  
-          <label>Teléfono: </label><br>
-          <input type="tel" name="tele" placeholder="123-456-789" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" id="tele"><br><br>
-  
-          <button id="savebtn">Guardar Cambios</button>
-        </fieldset>
-      </form>
+
+        <label>Descripción: </label><br>
+        <textarea name="des" id="" cols="80" rows="5" placeholder="Escribe la descripción"></textarea>
+      </fieldset>
+        
+      <fieldset>
+        <label>Subir Foto: </label><br><br>
+        <img class="img-end" src="./assets/img/foto perfil.jpg" alt="test"><br><br>
+        <button id="perbtn">Subir foto</button><br><br>
+      </fieldset>
+      <fieldset class="anun-button">
+        <button id="cancel">Cancelar</button>
+        <button id="public">Publicar</button>
+      </fieldset>
+    </form>
   </main>
 
   <footer>
