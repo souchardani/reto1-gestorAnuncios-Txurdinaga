@@ -1,29 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&display=swap');
-
-body {
-	margin: 0;
-	font-family: 'PT Sans Narrow';}
-
-header {
-	background-color: aliceblue ;
-}
-
-#header-img {
-	width: 150px;
-	height: 50px; 
-}
-
-.col-nav {
-	background-color: antiquewhite;
-	display: flex;
-	justify-content: space-around;
-	margin: 5px;
-}
-
 /*FOOTER*/
 footer {
 	position: fixed;
-	background-color: aliceblue;
+	/* background-color: aliceblue; */
 	bottom: 0;
 	width: 100%;
 }
@@ -33,8 +11,14 @@ footer {
 	grid-template-columns: auto auto auto auto auto;
 	grid-auto-rows: auto auto;
 	gap: 10px;
-	background-color: #2196F3;
+	/* background-color: #2196F3; */
 	padding: 10px;
+}
+
+.row-footer{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
 }
 
 .footer-col1 { 
@@ -48,12 +32,6 @@ footer {
 
 .footer-col3 {
 	grid-column: 3/5;
-}
-
-.row-footer{
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
 }
 
 .footer-col{

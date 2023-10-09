@@ -1,0 +1,77 @@
+#header-logo {
+	width: 220px;
+	margin-top: 10px;
+	margin-left: 90px;
+}
+
+#btn-perfil {
+	width: 50px;
+	height: 50px;
+	margin-top: 20px;
+	margin-right: 90px;
+}
+
+button {
+	float: right;
+	background-color: #1AA3BF;
+	border-color: #1AA3BF;
+	border-radius: 50%;
+	margin-right: 16px;
+}
+
+header li {
+	display: flex;
+	justify-content: space-around;
+	line-height: 45px;
+	text-align: center;
+}
+
+#ul-inicio {
+	width: 100%;
+	padding: 0;
+	color: #fff;
+	background-color: #63b32eff;
+}
+
+#ul-perfil {
+	width: 100%;
+	padding: 0;
+	color: #fff;
+	background-color: #1AA3BF;
+}
+
+#ul-crear {
+	width: 100%;
+	padding: 0;
+	color: #fff;
+	background-color: #FCC204;
+}
+
+#ul-buscador {
+	width: 100%;
+	padding: 0;
+	color: #fff;
+	background-color: #ec612bff;
+}
+
+input[type=text] {
+	padding: 6px;
+	margin-top: 8px;
+	font-size: 15px;
+	border: none;
+}
+
+button img {
+	width: 50px;
+}
+
+#btn-submit {
+	float: right;
+	padding: 6px 10px;
+	margin-top: 8px;
+	margin-right: 16px;
+	font-size: 17px;
+	border: none;
+	cursor: pointer;
+	background-color: #ec612bff;
+}
