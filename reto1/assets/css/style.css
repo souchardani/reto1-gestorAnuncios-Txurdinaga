@@ -1,16 +1,314 @@
-/* importamos la fuente */
+/* importamos las fuente */
 @import url("https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap");
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,500;0,6..12,600;0,6..12,700;0,6..12,800;0,6..12,900;0,6..12,1000;1,6..12,500;1,6..12,600;1,6..12,700;1,6..12,800;1,6..12,900;1,6..12,1000&display=swap");
+
+/* ---------------------------------- */
+/* PROPIEDADES CUSTOM                 */
+/* -----------------------------------*/
+:root {
+  /*------------COLORES --------------*/
+  /* grises */
+  --gris-900: #191f33;
+  --gris-800: #2e3447;
+  --gris-700: #464d61;
+  --gris-600: #636a80;
+  --gris-500: #767e94;
+  --gris-400: #939aad;
+  --gris-300: #aeb3c2;
+  --gris-200: #c5c9d6;
+  --gris-100: #dadde5;
+  --gris-50: #e9eaf0;
+  --gris-20: #f5f7fa;
+  --blanco: #fff;
+  /* azules */
+  --azul-900: #023;
+  --azul-800: #046;
+  --azul-700: #069;
+  --azul-600: #08c;
+  --azul-500: #0af;
+  --azul-400: #3bf;
+  --azul-300: #6cf;
+  --azul-200: #9df;
+  --azul-100: #cef;
+  --azul-50: #e8f7ff;
+  /* verdes */
+  --verde-900: #082700;
+  --verde-800: #104e00;
+  --verde-700: #177400;
+  --verde-600: #1f9b00;
+  --verde-500: #27c200;
+  --verde-400: #52ce33;
+  --verde-300: #7dda66;
+  --verde-200: #a9e799;
+  --verde-100: #d4f3cc;
+  --verde-50: #e4f9e0;
+  /* amarillos */
+  --amarillo-900: #332600;
+  --amarillo-800: #664c00;
+  --amarillo-700: #997300;
+  --amarillo-600: #c90;
+  --amarillo-500: #ffbf00;
+  --amarillo-400: #fc3;
+  --amarillo-300: #ffd966;
+  --amarillo-200: #ffe599;
+  --amarillo-100: #fff2cc;
+  --amarillo-50: #fff8e0;
+  /* rojos */
+  --rojo-900: #331010;
+  --rojo-800: #662020;
+  --rojo-700: #992f2f;
+  --rojo-600: #cc3f3f;
+  --rojo-500: #ff4f4f;
+  --rojo-400: #ff7272;
+  --rojo-300: #f99;
+  --rojo-200: #ffb2b2;
+  --rojo-100: #fcc;
+  --rojo-50: #ffe5e5;
+
+  /* font-family */
+  --ff-nunito: "Nunito Sans", sans-serif;
+
+  --shadow-hover: 0px 12px 40px 0px rgba(0, 34, 51, 0.5);
+  --shadow-before: 0px 12px 40px 0px rgba(0, 34, 51, 0.07);
+
+  --transition: all ease-in-out 0.2s;
 }
 
-body {
-  font-family: "PT Sans Narrow", sans-serif;
-  min-height: 100vh;
-  background-color: #f5f7fa;
+/* ---------------------------------- */
+/* RESET                              */
+/* -----------------------------------*/
+
+/* Box Sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
+
+/* reset margins */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+picture {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-weight: 600;
+}
+
+/* set up the body */
+body {
+  font-family: var(--ff-nunito);
+  font-size: var(0.875rem);
+  background-color: var(--blanco);
+  color: var(--gris-900);
+  line-height: 1.25rem;
+  min-height: 100vh;
+}
+
+/* make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+
+  object-fit: cover;
+}
+
+/* make forms easier to work with */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* ---------------------------------- */
+/* UTILITY CLASSES                    */
+/* -----------------------------------*/
+
+.flex {
+  display: flex;
+  gap: var(--gap, 1rem);
+}
+
+.grid {
+  display: grid;
+  gap: var(--gap, 1rem);
+}
+
+.container {
+  padding-inline: 2em;
+  max-width: 80rem;
+  margin-inline: auto;
+}
+
+/* colors */
+.bg-gris {
+  color: var(--gris-20);
+}
+
+.text-900 {
+  color: var(--gris-900);
+}
+
+/* typography */
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+/* fuentes */
+.display-01 {
+  font-size: 5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+}
+
+.display-02 {
+  font-size: 4.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%; /* 5.4rem */
+}
+
+.display-03 {
+  /* Display/03 */
+  font-size: 3.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%; /* 4.2rem */
+}
+
+.heading-01 {
+  font-size: 2.5rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 3rem; /* 120% */
+}
+
+.heading-02 {
+  /* Heading/02 */
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 2.5rem; /* 125% */
+}
+
+.heading-03 {
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 2rem; /* 133.333% */
+}
+
+.button-text {
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 3.125rem; /* 312.5% */
+  text-transform: capitalize;
+}
+
+.caption-400 {
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%; /* 0.875rem */
+  letter-spacing: 0.07rem;
+  text-transform: uppercase;
+}
+
+.caption-600 {
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 100%; /* 0.875rem */
+  letter-spacing: 0.07rem;
+  text-transform: uppercase;
+}
+
+.body-xl {
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 2.25rem; /* 150% */
+}
+
+.body-large-400 {
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 2rem; /* 160% */
+}
+
+.body-large-600 {
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 2rem;
+}
+
+.body-medium-400 {
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5rem;
+}
+
+.body-medium-600 {
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.5rem;
+}
+
+.body-small-400 {
+  /* Body Smalls/400 */
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.25rem;
+}
+
+.body-small-600 {
+  /* Body Smalls/600 */
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.25rem;
+}
+
+.body-tiny-400 {
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1rem;
+}
+
+.body-small-600 {
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1rem;
+}
+
+/* ---------------------------------- */
 
 header {
   min-height: 100px;
@@ -33,10 +331,6 @@ footer {
 
 #pagina-inicio {
   min-height: 100%;
-}
-
-.container {
-  min-height: 100vh;
   text-align: center;
   padding: 40px 80px;
   display: flex;
@@ -44,24 +338,17 @@ footer {
   justify-content: center;
 }
 
-img {
-  object-fit: cover;
-  width: 300px;
-  height: 250px;
-}
-
 .anuncio {
   border-radius: 8px;
   overflow: hidden;
   width: 300px;
-  box-shadow: 0px 12px 40px 0px rgba(0, 34, 51, 0.07);
-  transition: all ease-in-out 0.2s;
+  box-shadow: var(--shadow-before);
+  transition: var(--transition);
   cursor: pointer;
 }
 
 .columnas-anuncios {
   margin: 80px 0;
-  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   gap: 25px;
@@ -69,16 +356,14 @@ img {
 }
 
 .categoria-info {
-  display: flex;
   justify-content: flex-start;
-  color: #767e94;
+  color: var(--gris-500);
   gap: 8px;
   align-items: center;
 }
 
 .anuncio-body {
   border-bottom: 2px solid #767e94;
-  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
@@ -88,25 +373,43 @@ img {
 }
 
 .anuncio-info {
-  display: flex;
   justify-content: space-between;
   padding: 16px 20px;
   align-items: center;
 }
 
 .anuncio-info i {
-  color: #27c200;
+  color: var(--verde-500);
 }
 
 .anuncio-ubicacion {
-  color: #767e94;
+  color: var(--gris-500);
 }
 
 .anuncio-info .fecha {
-  color: #ff4f4f;
+  color: var(--rojo-500);
 }
 
 .anuncio:hover {
   transform: scale(1.02);
-  box-shadow: 0px 12px 40px 0px rgba(0, 34, 51, 0.5);
+  box-shadow: var(--shadow-hover);
+}
+
+.anuncio-lugar {
+  justify-content: center;
+  gap: 6px;
+}
+
+#home-hero {
+  background-image: url("../img/fondo-inicio.png");
+}
+
+#home-hero .container {
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#home-hero img {
+  width: 250px;
 }
