@@ -313,11 +313,12 @@ select {
 header {
   min-height: 100px;
   max-width: 100vw;
-  background-color: antiquewhite;
-  /* text-align: center;
+  background-color: #fff;
+  padding: 1rem 6rem;
   display: flex;
-  align-items: center;
-  justify-content: center; */
+  justify-content: space-between;
+  flex-direction: row;
+  /* align-items: center; */
 }
 
 footer {
