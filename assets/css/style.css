@@ -66,7 +66,7 @@
   --rojo-50: #ffe5e5;
 
   /* font-family */
-  --ff-nunito: "Nunito Sans", sans-serif;
+  --ff-nunito: "PT Sans Narrow";
 
   --shadow-hover: 0px 12px 40px 0px rgba(0, 34, 51, 0.5);
   --shadow-before: 0px 12px 40px 0px rgba(0, 34, 51, 0.07);
