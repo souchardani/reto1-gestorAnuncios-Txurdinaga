@@ -16,7 +16,7 @@
   </head>
   <body>
     <?php
-      include_once "header.html";
+      include_once "header.php";
     ?>
     <section id="home-hero">
       <div class="container flex">

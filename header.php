@@ -19,7 +19,7 @@
     <li id="li-crear"><a href="">Crear anuncio</a></li>
     <li id="li-buscador">
       <form id="buscador" action="" method="POST">
-        <input id="busqueda" type="search" name="busqueda" placeholder="Bilatu liburua..." value="">
+        <input id="busqueda" type="search" name="busqueda" placeholder="Buscar anuncio..." value="">
         <button id="buscar" type="submit"><i class="fa fa-search"></i></button>
       </form>
     </li>
