@@ -4,7 +4,7 @@
       <div class="footer-col1">
         <div class="ejemplo">
           <a href="index.php" id="inicio-link">
-            <img src="assets/img/LogoTX_small.png" id="footer-logo">
+            <img src="../assets/img/LogoTX_small.png" id="footer-logo">
           </a>
           <div id="datos1">C/ Doctor Ornilla 2</div>
           <div id="datos2">48004 Bilbao</div>
@@ -25,13 +25,13 @@
       </div>
       <div class="footer-col3">
         <div class="logos-arriba">
-          <img src="assets/img/48005.png" id="footer-img1">
-          <img src="assets/img/48007.png" id="footer-img1">
-          <img src="assets/img/Lanbide 1.png" id="footer-img1">
+          <img src="../assets/img/48005.png" id="footer-img1">
+          <img src="../assets/img/48007.png" id="footer-img1">
+          <img src="../assets/img/Lanbide 1.png" id="footer-img1">
         </div>
         <div class="logos-abajo">
-          <img src="assets/img/48006.png" id="footer-img1">
-          <img src="assets/img/image 1.png" id="footer-img1">
+          <img src="../assets/img/48006.png" id="footer-img1">
+          <img src="../assets/img/image 1.png" id="footer-img1">
         </div>
       </div>
     </div>

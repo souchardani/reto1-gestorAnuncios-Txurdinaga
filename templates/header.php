@@ -1,13 +1,13 @@
 <header>
   <div>
     <a href="index.php">
-      <img src="assets/img/logo txurdinaga principal.png" alt="" id="logo">
+      <img src="../assets/img/logo txurdinaga principal.png" alt="" id="logo">
     </a>
   </div>
 
   <div id="header-perfil">
     <a href="index.php">
-      <img src="assets/img/doffy.jpeg" alt="" id="foto-perfil">
+      <img src="../assets/img/doffy.jpeg" alt="" id="foto-perfil">
     </a>
   </div>
 </header>
