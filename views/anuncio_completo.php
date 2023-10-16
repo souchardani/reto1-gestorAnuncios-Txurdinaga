@@ -28,7 +28,7 @@ if(isset($_POST["Enviar"])){
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <?php require_once("../templates/head.php"); ?>
+    <?php require_once("../templates/headtest.php"); ?>
     <title>Anuncios - Inicio</title>
   </head>
   <body>

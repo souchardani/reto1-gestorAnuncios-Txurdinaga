@@ -22,7 +22,7 @@ if(isset($_POST["enviar"])){
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  <?php require_once("../templates/head.php"); ?>
+  <?php require_once("../templates/headtest.php"); ?>
     <title>Iniciar Sesion</title>
   </head>
   <body>

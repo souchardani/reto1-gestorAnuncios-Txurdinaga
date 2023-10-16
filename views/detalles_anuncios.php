@@ -13,7 +13,7 @@ confirmar_login();
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <?php require_once("../templates/head.php"); ?>
+    <?php require_once("../templates/headtest.php"); ?>
     <title>Gestionar Anuncios</title>
   </head>
   <body>

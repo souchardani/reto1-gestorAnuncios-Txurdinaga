@@ -11,7 +11,7 @@
 <body>
   <header>
     <div>
-      <a href="Inicio.php">
+      <a href="index.php">
         <img src="../assets/img/FP-header.png" alt="logo" id="logo">
       </a>
     </div>
@@ -25,7 +25,7 @@
   
   <nav id="nav-links">
     <ul>
-      <a id="li-inicio" href="Inicio.php">
+      <a id="li-inicio" href="index.php">
         <li>Inicio</li>
       </a>
       <a id="li-perfil" href="Editar-usuarios.php">
@@ -87,7 +87,7 @@
 
   <footer>
     <div class="footer-col1">
-        <a href="Inicio.php"><img id="footer-logo" src="../assets/img/FP-footer.png"></a>
+        <a href="index.php"><img id="footer-logo" src="../assets/img/FP-footer.png"></a>
         <div id="datos1">C/ Doctor Ornilla 2</div>
         <div id="datos2">48004 Bilbao</div>
         <div id="datos3">Telefono: +34 94 412 57 12</div>

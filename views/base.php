@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <?php require_once("vistas_comunes/head.php"); ?>
+    <?php require_once("vistas_comunes/headtest.php"); ?>
     <title>Base</title>
   </head>
   <body>
