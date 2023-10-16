@@ -1,5 +1,5 @@
-<?php require_once("includes/funciones.php"); ?>
-<?php require_once("includes/sesiones.php"); ?>
+<?php require_once("../assets/includes/funciones.php"); ?>
+<?php require_once("../assets/includes/sesiones.php"); ?>
 
 <?php
     $_SESSION["usuarioid_global"] =null;

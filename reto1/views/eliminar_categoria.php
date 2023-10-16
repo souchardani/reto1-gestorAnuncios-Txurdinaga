@@ -1,6 +1,6 @@
-<?php require_once("includes/DB.php"); ?>
-<?php require_once("includes/funciones.php"); ?>
-<?php require_once("includes/sesiones.php"); ?>
+<?php require_once("../assets/includes/DB.php"); ?>
+<?php require_once("../assets/includes/funciones.php"); ?>
+<?php require_once("../assets/includes/sesiones.php"); ?>
 <?php
 comprobar_variable_url("id", "comentarios.php");
 $id_anuncio = $_GET["id"];

@@ -1,7 +1,7 @@
 <!-- requerimos al menos una vez la coneccion a la base de datos, a funciones y sesiones -->
-<?php require_once("includes/DB.php"); ?>
-<?php require_once("includes/funciones.php"); ?>
-<?php require_once("includes/sesiones.php"); ?>
+<?php require_once("../assets/includes/DB.php"); ?>
+<?php require_once("../assets/includes/funciones.php"); ?>
+<?php require_once("../assets/includes/sesiones.php"); ?>
 
 <?php
 $_SESSION["guardarURL"] = $_SERVER["PHP_SELF"]; //utilizamos esto para guardar el nombre de la pagina actual 
@@ -13,13 +13,13 @@ confirmar_login();
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <?php require_once("vistas_comunes/head.php"); ?>
+    <?php require_once("../templates/head.php"); ?>
     <title>Gestionar Anuncios</title>
   </head>
   <body>
   
     <!-- NAVBAR -->
-    <?php include("vistas_comunes/navbaradmin.php"); ?>
+    <?php include("../templates/navbaradmin.php"); ?>
     <!-- NAVBAR END -->
     <!-- HEADER -->
     <header class="text-bg-light py-3">
@@ -115,7 +115,7 @@ confirmar_login();
                 strlen($autor)>6 ? $autor=substr($autor,0,6)."..." :  $autor;
                 echo $autor
                 ?></td>
-                <td><img src="img_subidas/<?php echo $imagen?>" width="170px;" height="50px"> </td>
+                <td><img src="../assets/img_subidas/<?php echo $imagen?>" width="170px;" height="50px"> </td>
                 <td>
                 <?php
                     $comentariossi = obtener_comentarios_aprobados_porid($id);
@@ -145,6 +145,6 @@ confirmar_login();
 
     <!-- final de main area -->
     <!-- FOOTER -->
-    <?php include("vistas_comunes/footer.php"); ?>
+    <?php include("../templates/footer.php"); ?>
   </body>
 </html>

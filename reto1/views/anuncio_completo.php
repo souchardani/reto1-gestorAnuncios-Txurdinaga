@@ -1,7 +1,7 @@
 <!-- requerimos al menos una vez la coneccion a la base de datos, a funciones y sesiones -->
-<?php require_once("includes/DB.php"); ?>
-<?php require_once("includes/funciones.php"); ?>
-<?php require_once("includes/sesiones.php"); ?>
+<?php require_once("../assets/includes/DB.php"); ?>
+<?php require_once("../assets/includes/funciones.php"); ?>
+<?php require_once("../assets/includes/sesiones.php"); ?>
 <?php
 //verificamos si se ha pasado un anuncio por la url, si no se redirecciona a anuncios
 comprobar_variable_url('id', "anuncios_inicio.php");
@@ -28,13 +28,13 @@ if(isset($_POST["Enviar"])){
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <?php require_once("vistas_comunes/head.php"); ?>
+    <?php require_once("../templates/head.php"); ?>
     <title>Anuncios - Inicio</title>
   </head>
   <body>
   
     <!-- NAVBAR -->
-    <?php include("vistas_comunes/headerbasic.php"); ?>
+    <?php include("../templates/headerbasic.php"); ?>
     <!-- NAVBAR END -->
     <!-- HEADER -->
     <div class="container">
@@ -60,7 +60,7 @@ if(isset($_POST["Enviar"])){
             $descripcion = $fila["descripcion"];
         ?>
         <div class="card">
-          <img class="img-fluid card-img-top" style="max-height: 450px; object-fit: cover;" src="img_subidas/<?php echo $imagen?>" alt=""/>
+          <img class="img-fluid card-img-top" style="max-height: 450px; object-fit: cover;" src="../assets/img_subidas/<?php echo $imagen?>" alt=""/>
           <div class="card-body">
             <h4 class="card-title"><?php echo htmlentities($titulo)?></h4>
             <small class="text-muted">Categoria: <?php echo "<span class='text-dark'>$categoria</span>"?> Publicado Por: <?php echo "<span class='text-dark'>$autor</span>"?> el <?php echo "<span class='text-dark'>$datetime</span>"?></small>
@@ -91,7 +91,7 @@ if(isset($_POST["Enviar"])){
         <!-- fin de obtener comentarios existentes -->
         <div>
           <div class="media bloque-comentario">
-            <img class="img-fluid" src="img/avatar.svg" width="80px" alt="">
+            <img class="img-fluid" src="../assets/img/avatar.svg" width="80px" alt="">
             <div class="media-body m-2">
               <h6 class="lead"><?php echo $nombre ?></h6>
               <p class="small"><?php echo $datetime ?></p>
@@ -147,6 +147,6 @@ if(isset($_POST["Enviar"])){
     </div>
     <!-- HEADER END -->
     <!-- FOOTER -->
-    <?php include("vistas_comunes/footer.php"); ?>
+    <?php include("../templates/footer.php"); ?>
   </body>
 </html>

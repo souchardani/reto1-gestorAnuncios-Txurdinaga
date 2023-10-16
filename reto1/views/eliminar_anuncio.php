@@ -1,7 +1,7 @@
 <!-- requerimos al menos una vez la coneccion a la base de datos categorias, a funciones y sesiones -->
-<?php require_once("includes/DB.php"); ?>
-<?php require_once("includes/funciones.php"); ?>
-<?php require_once("includes/sesiones.php"); ?>
+<?php require_once("../assets/includes/DB.php"); ?>
+<?php require_once("../assets/includes/funciones.php"); ?>
+<?php require_once("../assets/includes/sesiones.php"); ?>
 <?php
 //verificamos que se pase el id por la url
 comprobar_variable_url('id', "detalles_anuncios.php");
@@ -42,12 +42,12 @@ if(isset($_POST["enviar"])){
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <?php require_once("vistas_comunes/head.php"); ?>
+    <?php require_once("../templates/head.php"); ?>
     <title>Borrar Anuncio</title>
   </head>
   <body>
     <!-- NAVBAR -->
-    <?php include("vistas_comunes/navbaradmin.php"); ?>
+    <?php include("../templates/navbaradmin.php"); ?>
     <!-- NAVBAR END -->
     <!-- HEADER -->
     <div id="dynamicHeader"></div>
@@ -76,7 +76,7 @@ if(isset($_POST["enviar"])){
             </div>
             <div class="form-group mb-5">
             <span class="FieldInfo">Imagen:</span>
-            <img class="mb-1" src="img_subidas/<?php echo $imagen_ant?>" width="170px" height="70px" alt="">
+            <img class="mb-1" src="../assets/img_subidas/<?php echo $imagen_ant?>" width="170px" height="70px" alt="">
               <br>
             </div>
             <div class="form-group mb-5">
@@ -101,8 +101,8 @@ if(isset($_POST["enviar"])){
 
   <!-- END MAIN AREA -->
     <!-- FOOTER -->
-    <?php include("vistas_comunes/footer.php"); ?>
-    <script src="js/funciones.js"></script>
+    <?php include("../templates/footer.php"); ?>
+    <script src="../assets/js/funciones.js"></script>
     <script>window.onload = () => createDynamicHeader('Eliminar Anuncio');</script>
   </body>
 </html>
