@@ -17,69 +17,69 @@
       eliminarMensajesError();
       const [campos, valoresEnviados] = buscarCampos();
 
-      if (!/^[A-Za-zÀ-ÖØ-öø-ÿ\- ]{1,50}$/.test(valoresEnviados.nombre)) return mostrarMensajeError('Izenak bakarrik letrak izan ditzake', campos.nombre);
+      if (!/^[A-Za-zÀ-ÖØ-öø-ÿ\- ]{1,50}$/.test(valoresEnviados.nombre)) return mostrarMensajeError('El nombre solo pueden ser letras', campos.nombre);
 
       if (!/^[A-Za-zÀ-ÖØ-öø-ÿ\- ]{1,50}$/.test(valoresEnviados.apellido))
-        return mostrarMensajeError('Abizena bakarrik letrak izan ditzake', campos.apellido);
+        return mostrarMensajeError('El apellido solo pueden ser letras', campos.apellido);
 
-      if (!/^[A-Za-z0-9_-]{1,20}$/.test(valoresEnviados.apodo))
-        return mostrarMensajeError('Ezizena bakarrik letrak, zenbakiak, "-" edo "_" izan ditzake', campos.apodo);
+      if (!/^[A-Za-z0-9_]{1,20}$/.test(valoresEnviados.apodo))
+        return mostrarMensajeError('El nickname solo pueden ser letras, numeros, "_"', campos.apodo);
 
       if (
         !/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,100})$/.test(
           valoresEnviados.correo
         )
       )
-        return mostrarMensajeError('E-maila ez da egokia.', campos.correo);
+        return mostrarMensajeError('Email no es valido.', campos.correo);
 
-      if (valoresEnviados.centro === '-') return mostrarMensajeError('Aukeratu ikastetxe bat', campos.centro);
+      if (valoresEnviados.centro === '-') return mostrarMensajeError('Seleccione un centro', campos.centro);
 
       if (valoresEnviados.clase != undefined && !/^[A-Za-z0-9]{6,6}$/.test(valoresEnviados.clase))
-        return mostrarMensajeError('Klasearen kodea ez da egokia', campos.clase);
+        return mostrarMensajeError('Seleccione el codigo de clase', campos.clase);
 
-      if (valoresEnviados.tel != undefined && !/^[\d]{9,9}$/.test(valoresEnviados.tel)) return mostrarMensajeError('Telefonoa ez da egokia', campos.tel);
+      if (valoresEnviados.tel != undefined && !/^[\d]{9,9}$/.test(valoresEnviados.tel)) return mostrarMensajeError('Telefono no valido', campos.tel);
 
       if (valoresEnviados.fecha === '' || calcularEdad(valoresEnviados.fecha) < 12)
-        return mostrarMensajeError('Hamar urte baino gehiago izan behar dituzu', campos.fecha);
+        return mostrarMensajeError('Tienes que tener más de 10 años', campos.fecha);
 
       if (valoresEnviados.imagen && valoresEnviados.imagen['type'].split('/')[0] !== 'image')
-        return mostrarMensajeError('Fitxategia argazkia izan behar da', campos.imagen);
+        return mostrarMensajeError('El archivo tiene que ser una foto', campos.imagen);
 
       const rgPwd = new RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#\-_])[A-Za-zÀ-ÖØ-öø-ÿ\d@$!%*?&#\-_]{8,30}$/);
       if (!rgPwd.test(valoresEnviados.pwd))
         return mostrarMensajeError(
-          `Pasahitza gutxienez 8 karaktere, maiuskula bat, minuskula bat,
-    zenbaki bat eta ikur (@, #, !, _, -) bat behar du.`,
+          `La contraseña tiene que tener como mínimo 8 caracteres, una mayuscula, una minuscula,
+          un numero y un caracter especial (@, #, !, _, -)`,
           campos.pwd
         );
-      if (valoresEnviados.pwd !== valoresEnviados.pwdConf) return mostrarMensajeError('Pasahitzak ez datoz bat', campos.pwdConf);
+      if (valoresEnviados.pwd !== valoresEnviados.pwdConf) return mostrarMensajeError('Las contraseñas no coinciden', campos.pwdConf);
 
       form.submit();
     });
   </script>
   <form action="" method="post">
     <div class="campo">
-      <label for="nombre">Izena:</label>
+      <label for="nombre">Nombre:</label>
       <input type="text" id="nombre" name="nombre" maxlength="50" placeholder="Zure izena">
     </div>
 
     <div class=" campo">
-      <label for="apellido">Abizena:</label>
+      <label for="apellido">Apellido:</label>
       <input type="text" id="apellido" name="apellido" maxlength="50" placeholder="Zure abizena">
     </div>
 
     <div class="campo">
-      <label for="apodo">Ezizena:</label>
+      <label for="apodo">Nickname:</label>
       <input type="text" id="apodo" name="apodo" maxlength="20" placeholder="Zure ezizena">
     </div>
 
     <div class="campo">
-      <label for="correo">E-maila:</label>
+      <label for="correo">Email:</label>
       <input type="email" id="correo" name="correo" maxlength="100" placeholder="Zure e-maila">
     </div>
 
     <div class="campo">
-      <label for="centro">Ikastetxea:</label>
+      <label for="centro">Centro:</label>
 
       <div class="select-container">
         <select name="centro" id="centro">
@@ -89,27 +89,27 @@
     </div>
 
     <div class="campo">
-      <label for="fecha">Jaiotze data:</label>
+      <label for="fecha">Fecha de nacimiento:</label>
       <input type="date" id="fecha" name="fecha">
     </div>
 
     <div class="campo">
-      <label for="imagen">Profileko argazkia:</label>
-      <label for="imagen" class="file-input-text" tabindex="0"><i class="fa-solid fa-file-image"></i> <span>Aukeratu argazki bat...</span></label>
+      <label for="imagen">Foto perfil:</label>
+      <label for="imagen" class="file-input-text" tabindex="0"><i class="fa-solid fa-file-image"></i> <span>Selecciona una imagen...</span></label>
       <input type="file" id="imagen" name="imagen" accept=".jpg,.jpeg,.png" class="hidden">
     </div>
 
     <div class="campo">
-      <label for="pwd">Pasahitza:</label>
+      <label for="pwd">Contraseña:</label>
       <input type="password" id="pwd" name="pwd" maxlength="30" placeholder="Zure pasahitza">
     </div>
 
     <div class="campo">
-      <label for="pwdConf">Pasahitza berridatzi:</label>
+      <label for="pwdConf">Contraseña:</label>
       <input type="password" id="pwdConf" name="pwdConf" maxlength="30" placeholder="Zure pasahitza">
     </div>
 
-    <button type="submit" class="btn" id="registrarse">Sortu kontua</button>
+    <button type="submit" class="btn" id="registrarse">Crear cuenta</button>
   </form>
 </body>
 </html>
