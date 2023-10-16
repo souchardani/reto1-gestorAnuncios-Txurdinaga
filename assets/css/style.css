@@ -14,6 +14,10 @@
 /* UTILITY CLASSES                    */
 /* -----------------------------------*/
 
+body, ul {
+    margin: 0;
+}
+
 .flex {
     display: flex;
 }
@@ -168,6 +172,16 @@
     line-height: 1rem;
 }
 
+.caja-titulo {
+    width: 100%;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    background-color: #636A80;
+    color: white;
+    font-size: 12px;
+    text-align: center;
+}
+
 /* Estilo del fieldset de los formularios */
 fieldset {
     background-color: white;
@@ -208,25 +222,25 @@ header {
 }
 
 /* NAVBAR */
-#nav-links{
+nav {
 	text-align: center;
 }
 
-#nav-links ul {
+nav ul {
     padding-left: 0;
 	list-style: none;
 	display: flex;
 	justify-content: space-between;
 }
 
-#nav-links a {
+nav a {
     width: 100%;
     padding-top: 25px;
     font-size: 20px;
     color: #fff;
     text-decoration: none;
 }
-#nav-links li {
+nav li {
 	padding: 8px;
     width: 100%;
 }
@@ -358,19 +372,6 @@ header {
 }
 
 /* EDITAR USUARIOS */
-.title-1 {
-    width: 100%;
-    padding-top: 25px;
-    padding-bottom: 25px;
-    background-color: #E20035;
-}
-
-.titulo {
-    color: white;
-    font-size: 20px;
-    text-align: center;
-}
-
 .main-1 {
     text-align: center;
     width: 100%;
@@ -412,12 +413,6 @@ header {
 }
 
 /* PERFIL ADMINISTRADOR */
-.title-2 {
-    width: 100%;
-    padding-top: 25px;
-    padding-bottom: 25px;
-    background-color: #D6D700;
-}
 .main-2 {
     text-align: center;
     width: 100%;
@@ -446,12 +441,6 @@ header {
 }
 
 /* CREAR ANUNCIO */
-.title-3 {
-    width: 100%;
-    padding-top: 25px;
-    padding-bottom: 25px;
-    background-color: #BA007B;
-}
 .main-3 {
     text-align: center;
     width: 100%;
@@ -506,12 +495,6 @@ header {
 }
 
 /* ANUNCIO PENDIENTE */
-.title-4 {
-    width: 100%;
-    padding-top: 25px;
-    padding-bottom: 25px;
-    background-color: #BA007B;
-}
 .main-4 {
     text-align: center;
     width: 100%;
@@ -535,12 +518,6 @@ header {
 }
 
 /* MIS ANUNCIOS */
-.title-5 {
-    width: 100%;
-    padding-top: 25px;
-    padding-bottom: 25px;
-    background-color: #229C69;
-}
 .main-5 {
     text-align: center;
     width: 100%;
@@ -569,12 +546,6 @@ header {
 }
 
 /* ANUNCIOS */
-.title-6 {
-    width: 100%;
-    padding-top: 25px;
-    padding-bottom: 25px;
-    background-color: #E95F15;
-}
 .main-6 {
     text-align: center;
     width: 100%;

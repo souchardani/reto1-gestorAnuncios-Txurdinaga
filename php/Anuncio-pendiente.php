@@ -23,7 +23,7 @@
     </div>
   </header>
   
-  <nav id="nav-links">
+  <nav>
     <ul>
       <a id="li-inicio" href="index.php">
         <li>Inicio</li>
@@ -47,8 +47,8 @@
     </ul>
   </nav>
 
-  <div class="title-4">
-    <h1 class="titulo">CREAR ANUNCIO</h1>
+  <div class="caja-titulo">
+    <h1>CREAR ANUNCIO</h1>
   </div>
   
   <main class="main-4">

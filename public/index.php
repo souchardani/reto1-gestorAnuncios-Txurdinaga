@@ -19,7 +19,7 @@
     </div>
   
     <div>
-      <a href="Editar-usuarios.php">
+      <a href="//views/login.php">
         <img src="../assets/img/doffy.jpeg" alt="perfil" id="foto-perfil">
       </a>
     </div>
