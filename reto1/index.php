@@ -23,7 +23,6 @@
         <img src="assets/img/logocuadro.png" alt="" />
       </div>
     </section>
-
     <section id="pagina-inicio">
       <div class="container">
         <h2 class="display-03">Anuncios Recientes</h2>
