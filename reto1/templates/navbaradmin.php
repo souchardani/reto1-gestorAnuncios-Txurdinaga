@@ -1,7 +1,7 @@
 <div style="height: 10px; background: #57aa26"></div>
     <nav class="navbar navbar-expand-lg text-bg-light">
       <div class="container-fluid">
-      <a href="anuncios_inicio.php" class="navbar-brand"><img class="w-50" src="img/logoprincipal.png" alt=""></a>
+      <a href="anuncios_inicio.php" class="navbar-brand"><img class="w-50" src="../assets/img/logoprincipal.png" alt=""></a>
         <button
           class="navbar-toggler"
           type="button"

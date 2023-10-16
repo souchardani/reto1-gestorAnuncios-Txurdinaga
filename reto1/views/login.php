@@ -1,7 +1,7 @@
 <!-- requerimos al menos una vez la coneccion a la base de datos categorias, a funciones y sesiones -->
-<?php require_once("includes/DB.php"); ?>
-<?php require_once("includes/funciones.php"); ?>
-<?php require_once("includes/sesiones.php"); ?>
+<?php require_once("../assets/includes/DB.php"); ?>
+<?php require_once("../assets/includes/funciones.php"); ?>
+<?php require_once("../assets/includes/sesiones.php"); ?>
 <?php
 //verificamos que el usuario no este logueado, si lo esta, no mostramos el login
 isset($_SESSION["usuario_global"]) ? Redireccionar_A("detalles_anuncios.php") : null;
@@ -22,12 +22,12 @@ if(isset($_POST["enviar"])){
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <?php require_once("vistas_comunes/head.php"); ?>
+  <?php require_once("../templates/head.php"); ?>
     <title>Iniciar Sesion</title>
   </head>
   <body>
     <!-- HEADER -->
-    <?php include("vistas_comunes/navheaderlogin.php");?>
+    <?php include("../templates/navbaradmin.php"); ?>
     <!-- HEADER END -->
     
     <!-- main area -->
@@ -70,7 +70,7 @@ if(isset($_POST["enviar"])){
     </section>
     <!-- end of main area -->
     <!-- FOOTER -->
-    <?php include("vistas_comunes/footer.php");?>
+    <?php include("../templates/footer.php"); ?>
     <!-- FOOTER END -->
   </body>
 </html>

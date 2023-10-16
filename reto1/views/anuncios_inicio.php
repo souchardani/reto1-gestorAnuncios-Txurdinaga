@@ -1,17 +1,17 @@
 <!-- requerimos al menos una vez la coneccion a la base de datos, a funciones y sesiones -->
-<?php require_once("includes/DB.php"); ?>
-<?php require_once("includes/funciones.php"); ?>
-<?php require_once("includes/sesiones.php"); ?>
+<?php require_once("../assets/includes/DB.php"); ?>
+<?php require_once("../assets/includes/funciones.php"); ?>
+<?php require_once("../assets/includes/sesiones.php"); ?>
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <?php require_once("vistas_comunes/head.php"); ?>
+    <?php require_once("../templates/head.php"); ?>
     <title>Anuncios - Inicio</title>
   </head>
   <body>
     <!-- NAVBAR -->
-   <?php include("vistas_comunes/headerbasic.php"); ?>
+   <?php include("../templates/headerbasic.php"); ?>
     <!-- NAVBAR END -->
     <!-- HEADER -->
     <div class="container">
@@ -45,7 +45,7 @@
             $descripcion = $fila["descripcion"];
         ?>
         <div class="card">
-          <img class="img-fluid card-img-top" style="max-height: 450px; object-fit: cover;" src="img_subidas/<?php echo $imagen?>" alt=""/>
+          <img class="img-fluid card-img-top" style="max-height: 450px; object-fit: cover;" src="../assets/img_subidas/<?php echo $imagen?>" alt=""/>
           <div class="card-body">
             <h4 class="card-title"><?php echo htmlentities($titulo)?></h4>
             <small class="text-muted">Categoria: <?php echo "<span class='text-dark'>$categoria</span>"?> Publicado Por: <?php echo "<span class='text-dark'>$autor</span>"?> el <?php echo "<span class='text-dark'>$datetime</span>"?></small>
@@ -97,7 +97,7 @@
       </div>
     </div>
     <!-- FOOTER -->
-    <?php include("vistas_comunes/footer.php"); ?>
+    <?php include("../templates/footer.php"); ?>
     <!-- FOOTER END -->
   </body>
 </html>

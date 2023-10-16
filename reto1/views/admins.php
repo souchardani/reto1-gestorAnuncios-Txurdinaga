@@ -1,7 +1,8 @@
 <!-- requerimos al menos una vez la coneccion a la base de datos categorias, a funciones y sesiones -->
-<?php require_once("includes/DB.php"); ?>
-<?php require_once("includes/funciones.php"); ?>
-<?php require_once("includes/sesiones.php"); ?>
+<!-- requerimos al menos una vez la coneccion a la base de datos categorias, a funciones y sesiones -->
+<?php require_once("../assets/includes/DB.php"); ?>
+<?php require_once("../assets/includes/funciones.php"); ?>
+<?php require_once("../assets/includes/sesiones.php"); ?>
 <?php
 $_SESSION["guardarURL"] = $_SERVER["PHP_SELF"]; //utilizamos esto para guardar el nombre de la pagina actual 
 //verificamos que el usuario este logueado como administrador
@@ -27,12 +28,12 @@ if(isset($_POST["enviar"])){
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  <?php require_once("vistas_comunes/head.php"); ?>
+  <?php require_once("../templates/head.php"); ?>
   <title>Administradores</title>
   </head>
   <body>
     <!-- NAVBAR -->
-    <?php include("vistas_comunes/navbaradmin.php"); ?>
+    <?php include("../templates/navbaradmin.php"); ?>
     <!-- NAVBAR END -->
     <!-- HEADER -->
     <div id="dynamicHeader"></div>
@@ -121,9 +122,9 @@ if(isset($_POST["enviar"])){
   </section>
   <!-- END MAIN AREA -->
     <!-- FOOTER -->
-    <?php include("vistas_comunes/footer.php"); ?>
+    <?php include("../templates/footer.php"); ?>
     <!-- FOOTER END -->
-    <script src="js/funciones.js"></script>
+    <script src="../assets/js/funciones.js"></script>
     <script>window.onload = () => createDynamicHeader('Gestionar Administradores');</script>
   </body>
 </html>

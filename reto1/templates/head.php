@@ -14,4 +14,4 @@
       crossorigin="anonymous"
     />
     <!-- CSS LINK -->
-    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
