@@ -13,13 +13,13 @@
 <body>
   <header>
     <div>
-      <a href="Inicio.html">
+      <a href="Inicio.php">
         <img src="../assets/img/FP-header.png" alt="logo" id="logo">
       </a>
     </div>
   
     <div>
-      <a href="Editar-usuarios.html">
+      <a href="Editar-usuarios.php">
         <img src="../assets/img/doffy.jpeg" alt="perfil" id="foto-perfil">
       </a>
     </div>
@@ -27,9 +27,9 @@
     
   <nav id="nav-links">
       <ul>
-        <a id="li-inicio" href="Inicio.html"><li >Inicio</li></a>
-        <a id="li-perfil" href="Editar-usuarios.html"><li >Perfil</li></a>
-        <a id="li-crear" href="Crear-anuncio.html"><li >Crear anuncio</li></a>
+        <a id="li-inicio" href="Inicio.php"><li >Inicio</li></a>
+        <a id="li-perfil" href="Editar-usuarios.php"><li >Perfil</li></a>
+        <a id="li-crear" href="Crear-anuncio.php"><li >Crear anuncio</li></a>
         <li id="li-buscador">
           <form id="buscador" action="" method="POST">
               <div>
@@ -192,7 +192,7 @@
 
   <footer>
     <div class="footer-col1">
-        <a href="Inicio.html"><img id="footer-logo" src="../assets/img/FP-footer.png"></a>
+        <a href="Inicio.php"><img id="footer-logo" src="../assets/img/FP-footer.png"></a>
         <div id="datos1">C/ Doctor Ornilla 2</div>
         <div id="datos2">48004 Bilbao</div>
         <div id="datos3">Telefono: +34 94 412 57 12</div>

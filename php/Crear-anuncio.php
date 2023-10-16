@@ -5,19 +5,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="../assets/css/style.css">
-  <title>Mis Anuncios</title>
+  <title>Crear Anuncio</title>
 </head>
 
 <body>
   <header>
     <div>
-      <a href="Inicio.html">
+      <a href="Inicio.php">
         <img src="../assets/img/FP-header.png" alt="logo" id="logo">
       </a>
     </div>
   
     <div>
-      <a href="Editar-usuarios.html">
+      <a href="Editar-usuarios.php">
         <img src="../assets/img/doffy.jpeg" alt="perfil" id="foto-perfil">
       </a>
     </div>
@@ -25,13 +25,13 @@
   
   <nav id="nav-links">
     <ul>
-      <a id="li-inicio" href="Inicio.html">
+      <a id="li-inicio" href="Inicio.php">
         <li>Inicio</li>
       </a>
-      <a id="li-perfil" href="Editar-usuarios.html">
+      <a id="li-perfil" href="Editar-usuarios.php">
         <li>Perfil</li>
       </a>
-      <a id="li-crear" href="Crear-anuncio.html">
+      <a id="li-crear" href="Crear-anuncio.php">
         <li>Crear anuncio</li>
       </a>
       <li id="li-buscador">
@@ -47,58 +47,60 @@
     </ul>
   </nav>
 
-  <div class="title-5">
-    <h1 class="titulo">MIS ANUNCIOS</h1>
+  <div class="title-3">
+    <h1 class="titulo">CREAR ANUNCIO</h1>
   </div>
   
-  <main class="main-5">
-    <div class="buscador">
-      <input type="text" name="nombre" maxlength="50" id="nombre" placeholder="Buscar por titulo"><br><br>
+  <main class="main-3">
+    <h2>Crear anuncios</h2>
+    
+    <form class="form-3">
+      <fieldset>
+        <img class="img-start" src="../assets/img/foto perfil.jpg" alt="test"><br><br>
+        <label>Crear anuncio</label><br><br>
+      </fieldset>
+      <fieldset>
 
-      <select name="grado" id="grado">
-        <option value="all">Todas las categorías</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-      </select>
-    </div>
-    <table>
-      <tr>
-        <th class="anu">Anuncio</th>
-        <th class="fec">Fecha</th>
-        <th class="est">Estado</th>
-        <th class="acc">Acción</th>
-      </tr>
-      <tr>
-        <td>imagen Anuncio 1</td>
-        <td>Jul 13, 2021</td>
-        <td>Confirmada</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>imagen Anuncio 2</td>
-        <td>Jul 5, 2021</td>
-        <td>Pendiente Revision</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>imagen Anuncio 3</td>
-        <td>Jul 1, 2021</td>
-        <td>Confirmada</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>imagen Anuncio 4</td>
-        <td>Jul 8, 2021</td>
-        <td>Pendiente Revision</td>
-        <td></td>
-      </tr>
-    </table>
+        <label>Nombre del Anuncio: </label><br>
+        <input type="text" name="nombre-anun" maxlength="50" id="nombre-anun" placeholder="Introduce el nombre"><br><br>
+
+        <div class="categ-box">
+          <label>Categoría: </label><br>
+          <select name="categ" id="categ">
+            <option></option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+        </div>
+  
+          <label>Sub-Categoría: </label><br>
+          <select name="sub-categ" id="sub-categ">
+            <option></option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select><br><br>
+
+        <label>Descripción: </label><br>
+        <textarea name="des" id="" cols="80" rows="5" placeholder="Escribe la descripción"></textarea>
+      </fieldset>
+        
+      <fieldset>
+        <label>Subir Foto: </label><br><br>
+        <img class="img-end" src="../assets/img/foto perfil.jpg" alt="test"><br><br>
+        <button id="perbtn">Subir foto</button><br><br>
+      </fieldset>
+      <fieldset class="anun-button">
+        <button id="cancel">Cancelar</button>
+        <button id="public">Publicar</button>
+      </fieldset>
+    </form>
   </main>
 
   <footer>
     <div class="footer-col1">
-        <a href="Inicio.html"><img id="footer-logo" src="../assets/img/FP-footer.png"></a>
+        <a href="Inicio.php"><img id="footer-logo" src="../assets/img/FP-footer.png"></a>
         <div id="datos1">C/ Doctor Ornilla 2</div>
         <div id="datos2">48004 Bilbao</div>
         <div id="datos3">Telefono: +34 94 412 57 12</div>
