@@ -50,7 +50,7 @@ function comprobar_variable_url($variable_url, $ubicacion){
 // }
 function inicio_sesion($usuario, $password){
   global $Conexionbbdd;
-  $sql = "SELECT * FROM usuario WHERE BINARY Nick=:usuario AND BINARY contraseña=:password LIMIT 1";
+  $sql = "SELECT * FROM usuario WHERE BINARY Nick=:usuario AND BINARY Contraseña=:password LIMIT 1";
   $Stmt = $Conexionbbdd -> prepare($sql);
   $Stmt -> bindValue(":usuario", $usuario);
   $Stmt -> bindValue(":password", $password);
