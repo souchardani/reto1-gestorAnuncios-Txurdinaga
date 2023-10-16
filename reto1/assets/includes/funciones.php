@@ -23,20 +23,43 @@ function comprobar_variable_url($variable_url, $ubicacion){
   }
 }
 
-//funcion para comprobar si el username y password existen en la bbdd
+// //funcion para comprobar si el username y password existen en la bbdd
+// function inicio_sesion($usuario, $password){
+//   global $ConexionDB;
+//   $sql = "SELECT * FROM admins WHERE BINARY username=:usuario AND BINARY contrasena=:password LIMIT 1";
+//   $Stmt = $ConexionDB -> prepare($sql);
+//   $Stmt -> bindValue(":usuario", $usuario);
+//   $Stmt -> bindValue(":password", $password);
+//   $Stmt -> execute();
+//   $resultado = $Stmt -> rowCount(); 
+//   if($resultado == 1){
+//     $fila = $Stmt->fetch();
+//     $_SESSION["usuarioid_global"] = $fila["id"];
+//     $_SESSION["usuario_global"] =  $fila["username"];
+//     $_SESSION["usuarionombre_global"] =  $fila["nombre"];
+//     $_SESSION["MensajeExito"] = "Bienvenido de nuevo ". $fila["username"];
+//     if (isset($_SESSION["guardarURL"])) {
+//       Redireccionar_A($_SESSION["guardarURL"]);
+//     }else {
+//       Redireccionar_A("detalles_anuncios.php");
+//     }
+//   }else {
+//     $_SESSION["MensajeError"] = "El usuario o la contraseña son incorrectos";
+//     Redireccionar_A("login.php");
+//   }
+// }
 function inicio_sesion($usuario, $password){
-  global $ConexionDB;
-  $sql = "SELECT * FROM admins WHERE BINARY username=:usuario AND BINARY contrasena=:password LIMIT 1";
-  $Stmt = $ConexionDB -> prepare($sql);
+  global $Conexionbbdd;
+  $sql = "SELECT * FROM usuario WHERE BINARY Nick=:usuario AND BINARY contraseña=:password LIMIT 1";
+  $Stmt = $Conexionbbdd -> prepare($sql);
   $Stmt -> bindValue(":usuario", $usuario);
   $Stmt -> bindValue(":password", $password);
   $Stmt -> execute();
   $resultado = $Stmt -> rowCount(); 
   if($resultado == 1){
     $fila = $Stmt->fetch();
-    $_SESSION["usuarioid_global"] = $fila["id"];
-    $_SESSION["usuario_global"] =  $fila["username"];
-    $_SESSION["usuarionombre_global"] =  $fila["nombre"];
+    $_SESSION["usuario_global"] =  $fila["Nick"];
+    $_SESSION["usuarionombre_global"] =  $fila["Nombre"];
     $_SESSION["MensajeExito"] = "Bienvenido de nuevo ". $fila["username"];
     if (isset($_SESSION["guardarURL"])) {
       Redireccionar_A($_SESSION["guardarURL"]);
@@ -48,6 +71,8 @@ function inicio_sesion($usuario, $password){
     Redireccionar_A("login.php");
   }
 }
+
+
 
 //funcion para verificar los campos del formulario que no esten empty
 function verificar_empty($array){
@@ -72,22 +97,22 @@ function confirmar_login() {
 
 
 function obtener_datos_dashboard(){
-  global $ConexionDB;
+  global $Conexionbbdd;
   //anuncios
-  $sql = "SELECT COUNT(*) FROM anuncios";
-  $stmt = $ConexionDB -> query($sql); 
+  $sql = "SELECT COUNT(*) FROM anuncio";
+  $stmt = $Conexionbbdd -> query($sql); 
   $anuncios = $stmt -> fetch();
   //categorias
-  $sql = "SELECT COUNT(*) FROM categorias";
-  $stmt = $ConexionDB -> query($sql);
+  $sql = "SELECT COUNT(*) FROM categoria";
+  $stmt = $Conexionbbdd -> query($sql);
   $categorias = $stmt -> fetch();
   //admins
-  $sql = "SELECT COUNT(*) FROM admins";
-  $stmt = $ConexionDB -> query($sql);
+  $sql = "SELECT COUNT(*) FROM usuario";
+  $stmt = $Conexionbbdd -> query($sql);
   $admins = $stmt -> fetch();
   //comentarios
-  $sql = "SELECT COUNT(*) FROM comentarios";
-  $stmt = $ConexionDB -> query($sql);
+  $sql = "SELECT COUNT(*) FROM comentario";
+  $stmt = $Conexionbbdd -> query($sql);
   $comentarios = $stmt -> fetch();
   //array con los datos
   $datos = array(
@@ -409,9 +434,9 @@ function insertar_admin_bbdd($fechaActual, $username, $contrasena, $nombre, $Adm
 
   //funcion para obtener todos los admins
   function obtener_administradores(){
-    global $ConexionDB;
-    $sql = "SELECT * FROM admins ORDER BY id desc";
-    $stmt = $ConexionDB -> query($sql);
+    global $Conexionbbdd;
+    $sql = "SELECT * FROM usuario WHERE rol='Administrador' ORDER BY Nick desc";
+    $stmt = $Conexionbbdd -> query($sql);
     return $stmt;
   }
 
