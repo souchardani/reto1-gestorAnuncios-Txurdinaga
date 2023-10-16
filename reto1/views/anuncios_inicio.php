@@ -33,8 +33,13 @@
           //busqueda para paginacion ex. anuncios_inicio.php?pagina=1
            }else if(isset($_GET["pagina"])){
                $stmt = mostrar_anuncios_paginacion();
-           }else {
-            //por defecto, mostrar todos los anuncios
+               //busqueda por categoria
+           }else if (isset($_GET["categoria"])){
+               $stmt = mostrar_anuncios_categoria();
+
+           }
+           else {
+            //por defecto, mostrar todos los anuncios (lo capamos en 5)
               $stmt = mostrar_todos_anuncios();
           }
           while ($fila = $stmt -> fetch()){
@@ -118,7 +123,7 @@
                 while ($fila = $categorias -> fetch()){
                   $id = $fila["id"];
                   $categoria = $fila["titulo"];
-                  echo "<a href='#' class='list-group-item list-group-item-action'>$categoria</a>";
+                  echo "<a href='anuncios_inicio.php?categoria=$categoria' class='list-group-item list-group-item-action'>$categoria</a>";
                 }
                 ?>
                 </ul>

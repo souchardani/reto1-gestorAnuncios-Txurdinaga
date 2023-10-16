@@ -36,6 +36,7 @@ function inicio_sesion($usuario, $password){
     $fila = $Stmt->fetch();
     $_SESSION["usuarioid_global"] = $fila["id"];
     $_SESSION["usuario_global"] =  $fila["username"];
+    $_SESSION["usuarionombre_global"] =  $fila["nombre"];
     $_SESSION["MensajeExito"] = "Bienvenido de nuevo ". $fila["username"];
     if (isset($_SESSION["guardarURL"])) {
       Redireccionar_A($_SESSION["guardarURL"]);
@@ -349,7 +350,7 @@ function insertar_comentario_bbdd($datetime, $nombre, $email, $cuerpo, $idAnunci
 
 
 //------------------------------------------------------------------//
-//------------------FUNCIONES PARA ADMINISTRADORES------------------//
+//------------------FUNCIONES PARA USUARIOS-------------------------//
 //------------------------------------------------------------------//
 //funcion para validar los datos del administrador
 function validar_data_admin($username, $contrasena, $confirmar_contrasena) {
@@ -414,6 +415,16 @@ function insertar_admin_bbdd($fechaActual, $username, $contrasena, $nombre, $Adm
     return $stmt;
   }
 
+  //funcion para obtener un admin por el id
+  function obtener_admin_id($userid){
+    global $ConexionDB;
+    $sql = "SELECT * FROM admins WHERE id=:id";
+    $stmt = $ConexionDB -> prepare($sql);
+    $stmt -> bindParam(":id", $userid);
+    $stmt -> execute();
+    return $stmt;
+  }
+
 
 
 
@@ -460,6 +471,16 @@ function obtener_categorias(){
   global $ConexionDB;
   $sql = "SELECT * FROM categorias";
   $stmt = $ConexionDB -> query($sql);
+  return $stmt;
+}
+
+
+function mostrar_anuncios_categoria() {
+  global $ConexionDB;
+  $sql = "SELECT * FROM anuncios WHERE categoria=:categoria";
+  $stmt = $ConexionDB -> prepare($sql);
+  $stmt -> bindParam(":categoria", $_GET["categoria"]);
+  $stmt -> execute();
   return $stmt;
 }
 
