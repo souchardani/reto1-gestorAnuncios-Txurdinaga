@@ -99,6 +99,34 @@ function obtener_datos_dashboard(){
 }
 
 
+//------------------------------------------------------------------//
+//----------------------------PAGINACION----------------------------//
+//------------------------------------------------------------------//
+
+function mostrar_anuncios_paginacion(){
+  global $ConexionDB;
+  $pagina = $_GET["pagina"];
+  if($pagina == "" || $pagina == 0 || $pagina < 1){
+    $desde = 1;
+  }else {
+    $desde = ($pagina*5)-5;
+  }
+  $sql = "select * from anuncios ORDER BY id desc LIMIT $desde, 5";
+  $stmt = $ConexionDB -> query($sql);
+  return $stmt;
+}
+
+
+//obtener la paginacion
+function obtener_paginacion(){
+  global $ConexionDB;
+  $sql = "SELECT COUNT(*) FROM anuncios";
+  $execute = $ConexionDB -> query($sql);
+  $stmt = $execute -> fetch();
+  $paginacion = $stmt[0];
+  return $paginacion;
+}
+
 
 
 

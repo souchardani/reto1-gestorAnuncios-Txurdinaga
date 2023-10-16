@@ -2,7 +2,6 @@
 <?php require_once("../assets/includes/DB.php"); ?>
 <?php require_once("../assets/includes/funciones.php"); ?>
 <?php require_once("../assets/includes/sesiones.php"); ?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -20,7 +19,7 @@
         <div class="col-sm-8">
           <h1>Anuncios y Noticias - FP Txurdinaga</h1>
           <h1 class="lead">Mira los anuncios destacados del centro</h1>
-    <!-- HEADER END -->
+        <!-- HEADER END -->
           <?php 
           //añadimos el mensaje de exito o error para cada caso especifico
           echo MensajeError();
@@ -31,9 +30,12 @@
           //si le ha dado al boton buscar, mostramos anuncios personalziados
            if(isset($_GET["btnBuscar"])){
                $stmt = mostrar_anuncios_busqueda();
+          //busqueda para paginacion ex. anuncios_inicio.php?pagina=1
+           }else if(isset($_GET["pagina"])){
+               $stmt = mostrar_anuncios_paginacion();
            }else {
-                //por defecto, mostrar todos los anuncios
-                $stmt = mostrar_todos_anuncios();
+            //por defecto, mostrar todos los anuncios
+              $stmt = mostrar_todos_anuncios();
           }
           while ($fila = $stmt -> fetch()){
             $id = $fila["id"];
@@ -64,6 +66,35 @@
         </div>
         <br>
         <?php } ?>
+        <!-- links pagination -->
+        <nav>
+          <ul class="pagination pagination-lg">
+            <?php
+            $totalAnuncios = obtener_paginacion();
+            $porPagina = ceil($totalAnuncios/5);
+             //boton anterior
+             if (isset($_GET["pagina"])){
+              if($_GET["pagina"] -1 >= 1)
+              echo "<li class='page-item'><a href='anuncios_inicio.php?pagina=".$_GET["pagina"] - 1 ."' class='page-link'>&laquo</a></li>";
+            }
+            for ($i=1; $i <= $porPagina; $i++) { 
+              if(isset($_GET["pagina"])) {
+                if($i==$_GET["pagina"]){
+                  echo "<li class='page-item active'><a href='anuncios_inicio.php?pagina=$i' class='page-link'>$i</a></li>";
+                } else {
+                echo "<li class='page-item'><a href='anuncios_inicio.php?pagina=$i' class='page-link'>$i</a></li>";
+                }
+              }
+            }
+            //boton siguiente
+            if (isset($_GET["pagina"])){
+              if($_GET["pagina"] + 1 <= $porPagina)
+              echo "<li class='page-item'><a href='anuncios_inicio.php?pagina=".$_GET["pagina"] + 1 ."' class='page-link'>&raquo</a></li>";
+            }
+            ?>
+          </ul>
+          <!-- fin links pagination -->
+        </nav>
         </div>
         <!-- fin seccion principal -->
         <!-- inicio aside area -->
@@ -71,8 +102,9 @@
           <div class="card mt-4 text-bg-light">
             <div class="card-body text-center">
               <p>Únete y crea tu anuncio!</p>
+              <br>
               <a class="btn btn-primary" href="login.php">Iniciar Sesion</a>
-              <a class="btn btn-primary" href="login.php">Crear Cuenta</a>
+              <a class="btn btn-danger" href="login.php">Crear Cuenta</a>
             </div>
           </div>
           <!-- tarjeta categorias -->
@@ -84,6 +116,7 @@
                 <?php
                 $categorias = obtener_categorias();
                 while ($fila = $categorias -> fetch()){
+                  $id = $fila["id"];
                   $categoria = $fila["titulo"];
                   echo "<a href='#' class='list-group-item list-group-item-action'>$categoria</a>";
                 }
