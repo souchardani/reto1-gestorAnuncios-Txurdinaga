@@ -72,7 +72,7 @@
             <div class="card-body text-center">
               <p>Únete y crea tu anuncio!</p>
               <a class="btn btn-primary" href="login.php">Iniciar Sesion</a>
-              <a class="btn btn-primary" href="login.php">Crear Cuenta</a>
+              <a class="btn btn-primary" href="registro.php">Crear Cuenta</a>
             </div>
           </div>
           <!-- tarjeta categorias -->
