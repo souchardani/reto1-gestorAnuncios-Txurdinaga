@@ -11,7 +11,7 @@
   </head>
   <body>
     <!-- NAVBAR -->
-   <?php include("../templates/headerbasic.php"); ?>
+   <?php include("../templates/head-nav.php"); ?>
     <!-- NAVBAR END -->
     <!-- HEADER -->
     <div class="container">

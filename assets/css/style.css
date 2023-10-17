@@ -383,7 +383,6 @@ nav li {
 .form-1 {
     text-align: center;
     display: inline-block;
-    width: 30%;
 }
 
 .img-perfil {
@@ -772,4 +771,69 @@ footer {
 
 .footer-emp-img {
 	height: 75px;
+}
+
+
+
+/* RESPONSIVE */
+@media screen and (max-width: 900px) {
+    .main-1{
+        background-color: #1AA3BF;
+    }
+    .caja-titulo{
+        font-size: 10px;
+    }
+    .main-1 h2{
+        font-size: 18px;
+    }
+    /* Tamaño de Campos de texto */
+    #grado,
+    #nombre,
+    #tele,
+    #email {
+        width: 180px;
+    }
+    /* Botones */
+    #perbtn {
+        height: 40px;
+        width: 100px;
+        background-color: rgb(216, 233, 246);
+        color: rgb(0, 145, 234);
+    }
+    #savebtn {
+        height: 40px;
+        width: 80px;
+        background-color: dodgerblue;
+        color: white;
+    }
+    /* HEADER */
+    nav li {
+        padding: 2px;
+    }
+
+    nav a {
+        font-size: 18px;
+    }
+
+    #li-buscador {
+        width: 150px;
+    }
+    #busqueda {
+        width: 150px;
+    }
+
+    /* FOOTER */
+    footer {
+        min-height: 100px;
+        background-color: #fff;
+        max-width: 100%;
+        padding: 2em 50px 2em 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-emp-img {
+        height: 50px;
+    }
 }

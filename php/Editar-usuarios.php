@@ -11,7 +11,7 @@
 <body>
   <header>
     <div>
-      <a href="index.php">
+      <a href="../public/index.php">
         <img src="../assets/img/FP-header.png" alt="logo" id="logo">
       </a>
     </div>
@@ -23,7 +23,7 @@
     </div>
   </header>
   
-  <nav>
+  <nav class="nav1">
     <ul>
       <a id="li-inicio" href="index.php">
         <li>Inicio</li>
@@ -46,6 +46,47 @@
       </li>
     </ul>
   </nav>
+
+  <!-- NAV TEST -->
+    <!-- <nav style="background: cyan">
+      <div>
+        <ul>
+          <li>
+            <a href="Editar-usuarios.php" style="color: green;">
+              <i class="fa-solid fa-user text-success"></i> Mi Perfil</a>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <a href="anuncios_inicio.php">Inicio</a>
+          </li>
+          <li>
+            <a href="dashboard.php">Panel de Control</a>
+          </li>
+          <li>
+            <a href="detalles_anuncios.php">Anuncios</a>
+          </li>
+          <li>
+            <a href="categorias.php">Categorias</a>
+          </li>
+          <li>
+            <a href="admins.php">Gestionar Usuarios</a>
+          </li>
+          <li>
+            <a href="comentarios.php">Comentarios</a>
+          </li>
+          <li>
+            <a href="blog.php?page=1">Blog</a>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <a href="cerrar_sesion.php" style="color: red;">
+              <i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesion</a>
+          </li>
+        </ul>
+      </div>
+    </nav> -->
 
   <div class="caja-titulo">
     <h1>EDITAR USUARIO</h1>
@@ -74,7 +115,7 @@
         </select><br><br>
 
         <label>Teléfono: </label><br>
-        <input type="tel" name="tele" placeholder="Escribe tu teléfono (123-456-789)" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" id="tele"><br><br>
+        <input type="tel" name="tele" placeholder="Teléfono (123-456-789)" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" id="tele"><br><br>
 
         <button id="savebtn">Guardar Cambios</button>
       </fieldset>
