@@ -33,7 +33,7 @@
                   <div class="col-12 col-md-6">
                     <div class="form-group">
                       <label for="nombre"><span class="FieldInfo">Nombre: </span></label>
-                      <div class="input-group my-3">
+                      <div class="input-group my-2">
                         <div class="input-group-text" style="background-color: #FCC204;"><span><i class="fas fa-user"></i></span></div>
                         <input type="text" class="form-control" name="nombre" id="nombre">
                       </div>
@@ -42,7 +42,7 @@
                   <div class="col-12 col-md-6">
                     <div class="form-group">
                       <label for="apellido"><span class="FieldInfo">Apelllido: </span></label>
-                      <div class="input-group my-3">
+                      <div class="input-group my-2">
                         <div class="input-group-text" style="background-color: #FCC204;"><span><i class="fas fa-user"></i></span></div>
                         <input type="text" class="form-control" name="apeliido" id="apellido">
                       </div>
@@ -51,7 +51,7 @@
                   <div class="col-12">
                     <div class="form-group">
                       <label for="nickname"><span class="FieldInfo">Nickname: </span></label>
-                      <div class="input-group my-3">
+                      <div class="input-group my-2">
                         <div class="input-group-text" style="background-color: #FCC204;"><span><i class="fas fa-user"></i></span></div>
                         <input type="text" class="form-control" name="nickname" id="nickname">
                       </div>
@@ -60,8 +60,8 @@
                   <div class="col-12 col-md-6">
                     <div class="form-group">
                       <label for="pass"><span class="FieldInfo">Contraseña: </span></label>
-                      <div class="input-group my-3">
-                        <div class="input-group-text" style="background-color: #FCC204;"><span><i class="fas fa-key"></i></span></div>
+                      <div class="input-group my-2">
+                        <div class="input-group-text" style="background-color: #FCC204;"><span><i class="fas fa-lock"></i></span></div>
                         <input type="text" class="form-control" name="pass" id="pass">
                       </div>
                     </div>    
@@ -69,8 +69,8 @@
                   <div class="col-12 col-md-6">
                     <div class="form-group">
                       <label for="pass2"><span class="FieldInfo">Repetir contraseña: </span></label>
-                      <div class="input-group my-3">
-                        <div class="input-group-text" style="background-color: #FCC204;"><span><i class="fas fa-key"></i></span></div>
+                      <div class="input-group my-2">
+                        <div class="input-group-text" style="background-color: #FCC204;"><span><i class="fas fa-lock"></i></span></div>
                         <input type="text" class="form-control" name="pass2" id="pass2">
                       </div>
                     </div>    
@@ -78,7 +78,7 @@
                   <div class="col-12">
                     <div class="form-group">
                       <label for="email"><span class="FieldInfo">Email: </span></label>
-                      <div class="input-group my-3">
+                      <div class="input-group my-2">
                         <div class="input-group-text" style="background-color: #FCC204;"><span><i class="fas fa-envelope"></i></span></div>
                         <input type="text" class="form-control" name="email" id="email">
                       </div>
@@ -87,27 +87,31 @@
                   <div class="col-12 col-md-4">
                     <div class="form-group">
                       <label for="fecha"><span class="FieldInfo">Fecha: </span></label>
-                      <div class="input-group my-3">
+                      <div class="input-group my-2">
                         <div class="input-group-text" style="background-color: #FCC204;"><span><i class="fas fa-calendar"></i></span></div>
-                        <input type="text" class="form-control" name="fecha" id="fecha">
+                        <input type="date" class="form-control" name="fecha" id="fecha">
                       </div>
                     </div>    
                   </div>
                   <div class="col-12 col-md-4">
                     <div class="form-group">
-                      <label for="centro"><span class="FieldInfo">Centro: </span></label>
-                      <div class="input-group my-3">
+                      <label for="clase"><span class="FieldInfo">Clase: </span></label>
+                      <div class="input-group my-2">
                         <div class="input-group-text" style="background-color: #FCC204;"><span><i class="fas fa-graduation-cap"></i></span></div>
-                        <input type="text" class="form-control" name="centro" id="centro">
+                        <select name="clase" id="clase" class="form-control">
+                          <option value=""></option>
+                        </select>
                       </div>
                     </div>    
                   </div>
                   <div class="col-12 col-md-4">
                     <div class="form-group">
-                      <label for="telf"><span class="FieldInfo">Telefono: </span></label>
-                      <div class="input-group my-3">
-                        <div class="input-group-text" style="background-color: #FCC204;"><span><i class="fas fa-phone"></i></span></div>
-                        <input type="text" class="form-control" name="telf" id="telf">
+                      <label for="telf"><span class="FieldInfo">Alumno / Profesor: </span></label>
+                      <div class="input-group my-2">
+                        <div class="input-group-text" style="background-color: #FCC204;"><span><i class="fas fa-gear"></i></span></div>
+                        <select name="clase" id="clase" class="form-control">
+                          <option value=""></option>
+                        </select>
                       </div>
                     </div>    
                   </div>
@@ -122,7 +126,7 @@
                     </div>
                   </div>
                   <div class="d-grid">
-                    <input type="submit" name="enviar" value="Iniciar Sesion" class="btn d-block text-white mt-3" style="background: #E95F15;">
+                    <input type="submit" name="enviar" value="Iniciar Sesion" class="btn d-block text-white my-2" style="background: #E95F15;">
                   </div>
                   <div class="text-center col-12">
                     <p>¿Tienes cuenta? <a href="login.php">Login</a></p>

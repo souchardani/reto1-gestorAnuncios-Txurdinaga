@@ -313,7 +313,7 @@ select {
 header {
   min-height: 100px;
   max-width: 100vw;
-  background-color: #fff;
+  background-color: var(--blanco);
   padding: 1rem 6rem;
   display: flex;
   justify-content: space-between;
@@ -323,7 +323,7 @@ header {
 
 footer {
   min-height: 100px;
-  background-color: #fff;
+  background-color: var(--blanco);
   display: block;
   align-items: center;
 }
@@ -560,21 +560,21 @@ footer {
 	padding: 10px;
 	border-radius: 100%;
 	background-color: #DA0067;
-	color: white;
+	color: var(--blanco);
 }
 
 #icon-twitter {
 	padding: 10px;
 	border-radius: 100%;
 	background-color: #1aa4c1;
-	color: white;
+	color: var(--blanco);
 }
 
 #icon-link {
 	padding: 10px;
 	border-radius: 100%;
 	background-color: #004c95;
-	color: white;
+	color: var(--blanco);
 }
 
 #footer-img1 {
@@ -584,7 +584,7 @@ footer {
 /* Estilos generales del footer */
 footer {
   background-color: #333;
-  color: #fff;
+  color: var(--blanco);
   padding: 20px 0;
   text-align: center;
 }
