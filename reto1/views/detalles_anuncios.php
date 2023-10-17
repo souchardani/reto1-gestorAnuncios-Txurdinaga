@@ -76,9 +76,9 @@ confirmar_login();
               <tr>
                 <th>Nº</th>
                 <th>Titulo</th>
-                <th>Categoria</th>
-                <th>Fecha y Hora</th>
                 <th>Autor</th>
+                <th>Fecha</th>
+                <th>Descripcion</th>
                 <th>Imagen</th>
                 <th>Comentarios</th>
                 <th>Accion</th>
@@ -91,12 +91,12 @@ confirmar_login();
             $contador = 0;
             while ($fila = $stmt -> fetch()){
               $id = $fila["id"];
-              $datetime = $fila["datetime"];
-              $titulo = $fila["titulo"];
-              $categoria =$fila["categoria"];
-              $autor = $fila["autor"];
-              $imagen = $fila["imagen"];
-              $descripcion = $fila["descripcion"];
+              $datetime = $fila["Fecha_publi"];
+              $titulo = $fila["Título"];
+              $categoria =obtener_categoria_porid($id);
+              $autor = $fila["Autor"];
+              $imagen = $fila["Imagen"];
+              $descripcion = $fila["Descripción"];
               $contador++;
             ?>
             <tbody>
@@ -115,7 +115,7 @@ confirmar_login();
                 strlen($autor)>6 ? $autor=substr($autor,0,6)."..." :  $autor;
                 echo $autor
                 ?></td>
-                <td><img src="../assets/img_subidas/<?php echo $imagen?>" width="170px;" height="50px"> </td>
+                <td><img src="../assets/img_subidas/anuncios/<?php echo $imagen?>" width="170px;" height="50px"> </td>
                 <td>
                 <?php
                     $comentariossi = obtener_comentarios_aprobados_porid($id);

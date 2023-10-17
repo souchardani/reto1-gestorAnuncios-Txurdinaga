@@ -7,21 +7,24 @@
 comprobar_variable_url('id', "anuncios_inicio.php");
 //obtenemos el id del anuncion para usarlo en toda la pagina
 $idAnuncio = $_GET['id']; 
+if ($_SESSION["tipoUsuario_global"] == "Administrador") {
+  $validado = 1;
+}else {
+  $validado = 0;
+}
 ?>
 <!-- codigo para insertar el comentario en la bbdd -->
 <?php
 if(isset($_POST["Enviar"])){
   //OBTENEMOS TODOS LOS DATOS DEL COMENTARIO
-  $nombre = $_POST["nombreComentario"];
-  $email = $_POST["emailComentario"];
+  $nombre = $_SESSION["usuario_global"];
+  //validar_nombre_comentario(); //verificar si el nombre del comentario esta en la bbdd
   $cuerpo = $_POST["cuerpoComentario"];
-  date_default_timezone_set("Europe/Madrid");
-  $datetime = date("Y-m-d H:i:s"); 
-
-  $comprobar_campos = verificar_campos_comentario($nombre, $email, $cuerpo, $idAnuncio);
+  $validado =  
+  $comprobar_campos = verificar_campos_comentario($nombre, $cuerpo, $idAnuncio);
   //si esta correcto, insertar comentario en la bbdd
   if ($comprobar_campos){
-    insertar_comentario_bbdd($datetime, $nombre, $email, $cuerpo, $idAnuncio);
+    insertar_comentario_bbdd($nombre, $cuerpo, $validado, $idAnuncio);
   }
 }
 ?>
@@ -42,7 +45,7 @@ if(isset($_POST["Enviar"])){
         <!-- inicio seccion principal -->
         <div class="col-sm-8">
           <h1>Anuncios y Noticias - FP Txurdinaga</h1>
-          <h1 class="lead">Mira los anuncios destacados del centro</h1>
+          <h1 class="lead mb-4">Mira los anuncios destacados del centro</h1>
           <?php echo MensajeError();
               echo MensajeExito();
           ?>
@@ -52,15 +55,15 @@ if(isset($_POST["Enviar"])){
           $stmt = mostrar_anuncio_url($idAnuncio);
           while ($fila = $stmt -> fetch()){
             $id = $fila["id"];
-            $datetime = $fila["datetime"];
-            $titulo = $fila["titulo"];
-            $categoria = $fila["categoria"];
-            $autor = $fila["autor"];
-            $imagen = $fila["imagen"];
-            $descripcion = $fila["descripcion"];
+            $datetime = $fila["Fecha_publi"];
+            $titulo = $fila["Título"];
+            $categoria = obtener_categoria_porid($id);
+            $autor = $fila["Autor"];
+            $imagen = $fila["Imagen"];
+            $descripcion = $fila["Descripción"];
         ?>
         <div class="card">
-          <img class="img-fluid card-img-top" style="max-height: 450px; object-fit: cover;" src="../assets/img_subidas/<?php echo $imagen?>" alt=""/>
+          <img class="img-fluid card-img-top" style="max-height: 450px; object-fit: cover;" src="../assets/img_subidas/anuncios/<?php echo $imagen?>" alt=""/>
           <div class="card-body">
             <h4 class="card-title"><?php echo htmlentities($titulo)?></h4>
             <small class="text-muted">Categoria: <?php echo "<span class='text-dark'>$categoria</span>"?> Publicado Por: <?php echo "<span class='text-dark'>$autor</span>"?> el <?php echo "<span class='text-dark'>$datetime</span>"?></small>
@@ -110,16 +113,6 @@ if(isset($_POST["Enviar"])){
             </div>
             <div class="card-body">
               <div class="form-group mb-3">
-                <div class="input-group">
-                  <span class="input-group-text"><i class="fas fa-user"></i></span>
-                  <input class="form-control" type="text" name="nombreComentario" placeholder="Nombre" id="">
-                </div> 
-              </div>
-              <div class="form-group mb-3">
-                <div class="input-group">
-                  <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-                  <input class="form-control" type="email" name="emailComentario" placeholder="Email" id="">
-                </div> 
               </div>
               <div class="form-group mb-3">
                 <textarea name="cuerpoComentario" id="" cols="20" rows="5" class="form-control"></textarea>
@@ -151,8 +144,7 @@ if(isset($_POST["Enviar"])){
                 <?php
                 $categorias = obtener_categorias();
                 while ($fila = $categorias -> fetch()){
-                  $id = $fila["id"];
-                  $categoria = $fila["titulo"];
+                  $categoria = $fila["Nombre"];
                   echo "<a href='anuncios_inicio.php?categoria=$categoria' class='list-group-item list-group-item-action'>$categoria</a>";
                 }
                 ?>

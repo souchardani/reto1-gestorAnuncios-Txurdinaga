@@ -16,9 +16,9 @@ confirmar_login();
 //si se ha enviado el formulario
 if(isset($_POST["enviar"])){
   $tituloAnuncio = $_POST["tituloAnuncio"];
-  $categoria = $_POST["Categoria"];
+  $categoria = null; //$_POST["Categoria"];
   $imagen = $_FILES["imagen"]["name"];
-  $target = "img_subidas/".basename($imagen);
+  $target = "../assets/img_subidas/anuncios/".basename($imagen);
   $descripcionAnuncio = $_POST["DescripcionAnuncio"];
   $Admin = "Daniel";
   date_default_timezone_set("Europe/Madrid");
@@ -64,10 +64,10 @@ if(isset($_POST["enviar"])){
         Redireccionar_A("detalles_anuncios.php");
       }else {
       while($fila = $stmt -> fetch()){
-        $titulo_ant = $fila["titulo"];
-        $categoria_ant = $fila["categoria"];
-        $imagen_ant = $fila["imagen"];
-        $descripcion_ant = $fila["descripcion"];
+        $titulo_ant = $fila["Título"];
+        $categoria_ant = obtener_categoria_porid($idAnuncio);
+        $imagen_ant = $fila["Imagen"];
+        $descripcion_ant = $fila["Descripción"];
       } 
        ?>
       <form class="" action="editar_anuncio.php?id=<?php echo $idAnuncio ?>" method="post" enctype="multipart/form-data">
@@ -79,12 +79,12 @@ if(isset($_POST["enviar"])){
             </div>
             <div class="form-group mb-5">
               <label class="mb-3" for="tituloCategoria"><span class="FieldInfo">Escoge la categoria:</span></label>
-              <select class="form-control" id="tituloCategoria" name="Categoria">
+              <select class="form-control" id="tituloCategoria" name="Categoria" disabled>
                 <?php
                 //añadimos las categorias
                   $stmt = obtener_categorias();
                   while ($fila = $stmt -> fetch()){
-                    $NombreCategoria = $fila["titulo"];
+                    $NombreCategoria = $fila["Nombre"];
                 ?>
                 <option value="<?php echo $NombreCategoria ?>" <?php $categoria_ant == $NombreCategoria ? $selected="selected" : $selected=""; echo $selected?>>
                 <?php echo $NombreCategoria ?></option>
@@ -93,7 +93,7 @@ if(isset($_POST["enviar"])){
             </div>
             <div class="form-group mb-5">
             <span class="FieldInfo">Imagen Anterior:</span>
-            <img class="mb-1" src="../assets/img_subidas/<?php echo $imagen_ant?>" width="170px" height="70px" alt="">
+            <img class="mb-1" src="../assets/img_subidas/anuncios/<?php echo $imagen_ant?>" width="170px" height="70px" alt="">
               
               <br>
               <label class="mb-3" for="seleccionaImagen"><span class="FieldInfo">Cargar Imagen:</span></label>

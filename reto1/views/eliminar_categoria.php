@@ -2,14 +2,14 @@
 <?php require_once("../assets/includes/funciones.php"); ?>
 <?php require_once("../assets/includes/sesiones.php"); ?>
 <?php
-comprobar_variable_url("id", "comentarios.php");
-$id_anuncio = $_GET["id"];
+comprobar_variable_url("id", "categorias.php");
+$id_categoria = $_GET["id"];
 
 
 //operacion sql
-global $ConexionDB;
-$consulta = "DELETE from categorias WHERE id = $id_anuncio";
-$execute = $ConexionDB -> query($consulta);
+global $Conexionbbdd;
+$consulta = "DELETE from categoria WHERE Nombre = '$id_categoria'";
+$execute = $Conexionbbdd -> query($consulta);
 if($execute){
     $_SESSION["MensajeExito"] = "Categoria eliminada correctamente";
     Redireccionar_A("categorias.php");

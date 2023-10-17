@@ -60,7 +60,8 @@ function inicio_sesion($usuario, $password){
     $fila = $Stmt->fetch();
     $_SESSION["usuario_global"] =  $fila["Nick"];
     $_SESSION["usuarionombre_global"] =  $fila["Nombre"];
-    $_SESSION["MensajeExito"] = "Bienvenido de nuevo ". $fila["username"];
+    $_SESSION["tipoUsuario_global"] =  $fila["Rol"];
+    $_SESSION["MensajeExito"] = "Bienvenid@ de nuevo ". $fila["Nick"];
     if (isset($_SESSION["guardarURL"])) {
       Redireccionar_A($_SESSION["guardarURL"]);
     }else {
@@ -130,24 +131,24 @@ function obtener_datos_dashboard(){
 //------------------------------------------------------------------//
 
 function mostrar_anuncios_paginacion(){
-  global $ConexionDB;
+  global $Conexionbbdd;
   $pagina = $_GET["pagina"];
   if($pagina == "" || $pagina == 0 || $pagina < 1){
     $desde = 1;
   }else {
     $desde = ($pagina*5)-5;
   }
-  $sql = "select * from anuncios ORDER BY id desc LIMIT $desde, 5";
-  $stmt = $ConexionDB -> query($sql);
+  $sql = "select * from anuncio ORDER BY id desc LIMIT $desde, 5";
+  $stmt = $Conexionbbdd -> query($sql);
   return $stmt;
 }
 
 
 //obtener la paginacion
 function obtener_paginacion(){
-  global $ConexionDB;
-  $sql = "SELECT COUNT(*) FROM anuncios";
-  $execute = $ConexionDB -> query($sql);
+  global $Conexionbbdd;
+  $sql = "SELECT COUNT(*) FROM anuncio";
+  $execute = $Conexionbbdd -> query($sql);
   $stmt = $execute -> fetch();
   $paginacion = $stmt[0];
   return $paginacion;
@@ -180,22 +181,27 @@ function validar_data_anuncio($tituloAnuncio, $descripcionAnuncio){
       }
 }
 //funcion para insertar anuncio a la bbdd
-function insertar_anuncio_bbdd($fechaActual,$tituloAnuncio,$categoria,$Admin,$imagen,$descripcionAnuncio, $target){
-    global $ConexionDB;
-    $sql = "INSERT INTO anuncios(datetime, titulo, categoria, autor, imagen, descripcion) VALUES (:dateTime,:titulo,:categoria,:autor,:imagen,:descripcion)";
-    $stmt = $ConexionDB -> prepare($sql);
-    $stmt -> bindValue(":dateTime", $fechaActual);
-    $stmt -> bindValue(":titulo", $tituloAnuncio);
-    $stmt -> bindValue(":categoria", $categoria);
-    $stmt -> bindValue(":autor", $Admin);
-    $stmt -> bindValue(":imagen", $imagen);
-    $stmt -> bindValue(":descripcion", $descripcionAnuncio);
+function insertar_anuncio_bbdd($tituloAnuncio, $Autor, $Aceptado, $Fecha_publi, $categoria, $descripcionAnuncio, $imagen, $UbicacionImagen){
+    global $Conexionbbdd;
+    $sql = "INSERT INTO anuncio(Título, Autor, Aceptado, Fecha_Publi, Descripción, Imagen) VALUES (:Titulo,:Autor,:Aceptado,:Fecha_Publi,:Descripcion,:Imagen)";
+    $stmt = $Conexionbbdd -> prepare($sql);
+    $stmt -> bindValue(":Titulo", $tituloAnuncio);
+    $stmt -> bindValue(":Autor", $Autor);
+    $stmt -> bindValue(":Aceptado", $Aceptado);
+    $stmt -> bindValue(":Fecha_Publi", $Fecha_publi);
+    $stmt -> bindValue(":Descripcion", $descripcionAnuncio);
+    $stmt -> bindValue(":Imagen", $imagen);
     $execute = $stmt -> execute();
+    echo "llega hasta aqui";
     if($execute){
-       //guardar la imagen en la carpeta de imagenes
-       move_uploaded_file($_FILES["imagen"]["tmp_name"], $target);
+      //insertar en la tabla categoria anuncio
+      insertar_categoria_poranuncio($categoria);
+      //guardar la imagen en la carpeta de imagenes
+       move_uploaded_file($_FILES["imagen"]["tmp_name"], $UbicacionImagen);
        $_SESSION["MensajeExito"] = "El Anuncio se ha añadido Correctamente";
        Redireccionar_A("anadir_anuncio.php");
+       //insertar la categoria
+      
     }else {
       $_SESSION["MensajeError"] = "Ocurrio un error inesperado al insertar, vuelve a intentarlo";
       Redireccionar_A("anadir_anuncio.php");
@@ -203,15 +209,37 @@ function insertar_anuncio_bbdd($fechaActual,$tituloAnuncio,$categoria,$Admin,$im
 }
 
 
+function insertar_categoria_poranuncio($categoria){
+  //obtener el anuncio mayor de la bbdd;
+  $idMayor = obtener_anuncio_mayor();
+  global $Conexionbbdd;
+  $sql = "INSERT INTO categoria_anuncio(Categoria, Anuncio) VALUES (:Categoria, :Anuncio)";
+  $stmt = $Conexionbbdd -> prepare($sql);
+  $stmt -> bindValue(":Categoria", $categoria);
+  $stmt -> bindValue(":Anuncio", $idMayor);
+  $execute = $stmt -> execute();
+  return $execute;
+}
+
+function obtener_anuncio_mayor(){
+  global $Conexionbbdd;
+  $sql = "SELECT id from anuncio ORDER BY id DESC LIMIT 1;";
+  $stmt = $Conexionbbdd -> query($sql);
+  $idMayor = $stmt -> fetch();
+  return $idMayor[0];
+}
+
+
 //funcion para actualizar anuncio en la bbdd
 function editar_anuncio_bbdd($tituloAnuncio, $categoria, $imagen, $descripcionAnuncio, $idAnuncio, $target){
-  global $ConexionDB;
+  global $Conexionbbdd;
     //miramos si se añade la imagen, porque si no, dejamos la imagen anterior del anuncio
     if(!empty($imagen)){
-      $sql = "UPDATE anuncios SET titulo='$tituloAnuncio', categoria='$categoria', imagen='$imagen', descripcion='$descripcionAnuncio' WHERE id='$idAnuncio'";  
+      $sql = "UPDATE anuncio SET Título='$tituloAnuncio', Imagen='$imagen', Descripción='$descripcionAnuncio' WHERE id='$idAnuncio'";  
+    }else {
+      $sql = "UPDATE anuncio SET Título='$tituloAnuncio' , Descripción='$descripcionAnuncio' WHERE id='$idAnuncio'";
     }
-    $sql = "UPDATE anuncios SET titulo='$tituloAnuncio', categoria='$categoria', descripcion='$descripcionAnuncio' WHERE id='$idAnuncio'";
-    $execute =$ConexionDB -> query($sql);
+    $execute =$Conexionbbdd -> query($sql);
     //guardar la imagen en la carpeta de imagenes
     move_uploaded_file($_FILES["imagen"]["tmp_name"], $target);
 
@@ -223,7 +251,6 @@ function editar_anuncio_bbdd($tituloAnuncio, $categoria, $imagen, $descripcionAn
       $_SESSION["MensajeError"] = "Ocurrio un error inesperado, vuelve a intentarlo";
       Redireccionar_A("detalles_anuncios.php");
     }
-
 }
 
 //funcion para mostrar los anuncios por el boton de busqueda de inicio
@@ -247,18 +274,18 @@ function mostrar_anuncios_busqueda(){
 
 //funcion para mostrar todos los anuncios
 function mostrar_todos_anuncios(){
-  global $ConexionDB;
-  $sql = "SELECT * FROM anuncios ORDER BY id desc";
-  $stmt = $ConexionDB->query($sql);
+  global $Conexionbbdd;
+  $sql = "SELECT * FROM anuncio ORDER BY id desc";
+  $stmt = $Conexionbbdd->query($sql);
   return $stmt;
 }
 
 
 //funcion para mostrar los anuncios pasado por la url
 function mostrar_anuncio_url($idAnuncio) {
-  global $ConexionDB;
-  $sql = "SELECT * FROM anuncios WHERE id=$idAnuncio";
-  $stmt = $ConexionDB->query($sql);
+  global $Conexionbbdd;
+  $sql = "SELECT * FROM anuncio WHERE id=$idAnuncio";
+  $stmt = $Conexionbbdd->query($sql);
   return $stmt;
 }
 
@@ -299,8 +326,8 @@ function obtener_5_anuncios(){
 
 
 //funcion para verificar que los campos se han completado correctamente
-function verificar_campos_comentario($nombre, $email, $cuerpo, $idAnuncio){
-    if(empty($nombre) || empty($email) || empty($cuerpo)){
+function verificar_campos_comentario($nombre, $cuerpo, $idAnuncio){
+    if(empty($nombre)  || empty($cuerpo)){
       $_SESSION["MensajeError"] = "Debes Completar todos los campos";
       Redireccionar_A("anuncio_completo.php?id=$idAnuncio");
     }else if(strlen($nombre)<=3){
@@ -314,19 +341,25 @@ function verificar_campos_comentario($nombre, $email, $cuerpo, $idAnuncio){
     }
 }
 //funcion para insertar comentario a la bbdd
-function insertar_comentario_bbdd($datetime, $nombre, $email, $cuerpo, $idAnuncio){
-    global $ConexionDB;
-    $sql = "INSERT INTO comentarios(datetime, nombre, email, cuerpo, aprobadopor, publicado, id_anuncio) VALUES (:datetime, :nombre, :email, :cuerpo, 'Pendiente', 'NO', :id_anuncio)";
-    $stmt = $ConexionDB -> prepare($sql);
-    $stmt -> bindValue(":datetime", $datetime);
-    $stmt -> bindValue(":nombre", $nombre);
-    $stmt -> bindValue(":email", $email);
-    $stmt -> bindValue(":cuerpo", $cuerpo);
-    $stmt -> bindValue(":id_anuncio", $idAnuncio);
+function insertar_comentario_bbdd($nombre, $cuerpo,$validado, $idAnuncio){
+    global $Conexionbbdd;
+    $sql = "INSERT INTO comentario(Autor, Anuncio, Texto, Validado) VALUES (:Autor, :Anuncio, :Texto, :Validado)";
+    $stmt = $Conexionbbdd -> prepare($sql);
+    $stmt -> bindValue(":Autor", $nombre);
+    $stmt -> bindValue(":Anuncio", $idAnuncio);
+    $stmt -> bindValue(":Texto", $cuerpo);
+    $stmt -> bindValue(":Validado", $validado);
     $execute = $stmt -> execute();
     if($execute){
-      $_SESSION["MensajeExito"] = "El comentario se ha añadido Correctamente, espera a que sea aprobado por un administrador";
-      Redireccionar_A("anuncio_completo.php?id=$idAnuncio");
+      if ($validado == 1) {
+        $_SESSION["MensajeExito"] = "El comentario se ha añadido Correctamente, y ha sido validado";
+        Redireccionar_A("anuncio_completo.php?id=$idAnuncio");
+      }else {
+        $_SESSION["MensajeExito"] = "El comentario se ha añadido Correctamente, Espera a que sea validado por un administrador";
+        Redireccionar_A("anuncio_completo.php?id=$idAnuncio");
+
+      }
+      
     }else {
       $_SESSION["MensajeError"] = "Ocurrio un error inesperado, vuelve a intentarlo";
       Redireccionar_A("anuncio_completo.php?id=$idAnuncio");
@@ -396,10 +429,10 @@ function validar_data_admin($username, $contrasena, $confirmar_contrasena) {
 
 //funcion para verificar la existencia del administrador
 function verificar_existencia_admin($username) {
-  global $ConexionDB;
-  $sql = "SELECT * FROM admins WHERE username=:username";
-  $stmt = $ConexionDB -> prepare($sql);
-  $stmt -> bindParam(":username", $username);
+  global $Conexionbbdd;
+  $sql = "SELECT * FROM usuario WHERE Nick=:Nick";
+  $stmt = $Conexionbbdd -> prepare($sql);
+  $stmt -> bindParam(":Nick", $username);
   $stmt -> execute();
   $resultado = $stmt -> rowCount();
   if($resultado == 1){
@@ -412,15 +445,20 @@ function verificar_existencia_admin($username) {
 }
 
 //funcion para insertar administrador en la bbdd
-function insertar_admin_bbdd($fechaActual, $username, $contrasena, $nombre, $Admin){
-    global $ConexionDB;
-    $sql = "INSERT INTO admins(datetime, username, contrasena, admin_name, creador) VALUES (:dateTime, :username, :contrasena, :admin_name, :creador)";
-    $stmt = $ConexionDB -> prepare($sql);
-    $stmt -> bindValue(':datetime', $fechaActual);
-    $stmt -> bindValue(':username', $username);
-    $stmt -> bindValue(':contrasena', $contrasena);
-    $stmt -> bindValue(':admin_name', $nombre);
-    $stmt -> bindValue(':creador', $Admin);
+function insertar_admin_bbdd($username,$nombre, $apellido,$rol,$correo,$clase, $nacimiento, $contrasena){
+    global $Conexionbbdd;
+    $sql = "INSERT INTO usuario(Nick, Nombre, Apellido, Rol, Activo, Contraseña, Correo, Fecha_naci, Clase) VALUES (:Nick, :Nombre, :Apellido, :Rol, :Activo, :Constrasena, :Correo, :Fecha_naci, :Clase)";
+    $stmt = $Conexionbbdd -> prepare($sql);
+    $stmt -> bindValue(":Nick", $username);
+    $stmt -> bindValue(":Nombre", $nombre);
+    $stmt -> bindValue(":Apellido", $apellido);
+    $stmt -> bindValue(":Rol", $rol);
+    $stmt -> bindValue(":Activo", 1);
+    $stmt -> bindValue(":Activo", 1);
+    $stmt -> bindValue(":Constrasena", $contrasena);
+    $stmt -> bindValue(":Correo", $correo);
+    $stmt -> bindValue(":Fecha_naci", $nacimiento);
+    $stmt -> bindValue(":Clase", $clase);
     $execute = $stmt -> execute();
     if($execute){
       $_SESSION["MensajeExito"] = "El Administrador $username se ha añadido Correctamente";
@@ -452,7 +490,6 @@ function insertar_admin_bbdd($fechaActual, $username, $contrasena, $nombre, $Adm
 
 
 
-
 //------------------------------------------------------------------//
 //------------------FUNCIONES PARA CATEGORIAS-----------------------//
 //------------------------------------------------------------------//
@@ -474,15 +511,12 @@ function comprobar_campos_categorias($categoria){
 }
 
 
-function insertar_categoria_bbdd($categoria, $Admin, $fechaActual){
-  global $ConexionDB;
-    $sql = "INSERT INTO categorias(titulo, autor, datetime) VALUES (:tituloCategoria, :nombreAdmin, :dateTime)";
-    $stmt = $ConexionDB -> prepare($sql);
+function insertar_categoria_bbdd($categoria){
+  global $Conexionbbdd;
+    $sql = "INSERT INTO categoria(Nombre) VALUES (:tituloCategoria)";
+    $stmt = $Conexionbbdd -> prepare($sql);
     $stmt -> bindValue(":tituloCategoria", $categoria);
-    $stmt -> bindValue(":nombreAdmin", $Admin);
-    $stmt -> bindValue(":dateTime", $fechaActual);
     $execute = $stmt -> execute();
-
     if($execute){
       $_SESSION["MensajeExito"] = "La categoria se ha añadido Correctamente";
       Redireccionar_A("categorias.php");
@@ -493,10 +527,19 @@ function insertar_categoria_bbdd($categoria, $Admin, $fechaActual){
 }
 
 function obtener_categorias(){
-  global $ConexionDB;
-  $sql = "SELECT * FROM categorias";
-  $stmt = $ConexionDB -> query($sql);
+  global $Conexionbbdd;
+  $sql = "SELECT * FROM categoria";
+  $stmt = $Conexionbbdd -> query($sql);
   return $stmt;
+}
+
+//obtener categoria por id anuncio
+function obtener_categoria_porid($id) {
+  global $Conexionbbdd;
+  $sql = "SELECT categoria from categoria_anuncio where Anuncio=$id";
+  $stmt = $Conexionbbdd -> query($sql);
+  $categoria = $stmt -> fetch();
+  return $categoria[0];
 }
 
 
@@ -506,6 +549,16 @@ function mostrar_anuncios_categoria() {
   $stmt = $ConexionDB -> prepare($sql);
   $stmt -> bindParam(":categoria", $_GET["categoria"]);
   $stmt -> execute();
+  return $stmt;
+}
+
+
+
+
+function obtener_clase(){
+  global $Conexionbbdd;
+  $sql = "SELECT * FROM clase";
+  $stmt = $Conexionbbdd -> query($sql);
   return $stmt;
 }
 
