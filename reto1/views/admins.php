@@ -82,15 +82,16 @@ if(isset($_POST["enviar"])){
         </div>
       </form>
       <!-- tabla y accion -->
-      <h2>Administradores Existentes</h2>
+      <h2 class="mb-3">Administradores Existentes</h2>
           <table class="table table-stripped table-hover">
             <thead class="table-dark">
               <tr>
                 <th>Nº</th>
-                <th>Fecha y hora</th>
-                <th>Username</th>
-                <th>Nombre</th>
-                <th>Aprobador por:</th>
+                <th>Nick</th>
+                <th>Nombre y Apellido</th>
+                <th>Rol</th>
+                <th>Clase</th>
+                <th>Correo</th>
                 <th>Accion</th>
               </tr>
             </thead>
@@ -98,21 +99,23 @@ if(isset($_POST["enviar"])){
           $stmt = obtener_administradores();
           $contador = 0;
           while ($fila = $stmt -> fetch()){
-            $id = $fila["id"];
-            $datetime = $fila["datetime"];
-            $username = $fila["username"];
-            $nombre = $fila["admin_name"];
-            $aprobadopor = $fila["creador"];
+            $Nick = $fila["Nick"];
+            $Nombre = $fila["Nombre"];
+            $Apellido = $fila["Apellido"];
+            $Rol = $fila["Rol"];
+            $Clase = $fila["Clase"];
+            $Correo = $fila["Correo"];
             $contador++;
           ?>
           <tbody>
             <tr>
               <td><?php echo $contador; ?></td>
-              <td><?php echo $datetime; ?></td>
-              <td><?php echo $username; ?></td>
-              <td><?php echo $nombre; ?></td>
-              <td><?php echo $aprobadopor; ?></td>
-              <td><a href="eliminar_admin.php?id=<?php echo $id; ?>" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a></td>
+              <td><?php echo $Nick; ?></td>
+              <td><?php echo "$Nombre $Apellido"; ?></td>
+              <td><?php echo $Rol; ?></td>
+              <td><?php echo $Clase; ?></td>
+              <td><?php echo $Correo; ?></td>
+              <td><a href="eliminar_admin.php?id=<?php echo $Nick; ?>" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a></td>
             </tr>
           </tbody>
           <?php } ?>

@@ -134,11 +134,30 @@ if(isset($_POST["Enviar"])){
         <!-- fin seccion principal -->
         <!-- inicio aside area -->
         <div class="col-sm-4" style="min-height: 40px; ">
-          <div class="card mt-4">
+          <div class="card mt-4 text-bg-light">
             <div class="card-body text-center">
-              <p>Unete y crea tu anuncio!</p>
-              <a class="btn btn-primary" href="">Iniciar Sesion</a>
-              <a class="btn btn-primary" href="">Crear Cuenta</a>
+              <p>Únete y crea tu anuncio!</p>
+              <br>
+              <a class="btn btn-primary" href="login.php">Iniciar Sesion</a>
+              <a class="btn btn-danger" href="login.php">Crear Cuenta</a>
+            </div>
+          </div>
+          <!-- tarjeta categorias -->
+          <div class="card my-5">
+            <div class="card-header text-bg-light text-center">
+              <h2 class="lead">Categorias</h2>
+              <div class="card-body">
+                <ul class="list-group">
+                <?php
+                $categorias = obtener_categorias();
+                while ($fila = $categorias -> fetch()){
+                  $id = $fila["id"];
+                  $categoria = $fila["titulo"];
+                  echo "<a href='anuncios_inicio.php?categoria=$categoria' class='list-group-item list-group-item-action'>$categoria</a>";
+                }
+                ?>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
