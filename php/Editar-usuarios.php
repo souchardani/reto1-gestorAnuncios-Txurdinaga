@@ -15,26 +15,26 @@
         <img src="../assets/img/FP-header.png" alt="logo" id="logo">
       </a>
     </div>
-  
+
     <div>
       <a href="Editar-usuarios.php">
         <img src="../assets/img/doffy.jpeg" alt="perfil" id="foto-perfil">
       </a>
     </div>
   </header>
-  
+
   <nav class="nav1">
     <ul>
-      <a id="li-inicio" href="index.php">
+      <a class="li-inicio" href="index.php">
         <li>Inicio</li>
       </a>
-      <a id="li-perfil" href="Editar-usuarios.php">
-        <li>Perfil</li>
+      <a class="li-anuncios" href="Anuncios.php">
+        <li>Anuncios</li>
       </a>
-      <a id="li-crear" href="Crear-anuncio.php">
+      <a class="li-crear" href="Crear-anuncio.php">
         <li>Crear anuncio</li>
       </a>
-      <li id="li-buscador">
+      <li class="li-buscador">
         <form id="buscador" action="" method="POST">
           <div>
             <input id="busqueda" type="search" name="busqueda" placeholder="Bilatu liburua..." value="">
@@ -47,51 +47,10 @@
     </ul>
   </nav>
 
-  <!-- NAV TEST -->
-    <!-- <nav style="background: cyan">
-      <div>
-        <ul>
-          <li>
-            <a href="Editar-usuarios.php" style="color: green;">
-              <i class="fa-solid fa-user text-success"></i> Mi Perfil</a>
-          </li>
-        </ul>
-        <ul>
-          <li>
-            <a href="anuncios_inicio.php">Inicio</a>
-          </li>
-          <li>
-            <a href="dashboard.php">Panel de Control</a>
-          </li>
-          <li>
-            <a href="detalles_anuncios.php">Anuncios</a>
-          </li>
-          <li>
-            <a href="categorias.php">Categorias</a>
-          </li>
-          <li>
-            <a href="admins.php">Gestionar Usuarios</a>
-          </li>
-          <li>
-            <a href="comentarios.php">Comentarios</a>
-          </li>
-          <li>
-            <a href="blog.php?page=1">Blog</a>
-          </li>
-        </ul>
-        <ul>
-          <li>
-            <a href="cerrar_sesion.php" style="color: red;">
-              <i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesion</a>
-          </li>
-        </ul>
-      </div>
-    </nav> -->
-
   <div class="caja-titulo">
     <h1>EDITAR USUARIO</h1>
   </div>
-  
+
   <main class="main-1">
     <h2>Información de tu perfil</h2>
     <form class="form-1">
@@ -124,33 +83,33 @@
 
   <footer>
     <div class="footer-col1">
-        <a href="index.php"><img id="footer-logo" src="../assets/img/FP-footer.png"></a>
-        <div id="datos1">C/ Doctor Ornilla 2</div>
-        <div id="datos2">48004 Bilbao</div>
-        <div id="datos3">Telefono: +34 94 412 57 12</div>
-        <div id="datos4">Email: idazkaria@fpTXurdinaga.com</div>
+      <a href="index.php"><img id="footer-logo" src="../assets/img/FP-footer.png"></a>
+      <div id="datos1">C/ Doctor Ornilla 2</div>
+      <div id="datos2">48004 Bilbao</div>
+      <div id="datos3">Telefono: +34 94 412 57 12</div>
+      <div id="datos4">Email: idazkaria@fpTXurdinaga.com</div>
     </div>
     <div class="footer-col2">
-        <div>
-            <img class="socials-img" src="../assets/img/insta.png" alt="insta">
-            <img class="socials-img" src="../assets/img/twitter.png" alt="twitter">
-            <img class="socials-img" src="../assets/img/linkedin.png" alt="LinkedIn">
-        </div>
-        <p id="datos5">POLÍTICA DE PRIVACIDAD</p>
-        <p id="datos6">COOKIES</p>
-        <p id="datos7">MAPA WEB</p>
-        <p id="datos8">CONTACTO</p>
+      <div>
+        <img class="socials-img" src="../assets/img/insta.png" alt="insta">
+        <img class="socials-img" src="../assets/img/twitter.png" alt="twitter">
+        <img class="socials-img" src="../assets/img/linkedin.png" alt="LinkedIn">
+      </div>
+      <p id="datos5">POLÍTICA DE PRIVACIDAD</p>
+      <p id="datos6">COOKIES</p>
+      <p id="datos7">MAPA WEB</p>
+      <p id="datos8">CONTACTO</p>
     </div>
     <div class="footer-col3">
-        <div class="logos-arriba">
-            <img src="../assets/img/48005.png" class="footer-emp-img">
-            <img src="../assets/img/48007.png" class="footer-emp-img">
-            <img src="../assets/img/Lanbide 1.png" class="footer-emp-img">
-        </div>
-        <div class="logos-abajo">
-            <img src="../assets/img/48006.png" class="footer-emp-img">
-            <img src="../assets/img/image 1.png" class="footer-emp-img">
-        </div>
+      <div class="logos-arriba">
+        <img src="../assets/img/48005.png" class="footer-emp-img">
+        <img src="../assets/img/48007.png" class="footer-emp-img">
+        <img src="../assets/img/Lanbide 1.png" class="footer-emp-img">
+      </div>
+      <div class="logos-abajo">
+        <img src="../assets/img/48006.png" class="footer-emp-img">
+        <img src="../assets/img/image 1.png" class="footer-emp-img">
+      </div>
     </div>
   </footer>
 </body>

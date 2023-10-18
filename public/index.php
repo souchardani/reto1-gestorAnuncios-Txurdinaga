@@ -19,18 +19,29 @@
     </div>
   
     <div>
-      <a href="//views/login.php">
+      <a>
         <img src="../assets/img/doffy.jpeg" alt="perfil" id="foto-perfil">
+        <!-- <p>
+          mi perfil
+          panel control (admin)
+          log out
+        </p> -->
       </a>
     </div>
   </header>
     
   <nav id="nav-links">
       <ul>
-        <a id="li-inicio" href="index.php"><li >Inicio</li></a>
-        <a id="li-perfil" href="Editar-usuarios.php"><li >Perfil</li></a>
-        <a id="li-crear" href="Crear-anuncio.php"><li >Crear anuncio</li></a>
-        <li id="li-buscador">
+        <a class="li-inicio" href="index.php">
+          <li>Inicio</li>
+        </a>
+        <a class="li-anuncios" href="Anuncios.php">
+          <li>Anuncios</li>
+        </a>
+        <a class="li-crear" href="Crear-anuncio.php">
+          <li>Crear anuncio</li>
+        </a>
+        <li class="li-buscador">
           <form id="buscador" action="" method="POST">
               <div>
                   <input id="busqueda" type="search" name="busqueda" placeholder="Bilatu liburua..." value="">
@@ -46,8 +57,8 @@
   <section id="home-hero">
     <div class="container flex">
       <div>
-        <h3 class="display-03">Descubre todas las Noticias y Anuncios de CIFP Txurdinaga</h3>
-        <p class="body-medium-400">Entérate de todas nuestras novedades!</p>
+        <h3 class="title-inicio">Descubre todas las Noticias y Anuncios de CIFP Txurdinaga</h3>
+        <p class="subtitle-inicio">Entérate de todas nuestras novedades!</p>
       </div>
       <div>
         <img src="../assets/img/FP-inicio.png" alt="logo-inicio"/>
@@ -57,136 +68,7 @@
 
   <section id="pagina-inicio">
     <div class="container">
-      <h2 class="display-03">Anuncios Recientes</h2>
-      <div class="columnas-anuncios flex">
-
-        <div class="anuncio">
-          <img class="img-anun" src="../assets/img/dates-icon.jpg" alt="" />
-          <div class="anuncio-body flex">
-            <div class="categoria-info flex">
-              <i class="ph ph-stack"></i>
-              <span class="body-small-400">Texto Categoría</span>
-            </div>
-            <h3 class="body-medium-600">Titulo del anuncio</h3>
-          </div>
-          <div class="anuncio-info flex">
-            <div class="anuncio-lugar flex">
-              <i class="ph ph-map-pin"></i>
-              <span class="body-small-400 anuncio-ubicacion"> Bilbao</span>
-            </div>
-            <span class="fecha">06/10/2023</span>
-          </div>
-        </div>
-
-        <div class="anuncio">
-          <img class="img-anun" src="../assets/img/dates-icon.jpg" alt="" />
-          <div class="anuncio-body flex">
-            <div class="categoria-info flex">
-              <i class="ph ph-stack"></i>
-              <span class="body-small-400">Texto Categoría</span>
-            </div>
-            <h3 class="body-medium-600">Titulo del anuncio</h3>
-          </div>
-          <div class="anuncio-info flex">
-            <div class="anuncio-lugar flex">
-              <i class="ph ph-map-pin"></i>
-              <span class="body-small-400 anuncio-ubicacion"> Bilbao</span>
-            </div>
-            <span class="fecha">06/10/2023</span>
-          </div>
-        </div>
-
-        <div class="anuncio">
-          <img class="img-anun" src="../assets/img/dates-icon.jpg" alt="" />
-          <div class="anuncio-body flex">
-            <div class="categoria-info flex">
-              <i class="ph ph-stack"></i>
-              <span class="body-small-400">Texto Categoría</span>
-            </div>
-            <h3 class="body-medium-600">Titulo del anuncio</h3>
-          </div>
-          <div class="anuncio-info flex">
-            <div class="anuncio-lugar flex">
-              <i class="ph ph-map-pin"></i>
-              <span class="body-small-400 anuncio-ubicacion"> Bilbao</span>
-            </div>
-            <span class="fecha">06/10/2023</span>
-          </div>
-        </div>
-
-        <div class="anuncio">
-          <img class="img-anun" src="../assets/img/dates-icon.jpg" alt="" />
-          <div class="anuncio-body flex">
-            <div class="categoria-info flex">
-              <i class="ph ph-stack"></i>
-              <span class="body-small-400">Texto Categoría</span>
-            </div>
-            <h3 class="body-medium-600">Titulo del anuncio</h3>
-          </div>
-          <div class="anuncio-info flex">
-            <div class="anuncio-lugar flex">
-              <i class="ph ph-map-pin"></i>
-              <span class="body-small-400 anuncio-ubicacion"> Bilbao</span>
-            </div>
-            <span class="fecha">06/10/2023</span>
-          </div>
-        </div>
-
-        <div class="anuncio">
-          <img class="img-anun" src="../assets/img/dates-icon.jpg" alt="" />
-          <div class="anuncio-body flex">
-            <div class="categoria-info flex">
-              <i class="ph ph-stack"></i>
-              <span class="body-small-400">Texto Categoría</span>
-            </div>
-            <h3 class="body-medium-600">Titulo del anuncio</h3>
-          </div>
-          <div class="anuncio-info flex">
-            <div class="anuncio-lugar flex">
-              <i class="ph ph-map-pin"></i>
-              <span class="body-small-400 anuncio-ubicacion"> Bilbao</span>
-            </div>
-            <span class="fecha">06/10/2023</span>
-          </div>
-        </div>
-
-        <div class="anuncio">
-          <img class="img-anun" src="../assets/img/dates-icon.jpg" alt="" />
-          <div class="anuncio-body flex">
-            <div class="categoria-info flex">
-              <i class="ph ph-stack"></i>
-              <span class="body-small-400">Texto Categoría</span>
-            </div>
-            <h3 class="body-medium-600">Titulo del anuncio</h3>
-          </div>
-          <div class="anuncio-info flex">
-            <div class="anuncio-lugar flex">
-              <i class="ph ph-map-pin"></i>
-              <span class="body-small-400 anuncio-ubicacion"> Bilbao</span>
-            </div>
-            <span class="fecha">06/10/2023</span>
-          </div>
-        </div>
-
-        <div class="anuncio">
-          <img class="img-anun" src="../assets/img/dates-icon.jpg" alt="" />
-          <div class="anuncio-body flex">
-            <div class="categoria-info flex">
-              <i class="ph ph-stack"></i>
-              <span class="body-small-400">Texto Categoría</span>
-            </div>
-            <h3 class="body-medium-600">Titulo del anuncio</h3>
-          </div>
-          <div class="anuncio-info flex">
-            <div class="anuncio-lugar flex">
-              <i class="ph ph-map-pin"></i>
-              <span class="body-small-400 anuncio-ubicacion"> Bilbao</span>
-            </div>
-            <span class="fecha">06/10/2023</span>
-          </div>
-        </div>
-        
-      </div>
+      <h2 class="title-inicio">CARRUSEL</h2>
     </div>
   </section>
 

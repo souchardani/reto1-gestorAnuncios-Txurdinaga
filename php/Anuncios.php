@@ -27,16 +27,16 @@
     
     <nav>
         <ul>
-            <a id="li-inicio" href="index.php">
+            <a class="li-inicio" href="index.php">
                 <li>Inicio</li>
             </a>
-            <a id="li-perfil" href="Editar-usuarios.php">
-                <li>Perfil</li>
+            <a class="li-anuncios" href="Anuncios.php">
+                <li>Anuncios</li>
             </a>
-            <a id="li-crear" href="Crear-anuncio.php">
+            <a class="li-crear" href="Crear-anuncio.php">
                 <li>Crear anuncio</li>
             </a>
-            <li id="li-buscador">
+            <li class="li-buscador">
                 <form id="buscador" action="" method="POST">
                     <div>
                         <input id="busqueda" type="search" name="busqueda" placeholder="Bilatu liburua..." value="">
@@ -77,115 +77,115 @@
         </div>
 
         <h2>Deportes</h2>
-        <div class="columnas-anuncios-2 flex">
-            <div class="anuncio-2">
+        <div class="columnas-anuncios flex">
+            <div class="anuncio">
                 <img class="img-anun" src="../assets/img/dates-icon.jpg" alt="" />
-                <div class="anuncio-body-2 flex">
-                    <div class="categoria-info-2 flex">
+                <div class="anuncio-body flex">
+                    <div class="categoria-info flex">
                         <i class="ph ph-stack"></i>
                         <span class="body-small-400">Texto Categoría</span>
                     </div>
                     <h3>Titulo del anuncio</h3>
                 </div>
-                <div class="anuncio-info-2 flex">
-                    <div class="anuncio-lugar-2 flex">
+                <div class="anuncio-info flex">
+                    <div class="anuncio-lugar flex">
                         <i class="ph ph-map-pin"></i>
-                        <span class="anuncio-ubicacion-2"> Bilbao</span>
+                        <span class="anuncio-ubicacion"> Bilbao</span>
                     </div>
-                    <span class="fecha-2">06/10/2023</span>
+                    <span class="fecha">06/10/2023</span>
                 </div>
             </div>
 
-            <div class="anuncio-2">
+            <div class="anuncio">
                 <img class="img-anun" src="../assets/img/dates-icon.jpg" alt="" />
-                <div class="anuncio-body-2 flex">
-                    <div class="categoria-info-2 flex">
+                <div class="anuncio-body flex">
+                    <div class="categoria-info flex">
                         <i class="ph ph-stack"></i>
                         <span class="body-small-400">Texto Categoría</span>
                     </div>
                     <h3>Titulo del anuncio</h3>
                 </div>
-                <div class="anuncio-info-2 flex">
-                    <div class="anuncio-lugar-2 flex">
+                <div class="anuncio-info flex">
+                    <div class="anuncio-lugar flex">
                         <i class="ph ph-map-pin"></i>
-                        <span class="anuncio-ubicacion-2"> Bilbao</span>
+                        <span class="anuncio-ubicacion"> Bilbao</span>
                     </div>
-                    <span class="fecha-2">06/10/2023</span>
+                    <span class="fecha">06/10/2023</span>
                 </div>
             </div>
 
-            <div class="anuncio-2">
+            <div class="anuncio">
                 <img class="img-anun" src="../assets/img/dates-icon.jpg" alt="" />
-                <div class="anuncio-body-2 flex">
-                    <div class="categoria-info-2 flex">
+                <div class="anuncio-body flex">
+                    <div class="categoria-info flex">
                         <i class="ph ph-stack"></i>
                         <span class="body-small-400">Texto Categoría</span>
                     </div>
                     <h3>Titulo del anuncio</h3>
                 </div>
-                <div class="anuncio-info-2 flex">
-                    <div class="anuncio-lugar-2 flex">
+                <div class="anuncio-info flex">
+                    <div class="anuncio-lugar flex">
                         <i class="ph ph-map-pin"></i>
-                        <span class="anuncio-ubicacion-2"> Bilbao</span>
+                        <span class="anuncio-ubicacion"> Bilbao</span>
                     </div>
-                    <span class="fecha-2">06/10/2023</span>
+                    <span class="fecha">06/10/2023</span>
                 </div>
             </div>
 
         </div>
         <h2>Música</h2>
-        <div class="columnas-anuncios-2 flex">
-            <div class="anuncio-2">
+        <div class="columnas-anuncios flex">
+            <div class="anuncio">
                 <img class="img-anun" src="../assets/img/dates-icon.jpg" alt="" />
-                <div class="anuncio-body-2 flex">
-                    <div class="categoria-info-2 flex">
+                <div class="anuncio-body flex">
+                    <div class="categoria-info flex">
                         <i class="ph ph-stack"></i>
                         <span class="body-small-400">Texto Categoría</span>
                     </div>
                     <h3>Titulo del anuncio</h3>
                 </div>
-                <div class="anuncio-info-2 flex">
-                    <div class="anuncio-lugar-2 flex">
+                <div class="anuncio-info flex">
+                    <div class="anuncio-lugar flex">
                         <i class="ph ph-map-pin"></i>
-                        <span class="anuncio-ubicacion-2"> Bilbao</span>
+                        <span class="anuncio-ubicacion"> Bilbao</span>
                     </div>
-                    <span class="fecha-2">06/10/2023</span>
+                    <span class="fecha">06/10/2023</span>
                 </div>
             </div>
 
-            <div class="anuncio-2">
+            <div class="anuncio">
                 <img class="img-anun" src="../assets/img/dates-icon.jpg" alt="" />
-                <div class="anuncio-body-2 flex">
-                    <div class="categoria-info-2 flex">
+                <div class="anuncio-body flex">
+                    <div class="categoria-info flex">
                         <i class="ph ph-stack"></i>
                         <span class="body-small-400">Texto Categoría</span>
                     </div>
                     <h3>Titulo del anuncio</h3>
                 </div>
-                <div class="anuncio-info-2 flex">
-                    <div class="anuncio-lugar-2 flex">
+                <div class="anuncio-info flex">
+                    <div class="anuncio-lugar flex">
                         <i class="ph ph-map-pin"></i>
-                        <span class="anuncio-ubicacion-2"> Bilbao</span>
+                        <span class="anuncio-ubicacion"> Bilbao</span>
                     </div>
-                    <span class="fecha-2">06/10/2023</span>
+                    <span class="fecha">06/10/2023</span>
                 </div>
             </div>
 
-            <div class="anuncio-2">
+            <div class="anuncio">
                 <img class="img-anun" src="../assets/img/dates-icon.jpg" alt="" />
-                <div class="anuncio-body-2 flex">
-                    <div class="categoria-info-2 flex">
+                <div class="anuncio-body flex">
+                    <div class="categoria-info flex">
                         <i class="ph ph-stack"></i>
                         <span class="body-small-400">Texto Categoría</span>
                     </div>
                     <h3>Titulo del anuncio</h3>
                 </div>
-                <div class="anuncio-info-2 flex">
-                    <div class="anuncio-lugar-2 flex">
+                <div class="anuncio-info flex">
+                    <div class="anuncio-lugar flex">
                         <i class="ph ph-map-pin"></i>
-                        <span class="anuncio-ubicacion-2"> Bilbao</span>
+                        <span class="anuncio-ubicacion"> Bilbao</span>
                     </div>
-                    <span class="fecha-2">06/10/2023</span>
+                    <span class="fecha">06/10/2023</span>
                 </div>
             </div>
 

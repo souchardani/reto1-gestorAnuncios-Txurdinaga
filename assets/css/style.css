@@ -28,150 +28,6 @@ body, ul {
     margin-inline: auto;
 }
 
-/* --- Tipografía --- */
-.uppercase {
-    text-transform: uppercase;
-}
-
-/* --- Fuentes --- */
-.display-01 {
-    font-size: 5rem;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 120%;
-    margin: 0;
-}
-
-.display-02 {
-    font-size: 4.5rem;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 120%;
-    margin: 0;
-}
-
-.display-03 {
-    font-size: 3.5rem;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 120%;
-    margin: 0;
-}
-
-.heading-01 {
-    font-size: 2.5rem;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 3rem;
-    margin: 0;
-}
-
-.heading-02 {
-    font-size: 2rem;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 2.5rem;
-    margin: 0;
-}
-
-.heading-03 {
-    font-size: 1.5rem;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 2rem;
-    margin: 0;
-}
-
-.button-text {
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 3.125rem;
-    text-transform: capitalize;
-    margin: 0;
-}
-
-.caption-400 {
-    font-size: 0.875rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 100%;
-    letter-spacing: 0.07rem;
-    text-transform: uppercase;
-}
-
-.caption-600 {
-    font-size: 0.875rem;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 100%;
-    letter-spacing: 0.07rem;
-    text-transform: uppercase;
-}
-
-.body-xl {
-    font-size: 1.5rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 2.25rem;
-}
-
-.body-large-400 {
-    font-size: 1.25rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 2rem;
-}
-
-.body-large-600 {
-    font-size: 1.25rem;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 2rem;
-}
-
-.body-medium-400 {
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1.5rem;
-}
-
-.body-medium-600 {
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 1.5rem;
-}
-
-.body-small-400 {
-    font-size: 0.875rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1.25rem;
-}
-
-.body-small-600 {
-    font-size: 0.875rem;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 1.25rem;
-}
-
-.body-tiny-400 {
-    font-size: 0.75rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1rem;
-}
-
-.body-small-600 {
-    font-size: 0.75rem;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 1rem;
-}
-
 .caja-titulo {
     width: 100%;
     padding-top: 25px;
@@ -180,6 +36,11 @@ body, ul {
     color: white;
     font-size: 12px;
     text-align: center;
+}
+
+/* --- Tipografía --- */
+.uppercase {
+    text-transform: uppercase;
 }
 
 /* Estilo del fieldset de los formularios */
@@ -245,19 +106,19 @@ nav li {
     width: 100%;
 }
 
-#li-inicio {
+.li-inicio {
 	background-color: #63b32e;
 } 
 
-#li-perfil {
+.li-anuncios {
 	background-color: #1AA3BF;
 }
 
-#li-crear {
+.li-crear {
 	background-color: #FCC204;
 }
 
-#li-buscador {
+.li-buscador {
 	background-color: #ec612b;
 }
 
@@ -299,76 +160,18 @@ nav li {
     width: 200px;
 }
 
-/* Anuncios */
-#pagina-inicio {
-    font-family: var(--ff-nunito);
-    font-size: var(0.875rem);
-    min-height: 100%;
-    text-align: center;
-    padding: 40px 80px;
+.title-inicio {
+    font-size: 3.5rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+    margin: 0;
 }
-  
-.columnas-anuncios {
-    margin: 80px 0;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 25px;
-    justify-content: center;
-}
-.anuncio {
-    background-color: white;
-    border-radius: 8px;
-    overflow: hidden;
-    width: 300px;
-    box-shadow: var(--shadow-before);
-    transition: var(--transition);
-    cursor: pointer;
-}
-.categoria-info {
-    justify-content: flex-start;
-    color: #767e94;
-    gap: 8px;
-    align-items: center;
-}
-.anuncio-body {
-    border-bottom: 2px solid #767e94;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 10px 20px;
-    gap: 10px;
-    overflow: hidden;
-}
-.anuncio-info {
-  justify-content: space-between;
-  padding: 16px 20px;
-  align-items: center;
-}
-
-.anuncio-info i {
-  color: #27c200;
-}
-
-.anuncio-ubicacion {
-  color: #767e94;
-}
-
-.anuncio-info .fecha {
-  color: #ff4f4f;
-}
-
-.anuncio:hover {
-  transform: scale(1.02);
-  box-shadow: var(--shadow-hover);
-}
-
-.anuncio-lugar {
-  justify-content: center;
-  gap: 6px;
-}
-.img-anun {
-    max-width: 100%;
-    object-fit: cover;
+.subtitle-inicio {
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5rem;
 }
 
 /* EDITAR USUARIOS */
@@ -566,14 +369,14 @@ nav li {
 }
 
 /* Anuncios */
-.columnas-anuncios-2 {
+.columnas-anuncios {
     margin: 80px 0;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 25px;
     justify-content: center;
 }
-.anuncio-2 {
+.anuncio {
     background-color: white;
     border-radius: 8px;
     overflow: hidden;
@@ -582,13 +385,13 @@ nav li {
     transition: var(--transition);
     cursor: pointer;
 }
-.categoria-info-2 {
+.categoria-info {
     justify-content: flex-start;
     color: #767e94;
     gap: 8px;
     align-items: center;
 }
-.anuncio-body-2 {
+.anuncio-body {
     border-bottom: 2px solid #767e94;
     flex-direction: column;
     justify-content: center;
@@ -597,30 +400,30 @@ nav li {
     gap: 10px;
     overflow: hidden;
 }
-.anuncio-info-2 {
+.anuncio-info {
   justify-content: space-between;
   padding: 16px 20px;
   align-items: center;
 }
 
-.anuncio-info-2 i {
+.anuncio-info i {
   color: #27c200;
 }
 
-.anuncio-ubicacion-2 {
+.anuncio-ubicacion {
   color: #767e94;
 }
 
-.anuncio-info-2 .fecha-2 {
+.anuncio-info .fecha {
   color: #ff4f4f;
 }
 
-.anuncio-2:hover {
+.anuncio:hover {
   transform: scale(1.02);
   box-shadow: var(--shadow-hover);
 }
 
-.anuncio-lugar-2 {
+.anuncio-lugar {
   justify-content: center;
   gap: 6px;
 }
@@ -755,6 +558,7 @@ footer {
 
 
 /* RESPONSIVE */
+/* Media query Movil */
 @media screen and (max-width: 500px) {
     /* Estilo de Tablas de Mis Anuncios y Perfil Administrador */
     table {
@@ -780,35 +584,18 @@ footer {
     #home-hero img {
         width: 100px;
     }
-    .body-medium-400 {
-        font-size: 14px;
-        font-style: normal;
-        font-weight: 200;
-        line-height: 1.5rem;
-    }
-    .display-03 {
+    .title-inicio {
         font-size: 2rem;
         font-style: normal;
         font-weight: 700;
         line-height: 120%;
         margin: 0;
     }
-
-    .anuncio {
-        width: 200px;
-    }
-    .anuncio-info {
-        display: block;
-    }
-    .body-small-400 {
-        font-size: 0.80rem;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 1.25rem;
-    }
-    .anuncio-info .fecha {
+    .subtitle-inicio {
         font-size: 14px;
-        color: #ff4f4f;
+        font-style: normal;
+        font-weight: 200;
+        line-height: 1.5rem;
     }
 
     /* EDITAR USUARIOS */
@@ -933,23 +720,23 @@ footer {
     }
 
     /* Anuncios */
-    .anuncio-2 {
+    .anuncio {
         width: 200px;
     }
-    .anuncio-info-2 {
+    .anuncio-info {
         display: block;
     }
 
-    .anuncio-info-2 i {
+    .anuncio-info i {
         color: #27c200;
     }
 
-    .anuncio-ubicacion-2 {
+    .anuncio-ubicacion {
         font-size: 0.80rem;
         color: #767e94;
     }
 
-    .anuncio-info-2 .fecha-2 {
+    .anuncio-info .fecha {
         font-size: 14px;
         color: #ff4f4f;
     }
