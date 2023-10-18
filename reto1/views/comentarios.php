@@ -32,9 +32,8 @@ confirmar_login();
             <thead class="table-dark">
               <tr>
                 <th>Nº</th>
-                <th>Nombre</th>
-                <th>Fecha y hora</th>
-                <th>Comentario</th>
+                <th>Autor</th>
+                <th>Texto</th>
                 <th>Aprobar</th>
                 <th>Eliminar</th>
                 <th>Detalles</th>
@@ -45,21 +44,19 @@ confirmar_login();
           $contador = 0;
           while ($fila = $execute -> fetch()){
             $id = $fila["id"];
-            $datetime = $fila["datetime"];
-            $nombre = $fila["nombre"];
-            $cuerpo = $fila["cuerpo"];
-            $id_anuncio = $fila["id_anuncio"];
+            $autor = $fila["Autor"];
+            $idAnuncio = $fila["Anuncio"];
+            $texto = $fila["Texto"];
             $contador++;
           ?>
           <tbody>
             <tr>
               <td><?php echo $contador; ?></td>
-              <td><?php echo $nombre; ?></td>
-              <td><?php echo $datetime; ?></td>
-              <td><?php echo $cuerpo; ?></td>
+              <td><?php echo $autor; ?></td>
+              <td><?php echo $texto; ?></td>
               <td><a href="aprobarcomentario.php?id=<?php echo $id; ?>" class="btn btn-success"><i class="fa-solid fa-check"></i></a></td>
               <td><a href="eliminarcomentario.php?id=<?php echo $id; ?>" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a></td>
-              <td><a href="anuncio_completo.php?id=<?php echo $id_anuncio ?>" class="btn btn-primary" target="_blank">Ver Anuncio</a></td>
+              <td><a href="anuncio_completo.php?id=<?php echo $idAnuncio ?>" class="btn btn-primary" target="_blank">Ver Anuncio</a></td>
             </tr>
           </tbody>
           <?php } ?>
@@ -69,11 +66,10 @@ confirmar_login();
           <table class="table table-stripped table-hover">
             <thead class="table-dark">
               <tr>
-                <th>Nº</th>
-                <th>Nombre</th>
-                <th>Fecha y hora</th>
-                <th>Comentario</th>
-                <th>Desaprobar</th>
+              <th>Nº</th>
+                <th>Autor</th>
+                <th>Texto</th>
+                <th>Aprobar</th>
                 <th>Eliminar</th>
                 <th>Detalles</th>
               </tr>
@@ -83,21 +79,19 @@ confirmar_login();
           $contador = 0;
           while ($fila = $execute -> fetch()){
             $id = $fila["id"];
-            $datetime = $fila["datetime"];
-            $nombre = $fila["nombre"];
-            $cuerpo = $fila["cuerpo"];
-            $id_anuncio = $fila["id_anuncio"];
+            $autor = $fila["Autor"];
+            $idAnuncio = $fila["Anuncio"];
+            $texto = $fila["Texto"];
             $contador++;
           ?>
           <tbody>
             <tr>
               <td><?php echo $contador; ?></td>
-              <td><?php echo $nombre; ?></td>
-              <td><?php echo $datetime; ?></td>
-              <td><?php echo $cuerpo; ?></td>
+              <td><?php echo $autor; ?></td>
+              <td><?php echo $texto; ?></td>
               <td><a href="desaprobarcomentario.php?id=<?php echo $id; ?>" class="btn btn-warning"><i class="fa-solid fa-x"></i></a></td>
               <td><a href="eliminarcomentario.php?id=<?php echo $id; ?>" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a></td>
-              <td><a href="anuncio_completo.php?id=<?php echo $id_anuncio ?>" class="btn btn-primary" target="_blank">Ver Anuncio</a></td>
+              <td><a href="anuncio_completo.php?id=<?php echo $idAnuncio ?>" class="btn btn-primary" target="_blank">Ver Anuncio</a></td>
             </tr>
           </tbody>
           <?php } ?>

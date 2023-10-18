@@ -367,17 +367,17 @@ function insertar_comentario_bbdd($nombre, $cuerpo,$validado, $idAnuncio){
 
 
   function obtener_comentario_poranuncio($idAnuncio){
-    global $ConexionDB;
-    $sql = "SELECT * FROM comentarios WHERE id_anuncio=$idAnuncio AND publicado='SI'";
-    $stmt = $ConexionDB->query($sql);
+    global $Conexionbbdd;
+    $sql = "SELECT * FROM comentario WHERE Anuncio=$idAnuncio AND Validado=1";
+    $stmt = $Conexionbbdd->query($sql);
     return $stmt;
   }
 
 
   function obtener_comentarios_noaprobados(){
-    global $ConexionDB;
-    $sql = "SELECT * FROM comentarios WHERE publicado='NO' ORDER BY id DESC";
-    $execute = $ConexionDB->query($sql);
+    global $Conexionbbdd;
+    $sql = "SELECT * FROM comentario WHERE Validado=0 ORDER BY id DESC";
+    $execute = $Conexionbbdd->query($sql);
     return $execute;
   }
 
@@ -390,17 +390,17 @@ function insertar_comentario_bbdd($nombre, $cuerpo,$validado, $idAnuncio){
   }
 
   function obtener_comentarios_aprobados_porid($id){
-    global $ConexionDB;
-    $sql = "SELECT COUNT(*) FROM comentarios WHERE publicado='SI' AND id_anuncio=$id";
-    $execute = $ConexionDB->query($sql);
+    global $Conexionbbdd;
+    $sql = "SELECT COUNT(*) FROM comentario WHERE Validado=1 AND Anuncio=$id";
+    $execute = $Conexionbbdd->query($sql);
     $n_anuncios = $execute -> fetch();
     return $n_anuncios[0];
   }
 
   function obtener_comentarios_aprobados(){
-    global $ConexionDB;
-    $sql = "SELECT * FROM comentarios WHERE publicado='SI' ORDER BY id DESC";
-    $execute = $ConexionDB->query($sql);
+    global $Conexionbbdd;
+    $sql = "SELECT * FROM comentario WHERE Validado=1 ORDER BY id DESC";
+    $execute = $Conexionbbdd->query($sql);
     return $execute;
   }
 

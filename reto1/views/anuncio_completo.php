@@ -90,18 +90,16 @@ if(isset($_POST["Enviar"])){
         <?php
         $stmt = obtener_comentario_poranuncio($idAnuncio);
         while($fila = $stmt->fetch()){
-          $datetime = $fila["datetime"];
-          $nombre = $fila["nombre"];
-          $cuerpo = $fila["cuerpo"];
+          $autor = $fila["Autor"];
+          $texto = $fila["Texto"];
         ?>
         <!-- fin de obtener comentarios existentes -->
         <div>
           <div class="media bloque-comentario">
             <img class="img-fluid" src="../assets/img/avatar.svg" width="80px" alt="">
             <div class="media-body m-2">
-              <h6 class="lead"><?php echo $nombre ?></h6>
-              <p class="small"><?php echo $datetime ?></p>
-              <p><?php echo $cuerpo ?></p>
+              <h6 class="lead mb-3"><?php echo $autor ?></h6>
+              <p><?php echo $texto ?></p>
             </div>
           </div>
         </div>
