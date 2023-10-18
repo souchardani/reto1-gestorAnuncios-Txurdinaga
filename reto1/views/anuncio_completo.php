@@ -7,11 +7,14 @@
 comprobar_variable_url('id', "anuncios_inicio.php");
 //obtenemos el id del anuncion para usarlo en toda la pagina
 $idAnuncio = $_GET['id']; 
-if ($_SESSION["tipoUsuario_global"] == "Administrador") {
-  $validado = 1;
-}else {
-  $validado = 0;
+if(isset($_SESSION["tipoUsuario_global"])) {
+  if ($_SESSION["tipoUsuario_global"] == "Administrador") {
+    $validado = 1;
+  }else {
+    $validado = 0;
+  }
 }
+
 ?>
 <!-- codigo para insertar el comentario en la bbdd -->
 <?php
@@ -111,6 +114,9 @@ if(isset($_POST["Enviar"])){
             <div class="card-header">
               <h5 class="FieldInfo">Añade un Comentario:</h5>
             </div>
+            <?php 
+              if (isset($_SESSION["tipoUsuario_global"])){
+            ?>
             <div class="card-body">
               <div class="form-group mb-3">
               </div>
@@ -119,7 +125,13 @@ if(isset($_POST["Enviar"])){
               </div>
               <button type="submit" name="Enviar" class="btn btn-primary">Enviar Comentario</button>
             </div>
+            <?php }
+            else {
+              echo "<div class='card-body'><p class='lead'>Inicia sesion para comentar</p></div>";
+            } 
+            ?>
           </div>
+          
         </form>
         </div>
 

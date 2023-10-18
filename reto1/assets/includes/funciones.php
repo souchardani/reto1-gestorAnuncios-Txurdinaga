@@ -255,16 +255,15 @@ function editar_anuncio_bbdd($tituloAnuncio, $categoria, $imagen, $descripcionAn
 
 //funcion para mostrar los anuncios por el boton de busqueda de inicio
 function mostrar_anuncios_busqueda(){
-    global $ConexionDB;
+    global $Conexionbbdd;
     $busqueda = $_GET["buscador"];
     $busqueda = "%".$busqueda."%";
-    $sql = "SELECT * from anuncios WHERE 
-    datetime LIKE :busqueda 
-    or titulo LIKE :busqueda 
-    or categoria LIKE :busqueda 
-    or autor LIKE :busqueda 
-    or descripcion LIKE :busqueda";
-    $stmt = $ConexionDB->prepare($sql);
+    $sql = "SELECT * from anuncio WHERE 
+    Título LIKE :busqueda 
+    or Autor LIKE :busqueda 
+    or Fecha_publi LIKE :busqueda 
+    or Descripción LIKE :busqueda";
+    $stmt = $Conexionbbdd->prepare($sql);
     $stmt -> bindParam(":busqueda", $busqueda);
     $stmt -> execute();
     return $stmt;
