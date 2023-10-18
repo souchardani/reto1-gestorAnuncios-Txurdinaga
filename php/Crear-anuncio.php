@@ -83,7 +83,7 @@
           </select><br><br>
 
         <label>Descripción: </label><br>
-        <textarea name="des" id="" cols="80" rows="5" placeholder="Escribe la descripción"></textarea>
+        <textarea name="des" id="des" cols="80" rows="5" placeholder="Escribe la descripción"></textarea>
       </fieldset>
         
       <fieldset>

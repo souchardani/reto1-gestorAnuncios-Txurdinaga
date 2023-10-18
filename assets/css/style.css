@@ -411,8 +411,15 @@ nav li {
     color: white;
 }
 
-/* PERFIL ADMINISTRADOR */
+/* PERFIL ADMINISTRADOR Y MIS ANUNCIOS */
 .main-2 {
+    text-align: center;
+    width: 100%;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    background-color: rgb(200, 200, 220);
+}
+.main-5 {
     text-align: center;
     width: 100%;
     padding-top: 25px;
@@ -514,34 +521,6 @@ nav li {
     width: 100px;
     background-color: rgb(20, 170, 20);
     color: white;
-}
-
-/* MIS ANUNCIOS */
-.main-5 {
-    text-align: center;
-    width: 100%;
-    padding-top: 25px;
-    padding-bottom: 25px;
-    background-color: rgb(200, 200, 220);
-}
-.buscador {
-    padding: 0;
-    margin: 0;
-    justify-content: center;
-    display: flex;
-    gap: 10%;
-}
-.anu {
-    width: 250px;
-}
-.fec {
-    width: 150px;
-}
-.est {
-    width: 150px;
-}
-.acc {
-    width: 150px;
 }
 
 /* ANUNCIOS */
@@ -776,14 +755,67 @@ footer {
 
 
 /* RESPONSIVE */
-@media screen and (max-width: 900px) {
-    .main-1{
-        background-color: #1AA3BF;
+@media screen and (max-width: 500px) {
+    /* Estilo de Tablas de Mis Anuncios y Perfil Administrador */
+    table {
+        padding-top: 20px;
+        display: inline-block;
+        justify-content: center;
     }
-    .caja-titulo{
+    th, td {
+        border: 1px solid orange;
+    }
+    th {
+        background-color: orange;
+        color: white;
+        height: 20px;
+    }
+    .caja-titulo {
         font-size: 10px;
     }
-    .main-1 h2{
+    /* INICIO */
+    #home-hero .container {
+        flex-direction: column;
+    }
+    #home-hero img {
+        width: 100px;
+    }
+    .body-medium-400 {
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 200;
+        line-height: 1.5rem;
+    }
+    .display-03 {
+        font-size: 2rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 120%;
+        margin: 0;
+    }
+
+    .anuncio {
+        width: 200px;
+    }
+    .anuncio-info {
+        display: block;
+    }
+    .body-small-400 {
+        font-size: 0.80rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1.25rem;
+    }
+    .anuncio-info .fecha {
+        font-size: 14px;
+        color: #ff4f4f;
+    }
+
+    /* EDITAR USUARIOS */
+    .main-1 {
+        background-color: #1AA3BF;
+    }
+    .main-1 h2 {
         font-size: 18px;
     }
     /* Tamaño de Campos de texto */
@@ -805,6 +837,121 @@ footer {
         width: 80px;
         background-color: dodgerblue;
         color: white;
+    }
+    
+    /* PERFIL ADMINISTRADOR Y MIS ANUNCIOS */
+    .buscador {
+        display: block;
+    }
+    .anu {
+        width: 200px;
+    }
+    .fec {
+        width: 100px;
+    }
+    .est {
+        width: 100px;
+    }
+    .acc {
+        width: 100px;
+    }
+
+    /* CREAR ANUNCIO */
+    .form-3 {
+        display: inline-block;
+        text-align: center;
+        width: 60%;
+    }
+    .categ-box {
+        float: none;
+        margin-right: 0px;
+        margin-bottom: 10px;
+    }
+    .anun-button {
+        text-align: center;
+    }
+    /* Tamaño de Campos de texto */
+    #categ,
+    #sub-categ {
+        width: 200px;
+    }
+    #nombre-anun {
+        width: 200px;
+    }
+    #des {
+        width: 200px;
+    }
+    #cancel {
+        height: 30px;
+        width: 100px;
+    }
+    #public {
+        height: 30px;
+        width: 100px;
+    }
+
+    /* ANUNCIO PENDIENTE */
+    .main-4 {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+    .form-4 {
+        width: 60%;
+        font-size: 16px;
+    }
+    .img-check {
+        width: 100px;
+        height: 100px;
+    }
+    #ver-anun {
+        height: 40px;
+    }
+
+    /* ANUNCIOS */
+    /* Info */
+    .columna-info {
+        margin: 40px 0;
+        gap: 20px;
+    }
+    .anun-info-text h1 {
+        font-size: 26px;
+    }
+    .anun-info-text p {
+        font-size: 15px;
+    }
+    .publicados {
+        gap: 20px;
+        padding: 15px;
+    }
+    .pendientes {
+        gap: 20px;
+        padding: 15px;
+    }
+    .img-info {
+        width: 60px;
+        height: 60px;
+    }
+
+    /* Anuncios */
+    .anuncio-2 {
+        width: 200px;
+    }
+    .anuncio-info-2 {
+        display: block;
+    }
+
+    .anuncio-info-2 i {
+        color: #27c200;
+    }
+
+    .anuncio-ubicacion-2 {
+        font-size: 0.80rem;
+        color: #767e94;
+    }
+
+    .anuncio-info-2 .fecha-2 {
+        font-size: 14px;
+        color: #ff4f4f;
     }
     /* HEADER */
     nav li {
