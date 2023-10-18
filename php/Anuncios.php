@@ -17,14 +17,17 @@
                 <img src="../assets/img/FP-header.png" alt="logo" id="logo">
             </a>
         </div>
-    
-        <div>
-            <a href="Editar-usuarios.php">
-                <img src="../assets/img/doffy.jpeg" alt="perfil" id="foto-perfil">
-            </a>
+
+        <div class="dropdown">
+            <button id="menu" onclick="menu()"><img src="../assets/img/doffy.jpeg" alt="perfil" id="foto-perfil"></button>
+            <div class="dropdown-content">
+                <a href="Editar-usuarios.php" class="button">Mi Perfil</a>
+                <a href="Perfil-administrador.php" class="button">Panel Control (Admin)</a>
+                <a href="//public//index.php" class="button">Log Out</a>
+            </div>
         </div>
     </header>
-    
+
     <nav>
         <ul>
             <a class="li-inicio" href="index.php">
@@ -42,8 +45,7 @@
                         <input id="busqueda" type="search" name="busqueda" placeholder="Bilatu liburua..." value="">
                     </div>
                     <div>
-                        <button id="buscar" type="submit"><img class="search-img" src="../assets/img/search.png"
-                                alt=""></button>
+                        <button id="buscar" type="submit"><img class="search-img" src="../assets/img/search.png" alt=""></button>
                     </div>
                 </form>
             </li>
