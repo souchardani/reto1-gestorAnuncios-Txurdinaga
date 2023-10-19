@@ -69,29 +69,31 @@
             $imagen = $fila["Imagen"];
             $descripcion = $fila["Descripción"];
         ?>
-          <div class="anuncio">
-            <img src="assets/img_subidas/anuncios/<?php echo $imagen?>" alt="" />
-            <div class="anuncio-body flex">
-              <div class="categoria-info flex body-medium-400">
-                <i class="ph ph-stack"></i>
-                <span><?php echo $categoria?></span>
+          <div onclick="location.href='views/anuncio_completo.php?id=<?php echo $id ?>'">
+            <div class="anuncio">
+              <img src="assets/img_subidas/anuncios/<?php echo $imagen?>" alt="" />
+              <div class="anuncio-body flex">
+                <div class="categoria-info flex body-medium-400">
+                  <i class="ph ph-stack"></i>
+                  <span><?php echo $categoria?></span>
+                </div>
+                <h3 class="body-large-400">
+                  <?php
+                    strlen($titulo)>30 ? $titulo=substr($titulo,0,30)."..." :  $titulo; 
+                    echo $titulo
+                  ?>
+                </h3>
               </div>
-              <h3 class="body-large-400">
-                <?php
-                  strlen($titulo)>30 ? $titulo=substr($titulo,0,30)."..." :  $titulo; 
-                  echo $titulo
-                ?>
-              </h3>
-            </div>
-            <div class="anuncio-info flex">
-              <div class="anuncio-lugar flex">
-                <?php
-                  $comentariossi = obtener_comentarios_aprobados_porid($id);
-                ?>
-                <i class="ph ph-chat-circle-dots"></i>
-                <span class="body-small-400 anuncio-ubicacion"> <?php echo $comentariossi ?></span>
+              <div class="anuncio-info flex">
+                <div class="anuncio-lugar flex">
+                  <?php
+                    $comentariossi = obtener_comentarios_aprobados_porid($id);
+                  ?>
+                  <i class="ph ph-chat-circle-dots"></i>
+                  <span class="body-small-400 anuncio-ubicacion"> <?php echo $comentariossi ?></span>
+                </div>
+                <span class="fecha"><?php echo $datetime ?></span>
               </div>
-              <span class="fecha"><?php echo $datetime ?></span>
             </div>
           </div>
           <?php } ?>

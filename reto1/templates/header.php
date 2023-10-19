@@ -1,6 +1,6 @@
 <header>
   <div>
-    <a href="#">
+    <a href="../index.php">
       <img src="../assets/img/logo txurdinaga principal.png" alt="" id="logo">
     </a>
   </div>
