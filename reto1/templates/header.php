@@ -16,7 +16,7 @@
   <ul>
     <li id="li-inicio"><a href="../public/index.php">Inicio</a></li>
     <li id="li-perfil"><a href="/reto1/views/anuncios_inicio.php">Anuncios</a></li>
-    <li id="li-crear"><a href="/reto1/views/anadir_anuncio.php">Añadir anuncio</a></li>
+    <li id="li-crear"><a href="/reto1/views/anadir_anuncio.php"><i class="fas fa-edit"></i> Añadir anuncio</a></li>
     <li id="li-buscador">
       <form id="buscador" action="" method="POST">
         <input id="busqueda" type="search" name="busqueda" placeholder="Buscar anuncio..." value="">

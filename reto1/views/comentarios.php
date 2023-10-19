@@ -36,7 +36,7 @@ confirmar_admin();
                 <th>Nº</th>
                 <th>Autor</th>
                 <th>Texto</th>
-                <th>Aprobar</th>
+                <th>Desaprobar</th>
                 <th>Eliminar</th>
                 <th>Detalles</th>
               </tr>

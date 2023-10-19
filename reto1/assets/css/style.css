@@ -325,7 +325,8 @@ header {
 .anuncio {
   border-radius: 8px;
   overflow: hidden;
-  max-width: 400px;
+  width: 400px;
+  height: 450px;
   box-shadow: var(--shadow-before);
   transition: var(--transition);
   cursor: pointer;
@@ -333,7 +334,7 @@ header {
 
 .anuncio img {
   width: 100%;
-  max-height: 300px;
+  height: 300px;
   object-fit: cover;
 }
 

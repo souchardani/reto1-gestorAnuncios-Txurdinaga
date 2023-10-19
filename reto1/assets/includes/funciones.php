@@ -135,6 +135,25 @@ function obtener_paginacion(){
   return $paginacion;
 }
 
+function obtener_validaciones_pendientes() {
+  global $Conexionbbdd;
+  $sql = "SELECT COUNT(*) FROM comentario WHERE Validado=0";
+  $comentarios = $Conexionbbdd -> query($sql);
+  $comentarios = $comentarios -> fetch();
+
+  $validaciones = array("comentarios" => $comentarios[0]);
+  $sql = "SELECT COUNT(*) FROM anuncio WHERE Aceptado=0";
+  $anuncios = $Conexionbbdd -> query($sql);
+  $anuncios = $anuncios -> fetch();
+  $validaciones["anuncios"] = $anuncios[0];
+  $sql = "SELECT COUNT(*) FROM usuario WHERE Activo=0";
+  $usuarios = $Conexionbbdd -> query($sql);
+  $usuario = $usuarios -> fetch();
+  $validaciones["usuarios"] = $usuario[0];
+  return $validaciones;
+}
+              
+
 
 
 
@@ -173,15 +192,17 @@ function insertar_anuncio_bbdd($tituloAnuncio, $Autor, $Aceptado, $Fecha_publi, 
     $stmt -> bindValue(":Descripcion", $descripcionAnuncio);
     $stmt -> bindValue(":Imagen", $imagen);
     $execute = $stmt -> execute();
-    echo "llega hasta aqui";
     if($execute){
       //insertar en la tabla categoria anuncio
       insertar_categoria_poranuncio($categoria);
       //guardar la imagen en la carpeta de imagenes
        move_uploaded_file($_FILES["imagen"]["tmp_name"], $UbicacionImagen);
-       $_SESSION["MensajeExito"] = "El Anuncio se ha añadido Correctamente";
+       if ($Aceptado == 1) {
+        $_SESSION["MensajeExito"] = "El Anuncio se ha añadido Correctamente, y ha sido validado";
+       }else {
+        $_SESSION["MensajeExito"] = "El Anuncio se ha añadido Correctamente, Espera a que sea validado por un administrador";
+       }
        Redireccionar_A("anadir_anuncio.php");
-       //insertar la categoria
       
     }else {
       $_SESSION["MensajeError"] = "Ocurrio un error inesperado al insertar, vuelve a intentarlo";
@@ -255,10 +276,18 @@ function mostrar_anuncios_busqueda(){
 //funcion para mostrar todos los anuncios
 function mostrar_todos_anuncios(){
   global $Conexionbbdd;
-  $sql = "SELECT * FROM anuncio ORDER BY id desc";
+  $sql = "SELECT * FROM anuncio WHERE Aceptado=1 ORDER BY id desc";
   $stmt = $Conexionbbdd->query($sql);
   return $stmt;
 }
+
+function mostrar_todos_anuncios_novalidado() {
+  global $Conexionbbdd;
+  $sql = "SELECT * FROM anuncio WHERE Aceptado=0 ORDER BY id desc";
+  $stmt = $Conexionbbdd->query($sql);
+  return $stmt;
+}
+
 
 
 //funcion para mostrar los anuncios pasado por la url
@@ -275,6 +304,8 @@ function mostrar_anuncio_url($idAnuncio) {
 function eliminar_anuncio_bbdd($idAnuncio, $imagen_ant){
   //primero eliminamos anuncios de la tabla catgoria_anuncio
   eliminar_categoria_anuncio($idAnuncio);
+  //eliminamos los comentarios del anuncio
+  eliminar_comentarios_anuncio($idAnuncio);
   global $Conexionbbdd;
   $sql = "DELETE FROM anuncio WHERE id='$idAnuncio'";
   $execute =$Conexionbbdd -> query($sql);
@@ -289,6 +320,14 @@ function eliminar_anuncio_bbdd($idAnuncio, $imagen_ant){
     $_SESSION["MensajeError"] = "Ocurrio un error inesperado al eliminar, vuelve a intentarlo";
     Redireccionar_A("detalles_anuncios.php");
   }
+}
+
+
+function eliminar_comentarios_anuncio($idAnuncio) {
+  global $Conexionbbdd;
+  $sql = "DELETE FROM comentario WHERE Anuncio='$idAnuncio'";
+  $execute =$Conexionbbdd -> query($sql);
+  return $execute;
 }
 
 
@@ -478,11 +517,7 @@ function insertar_user_bbdd($username,$nombre, $apellido,$rol,$correo,$clase, $n
     $stmt -> bindParam(":Nick", $_SESSION["usuario_global"]);
     $stmt -> bindParam(":Rol", $admin);
     $stmt -> execute();
-    echo $sql;
-    echo $_SESSION["usuario_global"];
-    echo $_SESSION["tipoUsuario_global"];
     $resultado = $stmt -> rowCount();
-    echo $resultado;
     if($resultado == 0){
       $_SESSION["MensajeError"] = "Debes ser administrador para poder acceder a esta pagina";
       Redireccionar_A("anuncios_inicio.php");
