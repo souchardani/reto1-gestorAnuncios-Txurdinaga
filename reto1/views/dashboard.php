@@ -187,7 +187,7 @@ $datos = obtener_datos_dashboard();
                 if($contadores["comentarios"]>0) {
                   echo "<span class='badge text-bg-danger'>". $contadores["comentarios"] . "</span>";
                   }else {
-                    echo $contadores["comentarios"];
+                    echo "<span class='badge text-bg-success'>". $contadores["usuarios"] . "</span>";
                   }
                 ?></td>
                 <td><a class="btn btn-warning" href="comentarios.php">Validar <i class="fas fa-check"></i></a></td>
@@ -198,7 +198,7 @@ $datos = obtener_datos_dashboard();
                   if($contadores["anuncios"]>0) {
                     echo "<span class='badge text-bg-danger'>". $contadores["anuncios"] . "</span>";
                     }else {
-                      echo $contadores["anuncios"];
+                      echo "<span class='badge text-bg-success'>". $contadores["usuarios"] . "</span>";
                     }
                  ?></td>
                 <td><a class="btn btn-warning" href="detalles_anuncios.php">Validar <i class="fas fa-check"></i></a></td>
@@ -209,7 +209,7 @@ $datos = obtener_datos_dashboard();
                  if($contadores["usuarios"]>0) {
                   echo "<span class='badge text-bg-danger'>". $contadores["usuarios"] . "</span>";
                   }else {
-                    echo $contadores["usuarios"];
+                    echo "<span class='badge text-bg-success'>". $contadores["usuarios"] . "</span>";
                   }
                  ?></td>
                 <td><a class="btn btn-warning" href="validar_users.php">Validar <i class="fas fa-check"></i></a></td>
