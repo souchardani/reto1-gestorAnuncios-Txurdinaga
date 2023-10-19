@@ -12,7 +12,7 @@
 <body>
   <header>
     <div>
-      <a href="index.php">
+      <a href="../index.php.php">
         <img src="../assets/img/FP-header.png" alt="logo" id="logo">
       </a>
     </div>
@@ -22,14 +22,14 @@
         <div id="dropdown-content">
             <a href="Editar-usuarios.php">Mi Perfil</a>
             <a href="Perfil-administrador.php">Panel Control (Admin)</a>
-            <a href="//public//index.php">Log Out</a>
+            <a href="../index.php.php">Log Out</a>
         </div>
     </div>
   </header>
 
   <nav>
     <ul>
-      <a class="li-inicio" href="index.php">
+      <a class="li-inicio" href="../index.php.php">
         <li>Inicio</li>
       </a>
       <a class="li-anuncios" href="Anuncios.php">
@@ -91,7 +91,7 @@
 
   <footer>
     <div class="footer-col1">
-      <a href="index.php"><img id="footer-logo" src="../assets/img/FP-footer.png"></a>
+      <a href="../index.php.php"><img id="footer-logo" src="../assets/img/FP-footer.png"></a>
       <div id="datos1">C/ Doctor Ornilla 2</div>
       <div id="datos2">48004 Bilbao</div>
       <div id="datos3">Telefono: +34 94 412 57 12</div>
