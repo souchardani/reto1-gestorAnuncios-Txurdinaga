@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="../assets/css/style.css" />
+  <script src="../assets/js/app.js"></script>
   <title>Inicio</title>
   <!-- LIBRERÍA DE ICONOS -->
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
@@ -17,16 +18,14 @@
         <img src="../assets/img/FP-header.png" alt="logo" id="logo">
       </a>
     </div>
-  
+
     <div>
-      <a>
-        <img src="../assets/img/doffy.jpeg" alt="perfil" id="foto-perfil">
-        <!-- <p>
-          mi perfil
-          panel control (admin)
-          log out
-        </p> -->
-      </a>
+        <img onclick="menu()" src="../assets/img/doffy.jpeg" alt="perfil" id="foto-perfil">
+        <div id="dropdown-content">
+            <a href="Editar-usuarios.php">Mi Perfil</a>
+            <a href="Perfil-administrador.php">Panel Control (Admin)</a>
+            <a href="//public//index.php">Log Out</a>
+        </div>
     </div>
   </header>
     
