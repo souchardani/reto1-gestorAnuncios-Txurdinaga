@@ -1,7 +1,7 @@
-<?php require_once("assets/includes/DB.php"); ?>
-<?php require_once("assets/includes/funciones.php"); ?>
-<?php require_once("assets/includes/sesiones.php"); ?>
-
+<!-- requerimos al menos una vez la coneccion a la base de datos, a funciones y sesiones -->
+<?php require_once("../assets/includes/DB.php"); ?>
+<?php require_once("../assets/includes/funciones.php"); ?>
+<?php require_once("../assets/includes/sesiones.php"); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,8 +9,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gestor de Anuncios - cifp Txurdinaga</title>
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <link rel="stylesheet" href="assets/css/header.css" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" href="../assets/css/header.css" />
 
     <!-- LIBRERIA DE ICONOS -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
@@ -22,16 +22,16 @@
   </head>
   <body>
     <!-- incluimos el header -->
-    <?php include("templates/headerindex.php"); ?>
+    <?php include("../templates/header.php"); ?>
     <section id="home-hero">
       <div class="container flex">
         <div class="left">
           <h3 class="display-03 flex">
             Descubre todas las Noticias y Anuncios de cifp Txurdinaga
           </h3>
-          <p class="body-large-400">Enterate de todas nuestras novedades!</p>
+          <p class="body-large-400">Entérate de todas nuestras novedades!</p>
         </div>
-        <img src="assets/img/logocuadro.png" alt="" />
+        <img src="../assets/img/logocuadro.png" alt="" />
       </div>
     </section>
     <section id="pagina-inicio">
@@ -69,9 +69,9 @@
             $imagen = $fila["Imagen"];
             $descripcion = $fila["Descripción"];
         ?>
-          <div onclick="location.href='views/anuncio_completo.php?id=<?php echo $id ?>'">
+          <div onclick="location.href='../views/anuncio_completo.php?id=<?php echo $id ?>'">
             <div class="anuncio">
-              <img src="assets/img_subidas/anuncios/<?php echo $imagen?>" alt="" />
+              <img src="../assets/img_subidas/anuncios/<?php echo $imagen?>" alt="" />
               <div class="anuncio-body flex">
                 <div class="categoria-info flex body-medium-400">
                   <i class="ph ph-stack"></i>
@@ -101,7 +101,7 @@
       </div>
     </section>
     <footer>
-      <?php include("templates/footerindex.php"); ?>
+      <?php include("../templates/footer.php"); ?>
     </footer>
   </body>
 </html>

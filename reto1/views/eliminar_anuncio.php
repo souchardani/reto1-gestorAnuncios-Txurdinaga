@@ -13,7 +13,7 @@ $idAnuncio = $_GET["id"];
 confirmar_login();
 
 //si el usuario no es admin, lo redirigimos al inicio
-
+confirmar_admin();
 
  //obtener los datos del anuncio seleccionado
  

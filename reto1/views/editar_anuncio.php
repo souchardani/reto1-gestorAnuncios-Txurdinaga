@@ -23,6 +23,7 @@ if(isset($_POST["enviar"])){
   $Admin = "Daniel";
   date_default_timezone_set("Europe/Madrid");
   $fechaActual = date("Y-m-d H:i:s"); 
+  
 
     //validaciones previas
     $validado = validar_data_anuncio($tituloAnuncio, $descripcionAnuncio);

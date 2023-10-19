@@ -17,7 +17,8 @@ if(isset($_POST["enviar"])){
   $descripcionAnuncio = $_POST["DescripcionAnuncio"];
   $Autor = $_SESSION["usuario_global"];
   date_default_timezone_set("Europe/Madrid");
-  $Fecha_publi = date("Y-m-d"); 
+  $Fecha_publi = date("Y-m-d");
+  //validamos que el usuario sea administrador 
   if ($_SESSION["tipoUsuario_global"] == "Administrador"){
     $Aceptado = 1;
   }else {

@@ -3,6 +3,8 @@
 <?php require_once("../assets/includes/funciones.php"); ?>
 <?php require_once("../assets/includes/sesiones.php"); ?>
 <?php
+confirmar_admin();
+
 comprobar_variable_url("id", "comentarios.php");
 $id_comentario = $_GET["id"];
 $usuario = $_SESSION["usuario_global"];

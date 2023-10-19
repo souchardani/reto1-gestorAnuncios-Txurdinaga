@@ -4,7 +4,7 @@
 <?php require_once("../assets/includes/sesiones.php"); ?>
 <?php
 $_SESSION["guardarURL"] = $_SERVER["PHP_SELF"]; //utilizamos esto para guardar el nombre de la pagina actual 
-//verificamos que el usuario este logueado como administrador
+//verificamos que el usuario este logueado
 confirmar_login();
 $user = $_SESSION["usuario_global"];
 $username = $_SESSION["usuarionombre_global"];

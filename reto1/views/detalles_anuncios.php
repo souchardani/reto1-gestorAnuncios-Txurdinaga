@@ -7,6 +7,7 @@
 $_SESSION["guardarURL"] = $_SERVER["PHP_SELF"]; //utilizamos esto para guardar el nombre de la pagina actual 
 //verificamos que el usuario este logueado como administrador
 confirmar_login();
+confirmar_admin();
 ?>
 
 

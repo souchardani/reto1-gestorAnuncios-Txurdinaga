@@ -38,10 +38,15 @@ function inicio_sesion($usuario, $password){
     $_SESSION["usuarionombre_global"] =  $fila["Nombre"];
     $_SESSION["tipoUsuario_global"] =  $fila["Rol"];
     $_SESSION["MensajeExito"] = "Bienvenid@ de nuevo ". $fila["Nick"];
-    if (isset($_SESSION["guardarURL"])) {
-      Redireccionar_A($_SESSION["guardarURL"]);
+    if ($fila["Rol"] == "Administrador") {
+      if (isset($_SESSION["guardarURL"])) {
+        Redireccionar_A($_SESSION["guardarURL"]);
+      }else {
+        Redireccionar_A("detalles_anuncios.php");
+      }
+      //si es un usuario normal
     }else {
-      Redireccionar_A("detalles_anuncios.php");
+      Redireccionar_A("dashboarduser.php");
     }
   }else {
     $_SESSION["MensajeError"] = "El usuario o la contraseña son incorrectos";
@@ -396,16 +401,16 @@ function insertar_comentario_bbdd($nombre, $cuerpo,$validado, $idAnuncio){
 //------------------FUNCIONES PARA USUARIOS-------------------------//
 //------------------------------------------------------------------//
 //funcion para validar los datos del administrador
-function validar_data_admin($username, $contrasena, $confirmar_contrasena) {
+function validar_data_user($username, $contrasena, $confirmar_contrasena) {
   if(empty($username) || empty($contrasena) || empty($confirmar_contrasena)){
     $_SESSION["MensajeError"] = "Debes Completar todos los campos";
-    Redireccionar_A("admins.php");
+    Redireccionar_A("users.php");
   }else if(strlen($contrasena)<=4){
     $_SESSION["MensajeError"] = "La contraseña debe tener mas de 4 caracteres";
-    Redireccionar_A("admins.php");
+    Redireccionar_A("users.php");
   }else if($contrasena !== $confirmar_contrasena){
     $_SESSION["MensajeError"] = "Las contraseñas no coinciden";
-    Redireccionar_A("admins.php");
+    Redireccionar_A("users.php");
   }else {
     return true;
   }
@@ -413,7 +418,7 @@ function validar_data_admin($username, $contrasena, $confirmar_contrasena) {
 
 
 //funcion para verificar la existencia del administrador
-function verificar_existencia_admin($username) {
+function verificar_existencia_user($username) {
   global $Conexionbbdd;
   $sql = "SELECT * FROM usuario WHERE Nick=:Nick";
   $stmt = $Conexionbbdd -> prepare($sql);
@@ -422,7 +427,7 @@ function verificar_existencia_admin($username) {
   $resultado = $stmt -> rowCount();
   if($resultado == 1){
     $_SESSION["MensajeError"] = "El nombre de usuario ya existe, prueba con otro";
-    Redireccionar_A("admins.php");
+    Redireccionar_A("users.php");
     return false;
   }else {
     return true;
@@ -430,7 +435,7 @@ function verificar_existencia_admin($username) {
 }
 
 //funcion para insertar administrador en la bbdd
-function insertar_admin_bbdd($username,$nombre, $apellido,$rol,$correo,$clase, $nacimiento, $contrasena){
+function insertar_user_bbdd($username,$nombre, $apellido,$rol,$correo,$clase, $nacimiento, $contrasena){
     global $Conexionbbdd;
     $sql = "INSERT INTO usuario(Nick, Nombre, Apellido, Rol, Activo, Contraseña, Correo, Fecha_naci, Clase) VALUES (:Nick, :Nombre, :Apellido, :Rol, :Activo, :Constrasena, :Correo, :Fecha_naci, :Clase)";
     $stmt = $Conexionbbdd -> prepare($sql);
@@ -446,11 +451,11 @@ function insertar_admin_bbdd($username,$nombre, $apellido,$rol,$correo,$clase, $
     $stmt -> bindValue(":Clase", $clase);
     $execute = $stmt -> execute();
     if($execute){
-      $_SESSION["MensajeExito"] = "El Administrador $username se ha añadido Correctamente";
-      Redireccionar_A("admins.php");
+      $_SESSION["MensajeExito"] = "El Usuario $username se ha añadido Correctamente";
+      Redireccionar_A("users.php");
     }else {
       $_SESSION["MensajeError"] = "Ocurrio un error inesperado al insertar, vuelve a intentarlo";
-      Redireccionar_A("admins.php");
+      Redireccionar_A("users.php");
     }
   }
 
@@ -461,6 +466,29 @@ function insertar_admin_bbdd($username,$nombre, $apellido,$rol,$correo,$clase, $
     $sql = "SELECT * FROM usuario ORDER BY Nick desc";
     $stmt = $Conexionbbdd -> query($sql);
     return $stmt;
+  }
+
+
+  //funcion para confirmar si un usuario es administrador
+  function confirmar_admin() {
+    global $Conexionbbdd;
+    $sql = "SELECT * FROM usuario WHERE Nick=:Nick AND Rol=:Rol";
+    $stmt = $Conexionbbdd -> prepare($sql);
+    $admin = "Administrador";
+    $stmt -> bindParam(":Nick", $_SESSION["usuario_global"]);
+    $stmt -> bindParam(":Rol", $admin);
+    $stmt -> execute();
+    echo $sql;
+    echo $_SESSION["usuario_global"];
+    echo $_SESSION["tipoUsuario_global"];
+    $resultado = $stmt -> rowCount();
+    echo $resultado;
+    if($resultado == 0){
+      $_SESSION["MensajeError"] = "Debes ser administrador para poder acceder a esta pagina";
+      Redireccionar_A("anuncios_inicio.php");
+    }else {
+      return;
+    }
   }
 
 

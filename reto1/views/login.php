@@ -4,7 +4,15 @@
 <?php require_once("../assets/includes/sesiones.php"); ?>
 <?php
 //verificamos que el usuario no este logueado, si lo esta, no mostramos el login
-isset($_SESSION["usuario_global"]) ? Redireccionar_A("detalles_anuncios.php") : null;
+if (isset($_SESSION["usuario_global"])) {
+  if($_SESSION["tipoUsuario_global"] == "Administrador"){
+    Redireccionar_A("detalles_anuncios.php");
+  }else {
+    Redireccionar_A("anuncios_inicio.php");
+  }
+  Redireccionar_A("detalles_anuncios.php");
+}
+
 
 
 

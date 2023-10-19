@@ -5,7 +5,7 @@
 comprobar_variable_url("id", "comentarios.php");
 $id = $_GET["id"];
 
-
+confirmar_admin();
 //operacion sql
 global $Conexionbbdd;
 $consulta = "DELETE from comentario WHERE id = $id";

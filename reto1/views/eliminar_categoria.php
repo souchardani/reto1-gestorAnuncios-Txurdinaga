@@ -5,7 +5,7 @@
 comprobar_variable_url("id", "categorias.php");
 $id_categoria = $_GET["id"];
 
-
+confirmar_admin();
 //operacion sql
 global $Conexionbbdd;
 $consulta = "DELETE from categoria WHERE Nombre = '$id_categoria'";

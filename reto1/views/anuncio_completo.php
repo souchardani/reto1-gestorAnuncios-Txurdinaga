@@ -8,6 +8,7 @@ comprobar_variable_url('id', "anuncios_inicio.php");
 //obtenemos el id del anuncion para usarlo en toda la pagina
 $idAnuncio = $_GET['id']; 
 //echo $_SESSION["tipoUsuario_global"];
+//validamos que el usuario sea administrador para insertar directamente el comentario
 if(isset($_SESSION["tipoUsuario_global"])) {
   if ($_SESSION["tipoUsuario_global"] == "Administrador") {
     $validado = 1;

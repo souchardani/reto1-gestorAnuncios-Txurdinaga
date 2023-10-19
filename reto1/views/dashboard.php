@@ -5,9 +5,10 @@
 
 <?php
 $_SESSION["guardarURL"] = $_SERVER["PHP_SELF"]; //utilizamos esto para guardar el nombre de la pagina actual 
-//verificamos que el usuario este logueado como administrador
+//verificamos que el usuario este logueado
 confirmar_login();
-
+//verificamos que el usuario sea administrador
+confirmar_admin();
 //obtenemos los datos del panel aside del dashboard 
 $datos = obtener_datos_dashboard();
 
@@ -42,9 +43,9 @@ $datos = obtener_datos_dashboard();
             </a>
           </div>
           <div class="col-lg-3 mb-2">
-            <a href="admins.php" class="btn btn-warning btn-block w-100">
+            <a href="users.php" class="btn btn-warning btn-block w-100">
               <i class="fas fa-user-plus"></i>
-                Añadir Administrador
+                Añadir Usuario
             </a>
           </div>
           <!-- <div class="col-lg-3">

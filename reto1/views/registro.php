@@ -7,7 +7,7 @@
 <html lang="en">
   <head>
   <?php require_once("../templates/head.php"); ?>
-    <title>Iniciar Sesion</title>
+    <title>Crear Cuenta</title>
   </head>
   <body>
     <!-- HEADER -->

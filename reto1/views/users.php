@@ -7,6 +7,8 @@
 $_SESSION["guardarURL"] = $_SERVER["PHP_SELF"]; //utilizamos esto para guardar el nombre de la pagina actual 
 //verificamos que el usuario este logueado como administrador
 confirmar_login();
+//verificamos que el usuario sea administrador
+confirmar_admin();
 //si pulsamos el boton de enviar, insertamos administrador en la bbdd
 if(isset($_POST["enviar"])){
   $username = $_POST["username"];
@@ -19,11 +21,11 @@ if(isset($_POST["enviar"])){
   $contrasena = $_POST["password"];
   $confirmar_contrasena = $_POST["confirmar_password"];
   echo $nacimiento;
-  $validar_data = validar_data_admin($username, $contrasena, $confirmar_contrasena);
-  $verificar_existencia = verificar_existencia_admin($username);
+  $validar_data = validar_data_user($username, $contrasena, $confirmar_contrasena);
+  $verificar_existencia = verificar_existencia_user($username);
   if($validar_data & $verificar_existencia){
     //si validamos los campos y verificamos que no existe, insertar el administrador en la bbdd
-    insertar_admin_bbdd($username,$nombre, $apellido,$rol,$correo,$clase, $nacimiento, $contrasena);
+    insertar_user_bbdd($username,$nombre, $apellido,$rol,$correo,$clase, $nacimiento, $contrasena);
   }
 }
 ?>
@@ -49,7 +51,7 @@ if(isset($_POST["enviar"])){
       echo MensajeError();
       echo MensajeExito();
        ?>
-      <form class="" action="admins.php" method="post">
+      <form class="" action="users.php" method="post">
         <div class="card text-bg-secondary mb-3">
           <div class="card-header" style="background-color: #BA007B;">
             <h1>Añadir Nuevo Usuario</h1>

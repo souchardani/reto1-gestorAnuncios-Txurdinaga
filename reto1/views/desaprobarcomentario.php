@@ -2,6 +2,9 @@
 <?php require_once("../assets/includes/funciones.php"); ?>
 <?php require_once("../assets/includes/sesiones.php"); ?>
 <?php
+//verificamos que el usuario este logueado como administrador
+confirmar_login();
+
 comprobar_variable_url("id", "comentarios.php");
 $id_comentario = $_GET["id"];
 
