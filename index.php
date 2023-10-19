@@ -11,7 +11,7 @@
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
 
-<body>
+<body onload="init()">
   <header>
     <div>
       <a href="index.php">
@@ -67,9 +67,8 @@
 
   <section id="pagina-inicio">
     <div class="container">
-      <h2 class="title-inicio">CARRUSEL</h2>
+      <section id="carrusel" class="componente"></section>
     </div>
-  </section>
 
   <footer>
     <div class="footer-col1">
