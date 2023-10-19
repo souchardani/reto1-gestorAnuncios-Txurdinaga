@@ -20,7 +20,7 @@ $datos = obtener_datos_dashboard();
   </head>
   <body>
     <!-- NAVBAR -->
-    <?php include("../templates/navbaradmin.php"); ?>
+    <?php include("../templates/header.php"); ?>
     <!-- NAVBAR END -->
     <!-- HEADER -->
     <header class="text-bg-light py-3">
@@ -120,10 +120,11 @@ $datos = obtener_datos_dashboard();
                 <tr>
                   <th>Nº</th>
                   <th>Titulo</th>
-                  <th>Fecha y Hora</th>
+                  <th>Categoria</th>
+                  <th>Fecha</th>
                   <th>Autor</th>
                   <th>Comentarios</th>
-                  <th>Detalles</th>
+                  <th>Vista Previa</th>
                 </tr>
               </thead>
               <!-- obtenemos los ultimos 5 anuncios -->
@@ -132,15 +133,18 @@ $datos = obtener_datos_dashboard();
               $contador = 0;
               while($fila = $stmt -> fetch()){
                 $id = $fila["id"];
-                $titulo = $fila["titulo"];
-                $datetime = $fila["datetime"];
-                $autor = $fila["autor"];
+                $datetime = $fila["Fecha_publi"];
+                $titulo = $fila["Título"];
+                $categoria =obtener_categoria_porid($id);
+                $autor = $fila["Autor"];
+                $descripcion = $fila["Descripción"];
                 $contador++;
               ?>
               <tbody>
                 <tr>
                   <td><?php echo $contador; ?></td>
                   <td><?php echo $titulo; ?></td>
+                  <td><?php echo $categoria; ?></td>
                   <td><?php echo $datetime; ?></td>
                   <td><?php echo $autor; ?></td>
                   <td>

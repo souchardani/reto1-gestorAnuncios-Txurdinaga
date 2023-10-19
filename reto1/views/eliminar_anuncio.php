@@ -24,10 +24,10 @@ confirmar_login();
    Redireccionar_A("detalles_anuncios.php");
  }else {
  while($fila = $stmt -> fetch()){
-   $titulo_ant = $fila["titulo"];
-   $categoria_ant = $fila["categoria"];
-   $imagen_ant = $fila["imagen"];
-   $descripcion_ant = $fila["descripcion"];
+   $titulo_ant = $fila["Título"];
+   $categoria_ant = obtener_categoria_porid($idAnuncio);
+   $imagen_ant = $fila["Imagen"];
+   $descripcion_ant = $fila["Descripción"];
  } 
 }
 
@@ -76,7 +76,7 @@ if(isset($_POST["enviar"])){
             </div>
             <div class="form-group mb-5">
             <span class="FieldInfo">Imagen:</span>
-            <img class="mb-1" src="../assets/img_subidas/<?php echo $imagen_ant?>" width="170px" height="70px" alt="">
+            <img class="mb-1" src="../assets/img_subidas/anuncios/<?php echo $imagen_ant?>" width="170px" height="70px" alt="">
               <br>
             </div>
             <div class="form-group mb-5">

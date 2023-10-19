@@ -35,7 +35,7 @@ if(isset($_POST["enviar"])){
   </head>
   <body>
     <!-- NAVBAR -->
-    <?php include("../templates/navbaradmin.php"); ?>
+    <?php include("../templates/header.php"); ?>
     <!-- NAVBAR END -->
     <!-- HEADER -->
     <div id="dynamicHeader"></div>
@@ -131,7 +131,7 @@ if(isset($_POST["enviar"])){
               </tr>
             </thead>
           <?php
-          $stmt = obtener_administradores();
+          $stmt = obtener_usuarios();
           $contador = 0;
           while ($fila = $stmt -> fetch()){
             $Nick = $fila["Nick"];

@@ -7,6 +7,7 @@
 comprobar_variable_url('id', "anuncios_inicio.php");
 //obtenemos el id del anuncion para usarlo en toda la pagina
 $idAnuncio = $_GET['id']; 
+//echo $_SESSION["tipoUsuario_global"];
 if(isset($_SESSION["tipoUsuario_global"])) {
   if ($_SESSION["tipoUsuario_global"] == "Administrador") {
     $validado = 1;
@@ -23,7 +24,6 @@ if(isset($_POST["Enviar"])){
   $nombre = $_SESSION["usuario_global"];
   //validar_nombre_comentario(); //verificar si el nombre del comentario esta en la bbdd
   $cuerpo = $_POST["cuerpoComentario"];
-  $validado =  
   $comprobar_campos = verificar_campos_comentario($nombre, $cuerpo, $idAnuncio);
   //si esta correcto, insertar comentario en la bbdd
   if ($comprobar_campos){
@@ -40,7 +40,7 @@ if(isset($_POST["Enviar"])){
   <body>
   
     <!-- NAVBAR -->
-    <?php include("../templates/headerbasic.php"); ?>
+    <?php include("../templates/header.php"); ?>
     <!-- NAVBAR END -->
     <!-- HEADER -->
     <div class="container">

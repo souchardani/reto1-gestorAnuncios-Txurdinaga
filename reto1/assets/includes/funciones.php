@@ -23,31 +23,7 @@ function comprobar_variable_url($variable_url, $ubicacion){
   }
 }
 
-// //funcion para comprobar si el username y password existen en la bbdd
-// function inicio_sesion($usuario, $password){
-//   global $ConexionDB;
-//   $sql = "SELECT * FROM admins WHERE BINARY username=:usuario AND BINARY contrasena=:password LIMIT 1";
-//   $Stmt = $ConexionDB -> prepare($sql);
-//   $Stmt -> bindValue(":usuario", $usuario);
-//   $Stmt -> bindValue(":password", $password);
-//   $Stmt -> execute();
-//   $resultado = $Stmt -> rowCount(); 
-//   if($resultado == 1){
-//     $fila = $Stmt->fetch();
-//     $_SESSION["usuarioid_global"] = $fila["id"];
-//     $_SESSION["usuario_global"] =  $fila["username"];
-//     $_SESSION["usuarionombre_global"] =  $fila["nombre"];
-//     $_SESSION["MensajeExito"] = "Bienvenido de nuevo ". $fila["username"];
-//     if (isset($_SESSION["guardarURL"])) {
-//       Redireccionar_A($_SESSION["guardarURL"]);
-//     }else {
-//       Redireccionar_A("detalles_anuncios.php");
-//     }
-//   }else {
-//     $_SESSION["MensajeError"] = "El usuario o la contraseña son incorrectos";
-//     Redireccionar_A("login.php");
-//   }
-// }
+
 function inicio_sesion($usuario, $password){
   global $Conexionbbdd;
   $sql = "SELECT * FROM usuario WHERE BINARY Nick=:usuario AND BINARY Contraseña=:password LIMIT 1";
@@ -292,13 +268,15 @@ function mostrar_anuncio_url($idAnuncio) {
 
 //funcion para eliminar anuncio de la bbdd
 function eliminar_anuncio_bbdd($idAnuncio, $imagen_ant){
-  global $ConexionDB;
-  $sql = "DELETE FROM anuncios WHERE id='$idAnuncio'";
-  $execute =$ConexionDB -> query($sql);
+  //primero eliminamos anuncios de la tabla catgoria_anuncio
+  eliminar_categoria_anuncio($idAnuncio);
+  global $Conexionbbdd;
+  $sql = "DELETE FROM anuncio WHERE id='$idAnuncio'";
+  $execute =$Conexionbbdd -> query($sql);
   //si la insert se ha ejecutado correctamente
   if($execute){
     //para eliminar la imagen
-    $ruta_eliminar_imagen = "img_subidas/$imagen_ant";
+    $ruta_eliminar_imagen = "img_subidas/anuncios/$imagen_ant";
     unlink($ruta_eliminar_imagen);
     $_SESSION["MensajeExito"] = "El Anuncio se ha Eliminado Correctamente";
     Redireccionar_A("detalles_anuncios.php");
@@ -309,10 +287,18 @@ function eliminar_anuncio_bbdd($idAnuncio, $imagen_ant){
 }
 
 
+function eliminar_categoria_anuncio($idAnuncio) {
+  global $Conexionbbdd;
+  $sql = "DELETE FROM categoria_anuncio WHERE Anuncio='$idAnuncio'";
+  $execute =$Conexionbbdd -> query($sql);
+  return $execute;
+}
+
+
 function obtener_5_anuncios(){
-    global $ConexionDB;
-    $sql = "SELECT * FROM anuncios ORDER BY id desc LIMIT 0,5";
-    $stmt = $ConexionDB->query($sql);
+    global $Conexionbbdd;
+    $sql = "SELECT * FROM anuncio ORDER BY id desc LIMIT 0,5";
+    $stmt = $Conexionbbdd->query($sql);
     return $stmt;
 }
 
@@ -382,9 +368,9 @@ function insertar_comentario_bbdd($nombre, $cuerpo,$validado, $idAnuncio){
   }
 
   function obtener_comentarios_noaprobados_porid($id){
-    global $ConexionDB;
-    $sql = "SELECT COUNT(*) FROM comentarios WHERE publicado='NO' AND id_anuncio=$id";
-    $execute = $ConexionDB->query($sql);  
+    global $Conexionbbdd;
+    $sql = "SELECT COUNT(*) FROM comentario WHERE Validado=0 AND Anuncio=$id";
+    $execute = $Conexionbbdd->query($sql);  
     $n_anuncios = $execute -> fetch();
     return $n_anuncios[0];
   }
@@ -470,20 +456,10 @@ function insertar_admin_bbdd($username,$nombre, $apellido,$rol,$correo,$clase, $
 
 
   //funcion para obtener todos los admins
-  function obtener_administradores(){
+  function obtener_usuarios(){
     global $Conexionbbdd;
-    $sql = "SELECT * FROM usuario WHERE rol='Administrador' ORDER BY Nick desc";
+    $sql = "SELECT * FROM usuario ORDER BY Nick desc";
     $stmt = $Conexionbbdd -> query($sql);
-    return $stmt;
-  }
-
-  //funcion para obtener un admin por el id
-  function obtener_admin_id($userid){
-    global $ConexionDB;
-    $sql = "SELECT * FROM admins WHERE id=:id";
-    $stmt = $ConexionDB -> prepare($sql);
-    $stmt -> bindParam(":id", $userid);
-    $stmt -> execute();
     return $stmt;
   }
 
@@ -543,9 +519,9 @@ function obtener_categoria_porid($id) {
 
 
 function mostrar_anuncios_categoria() {
-  global $ConexionDB;
-  $sql = "SELECT * FROM anuncios WHERE categoria=:categoria";
-  $stmt = $ConexionDB -> prepare($sql);
+  global $Conexionbbdd;
+  $sql = "SELECT * FROM anuncio join categoria_anuncio ON anuncio.id = categoria_anuncio.Anuncio WHERE categoria_anuncio.categoria = :categoria";
+  $stmt = $Conexionbbdd -> prepare($sql);
   $stmt -> bindParam(":categoria", $_GET["categoria"]);
   $stmt -> execute();
   return $stmt;

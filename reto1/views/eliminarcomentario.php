@@ -3,13 +3,13 @@
 <?php require_once("../assets/includes/sesiones.php"); ?>
 <?php
 comprobar_variable_url("id", "comentarios.php");
-$id_anuncio = $_GET["id"];
+$id = $_GET["id"];
 
 
 //operacion sql
-global $ConexionDB;
-$consulta = "DELETE from comentarios WHERE id = $id_anuncio";
-$execute = $ConexionDB -> query($consulta);
+global $Conexionbbdd;
+$consulta = "DELETE from comentario WHERE id = $id";
+$execute = $Conexionbbdd -> query($consulta);
 if($execute){
     $_SESSION["MensajeExito"] = "Comentario eliminado correctamente";
     Redireccionar_A("comentarios.php");

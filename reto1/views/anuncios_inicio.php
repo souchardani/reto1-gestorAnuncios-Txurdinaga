@@ -10,7 +10,7 @@
   </head>
   <body>
     <!-- NAVBAR -->
-   <?php include("../templates/headerbasic.php"); ?>
+   <?php include("../templates/header.php"); ?>
     <!-- NAVBAR END -->
     <!-- HEADER -->
     <div class="container">

@@ -19,7 +19,7 @@ confirmar_login();
   <body>
   
     <!-- NAVBAR -->
-    <?php include("../templates/navbaradmin.php"); ?>
+    <?php include("../templates/header.php"); ?>
     <!-- NAVBAR END -->
     <!-- HEADER -->
     <header class="text-bg-light py-3">
@@ -41,9 +41,9 @@ confirmar_login();
             </a>
           </div>
           <div class="col-lg-3 mb-2">
-            <a href="admins.php" class="btn btn-warning btn-block w-100">
+            <a href="users.php" class="btn btn-warning btn-block w-100">
               <i class="fas fa-user-plus"></i>
-                Añadir Administrador
+                Añadir Usuarios
             </a>
           </div>
           <!-- <div class="col-lg-3">
@@ -76,9 +76,9 @@ confirmar_login();
               <tr>
                 <th>Nº</th>
                 <th>Titulo</th>
-                <th>Autor</th>
+                <th>Categoria</th>
                 <th>Fecha</th>
-                <th>Descripcion</th>
+                <th>Autor</th>
                 <th>Imagen</th>
                 <th>Comentarios</th>
                 <th>Accion</th>

@@ -3,8 +3,9 @@
 
 <?php
     //actualizado
-    $_SESSION["usuarioid_global"] =null;
     $_SESSION["usuario_global"] =  null;
+    $_SESSION["usuarionombre_global"] =  null;
+    $_SESSION["tipoUsuario_global"] =  null;
     session_destroy();
     Redireccionar_A("login.php");
 ?>  

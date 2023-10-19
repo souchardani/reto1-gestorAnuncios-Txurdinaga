@@ -27,7 +27,7 @@ if(isset($_POST["enviar"])){
   </head>
   <body>
     <!-- HEADER -->
-    <?php include("../templates/navbaradmin.php"); ?>
+    <?php include("../templates/header.php"); ?>
     <!-- HEADER END -->
     
     <!-- main area -->
