@@ -616,3 +616,28 @@ footer {
     text-align: center;
   }
 }
+
+
+.input-group-text {
+  background-color: #FCC204;
+}
+
+/* .btn {
+  background-color: #E95F15;
+} */
+
+.rojo {
+  border-color: red;
+}
+
+.azul {
+  border-color: blue;
+}
+
+.verde {
+  border-color: green;
+}
+
+input:focus {
+  outline: none;
+}

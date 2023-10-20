@@ -15,7 +15,7 @@
 <nav id="nav-links">
   <ul>
     <li id="li-inicio"><a href="../public/index.php">Inicio</a></li>
-    <li id="li-perfil"><a href="">Perfil</a></li>
+    <li id="li-perfil"><a href="">Anuncios</a></li>
     <li id="li-crear"><a href="">Crear anuncio</a></li>
     <li id="li-buscador">
       <form id="buscador" action="" method="POST">
