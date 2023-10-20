@@ -16,7 +16,7 @@
         >
           <ul class="navbar-nav me-auto">
             <li class="nav-item">
-              <a href="#" class="nav-link"
+              <a href="miperfil.php" class="nav-link"
                 ><i class="fa-solid fa-user text-success"></i> Mi Perfil</a
               >
             </li>
@@ -30,7 +30,7 @@
               <a href="categorias.php" class="nav-link">Categorias</a>
             </li>
             <li class="nav-item">
-              <a href="admins.php" class="nav-link">Gestionar Usuarios</a>
+              <a href="users.php" class="nav-link">Gestionar Usuarios</a>
             </li>
             <li class="nav-item">
               <a href="comentarios.php" class="nav-link">Comentarios</a>

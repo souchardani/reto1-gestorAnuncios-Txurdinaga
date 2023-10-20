@@ -13,7 +13,7 @@ $idAnuncio = $_GET["id"];
 confirmar_login();
 
 //si el usuario no es admin, lo redirigimos al inicio
-
+confirmar_admin();
 
  //obtener los datos del anuncio seleccionado
  
@@ -24,10 +24,10 @@ confirmar_login();
    Redireccionar_A("detalles_anuncios.php");
  }else {
  while($fila = $stmt -> fetch()){
-   $titulo_ant = $fila["titulo"];
-   $categoria_ant = $fila["categoria"];
-   $imagen_ant = $fila["imagen"];
-   $descripcion_ant = $fila["descripcion"];
+   $titulo_ant = $fila["Título"];
+   $categoria_ant = obtener_categoria_porid($idAnuncio);
+   $imagen_ant = $fila["Imagen"];
+   $descripcion_ant = $fila["Descripción"];
  } 
 }
 
@@ -35,8 +35,15 @@ confirmar_login();
 //si se ha enviado el formulario, eliminar el anuncio
 if(isset($_POST["enviar"])){
     //borrar el anuncio en la bbdd
-   eliminar_anuncio_bbdd($idAnuncio, $imagen_ant);
+   $eliminado = eliminar_anuncio_bbdd($idAnuncio, $imagen_ant);
+   if ($eliminado){
+    $_SESSION["MensajeExito"] = "El Anuncio se ha Eliminado Correctamente";
+    Redireccionar_A("detalles_anuncios.php");
+  }else {
+    $_SESSION["MensajeError"] = "Ocurrio un error inesperado al eliminar, vuelve a intentarlo";
+    Redireccionar_A("detalles_anuncios.php");
   }
+}
 ?>
 
 <!DOCTYPE html>
@@ -76,7 +83,7 @@ if(isset($_POST["enviar"])){
             </div>
             <div class="form-group mb-5">
             <span class="FieldInfo">Imagen:</span>
-            <img class="mb-1" src="../assets/img_subidas/<?php echo $imagen_ant?>" width="170px" height="70px" alt="">
+            <img class="mb-1" src="../assets/img_subidas/anuncios/<?php echo $imagen_ant?>" width="170px" height="70px" alt="">
               <br>
             </div>
             <div class="form-group mb-5">
