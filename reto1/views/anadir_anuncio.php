@@ -4,7 +4,7 @@
 <?php require_once("../assets/includes/sesiones.php"); ?>
 <?php
 $_SESSION["guardarURL"] = $_SERVER["PHP_SELF"]; //utilizamos esto para guardar el nombre de la pagina actual 
-//verificamos que el usuario este logueado como administrador
+//verificamos que el usuario este logueado 
 confirmar_login();
 
 //--------SI SE ENVIA EN ANUNCIO POR EL BOTON DE ENVIAR--------
@@ -13,16 +13,21 @@ if(isset($_POST["enviar"])){
   $tituloAnuncio = $_POST["tituloAnuncio"];
   $categoria = $_POST["Categoria"];
   $imagen = $_FILES["imagen"]["name"];
-  $target = "img_subidas/".basename($imagen);
+  $UbicacionImagen = "../assets/img_subidas/anuncios/".basename($imagen);
   $descripcionAnuncio = $_POST["DescripcionAnuncio"];
-  $Admin = $_SESSION["usuario_global"];
+  $Autor = $_SESSION["usuario_global"];
   date_default_timezone_set("Europe/Madrid");
-  $fechaActual = date("Y-m-d H:i:s"); 
-
+  $Fecha_publi = date("Y-m-d");
+  //validamos que el usuario sea administrador 
+  if ($_SESSION["tipoUsuario_global"] == "Administrador"){
+    $Aceptado = 1;
+  }else {
+    $Aceptado = 0;
+  }
   //validaciones previas
     $validado = validar_data_anuncio($tituloAnuncio, $descripcionAnuncio);
     if ($validado){
-    insertar_anuncio_bbdd($fechaActual,$tituloAnuncio,$categoria,$Admin,$imagen,$descripcionAnuncio, $target);
+      insertar_anuncio_bbdd($tituloAnuncio, $Autor, $Aceptado, $Fecha_publi, $categoria, $descripcionAnuncio, $imagen, $UbicacionImagen);
   }
 }
 ?>
@@ -34,7 +39,7 @@ if(isset($_POST["enviar"])){
   </head>
   <body>
     <!-- NAVBAR -->
-    <?php include("../templates/navbaradmin.php"); ?>
+    <?php include("../templates/header.php"); ?>
     <!-- NAVBAR END -->
     <!-- HEADER -->
     <div id="dynamicHeader"></div>
@@ -64,7 +69,7 @@ if(isset($_POST["enviar"])){
                 $stmt = obtener_categorias();
                 while ($fila = $stmt -> fetch()){
                   //$Id = $fila["id"];
-                  $NombreCategoria = $fila["titulo"];
+                  $NombreCategoria = $fila["Nombre"];
                 ?>
                 <option value="<?php echo $NombreCategoria ?>"><?php echo $NombreCategoria ?></option>
                 <?php } //fin del while?> 

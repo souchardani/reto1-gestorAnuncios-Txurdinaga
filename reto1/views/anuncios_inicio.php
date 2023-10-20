@@ -10,7 +10,7 @@
   </head>
   <body>
     <!-- NAVBAR -->
-   <?php include("../templates/headerbasic.php"); ?>
+   <?php include("../templates/header.php"); ?>
     <!-- NAVBAR END -->
     <!-- HEADER -->
     <div class="container">
@@ -18,7 +18,7 @@
         <!-- inicio seccion principal -->
         <div class="col-sm-8">
           <h1>Anuncios y Noticias - FP Txurdinaga</h1>
-          <h1 class="lead">Mira los anuncios destacados del centro</h1>
+          <h1 class="lead mb-3">Mira los anuncios destacados del centro</h1>
         <!-- HEADER END -->
           <?php 
           //añadimos el mensaje de exito o error para cada caso especifico
@@ -44,15 +44,15 @@
           }
           while ($fila = $stmt -> fetch()){
             $id = $fila["id"];
-            $datetime = $fila["datetime"];
-            $titulo = $fila["titulo"];
-            $categoria = $fila["categoria"];
-            $autor = $fila["autor"];
-            $imagen = $fila["imagen"];
-            $descripcion = $fila["descripcion"];
+            $datetime = $fila["Fecha_publi"];
+            $titulo = $fila["Título"];
+            $categoria = obtener_categoria_porid($id);
+            $autor = $fila["Autor"];
+            $imagen = $fila["Imagen"];
+            $descripcion = $fila["Descripción"];
         ?>
         <div class="card">
-          <img class="img-fluid card-img-top" style="max-height: 450px; object-fit: cover;" src="../assets/img_subidas/<?php echo $imagen?>" alt=""/>
+          <img class="img-fluid card-img-top" style="max-height: 450px; object-fit: cover;" src="../assets/img_subidas/anuncios/<?php echo $imagen?>" alt=""/>
           <div class="card-body">
             <h4 class="card-title"><?php echo htmlentities($titulo)?></h4>
             <small class="text-muted">Categoria: <?php echo "<span class='text-dark'>$categoria</span>"?> Publicado Por: <?php echo "<span class='text-dark'>$autor</span>"?> el <?php echo "<span class='text-dark'>$datetime</span>"?></small>
@@ -121,8 +121,7 @@
                 <?php
                 $categorias = obtener_categorias();
                 while ($fila = $categorias -> fetch()){
-                  $id = $fila["id"];
-                  $categoria = $fila["titulo"];
+                  $categoria = $fila["Nombre"];
                   echo "<a href='anuncios_inicio.php?categoria=$categoria' class='list-group-item list-group-item-action'>$categoria</a>";
                 }
                 ?>

@@ -4,7 +4,7 @@
 <?php require_once("../assets/includes/sesiones.php"); ?>
 <?php
 $_SESSION["guardarURL"] = $_SERVER["PHP_SELF"]; //utilizamos esto para guardar el nombre de la pagina actual 
-//verificamos que el usuario este logueado como administrador
+//verificamos que el usuario este logueado
 confirmar_login();
 $user = $_SESSION["usuario_global"];
 $username = $_SESSION["usuarionombre_global"];
@@ -24,7 +24,7 @@ if(isset($_POST["enviar"])){
   //validaciones previas
     $validado = validar_data_anuncio($tituloAnuncio, $descripcionAnuncio);
     if ($validado){
-    insertar_anuncio_bbdd($fechaActual,$tituloAnuncio,$categoria,$Admin,$imagen,$descripcionAnuncio, $target);
+    //insertar_anuncio_bbdd($fechaActual,$tituloAnuncio,$categoria,$Admin,$imagen,$descripcionAnuncio, $target);
   }
 }
 ?>
@@ -36,7 +36,7 @@ if(isset($_POST["enviar"])){
   </head>
   <body>
     <!-- NAVBAR -->
-    <?php include("../templates/navbaradmin.php"); ?>
+    <?php include("../templates/header.php"); ?>
     <!-- NAVBAR END -->
     <!-- HEADER -->
     <div id="dynamicHeader"></div>
@@ -101,7 +101,7 @@ if(isset($_POST["enviar"])){
             </div>
             <div class="form-group mb-5">
            <span class="FieldInfo">Actualmente eres: </span>
-           <h1 class="badge text-bg-info">Administrador</h1>
+           <h1 class="badge text-bg-info"><?php echo $_SESSION["tipoUsuario_global"] ?></h1>
             </div>
             
             <div class="row">
