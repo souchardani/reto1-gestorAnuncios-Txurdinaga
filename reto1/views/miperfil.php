@@ -15,7 +15,7 @@ if(isset($_POST["enviar"])){
   $tituloAnuncio = $_POST["tituloAnuncio"];
   $categoria = $_POST["Categoria"];
   $imagen = $_FILES["imagen"]["name"];
-  $target = "img_subidas/".basename($imagen);
+  $target = "img_subidas/usuarios".basename($imagen);
   $descripcionAnuncio = $_POST["DescripcionAnuncio"];
   $Admin = $_SESSION["usuario_global"];
   date_default_timezone_set("Europe/Madrid");
@@ -51,7 +51,7 @@ if(isset($_POST["enviar"])){
             <h3><?php echo $username ?></h3>
           </div>
           <div class="card-body">
-            <img src="../assets/img_subidas/avatar.png" class="block img-fluid mb-3" alt="">
+            <img src="../assets/img_subidas/usuarios/avatar.png" class="block img-fluid mb-3" alt="">
           </div>
           <div></div>
           
