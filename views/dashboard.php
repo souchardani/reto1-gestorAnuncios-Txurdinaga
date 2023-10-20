@@ -5,9 +5,10 @@
 
 <?php
 $_SESSION["guardarURL"] = $_SERVER["PHP_SELF"]; //utilizamos esto para guardar el nombre de la pagina actual 
-//verificamos que el usuario este logueado como administrador
+//verificamos que el usuario este logueado
 confirmar_login();
-
+//verificamos que el usuario sea administrador
+confirmar_admin();
 //obtenemos los datos del panel aside del dashboard 
 $datos = obtener_datos_dashboard();
 
@@ -20,7 +21,7 @@ $datos = obtener_datos_dashboard();
   </head>
   <body>
     <!-- NAVBAR -->
-    <?php include("../templates/navbaradmin.php"); ?>
+    <?php include("../templates/header.php"); ?>
     <!-- NAVBAR END -->
     <!-- HEADER -->
     <header class="text-bg-light py-3">
@@ -30,21 +31,21 @@ $datos = obtener_datos_dashboard();
             <h1><i class="fa-solid fa-cog" style="color: #f3b82a"></i> Panel de Control</h1>
           </div>
           <div class="col-lg-3 mb-2">
-            <a href="anadir_anuncio.php" class="btn btn-primary w-100">
+            <a href="detalles_anuncios.php" class="btn btn-primary w-100">
               <i class="fas fa-edit"></i>
-              Añadir Anuncio
+              Gestionar Anuncios
             </a>
           </div>
           <div class="col-lg-3 mb-2">
             <a href="categorias.php" class="btn btn-info btn-block w-100">
               <i class="fas fa-folder-plus"></i>
-              Añadir Categoria
+              Gestionar Categorias
             </a>
           </div>
           <div class="col-lg-3 mb-2">
-            <a href="admins.php" class="btn btn-warning btn-block w-100">
+            <a href="users.php" class="btn btn-warning btn-block w-100">
               <i class="fas fa-user-plus"></i>
-                Añadir Administrador
+              Gestionar Usuarios
             </a>
           </div>
           <!-- <div class="col-lg-3">
@@ -56,7 +57,7 @@ $datos = obtener_datos_dashboard();
           <div class="col-lg-3">
             <a href="comentarios.php" class="btn btn-success btn-block w-100">
               <i class="fas fa-check"></i>
-                Aprobar Comentarios
+              Gestionar Comentarios
             </a>
           </div>
         </div>
@@ -120,10 +121,11 @@ $datos = obtener_datos_dashboard();
                 <tr>
                   <th>Nº</th>
                   <th>Titulo</th>
-                  <th>Fecha y Hora</th>
+                  <th>Categoria</th>
+                  <th>Fecha</th>
                   <th>Autor</th>
                   <th>Comentarios</th>
-                  <th>Detalles</th>
+                  <th>Vista Previa</th>
                 </tr>
               </thead>
               <!-- obtenemos los ultimos 5 anuncios -->
@@ -132,15 +134,18 @@ $datos = obtener_datos_dashboard();
               $contador = 0;
               while($fila = $stmt -> fetch()){
                 $id = $fila["id"];
-                $titulo = $fila["titulo"];
-                $datetime = $fila["datetime"];
-                $autor = $fila["autor"];
+                $datetime = $fila["Fecha_publi"];
+                $titulo = $fila["Título"];
+                $categoria =obtener_categoria_porid($id);
+                $autor = $fila["Autor"];
+                $descripcion = $fila["Descripción"];
                 $contador++;
               ?>
               <tbody>
                 <tr>
                   <td><?php echo $contador; ?></td>
                   <td><?php echo $titulo; ?></td>
+                  <td><?php echo $categoria; ?></td>
                   <td><?php echo $datetime; ?></td>
                   <td><?php echo $autor; ?></td>
                   <td>
@@ -161,6 +166,56 @@ $datos = obtener_datos_dashboard();
                 </tr>
               </tbody>
               <?php } ?>
+            </table>
+            <h1>Validaciones pendientes</h1>
+            <table class="table table-stripped table-hover">
+              <thead class="table-dark">
+                <tr>
+                 <td>Campo</td>
+                  <td>Pendientes de validar</td>
+                  <td>Ir</td>
+                </tr>
+              </thead>
+              <tbody>
+              <!-- obtenemos los ultimos 5 anuncios -->
+              <?php
+              $contadores = obtener_validaciones_pendientes();
+              ?>
+              <tr>
+                <td>Comentarios</td>
+                <td><?php 
+                if($contadores["comentarios"]>0) {
+                  echo "<span class='badge text-bg-danger'>". $contadores["comentarios"] . "</span>";
+                  }else {
+                    echo "<span class='badge text-bg-success'>". $contadores["usuarios"] . "</span>";
+                  }
+                ?></td>
+                <td><a class="btn btn-warning" href="comentarios.php">Validar <i class="fas fa-check"></i></a></td>
+              </tr>
+              <tr>
+                <td>Anuncios</td>
+                <td><?php 
+                  if($contadores["anuncios"]>0) {
+                    echo "<span class='badge text-bg-danger'>". $contadores["anuncios"] . "</span>";
+                    }else {
+                      echo "<span class='badge text-bg-success'>". $contadores["usuarios"] . "</span>";
+                    }
+                 ?></td>
+                <td><a class="btn btn-warning" href="detalles_anuncios.php">Validar <i class="fas fa-check"></i></a></td>
+              </tr>
+              <tr>
+                <td>Usuarios</td>
+                <td><?php
+                 if($contadores["usuarios"]>0) {
+                  echo "<span class='badge text-bg-danger'>". $contadores["usuarios"] . "</span>";
+                  }else {
+                    echo "<span class='badge text-bg-success'>". $contadores["usuarios"] . "</span>";
+                  }
+                 ?></td>
+                <td><a class="btn btn-warning" href="validar_users.php">Validar <i class="fas fa-check"></i></a></td>
+                
+              </tr>
+              </tbody>
             </table>
            </div>
            <!-- fin area central -->

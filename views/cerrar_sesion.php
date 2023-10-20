@@ -2,8 +2,10 @@
 <?php require_once("../assets/includes/sesiones.php"); ?>
 
 <?php
-    $_SESSION["usuarioid_global"] =null;
+    //actualizado
     $_SESSION["usuario_global"] =  null;
+    $_SESSION["usuarionombre_global"] =  null;
+    $_SESSION["tipoUsuario_global"] =  null;
     session_destroy();
     Redireccionar_A("login.php");
 ?>  

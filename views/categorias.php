@@ -6,17 +6,17 @@
 $_SESSION["guardarURL"] = $_SERVER["PHP_SELF"]; //utilizamos esto para guardar el nombre de la pagina actual 
 //verificamos que el usuario este logueado como administrador
 confirmar_login();
+//verificamos que el usuario sea administrador
+confirmar_admin();
 
 if(isset($_POST["enviar"])){
   $categoria = $_POST["tituloCategoria"];
   $Admin = $_SESSION["usuario_global"];
-  date_default_timezone_set("Europe/Madrid");
-  $fechaActual = date("Y-m-d H:i:s"); 
 
     $campos = comprobar_campos_categorias($categoria);
     if($campos){
        //insertar la categoria en la bbdd
-      insertar_categoria_bbdd($categoria, $Admin, $fechaActual);
+      insertar_categoria_bbdd($categoria);
     }
   }
 ?>
@@ -28,7 +28,7 @@ if(isset($_POST["enviar"])){
   </head>
   <body>
     <!-- NAVBAR -->
-    <?php include("../templates/navbaradmin.php"); ?>
+    <?php include("../templates/header.php"); ?>
     <!-- NAVBAR END -->
     <!-- HEADER -->
     <div id="dynamicHeader"></div>
@@ -68,34 +68,27 @@ if(isset($_POST["enviar"])){
           <table class="table table-stripped table-hover">
             <thead class="table-dark">
               <tr>
-                <th>Nº</th>
-                <th>Fecha y hora</th>
+                <th>Nº</th> 
                 <th>Nombre</th>
-                <th>Creada Por</th>
                 <th>Eliminar</th>
               </tr>
             </thead>
           <?php
           $stmt = obtener_categorias();
           $contador = 0;
-          while ($fila = $stmt -> fetch()){
-            $id = $fila["id"];
-            $titulo = $fila["titulo"];
-            $autor = $fila["autor"];
-            $datetime = $fila["datetime"];
+          while ($fila = $stmt -> fetch()){          
+            $titulo = $fila["Nombre"];
             $contador++;
           ?>
           <tbody>
             <tr>
               <td><?php echo $contador; ?></td>
-              <td><?php echo $datetime; ?></td>
               <td><?php echo $titulo; ?></td>
-              <td><?php echo $autor; ?></td>
-              <td><a href="eliminar_categoria.php?id=<?php echo $id; ?>" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a></td>
+              <td><a href="eliminar_categoria.php?id=<?php echo $titulo; ?>" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a></td>
             </tr>
           </tbody>
           <?php } ?>
-          </table>
+          </table>  
     </div>
     </div>
   </section>
