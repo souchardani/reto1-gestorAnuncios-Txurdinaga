@@ -152,7 +152,7 @@ if(isset($_POST["enviar"])){
               <td><?php echo $Rol; ?></td>
               <td><?php echo $Clase; ?></td>
               <td><?php echo $Correo; ?></td>
-              <td><a href="eliminar_admin.php?id=<?php echo $Nick; ?>" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a></td>
+              <td><a onclick="return confirm('Al eliminar el usuario, se eliminarán todos sus anuncios. Estas de acuerdo?')" href="eliminar_user.php?id=<?php echo $Nick; ?>" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a></td>
             </tr>
           </tbody>
           <?php } ?>

@@ -35,8 +35,15 @@ confirmar_admin();
 //si se ha enviado el formulario, eliminar el anuncio
 if(isset($_POST["enviar"])){
     //borrar el anuncio en la bbdd
-   eliminar_anuncio_bbdd($idAnuncio, $imagen_ant);
+   $eliminado = eliminar_anuncio_bbdd($idAnuncio, $imagen_ant);
+   if ($eliminado){
+    $_SESSION["MensajeExito"] = "El Anuncio se ha Eliminado Correctamente";
+    Redireccionar_A("detalles_anuncios.php");
+  }else {
+    $_SESSION["MensajeError"] = "Ocurrio un error inesperado al eliminar, vuelve a intentarlo";
+    Redireccionar_A("detalles_anuncios.php");
   }
+}
 ?>
 
 <!DOCTYPE html>
