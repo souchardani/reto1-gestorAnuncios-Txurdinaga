@@ -11,6 +11,7 @@
     <title>Gestor de Anuncios - cifp Txurdinaga</title>
     <link rel="stylesheet" href="../assets/css/style.css" />
     <link rel="stylesheet" href="../assets/css/header.css" />
+    <script src="../assets/js/app.js"></script>
 
     <!-- LIBRERIA DE ICONOS -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
@@ -35,6 +36,17 @@
       </div>
     </section>
     <section id="pagina-inicio">
+
+      <!-- Carrusel -->
+      <div class="container">
+        <section id="carrusel" class="componente">
+          <button id="left"> < </button>
+              <img src="../assets/img_subidas/anuncios/administracion1-1024x683.jpg" alt="">
+          <button id="right"> > </button>
+        </section>
+      </div>
+
+      <!-- Anuncios -->
       <div class="container">
         <?php 
           //añadimos el mensaje de exito o error para cada caso especifico

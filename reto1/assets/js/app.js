@@ -15,11 +15,11 @@ function menu() {
 let modelCarr
 
 let fotos = [
-    "./assets/img/1.jpg",
-    "./assets/img/2.jpg",
-    "./assets/img/3.jpg",
-    "./assets/img/4.jpg",
-    "./assets/img/5.jpg"
+    "../reto1/img/anuncios/administracion1-1024x683.jpg",
+    "../reto1/img/anuncios/Comercio_chicas-scaled.jpg",
+    "../reto1/img/anuncios/davide-cantelli-e3Uy4k7ooYk-unsplash.jpg",
+    "../reto1/img/anuncios/electronica1-1024x683.jpg",
+    "../reto1/img/anuncios/marketing-1024x683.jpg"
 ]
 
 function initCarr(){
