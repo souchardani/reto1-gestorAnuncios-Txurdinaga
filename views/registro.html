@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/registro.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <title> Registro Usuario</title>
+</head>
+<body>
+    <script src="../assets/js/registro.js" defer></script>
+    <div class="cabecera">
+        <p class="cabTxt">Iniciar Sesion</p>
+    </div>
+    <div class="contenedor">
+    <div class="opciones">
+        
+
+        <p id="an1"> <i class="fa fa-user"></i> Gestiona Tus Anuncios y Noticias</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam commodo vel ligula.</p>
+
+        <p id="an1"> <i class="fa fa-pencil"></i>
+            Comenta tus Anuncios Favoritos</p>
+        <p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+
+        <p id="an1"> <i class="fa fa-regular fa-users"></i> Muestra a cientos de Estudiantes</p>
+        <p>Maecenas ornare mauris vitae purus vestibulum, vel tincidunt tortor convallis.</p>
+
+    </div>
+    <form action="" method="POST" id="form">
+    <div class="formulario">
+    <p id="titulo">Crear Cuenta</p>
+    <p>Crear una cuenta con tu email</p>
+
+    <label class="name" for="name"><input type="name" id="name" placeholder=" Nombre completo" ></label>
+    
+    <label class="name" for="apellido"><input type="apellido" id="apellido" placeholder=" Apellido" ></label>
+        <br>
+        <br>
+    <label class="name" for="user"><input type="user" id="user" placeholder=" Nombre de Usuario"></label>
+
+    <label class="name" for="correo"><input type="correo" id="correo" placeholder=" Correo Electronico"></label>
+        <br>
+        <br>
+        <label for="start">Fecha de Nacimiento:</label>
+
+        <input type="date" id="start" name="trip-start" value="" min="1930-01-01" max="2025-01-01" />
+        <br>
+        <br>
+    <label for="rol">Elige tu Rol:</label>
+   
+    <select name="rol" id="rol">
+        <option selected="true" disabled="disabled">Escoge un rol</option>
+        <option value="Profesor">Profesor</option>
+        <option value="Alumno">Alumno</option>
+    </select>
+    
+    <br>
+    <br>
+    <label for="eleccion">A que clase perteneces:</label>
+    
+    <select name="clase" id="clase">
+    <option value="`clase1">Clase1</option>
+    <option value="clase2">clase2</option>
+    <br>
+    <br>
+    </select>
+    <br>
+    <br>
+    <label class="name" for="contrasena"><input type="password" id="contrasena" placeholder="Contraseña"><i class="fa fa-eye"></i></label>
+       
+    <label class="name" for="contrasena1"><input type="password" id="contrasena1" placeholder="Confirmar Contasena "> <i class="fa fa-eye"></i></label>
+        <br>
+        <br>
+    <input type="checkbox" id="checkbox"><label class="check" for="checkbox">Confirmo que he leido la  <a href="https://www.mozilla.org/es-ES/">Politica de privacidad 
+
+    </a>y los <a href="https://www.mozilla.org/es-ES/">Terminos & Condiciones </a></label>
+        <p>
+             Ya tienes una cuenta? 
+            <a href="https://www.mozilla.org/es-ES/">Crear una Cuenta</a>
+        </p>
+    </label>
+
+    <button type="submit">Crear una Cuenta →</button>
+    <p class="warnings" id="warnings"></p>
+    <p class="correcto" id="correcto"></p>
+    </div>
+</form>
+</div>
+
+</body>
+</html>
