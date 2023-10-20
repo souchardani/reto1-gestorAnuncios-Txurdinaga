@@ -341,7 +341,7 @@ function eliminar_categoria_anuncio($idAnuncio) {
 
 function obtener_5_anuncios(){
     global $Conexionbbdd;
-    $sql = "SELECT * FROM anuncio ORDER BY id desc LIMIT 0,5";
+    $sql = "SELECT * FROM anuncio WHERE Aceptado=1 ORDER BY id desc LIMIT 0,5";
     $stmt = $Conexionbbdd->query($sql);
     return $stmt;
 }
