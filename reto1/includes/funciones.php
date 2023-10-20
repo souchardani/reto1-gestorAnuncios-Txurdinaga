@@ -314,12 +314,18 @@ function eliminar_anuncio_bbdd($idAnuncio, $imagen_ant){
     //para eliminar la imagen
     $ruta_eliminar_imagen = "img_subidas/anuncios/$imagen_ant";
     unlink($ruta_eliminar_imagen);
-    $_SESSION["MensajeExito"] = "El Anuncio se ha Eliminado Correctamente";
-    Redireccionar_A("detalles_anuncios.php");
+    return true;
   }else {
-    $_SESSION["MensajeError"] = "Ocurrio un error inesperado al eliminar, vuelve a intentarlo";
-    Redireccionar_A("detalles_anuncios.php");
+    return false;
   }
+}
+
+function eliminar_comentarios_usuario($nick){
+  global $Conexionbbdd;
+  $sql = "DELETE FROM comentario WHERE Autor='$nick'";
+  $execute =$Conexionbbdd -> query($sql);
+  echo "comentarios eliminados";
+  return $execute;
 }
 
 
@@ -341,7 +347,7 @@ function eliminar_categoria_anuncio($idAnuncio) {
 
 function obtener_5_anuncios(){
     global $Conexionbbdd;
-    $sql = "SELECT * FROM anuncio ORDER BY id desc LIMIT 0,5";
+    $sql = "SELECT * FROM anuncio WHERE Aceptado=1 ORDER BY id desc LIMIT 0,5";
     $stmt = $Conexionbbdd->query($sql);
     return $stmt;
 }
@@ -528,6 +534,18 @@ function insertar_user_bbdd($username,$nombre, $apellido,$rol,$correo,$clase, $n
 
 
 
+
+  function eliminar_dependencias_user($nick) {
+    global $Conexionbbdd;
+    $sql = "select id from anuncio where Autor='$nick'";
+    $execute =$Conexionbbdd -> query($sql);
+    while($fila = $execute -> fetch()){
+      $id = $fila["id"];
+      $imagen = $fila["Imagen"];
+      eliminar_anuncio_bbdd($id, $imagen);
+    }
+    eliminar_comentarios_usuario($nick);
+  }
 //------------------------------------------------------------------//
 //------------------FUNCIONES PARA CATEGORIAS-----------------------//
 //------------------------------------------------------------------//

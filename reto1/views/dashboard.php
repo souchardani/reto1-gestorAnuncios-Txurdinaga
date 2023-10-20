@@ -115,7 +115,7 @@ $datos = obtener_datos_dashboard();
 
            <!-- inicio area central -->
            <div class="col-lg-10">
-            <h1>Ultimos Anuncios</h1>
+            <h1>Ultimos Anuncios Validados</h1>
             <table class="table table-stripped table-hover">
               <thead class="table-dark">
                 <tr>
