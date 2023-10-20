@@ -11,6 +11,7 @@
     <title>Gestor de Anuncios - cifp Txurdinaga</title>
     <link rel="stylesheet" href="../assets/css/style.css" />
     <link rel="stylesheet" href="../assets/css/header.css" />
+    <script src="../assets/js/app.js"></script>
 
     <!-- LIBRERIA DE ICONOS -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
@@ -23,6 +24,7 @@
   <body>
     <!-- incluimos el header -->
     <?php include("../templates/header.php"); ?>
+
     <section id="home-hero">
       <div class="container flex">
         <div class="left">
@@ -34,7 +36,16 @@
         <img src="../assets/img/logocuadro.png" alt="" />
       </div>
     </section>
+
     <section id="pagina-inicio">
+      <div class="container">
+        <section id="carrusel" class="componente">
+          <button id="left"> < </button>
+              <img src="../assets/img_subidas/anuncios/administracion1-1024x683.jpg" alt="test">
+          <button id="right"> > </button>
+        </section>
+      </div>
+
       <div class="container">
         <?php 
           //añadimos el mensaje de exito o error para cada caso especifico

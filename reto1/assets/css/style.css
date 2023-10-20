@@ -102,6 +102,12 @@ picture,li {
   padding: 0;
 }
 
+dl, ol, ul {
+  margin-top: 0;
+  margin-bottom: 0rem;
+  padding-left: 0rem;
+}
+
 /* set up the body */
 body {
   font-family: var(--ff-nunito);
@@ -595,9 +601,43 @@ header {
 }
 
 
-/* bootstrap overwrite */
-dl, ol, ul {
-  margin-top: 0;
-  margin-bottom: 0rem;
-  padding-left: 0rem;
+.componente {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 50px;
+}
+
+#carrusel {
+  display: flex;
+  flex-direction: row;
+}
+
+#carrusel > img {
+  width: 800px;
+  height: 400px;
+}
+
+#left {
+  transition: all 1s;
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#right {
+  transition: 1s;
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
 }
