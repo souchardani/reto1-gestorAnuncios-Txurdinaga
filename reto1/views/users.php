@@ -19,13 +19,13 @@ if(isset($_POST["enviar"])){
   $clase = $_POST["clase"];
   $nacimiento = $_POST["nacimiento"];
   $contrasena = $_POST["password"];
+  $activo = 1; //al ser administrador, se le asigna el valor 1 ya que esta validado
   $confirmar_contrasena = $_POST["confirmar_password"];
-  echo $nacimiento;
   $validar_data = validar_data_user($username, $contrasena, $confirmar_contrasena);
   $verificar_existencia = verificar_existencia_user($username);
   if($validar_data & $verificar_existencia){
     //si validamos los campos y verificamos que no existe, insertar el administrador en la bbdd
-    insertar_user_bbdd($username,$nombre, $apellido,$rol,$correo,$clase, $nacimiento, $contrasena);
+    insertar_user_bbdd($username,$nombre, $apellido,$rol,$correo,$clase, $nacimiento, $contrasena, $activo);
   }
 }
 ?>
@@ -109,7 +109,7 @@ if(isset($_POST["enviar"])){
             
             <div class="row">
             <div class="col-lg-6 mb-2">
-              <a class="btn btn-warning d-lg-block w-100" href="detalles_anuncios.php"><i class="fa-solid fa-arrow-left"></i> Volver al Panel de Control</a>
+              <a class="btn btn-warning d-lg-block w-100" href="dashboard.php"><i class="fa-solid fa-arrow-left"></i> Volver al Panel de Control</a>
             </div>
             <div class="col-lg-6 mb-2  d-md-block ">
               <button type="submit" name="enviar" class="btn btn-success w-100"><i class="fa-solid fa-check"></i> Añadir Administrador</button>
@@ -119,7 +119,7 @@ if(isset($_POST["enviar"])){
         </div>
       </form>
       <!-- tabla y accion -->
-      <h2 class="mb-3">Usuarios Existentes</h2>
+      <h2 class="mb-3">Usuarios Validados</h2>
           <table class="table table-stripped table-hover">
             <thead class="table-dark">
               <tr>
@@ -133,7 +133,7 @@ if(isset($_POST["enviar"])){
               </tr>
             </thead>
           <?php
-          $stmt = obtener_usuarios();
+          $stmt = obtener_usuarios_validados();
           $contador = 0;
           while ($fila = $stmt -> fetch()){
             $Nick = $fila["Nick"];
@@ -153,6 +153,48 @@ if(isset($_POST["enviar"])){
               <td><?php echo $Clase; ?></td>
               <td><?php echo $Correo; ?></td>
               <td><a onclick="return confirm('Al eliminar el usuario, se eliminarán todos sus anuncios. Estas de acuerdo?')" href="eliminar_user.php?id=<?php echo $Nick; ?>" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a></td>
+            </tr>
+          </tbody>
+          <?php } ?>
+          </table>
+
+
+          <h2 class="mb-3">Usuarios Pendientes de Validar</h2>
+          <table class="table table-stripped table-hover">
+            <thead class="table-dark">
+              <tr>
+                <th>Nº</th>
+                <th>Nick</th>
+                <th>Nombre y Apellido</th>
+                <th>Rol</th>
+                <th>Clase</th>
+                <th>Correo</th>
+                <th>Validar</th>
+                <th>eliminar</th>
+              </tr>
+            </thead>
+          <?php
+          $stmt = obtener_usuarios_novalidados();
+          $contador = 0;
+          while ($fila = $stmt -> fetch()){
+            $Nick = $fila["Nick"];
+            $Nombre = $fila["Nombre"];
+            $Apellido = $fila["Apellido"];
+            $Rol = $fila["Rol"];
+            $Clase = $fila["Clase"];
+            $Correo = $fila["Correo"];
+            $contador++;
+          ?>
+          <tbody>
+            <tr>
+              <td><?php echo $contador; ?></td>
+              <td><?php echo $Nick; ?></td>
+              <td><?php echo "$Nombre $Apellido"; ?></td>
+              <td><?php echo $Rol; ?></td>
+              <td><?php echo $Clase; ?></td>
+              <td><?php echo $Correo; ?></td>
+              <td><a href="validar_users.php?id=<?php echo $Nick  ?>" class="btn btn-success"><i class="fa-solid fa-check"></a></td>
+              <td><a onclick="return confirm('Estas Seguro? Esta accion no se puede deshacer')" href="eliminar_user.php?id=<?php echo $Nick; ?>" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a></td>
             </tr>
           </tbody>
           <?php } ?>

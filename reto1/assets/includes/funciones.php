@@ -37,12 +37,13 @@ function inicio_sesion($usuario, $password){
     $_SESSION["usuario_global"] =  $fila["Nick"];
     $_SESSION["usuarionombre_global"] =  $fila["Nombre"];
     $_SESSION["tipoUsuario_global"] =  $fila["Rol"];
+    $_SESSION["foto_global"] =  $fila["Imagen"];
     $_SESSION["MensajeExito"] = "Bienvenid@ de nuevo ". $fila["Nick"];
     if ($fila["Rol"] == "Administrador") {
       if (isset($_SESSION["guardarURL"])) {
         Redireccionar_A($_SESSION["guardarURL"]);
       }else {
-        Redireccionar_A("detalles_anuncios.php");
+        Redireccionar_A("dashboard.php");
       }
       //si es un usuario normal
     }else {
@@ -261,10 +262,10 @@ function mostrar_anuncios_busqueda(){
     $busqueda = $_GET["buscador"];
     $busqueda = "%".$busqueda."%";
     $sql = "SELECT * from anuncio WHERE 
-    Título LIKE :busqueda 
+    (Título LIKE :busqueda 
     or Autor LIKE :busqueda 
     or Fecha_publi LIKE :busqueda 
-    or Descripción LIKE :busqueda";
+    or Descripción LIKE :busqueda) AND Aceptado=1";
     $stmt = $Conexionbbdd->prepare($sql);
     $stmt -> bindParam(":busqueda", $busqueda);
     $stmt -> execute();
@@ -277,6 +278,14 @@ function mostrar_anuncios_busqueda(){
 function mostrar_todos_anuncios(){
   global $Conexionbbdd;
   $sql = "SELECT * FROM anuncio WHERE Aceptado=1 ORDER BY id desc";
+  $stmt = $Conexionbbdd->query($sql);
+  return $stmt;
+}
+
+
+function mostrar_3_anuncios() {
+  global $Conexionbbdd;
+  $sql = "SELECT * FROM anuncio WHERE Aceptado=1 ORDER BY id desc LIMIT 0,3";
   $stmt = $Conexionbbdd->query($sql);
   return $stmt;
 }
@@ -480,7 +489,7 @@ function verificar_existencia_user($username) {
 }
 
 //funcion para insertar administrador en la bbdd
-function insertar_user_bbdd($username,$nombre, $apellido,$rol,$correo,$clase, $nacimiento, $contrasena){
+function insertar_user_bbdd($username,$nombre, $apellido,$rol,$correo,$clase, $nacimiento, $contrasena, $activo){
     global $Conexionbbdd;
     $sql = "INSERT INTO usuario(Nick, Nombre, Apellido, Rol, Activo, Contraseña, Correo, Fecha_naci, Clase) VALUES (:Nick, :Nombre, :Apellido, :Rol, :Activo, :Constrasena, :Correo, :Fecha_naci, :Clase)";
     $stmt = $Conexionbbdd -> prepare($sql);
@@ -488,8 +497,7 @@ function insertar_user_bbdd($username,$nombre, $apellido,$rol,$correo,$clase, $n
     $stmt -> bindValue(":Nombre", $nombre);
     $stmt -> bindValue(":Apellido", $apellido);
     $stmt -> bindValue(":Rol", $rol);
-    $stmt -> bindValue(":Activo", 1);
-    $stmt -> bindValue(":Activo", 1);
+    $stmt -> bindValue(":Activo", $activo);
     $stmt -> bindValue(":Constrasena", $contrasena);
     $stmt -> bindValue(":Correo", $correo);
     $stmt -> bindValue(":Fecha_naci", $nacimiento);
@@ -505,13 +513,22 @@ function insertar_user_bbdd($username,$nombre, $apellido,$rol,$correo,$clase, $n
   }
 
 
-  //funcion para obtener todos los admins
-  function obtener_usuarios(){
+  //funcion para obtener todos los users validados
+  function obtener_usuarios_validados(){
     global $Conexionbbdd;
-    $sql = "SELECT * FROM usuario ORDER BY Nick desc";
+    $sql = "SELECT * FROM usuario WHERE Activo=1 ORDER BY Nick desc";
     $stmt = $Conexionbbdd -> query($sql);
     return $stmt;
   }
+
+  function obtener_usuarios_novalidados() {
+    global $Conexionbbdd;
+    $sql = "SELECT * FROM usuario WHERE Activo=0 ORDER BY Nick desc";
+    $stmt = $Conexionbbdd -> query($sql);
+    return $stmt;
+  }
+
+
 
 
   //funcion para confirmar si un usuario es administrador
@@ -617,6 +634,17 @@ function obtener_clase(){
   $stmt = $Conexionbbdd -> query($sql);
   return $stmt;
 }
+
+function obtener_clase_por_nick($user){
+  global $Conexionbbdd;
+  $sql = "SELECT Clase FROM usuario WHERE Nick='$user'";
+  $stmt = $Conexionbbdd -> query($sql);
+  $clase = $stmt -> fetch();
+  var_dump($clase);
+  return $clase[0];
+}
+
+
 
 ?>
 

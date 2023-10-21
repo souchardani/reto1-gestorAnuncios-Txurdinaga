@@ -212,7 +212,7 @@ $datos = obtener_datos_dashboard();
                     echo "<span class='badge text-bg-success'>". $contadores["usuarios"] . "</span>";
                   }
                  ?></td>
-                <td><a class="btn btn-warning" href="validar_users.php">Validar <i class="fas fa-check"></i></a></td>
+                <td><a class="btn btn-warning" href="users.php">Validar <i class="fas fa-check"></i></a></td>
                 
               </tr>
               </tbody>

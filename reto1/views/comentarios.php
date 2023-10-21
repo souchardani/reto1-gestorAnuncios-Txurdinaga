@@ -25,7 +25,11 @@ confirmar_admin();
     <section class="container py-2 mb-4">
       <div class="row" style="min-height: 30px;">
         <div class="col-lg-12" style="min-height: 400px;">
+        <div class="col-lg-3 mb-4">
+            <a class="btn btn-warning d-lg-block w-100" href="dashboard.php"><i class="fa-solid fa-arrow-left"></i> Volver al Panel de Control</a>
+        </div>
         <h2>Comentarios Pendientes de aprobar</h2>
+        
         <?php
         echo MensajeError();
         echo MensajeExito();
@@ -36,7 +40,7 @@ confirmar_admin();
                 <th>Nº</th>
                 <th>Autor</th>
                 <th>Texto</th>
-                <th>Desaprobar</th>
+                <th>Aprobar</th>
                 <th>Eliminar</th>
                 <th>Detalles</th>
               </tr>
@@ -71,7 +75,7 @@ confirmar_admin();
               <th>Nº</th>
                 <th>Autor</th>
                 <th>Texto</th>
-                <th>Aprobar</th>
+                <th>Quitar</th>
                 <th>Eliminar</th>
                 <th>Detalles</th>
               </tr>
