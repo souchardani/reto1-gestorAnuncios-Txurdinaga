@@ -28,10 +28,6 @@ if(isset($_SESSION["usuario_global"])){
   </div>
 
 
-  <div class="header-boton-login">
-
-  </div>
-
   <?php 
   // si el usuario es invitado
   if ($tipoUsuario == "Invitado") { 

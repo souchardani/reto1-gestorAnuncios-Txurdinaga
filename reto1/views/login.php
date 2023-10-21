@@ -19,7 +19,7 @@ if(isset($_POST["enviar"])){
   $usuario = $_POST["usuario"];
   $password = $_POST["password"];
 
-  $verificar_llenado = verificar_empty([$usuario, $password]);
+  $verificar_llenado = verificar_empty([$usuario, $password], "login.php");
   if ($verificar_llenado){
     //checkear si el usuario existe en la bbdd y redireccionar a detalles_inicio.php
     inicio_sesion($usuario, $password);

@@ -21,11 +21,18 @@ if(isset($_POST["enviar"])){
   $contrasena = $_POST["password"];
   $activo = 1; //al ser administrador, se le asigna el valor 1 ya que esta validado
   $confirmar_contrasena = $_POST["confirmar_password"];
-  $validar_data = validar_data_user($username, $contrasena, $confirmar_contrasena);
+  $validar_data = validar_data_user($username, $contrasena, $confirmar_contrasena, "users.php");
   $verificar_existencia = verificar_existencia_user($username);
   if($validar_data & $verificar_existencia){
     //si validamos los campos y verificamos que no existe, insertar el administrador en la bbdd
-    insertar_user_bbdd($username,$nombre, $apellido,$rol,$correo,$clase, $nacimiento, $contrasena, $activo);
+    $insertado = insertar_user_bbdd($username,$nombre, $apellido,$rol,$correo,$clase, $nacimiento, $contrasena, $activo);
+    if($insertado){
+      $_SESSION["MensajeExito"] = "El Usuario $username se ha añadido Correctamente";
+      Redireccionar_A("users.php");
+    }else {
+      $_SESSION["MensajeError"] = "Ocurrio un error inesperado al insertar, vuelve a intentarlo";
+      Redireccionar_A("users.php");
+    }
   }
 }
 ?>
@@ -193,7 +200,7 @@ if(isset($_POST["enviar"])){
               <td><?php echo $Rol; ?></td>
               <td><?php echo $Clase; ?></td>
               <td><?php echo $Correo; ?></td>
-              <td><a href="validar_users.php?id=<?php echo $Nick  ?>" class="btn btn-success"><i class="fa-solid fa-check"></a></td>
+              <td><a onclick="return confirm('Al Validar se envía un email de confirmación al usuario')" href="validar_users.php?id=<?php echo $Nick  ?>" class="btn btn-success"><i class="fa-solid fa-check"></a></td>
               <td><a onclick="return confirm('Estas Seguro? Esta accion no se puede deshacer')" href="eliminar_user.php?id=<?php echo $Nick; ?>" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a></td>
             </tr>
           </tbody>

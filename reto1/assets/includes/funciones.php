@@ -26,7 +26,7 @@ function comprobar_variable_url($variable_url, $ubicacion){
 
 function inicio_sesion($usuario, $password){
   global $Conexionbbdd;
-  $sql = "SELECT * FROM usuario WHERE BINARY Nick=:usuario AND BINARY Contraseña=:password LIMIT 1";
+  $sql = "SELECT * FROM usuario WHERE BINARY Nick=:usuario AND BINARY Contraseña=:password and Activo=1 LIMIT 1";
   $Stmt = $Conexionbbdd -> prepare($sql);
   $Stmt -> bindValue(":usuario", $usuario);
   $Stmt -> bindValue(":password", $password);
@@ -58,11 +58,11 @@ function inicio_sesion($usuario, $password){
 
 
 //funcion para verificar los campos del formulario que no esten empty
-function verificar_empty($array){
+function verificar_empty($array, $ubicacion){
   foreach ($array as $campo){
     if(empty($campo)){
       $_SESSION["MensajeError"] = "Todos los campos deben estar rellenados";
-      Redireccionar_A("login.php");
+      Redireccionar_A($ubicacion);
     }
   }
   return true;
@@ -455,16 +455,16 @@ function insertar_comentario_bbdd($nombre, $cuerpo,$validado, $idAnuncio){
 //------------------FUNCIONES PARA USUARIOS-------------------------//
 //------------------------------------------------------------------//
 //funcion para validar los datos del administrador
-function validar_data_user($username, $contrasena, $confirmar_contrasena) {
+function validar_data_user($username, $contrasena, $confirmar_contrasena, $ubicacion) {
   if(empty($username) || empty($contrasena) || empty($confirmar_contrasena)){
     $_SESSION["MensajeError"] = "Debes Completar todos los campos";
-    Redireccionar_A("users.php");
+    Redireccionar_A($ubicacion);
   }else if(strlen($contrasena)<=4){
     $_SESSION["MensajeError"] = "La contraseña debe tener mas de 4 caracteres";
-    Redireccionar_A("users.php");
+    Redireccionar_A($ubicacion);
   }else if($contrasena !== $confirmar_contrasena){
     $_SESSION["MensajeError"] = "Las contraseñas no coinciden";
-    Redireccionar_A("users.php");
+    Redireccionar_A($ubicacion);
   }else {
     return true;
   }
@@ -491,7 +491,7 @@ function verificar_existencia_user($username) {
 //funcion para insertar administrador en la bbdd
 function insertar_user_bbdd($username,$nombre, $apellido,$rol,$correo,$clase, $nacimiento, $contrasena, $activo){
     global $Conexionbbdd;
-    $sql = "INSERT INTO usuario(Nick, Nombre, Apellido, Rol, Activo, Contraseña, Correo, Fecha_naci, Clase) VALUES (:Nick, :Nombre, :Apellido, :Rol, :Activo, :Constrasena, :Correo, :Fecha_naci, :Clase)";
+    $sql = "INSERT INTO usuario(Nick, Nombre, Apellido, Rol, Activo, Contraseña, Correo, Fecha_naci, Clase, Imagen) VALUES (:Nick, :Nombre, :Apellido, :Rol, :Activo, :Constrasena, :Correo, :Fecha_naci, :Clase, :Imagen)";
     $stmt = $Conexionbbdd -> prepare($sql);
     $stmt -> bindValue(":Nick", $username);
     $stmt -> bindValue(":Nombre", $nombre);
@@ -502,14 +502,9 @@ function insertar_user_bbdd($username,$nombre, $apellido,$rol,$correo,$clase, $n
     $stmt -> bindValue(":Correo", $correo);
     $stmt -> bindValue(":Fecha_naci", $nacimiento);
     $stmt -> bindValue(":Clase", $clase);
+    $stmt -> bindValue(":Imagen", "avatar.png");
     $execute = $stmt -> execute();
-    if($execute){
-      $_SESSION["MensajeExito"] = "El Usuario $username se ha añadido Correctamente";
-      Redireccionar_A("users.php");
-    }else {
-      $_SESSION["MensajeError"] = "Ocurrio un error inesperado al insertar, vuelve a intentarlo";
-      Redireccionar_A("users.php");
-    }
+    return $execute;
   }
 
 
@@ -625,6 +620,14 @@ function mostrar_anuncios_categoria() {
   return $stmt;
 }
 
+
+function obtener_email($nick){
+  global $Conexionbbdd;
+  $sql = "SELECT Correo FROM usuario WHERE Nick='$nick'";
+  $stmt = $Conexionbbdd -> query($sql);
+  $email = $stmt -> fetch();
+  return $email[0];
+}
 
 
 
