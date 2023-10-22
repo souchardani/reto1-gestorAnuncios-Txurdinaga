@@ -114,21 +114,30 @@ if(isset($_POST["enviar"])){
               <input class="form-control " type="password" name="confirmar_password" id="confirmar_password" placeholder="Vuelve a escribir la contraseña">
             </div>
             
-            <div class="row">
-            <div class="col-lg-6 mb-2">
-              <a class="btn btn-warning d-lg-block w-100" href="dashboard.php"><i class="fa-solid fa-arrow-left"></i> Volver al Panel de Control</a>
+            <div class="d-flex">
+            <div>
+              <a class="boton tx-naranja w-100" href="dashboard.php"><i class="fa-solid fa-arrow-left"></i> Volver al Panel de Control</a>
             </div>
-            <div class="col-lg-6 mb-2  d-md-block ">
-              <button type="submit" name="enviar" class="btn btn-success w-100"><i class="fa-solid fa-check"></i> Añadir Administrador</button>
+            <div>
+              <button type="submit" name="enviar" class="boton tx-verde-claro w-100"><i class="fa-solid fa-check"></i> Añadir Administrador</button>
             </div>
           </div>
           </div>
         </div>
       </form>
       <!-- tabla y accion -->
-      <h2 class="mb-3">Usuarios Validados</h2>
-          <table class="table table-stripped table-hover">
-            <thead class="table-dark">
+      <!-- tabla 1 validados -->
+      <main class="table mt-bg">
+        <section class="table__header">
+          <h1 class="heading-02">Usuarios Validados</h1>
+          <div class="input-group">
+              <input type="search" name="" id="" placeholder="Buscar" />
+              <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+        </section>
+        <section class="table__body">
+          <table class="table-center">
+          <thead>
               <tr>
                 <th>Nº</th>
                 <th>Nick</th>
@@ -138,7 +147,8 @@ if(isset($_POST["enviar"])){
                 <th>Correo</th>
                 <th>Accion</th>
               </tr>
-            </thead>
+          </thead>
+        <tbody>         
           <?php
           $stmt = obtener_usuarios_validados();
           $contador = 0;
@@ -151,7 +161,6 @@ if(isset($_POST["enviar"])){
             $Correo = $fila["Correo"];
             $contador++;
           ?>
-          <tbody>
             <tr>
               <td><?php echo $contador; ?></td>
               <td><?php echo $Nick; ?></td>
@@ -159,16 +168,26 @@ if(isset($_POST["enviar"])){
               <td><?php echo $Rol; ?></td>
               <td><?php echo $Clase; ?></td>
               <td><?php echo $Correo; ?></td>
-              <td><a onclick="return confirm('Al eliminar el usuario, se eliminarán todos sus anuncios. Estas de acuerdo?')" href="eliminar_user.php?id=<?php echo $Nick; ?>" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a></td>
+              <td><a onclick="return confirm('Al eliminar el usuario, se eliminarán todos sus anuncios. Estas de acuerdo?')" href="eliminar_user.php?id=<?php echo $Nick; ?>" class="boton rojo"><i class="fa-solid fa-trash-can"></i></a></td>
             </tr>
-          </tbody>
           <?php } ?>
-          </table>
+              </tbody>
+            </table>
+          </section>
+        </main>  
 
-
-          <h2 class="mb-3">Usuarios Pendientes de Validar</h2>
-          <table class="table table-stripped table-hover">
-            <thead class="table-dark">
+         <!-- tabla 2 pendientes -->
+      <main class="table mt-bg">
+        <section class="table__header">
+          <h1 class="heading-02">Usuarios Pendientes de Validar</h1>
+          <div class="input-group">
+              <input type="search" name="" id="" placeholder="Buscar" />
+              <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+        </section>
+        <section class="table__body">
+          <table class="table-center">
+          <thead>
               <tr>
                 <th>Nº</th>
                 <th>Nick</th>
@@ -179,8 +198,9 @@ if(isset($_POST["enviar"])){
                 <th>Validar</th>
                 <th>eliminar</th>
               </tr>
-            </thead>
-          <?php
+          </thead>
+        <tbody>         
+        <?php
           $stmt = obtener_usuarios_novalidados();
           $contador = 0;
           while ($fila = $stmt -> fetch()){
@@ -200,14 +220,15 @@ if(isset($_POST["enviar"])){
               <td><?php echo $Rol; ?></td>
               <td><?php echo $Clase; ?></td>
               <td><?php echo $Correo; ?></td>
-              <td><a onclick="return confirm('Al Validar se envía un email de confirmación al usuario')" href="validar_users.php?id=<?php echo $Nick  ?>" class="btn btn-success"><i class="fa-solid fa-check"></a></td>
-              <td><a onclick="return confirm('Estas Seguro? Esta accion no se puede deshacer')" href="eliminar_user.php?id=<?php echo $Nick; ?>" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a></td>
+              <td><a onclick="return confirm('Al Validar se envía un email de confirmación al usuario')" href="validar_users.php?id=<?php echo $Nick  ?>" class="boton verde"><i class="fa-solid fa-check"></a></td>
+              <td><a onclick="return confirm('Al eliminar el usuario, se eliminarán todos sus anuncios. Estas de acuerdo?')" href="eliminar_user.php?id=<?php echo $Nick; ?>" class="boton rojo"><i class="fa-solid fa-trash-can"></i></a></td>
             </tr>
           </tbody>
           <?php } ?>
-          </table>
-    </div>
-    </div>
+              </tbody>
+            </table>
+          </section>
+        </main>   
   </section>
   <!-- END MAIN AREA -->
     <!-- FOOTER -->
