@@ -23,16 +23,12 @@ function confirmarBorrado() {
 function createDynamicHeader(headerText) {
   const dynamicHeader = document.getElementById("dynamicHeader");
   dynamicHeader.innerHTML = `
-        <header class="text-bg-light py-3 mb-5">
+        <header>
             <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h1>
-                            <i class="fa-solid fa-edit" style="color: #f3b82a"></i>
-                            ${headerText}
-                        </h1>
-                    </div>
-                </div>
+              <h1>
+                  <i class="fa-solid fa-edit" style="color: #f3b82a"></i>
+                  ${headerText}
+              </h1>
             </div>
         </header>
     `;

@@ -86,6 +86,15 @@
   --transition: all ease-in-out 0.2s;
 }
 
+.d-flex {
+  display: flex;
+}
+
+.flex-center {
+  text-align: center;
+  justify-content: center;
+}
+
 /* ---------------------------------- */
 /* RESET                              */
 /* -----------------------------------*/
@@ -310,6 +319,23 @@ select {
   font-style: normal;
   font-weight: 600;
   line-height: 1rem;
+}
+
+input,
+select,
+checkbox {
+  padding: 7px;
+  border-radius: 6px;
+  font-size: 16px;
+  background: #fbfbfb;
+  border: 2px solid transparent;
+  height: 36px;
+  box-shadow: 0 0 0 1px #dddddd, 0 2px 4px 0 rgb(0 0 0 / 7%),
+    0 1px 1.5px 0 rgb(0 0 0 / 5%);
+  :focus {
+    border: 2px solid #000;
+    border-radius: 4px;
+  }
 }
 
 /* ---------------------------------- */
@@ -612,6 +638,10 @@ ul {
   padding-left: 0rem;
 }
 
+.w-50 {
+  width: 50%;
+}
+
 /* anuncios inicio */
 
 .header-section {
@@ -620,11 +650,12 @@ ul {
 
 .botones-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 2rem;
 }
 
 .titulo-header {
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 /* BOTONES */
@@ -632,7 +663,7 @@ ul {
   outline: 0;
   grid-gap: 8px;
   align-items: center;
-  color: #000;
+  color: #fff;
   border: 1px solid #000;
   border-radius: 4px;
   cursor: pointer;
@@ -718,8 +749,8 @@ main.table {
   box-shadow: 0 0.4rem 0.8rem, #0005;
   border-radius: 0.8rem;
   overflow: hidden;
-  padding-bottom: 1.2rem;
-  background: var(--gris-200);
+  padding-bottom: 3rem;
+  background: var(--gris-100);
 }
 
 table,
@@ -731,7 +762,7 @@ td {
 
 .table__header {
   width: 100%;
-  height: 10%;
+  height: 15%;
   background-color: #fff4;
   padding: 0.8rem 2rem;
   display: flex;
@@ -741,7 +772,7 @@ td {
 
 .table__header .input-group {
   width: 35%;
-  height: 100%;
+  height: 50%;
   background-color: #fff8;
   padding: 0.8rem;
   border-radius: 2rem;
@@ -758,6 +789,7 @@ td {
   background-color: transparent;
   border: none;
   outline: none;
+  box-shadow: none;
 }
 
 .table__header .input-group:hover {
@@ -768,9 +800,9 @@ td {
 
 .table__body {
   width: 95%;
-  max-height: 89%;
+  max-height: 80%;
   background-color: #fffb;
-  margin: 0.8rem auto;
+  margin: 3rem auto;
   border-radius: 0.6rem;
   overflow: auto;
 }
@@ -793,6 +825,10 @@ table {
   width: 100%;
 }
 
+.table-center {
+  text-align: center;
+}
+
 thead th {
   position: sticky;
   top: 0;
@@ -804,7 +840,7 @@ tbody tr:nth-child(even) {
 }
 
 tbody tr:hover {
-  background-color: #fff6;
+  background-color: #fffb;
 }
 
 .badge {
@@ -854,4 +890,12 @@ tbody tr.hidden {
   padding: 1rem 2rem;
   border-radius: 2rem;
   margin: 1rem 0;
+}
+
+.mt-bg {
+  margin-top: 3rem;
+}
+
+.mb-bg {
+  margin-bottom: 3rem;
 }

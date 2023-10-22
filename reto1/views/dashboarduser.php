@@ -35,7 +35,7 @@ confirmar_login();
            <!-- inicio area central -->
            <main class="table">
             <section class="table__header">
-                    <h1>Mis Anuncios Creados</h1>
+                    <h1 class="heading-02">Mis Anuncios Creados</h1>
                     <div class="input-group">
                         <input type="search" name="" id="" placeholder="Buscar" />
                         <i class="fa-solid fa-magnifying-glass"></i>
@@ -98,7 +98,7 @@ confirmar_login();
                 </tr>
             
               <?php } ?>
-                    </tbody>
+                  </tbody>
                 </table>
             </section>
         </main>   

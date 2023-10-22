@@ -20,31 +20,38 @@ confirmar_admin();
     <?php include("../templates/header.php"); ?>
     <!-- NAVBAR END -->
     <!-- HEADER -->
-    <div id="dynamicHeader"></div>
+    <div id="dynamicHeader" class="mb-bg"></div>
     <!-- HEADER END -->
-    <section class="container py-2 mb-4">
-      <div class="row" style="min-height: 30px;">
-        <div class="col-lg-12" style="min-height: 400px;">
-        <div class="col-lg-3 mb-4">
-            <a class="btn btn-warning d-lg-block w-100" href="dashboard.php"><i class="fa-solid fa-arrow-left"></i> Volver al Panel de Control</a>
+    <section class="container ">
+        <div class="d-flex flex-center mb-bg">
+            <a class="boton tx-morado-oscuro w-50" href="dashboard.php"><i class="fa-solid fa-arrow-left"></i> Volver al Panel de Control</a>
         </div>
-        <h2>Comentarios Pendientes de aprobar</h2>
-        
+
         <?php
         echo MensajeError();
         echo MensajeExito();
         ?>
-          <table class="table table-stripped table-hover">
-            <thead class="table-dark">
+        <main class="table">
+        <section class="table__header">
+          <h1 class="heading-02">Comentarios Pendientes de aprobar</h1>
+          <div class="input-group">
+              <input type="search" name="" id="" placeholder="Buscar" />
+              <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+        </section>
+        <section class="table__body">
+          <table class="table-center">
+          <thead>
               <tr>
-                <th>Nº</th>
-                <th>Autor</th>
+              <th>Nº</th>
+              <th>Autor</th>
                 <th>Texto</th>
                 <th>Aprobar</th>
                 <th>Eliminar</th>
                 <th>Detalles</th>
               </tr>
-            </thead>
+          </thead>
+        <tbody>
           <?php
           $execute = obtener_comentarios_noaprobados();
           $contador = 0;
@@ -55,33 +62,43 @@ confirmar_admin();
             $texto = $fila["Texto"];
             $contador++;
           ?>
-          <tbody>
             <tr>
               <td><?php echo $contador; ?></td>
               <td><?php echo $autor; ?></td>
               <td><?php echo $texto; ?></td>
-              <td><a href="aprobarcomentario.php?id=<?php echo $id; ?>" class="btn btn-success"><i class="fa-solid fa-check"></i></a></td>
-              <td><a href="eliminarcomentario.php?id=<?php echo $id; ?>" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a></td>
-              <td><a href="anuncio_completo.php?id=<?php echo $idAnuncio ?>" class="btn btn-primary" target="_blank">Ver Anuncio</a></td>
+              <td><a href="aprobarcomentario.php?id=<?php echo $id; ?>" class="boton verde"><i class="fa-solid fa-check"></i></a></td>
+              <td><a href="eliminarcomentario.php?id=<?php echo $id; ?>" class="boton rojo"><i class="fa-solid fa-trash-can"></i></a></td>
+              <td><a href="anuncio_completo.php?id=<?php echo $idAnuncio ?>" class="boton azul" target="_blank">Ver Anuncio</a></td>
             </tr>
-          </tbody>
           <?php } ?>
-          </table>
+              </tbody>
+            </table>
+          </section>
+        </main>  
           <!-- segunda tabla -->
-          <h2>Comentarios Aprobados</h2>
-          <table class="table table-stripped table-hover">
-            <thead class="table-dark">
+        <main class="table mt-bg">
+        <section class="table__header">
+          <h1 class="heading-02">Comentarios Aprobados</h1>
+          <div class="input-group">
+              <input type="search" name="" id="" placeholder="Buscar" />
+              <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+        </section>
+        <section class="table__body">
+          <table class="table-center">
+          <thead>
               <tr>
               <th>Nº</th>
                 <th>Autor</th>
                 <th>Texto</th>
-                <th>Quitar</th>
+                <th>Aprobar</th>
                 <th>Eliminar</th>
                 <th>Detalles</th>
               </tr>
-            </thead>
+          </thead>
+        <tbody>
           <?php
-          $execute = obtener_comentarios_aprobados();
+          $execute = obtener_comentarios_noaprobados();
           $contador = 0;
           while ($fila = $execute -> fetch()){
             $id = $fila["id"];
@@ -90,20 +107,19 @@ confirmar_admin();
             $texto = $fila["Texto"];
             $contador++;
           ?>
-          <tbody>
             <tr>
               <td><?php echo $contador; ?></td>
               <td><?php echo $autor; ?></td>
               <td><?php echo $texto; ?></td>
-              <td><a href="desaprobarcomentario.php?id=<?php echo $id; ?>" class="btn btn-warning"><i class="fa-solid fa-x"></i></a></td>
-              <td><a href="eliminarcomentario.php?id=<?php echo $id; ?>" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a></td>
-              <td><a href="anuncio_completo.php?id=<?php echo $idAnuncio ?>" class="btn btn-primary" target="_blank">Ver Anuncio</a></td>
+              <td><a href="aprobarcomentario.php?id=<?php echo $id; ?>" class="boton amarillo"><i class="fa-solid fa-check"></i></a></td>
+              <td><a href="eliminarcomentario.php?id=<?php echo $id; ?>" class="boton rojo"><i class="fa-solid fa-trash-can"></i></a></td>
+              <td><a href="anuncio_completo.php?id=<?php echo $idAnuncio ?>" class="boton azul" target="_blank">Ver Anuncio</a></td>
             </tr>
-          </tbody>
           <?php } ?>
-          </table>
-        </div>
-      </div>
+              </tbody>
+            </table>
+          </section>
+        </main>  
     </section>
     <!-- FOOTER -->
     <?php include("../templates/footer.php"); ?>
