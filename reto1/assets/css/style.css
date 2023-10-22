@@ -744,7 +744,6 @@ td img {
 
 main.table {
   width: 100%;
-  height: 90vh;
   backdrop-filter: blur(7px);
   box-shadow: 0 0.4rem 0.8rem, #0005;
   border-radius: 0.8rem;
@@ -762,7 +761,7 @@ td {
 
 .table__header {
   width: 100%;
-  height: 15%;
+  height: 6rem;
   background-color: #fff4;
   padding: 0.8rem 2rem;
   display: flex;
@@ -872,7 +871,7 @@ tbody tr:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  gap: 0.3rem;
 }
 
 @media (max-width: 1000px) {
@@ -898,4 +897,8 @@ tbody tr.hidden {
 
 .mb-bg {
   margin-bottom: 3rem;
+}
+
+.gap-tb {
+  gap: 0.5rem;
 }
