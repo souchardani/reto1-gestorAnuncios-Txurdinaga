@@ -24,26 +24,26 @@ $datos = obtener_datos_dashboard();
     <?php include("../templates/header.php"); ?>
     <!-- NAVBAR END -->
     <!-- HEADER -->
-    <header class="text-bg-light py-3">
+     <header class="header-section">
       <div class="container">
-        <div class="row ">
-          <div class="col-md-12 mb-3">
-            <h1><i class="fa-solid fa-cog" style="color: #f3b82a"></i> Panel de Control</h1>
-          </div>
-          <div class="col-lg-3 mb-2">
-            <a href="detalles_anuncios.php" class="btn btn-primary w-100">
+        <div class="titulo-header">
+            <h1><i class="fa-solid fa-cog" style="color: #e20035"></i> Panel de Control</h1>
+        </div>
+        <div class="botones-header">
+          <div>
+            <a href="detalles_anuncios.php" class="btn w-100">
               <i class="fas fa-edit"></i>
               Gestionar Anuncios
             </a>
           </div>
           <div class="col-lg-3 mb-2">
-            <a href="categorias.php" class="btn btn-info btn-block w-100">
+            <a href="categorias.php" class="btn w-100">
               <i class="fas fa-folder-plus"></i>
               Gestionar Categorias
             </a>
           </div>
           <div class="col-lg-3 mb-2">
-            <a href="users.php" class="btn btn-warning btn-block w-100">
+            <a href="users.php" class="btn w-100">
               <i class="fas fa-user-plus"></i>
               Gestionar Usuarios
             </a>
@@ -55,7 +55,7 @@ $datos = obtener_datos_dashboard();
             </a>
           </div> -->
           <div class="col-lg-3">
-            <a href="comentarios.php" class="btn btn-success btn-block w-100">
+            <a href="comentarios.php" class="btn w-100">
               <i class="fas fa-check"></i>
               Gestionar Comentarios
             </a>

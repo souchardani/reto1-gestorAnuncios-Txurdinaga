@@ -108,6 +108,9 @@ function obtener_datos_dashboard(){
 }
 
 
+
+
+
 //------------------------------------------------------------------//
 //----------------------------PAGINACION----------------------------//
 //------------------------------------------------------------------//
@@ -304,6 +307,17 @@ function mostrar_anuncio_url($idAnuncio) {
   global $Conexionbbdd;
   $sql = "SELECT * FROM anuncio WHERE id=$idAnuncio";
   $stmt = $Conexionbbdd->query($sql);
+  return $stmt;
+}
+
+
+//funcion para obtener los anuncios por cada usuario
+function obtener_anuncios_poruser() {
+  global $Conexionbbdd;
+  $sql = "SELECT * FROM anuncio WHERE Autor=:Autor ORDER BY id desc";
+  $stmt = $Conexionbbdd->prepare($sql);
+  $stmt -> bindParam(":Autor", $_SESSION["usuario_global"]);
+  $stmt -> execute();
   return $stmt;
 }
 

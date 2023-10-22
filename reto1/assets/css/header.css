@@ -79,7 +79,7 @@
   box-shadow: 0 0 0 3px lightcoral;
   cursor: pointer;
   overflow: hidden;
-  background-color: var(--rojo);
+  background-color: var(--tx-rojo);
   transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
   height: 3rem;
 }
@@ -91,7 +91,7 @@
   transform: translate(-50%, -50%);
   width: 20px;
   height: 20px;
-  background-color: green;
+  background-color: var(--tx-verde-oscuro);
   border-radius: 50%;
   opacity: 0;
   transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
@@ -103,7 +103,7 @@
 }
 
 .animated-button:hover {
-  box-shadow: 0 0 0 5px lightgreen;
+  box-shadow: 0 0 0 5px var(--tx-verde-claro);
   color: #ffffff;
 }
 
@@ -129,6 +129,16 @@
   --black: #393e46;
   --morado: #ba007b;
   --rojo: #e20035;
+  --tx-azul: #1aa3bf;
+  --tx-verde-oscuro: #229c69;
+  --tx-verde-claro: #57aa26;
+  --tx-amarillo: #d6d700;
+  --tx-amarillo-oscuro: #fcc204;
+  --tx-naranja: #e95f15;
+  --tx-rojo: #e20035;
+  --tx-rosa: #e6007c;
+  --tx-morado: #ba007b;
+  --tx-morado-oscuro: #5c2684;
 
   --shadow: 0px 2px 8px 0px var(--secondary-light);
 }
@@ -178,7 +188,6 @@
   padding-right: 1rem;
   font-size: 0.9rem;
   font-weight: 500px;
-  width: 200px;
   border: 3px solid var(--rojo);
   border-radius: 50px;
   cursor: pointer;
@@ -222,7 +231,7 @@
   transition: max-height 0.2s ease-in;
 }
 .profile-dropdown-list hr {
-  border: 0.5px solid var(--rojo);
+  border: 0.5px solid var(--tx-rojo);
 }
 
 .profile-dropdown-list-item {
@@ -249,7 +258,7 @@
   font-size: 1.1rem;
   width: 2.3rem;
   height: 2.3rem;
-  background-color: var(--rojo);
+  background-color: var(--tx-rojo);
   color: var(--white);
   line-height: 2.3rem;
   text-align: center;
