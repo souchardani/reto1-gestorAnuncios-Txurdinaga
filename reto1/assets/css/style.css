@@ -647,3 +647,26 @@ dl, ol, ul {
   margin-bottom: 0rem;
   padding-left: 0rem;
 }
+
+
+.input-group-text {
+  background-color: #FCC204;
+}
+
+.btn-send-data {
+  display: block;
+  margin: 2;
+  background-color: #E95F15;
+}
+
+.rojo {
+  border-color: var(--rojo-500);
+}
+
+.azul {
+  border-color: var(--azul-500);
+}
+
+.verde {
+  border-color: var(--verde-500);
+}

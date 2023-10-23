@@ -28,13 +28,13 @@
                 echo MensajeError();
                 echo MensajeExito();
               ?>
-              <form action="registro.php" method="post">
+              <form id="registroForm" method="post">
                 <div class="row">
                   <div class="col-12 col-md-6">
                     <div class="form-group">
                       <label for="nombre"><span class="FieldInfo">Nombre: </span></label>
                       <div class="input-group my-2">
-                        <div class="input-group-text" style="background-color: #FCC204;"><span><i class="fas fa-user"></i></span></div>
+                        <div class="input-group-text"><span><i class="fas fa-user"></i></span></div>
                         <input type="text" class="form-control" name="nombre" id="nombre">
                       </div>
                     </div>    
@@ -43,7 +43,7 @@
                     <div class="form-group">
                       <label for="apellido"><span class="FieldInfo">Apelllido: </span></label>
                       <div class="input-group my-2">
-                        <div class="input-group-text" style="background-color: #FCC204;"><span><i class="fas fa-user"></i></span></div>
+                        <div class="input-group-text"><span><i class="fas fa-user"></i></span></div>
                         <input type="text" class="form-control" name="apeliido" id="apellido">
                       </div>
                     </div>    
@@ -52,17 +52,17 @@
                     <div class="form-group">
                       <label for="nickname"><span class="FieldInfo">Nickname: </span></label>
                       <div class="input-group my-2">
-                        <div class="input-group-text" style="background-color: #FCC204;"><span><i class="fas fa-user"></i></span></div>
+                        <div class="input-group-text"><span><i class="fas fa-user"></i></span></div>
                         <input type="text" class="form-control" name="nickname" id="nickname">
                       </div>
                     </div>    
                   </div>
                   <div class="col-12 col-md-6">
                     <div class="form-group">
-                      <label for="pass"><span class="FieldInfo">Contraseña: </span></label>
+                      <label for="pass1"><span class="FieldInfo">Contraseña: </span></label>
                       <div class="input-group my-2">
-                        <div class="input-group-text" style="background-color: #FCC204;"><span><i class="fas fa-lock"></i></span></div>
-                        <input type="text" class="form-control" name="pass" id="pass">
+                        <div class="input-group-text"><span><i class="fas fa-lock"></i></span></div>
+                        <input type="password" class="form-control" name="pass1" id="pass1">
                       </div>
                     </div>    
                   </div>
@@ -70,8 +70,8 @@
                     <div class="form-group">
                       <label for="pass2"><span class="FieldInfo">Repetir contraseña: </span></label>
                       <div class="input-group my-2">
-                        <div class="input-group-text" style="background-color: #FCC204;"><span><i class="fas fa-lock"></i></span></div>
-                        <input type="text" class="form-control" name="pass2" id="pass2">
+                        <div class="input-group-text"><span><i class="fas fa-lock"></i></span></div>
+                        <input type="password" class="form-control" name="pass2" id="pass2">
                       </div>
                     </div>    
                   </div>
@@ -79,8 +79,8 @@
                     <div class="form-group">
                       <label for="email"><span class="FieldInfo">Email: </span></label>
                       <div class="input-group my-2">
-                        <div class="input-group-text" style="background-color: #FCC204;"><span><i class="fas fa-envelope"></i></span></div>
-                        <input type="text" class="form-control" name="email" id="email">
+                        <div class="input-group-text"><span><i class="fas fa-envelope"></i></span></div>
+                        <input type="email" class="form-control" name="email" id="email">
                       </div>
                     </div>    
                   </div>
@@ -88,7 +88,7 @@
                     <div class="form-group">
                       <label for="fecha"><span class="FieldInfo">Fecha: </span></label>
                       <div class="input-group my-2">
-                        <div class="input-group-text" style="background-color: #FCC204;"><span><i class="fas fa-calendar"></i></span></div>
+                        <div class="input-group-text"><span><i class="fas fa-calendar"></i></span></div>
                         <input type="date" class="form-control" name="fecha" id="fecha">
                       </div>
                     </div>    
@@ -97,7 +97,7 @@
                     <div class="form-group">
                       <label for="clase"><span class="FieldInfo">Clase: </span></label>
                       <div class="input-group my-2">
-                        <div class="input-group-text" style="background-color: #FCC204;"><span><i class="fas fa-graduation-cap"></i></span></div>
+                        <div class="input-group-text"><span><i class="fas fa-graduation-cap"></i></span></div>
                         <select name="clase" id="clase" class="form-control">
                           <option value=""></option>
                         </select>
@@ -108,7 +108,7 @@
                     <div class="form-group">
                       <label for="telf"><span class="FieldInfo">Alumno / Profesor: </span></label>
                       <div class="input-group my-2">
-                        <div class="input-group-text" style="background-color: #FCC204;"><span><i class="fas fa-gear"></i></span></div>
+                        <div class="input-group-text"><span><i class="fas fa-gear"></i></span></div>
                         <select name="clase" id="clase" class="form-control">
                           <option value=""></option>
                         </select>
@@ -117,14 +117,6 @@
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-12">
-                    <div class="checkbox">
-                      <label>
-                        <input type="checkbox" name="checkbox-authorization" id="checkbox-authorization" required> 
-                        Acepto las condiciones
-                      </label>
-                    </div>
-                  </div>
                   <div class="d-grid">
                     <input type="submit" name="enviar" value="Iniciar Sesion" class="btn d-block text-white my-2" style="background: #E95F15;">
                   </div>
@@ -138,6 +130,7 @@
         </div>
       </div>
     </section>
+    <script src="../assets//js/registro.js"></script>
     <!-- end of main area -->
     <!-- FOOTER -->
     <?php include("../templates/footer.php"); ?>

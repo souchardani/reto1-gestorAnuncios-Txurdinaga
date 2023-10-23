@@ -10,7 +10,7 @@
   </div>
   <div class="header-perfil">
     <button class="btn-dropdown"> 
-      <img src="../assets/img/user.png" id="foto-perfil" style="width:50px;">
+      <img src="../assets/img/user.png" id="foto-perfil" style="border-radius:100%; width:55px">
     </button>
     <div class="dropdown-content">
       <a href="../views/miperfil.php">Mi perfil</a>

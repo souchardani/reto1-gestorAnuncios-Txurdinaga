@@ -70,6 +70,9 @@ if(isset($_POST["enviar"])){
                   <div class="d-grid">
                     <input type="submit" name="enviar" value="Iniciar Sesion" class="btn d-block text-white mt-3" style="background: #E95F15;">
                   </div>
+                  <div class="text-center col-12">
+                    <p>¿No tienes una cuenta? <a href="registro.php">Registrate</a></p>
+                  </div>
                 </div>
               </form>
           </div>
