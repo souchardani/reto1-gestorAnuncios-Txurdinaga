@@ -33,6 +33,11 @@ $datos = obtener_datos_dashboard();
             </h1>
           </div>
         </header>
+        <?php 
+          //añadimos mensajes de error en caso de que los haya
+            echo MensajeError();
+            echo MensajeExito();
+          ?>
         <div class="botones-header">
           <div class="w-100">
             <a href="detalles_anuncios.php" class="boton tx-rosa w-100">
@@ -66,11 +71,7 @@ $datos = obtener_datos_dashboard();
     <div class="container mt-bg">
       <div class="dash-main-top mt-bg">
       <div class="main-left">
-          <?php 
-          //añadimos mensajes de error en caso de que los haya
-            echo MensajeError();
-            echo MensajeExito();
-          ?>
+        
           <!-- inicio aside area -->
           <div class="tarjetas">
             <div class="tarjeta">

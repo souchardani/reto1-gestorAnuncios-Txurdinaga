@@ -51,7 +51,7 @@ if(isset($_POST["enviar"])){
 
 
       <section class="form mb-bg">
-      <div class="contenedor-formulario mt-bg">
+      <div class="contenedor-formulario mt-bg w-70">
         <div class="titulo tx-verde-oscuro"><span>Añadir Categoria</span></div>
         <form action="categorias.php" method="post" enctype="multipart/form-data">
           <!-- fila titulo -->

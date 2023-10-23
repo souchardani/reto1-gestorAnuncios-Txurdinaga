@@ -60,7 +60,7 @@ if(isset($_POST["enviar"])){
       echo MensajeExito();
        ?>
     <section class="form">
-      <div class="contenedor-formulario mt-bg">
+      <div class="contenedor-formulario mt-bg w-70">
         <div class="titulo tx-verde-oscuro"><span>Añadir Anuncio</span></div>
         <form action="anadir_anuncio.php" method="post" enctype="multipart/form-data">
           <!-- fila titulo -->
@@ -99,9 +99,6 @@ if(isset($_POST["enviar"])){
           <!-- fila para boton -->
           <div class="fila-boton">
           <button class="boton tx-verde-oscuro w-100" type="submit" name="enviar"><i class="fa-solid fa-check"></i>Publicar</button>
-            <div class="subtexto">
-              No tienes Cuenta? <a class="ctx-verde-oscuro" href="">Crea una</a>
-            </div>
           </div>
         </form>
       </div>

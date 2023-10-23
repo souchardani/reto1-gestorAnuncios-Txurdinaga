@@ -66,7 +66,7 @@ if(isset($_POST["enviar"])){
 
       <!-- formulario -->
       <section class="form">
-      <div class="contenedor-formulario mt-bg">
+      <div class="contenedor-formulario mt-bg w-70">
         <div class="titulo tx-morado-oscuro"><span>Añadir Nuevo Usuario</span></div>
         <form action="users.php" method="post">
           <!-- fila 2 fluida -->
