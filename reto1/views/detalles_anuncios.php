@@ -23,136 +23,61 @@ confirmar_admin();
     <?php include("../templates/header.php"); ?>
     <!-- NAVBAR END -->
     <!-- HEADER -->
-    <header class="text-bg-light py-3">
-      <div class="container">
-        <div class="row ">
-          <div class="col-md-12 mb-3">
-            <h1><i class="fa-solid fa-list-ul" style="color: #f3b82a"></i> Todos los anuncios</h1>
-          </div>
-          <div class="col-lg-3 mb-2">
-            <a href="dashboard.php" class="btn btn-primary w-100">
-            <i class="fa-solid fa-arrow-left"></i>
+    <header>
+        <div class="container">
+          <h1>
+              <i class="fa-solid fa-list-ul" style="color: #f3b82a"></i>
               Volver al panel de control
-            </a>
-          </div>
-
+          </h1>
         </div>
-      </div>
     </header>
+    <section class="container ">
+        <div class="d-flex flex-center mb-bg">
+            <a class="boton tx-rosa w-50" href="dashboard.php"><i class="fa-solid fa-arrow-left"></i> Volver al Panel de Control</a>
+        </div>
+
     <!-- HEADER END -->
     <!-- main area -->
-    <div class="container py-2 my-4">
-      <div class="row">
-        <div class="col-lg-12">
-          <h1 class="mb-3">Anuncios Validados</h1>
-          <table class="table table-striped table-hover">
-          <?php 
-          //añadimos mensajes de error en caso de que los haya
-            echo MensajeError();
-            echo MensajeExito();
-            ?>
-            <thead class="table-dark">
-              <tr>
-                <th>Nº</th>
-                <th>Titulo</th>
-                <th>Categoria</th>
-                <th>Fecha</th>
-                <th>Autor</th>
-                <th>Imagen</th>
-                <th>Comentarios</th>
-                <th>Accion</th>
-                <th>Vista Previa</th>
-              </tr>
-            </thead>
-            <?php
-            //obtenemos todos los posts de la bbdd
-            $stmt = mostrar_todos_anuncios();
-            $contador = 0;
-            while ($fila = $stmt -> fetch()){
-              $id = $fila["id"];
-              $datetime = $fila["Fecha_publi"];
-              $titulo = $fila["Título"];
-              $categoria =obtener_categoria_porid($id);
-              $autor = $fila["Autor"];
-              $imagen = $fila["Imagen"];
-              $descripcion = $fila["Descripción"];
-              $contador++;
-            ?>
-            <tbody>
-              <tr>
-                <td><?php echo $contador?></td>
-                <td><?php  
-                  strlen($titulo)>20 ? $titulo=substr($titulo,0,40)."..." :  $titulo;  //if else para verificar la logitud de caracteres
-                  echo $titulo ?></td>
-                <td><?php
-                  strlen($categoria)>10 ? $categoria=substr($categoria,0,10)."..." :  $categoria; 
-                  echo $categoria?></td>
-                <td><?php 
-                  strlen($datetime)>12 ? $datetime=substr($datetime,0,12)."..." :  $datetime; 
-                  echo $datetime?></td>
-                <td><?php
-                strlen($autor)>6 ? $autor=substr($autor,0,6)."..." :  $autor;
-                echo $autor
-                ?></td>
-                <td><img src="../assets/img_subidas/anuncios/<?php echo $imagen?>" width="170px;" height="50px"> </td>
-                <td>
-                <?php
-                    $comentariossi = obtener_comentarios_aprobados_porid($id);
-                    if($comentariossi > 0){
-                      echo "<span class='badge text-bg-success'>$comentariossi</span>";
-                    }
-                    ?>
-                    <?php
-                    $comentariosno = obtener_comentarios_noaprobados_porid($id);
-                    if($comentariosno > 0){
-                      echo "<span class='badge text-bg-danger'>$comentariosno</span>";
-                    }
-                    ?>
-                </td>
-                <td>
-                  <a href="editar_anuncio.php?id=<?php echo $id ?>"><span class="btn btn-warning">Editar</span></a>
-                  <a href="eliminar_anuncio.php?id=<?php echo $id ?>"><span class="btn btn-danger">Borrar</span></a>
-                </td>
-                <td><a href="anuncio_completo.php?id=<?php echo $id ?>" target="_blank"><span class="btn btn-primary">Vista previa</span></a></td>
-              </tr>
-            </tbody>
-            <?php }?>
-          </table>
-          <h1 class="mb-3">Anuncios pendientes de validar</h1>
-          <table class="table table-striped table-hover">
-          <?php 
-          //añadimos mensajes de error en caso de que los haya
-            echo MensajeError();
-            echo MensajeExito();
-            ?>
-            <thead class="table-dark">
-              <tr>
-                <th>Nº</th>
-                <th>Titulo</th>
-                <th>Categoria</th>
-                <th>Fecha</th>
-                <th>Autor</th>
-                <th>Imagen</th>
-                <th>Comentarios</th>
-                <th>Accion</th>
-                <th>Vista Previa</th>
-              </tr>
-            </thead>
-            <?php
-            //obtenemos todos los posts de la bbdd
-            $stmt = mostrar_todos_anuncios_novalidado();
-            $contador = 0;
-            while ($fila = $stmt -> fetch()){
-              $id = $fila["id"];
-              $datetime = $fila["Fecha_publi"];
-              $titulo = $fila["Título"];
-              $categoria =obtener_categoria_porid($id);
-              $autor = $fila["Autor"];
-              $imagen = $fila["Imagen"];
-              $descripcion = $fila["Descripción"];
-              $contador++;
-            ?>
-            <tbody>
+    <!-- primera tabla -->
+      <main class="table mb-bg">
+            <section class="table__header">
+              <h1 class="heading-02">Anuncios Validados</h1>
+              <div class="input-group">
+                  <input type="search" name="" id="" placeholder="Buscar" />
+                  <i class="fa-solid fa-magnifying-glass"></i>
+              </div>
+            </section>
+            <section class="table__body">
+                    <table>
+                    <thead>
+                        <tr>
+                          <th>Nº</th>
+                          <th>Titulo</th>
+                          <th>Categoria</th>
+                          <th>Fecha</th>
+                          <th>Autor</th>
+                          <th>Imagen</th>
+                          <th>Comentarios</th>
+                          <th>Accion</th>
+                          <th>Vista Previa</th>
+                        </tr>
+                    </thead>
+                  <tbody>
+              <!-- obtenemos los ultimos 5 anuncios -->
+              <?php
+                //obtenemos todos los posts de la bbdd
+                $stmt = mostrar_todos_anuncios();
+                $contador = 0;
+                while ($fila = $stmt -> fetch()){
+                  $id = $fila["id"];
+                  $datetime = $fila["Fecha_publi"];
+                  $titulo = $fila["Título"];
+                  $categoria =obtener_categoria_porid($id);
+                  $autor = $fila["Autor"];
+                  $imagen = $fila["Imagen"];
+                  $descripcion = $fila["Descripción"];
+                  $contador++;
+                ?>
               <tr>
                 <td><?php echo $contador?></td>
                 <td><?php  
@@ -173,29 +98,114 @@ confirmar_admin();
                 <?php
                     $comentariossi = obtener_comentarios_aprobados_porid($id);
                     if($comentariossi > 0){
-                      echo "<span class='badge text-bg-success'>$comentariossi</span>";
+                      echo "<span class='badge verde'>$comentariossi</span>";
                     }
                     ?>
                     <?php
                     $comentariosno = obtener_comentarios_noaprobados_porid($id);
                     if($comentariosno > 0){
-                      echo "<span class='badge text-bg-danger'>$comentariosno</span>";
+                      echo "<span class='badge rojo'>$comentariosno</span>";
                     }
                     ?>
                 </td>
                 <td>
-                  <a href="validar_anuncio.php?id=<?php echo $id ?>"><span class="btn btn-success"><i class="fas fa-check"></i> Validar</span></a>
-                  <a href="eliminar_anuncio.php?id=<?php echo $id ?>"><span class="btn btn-danger">Borrar</span></a>
+                  <div class="d-flex gap-tb">
+                    <a href="editar_anuncio.php?id=<?php echo $id ?>"><span class="boton rojo">Editar</span></a>
+                    <a href="eliminar_anuncio.php?id=<?php echo $id ?>"><span class="boton amarillo">Borrar</span></a>
+                  </div>
                 </td>
-                <td><a href="anuncio_completo.php?id=<?php echo $id ?>" target="_blank"><span class="btn btn-primary">Vista previa</span></a></td>
+                <td><a href="anuncio_completo.php?id=<?php echo $id ?>" target="_blank"><span class="boton azul">Vista previa</span></a></td>
               </tr>
-            </tbody>
             <?php }?>
-          </table>
-        </div>
-      </div>
-    </div>
-
+                  </tbody>
+                </table>
+              </section>
+            </main>
+          <!-- segunda tabla -->  
+          <main class="table mt-bg">
+            <section class="table__header">
+              <h1 class="heading-02">Anuncios pendientes de validar</h1>
+              <div class="input-group">
+                  <input type="search" name="" id="" placeholder="Buscar" />
+                  <i class="fa-solid fa-magnifying-glass"></i>
+              </div>
+            </section>
+            <section class="table__body">
+                    <table>
+                    <thead>
+                        <tr>
+                          <th>Nº</th>
+                          <th>Titulo</th>
+                          <th>Categoria</th>
+                          <th>Fecha</th>
+                          <th>Autor</th>
+                          <th>Imagen</th>
+                          <th>Comentarios</th>
+                          <th>Accion</th>
+                          <th>Vista Previa</th>
+                        </tr>
+                    </thead>
+                  <tbody>
+              <!-- obtenemos los ultimos 5 anuncios -->
+              <?php
+                  //obtenemos todos los posts de la bbdd
+                  $stmt = mostrar_todos_anuncios_novalidado();
+                  $contador = 0;
+                  while ($fila = $stmt -> fetch()){
+                    $id = $fila["id"];
+                    $datetime = $fila["Fecha_publi"];
+                    $titulo = $fila["Título"];
+                    $categoria =obtener_categoria_porid($id);
+                    $autor = $fila["Autor"];
+                    $imagen = $fila["Imagen"];
+                    $descripcion = $fila["Descripción"];
+                    $contador++;
+                  ?>
+                  <tbody>
+                    <tr>
+                      <td><?php echo $contador?></td>
+                      <td><?php  
+                        strlen($titulo)>20 ? $titulo=substr($titulo,0,40)."..." :  $titulo;  //if else para verificar la logitud de caracteres
+                        echo $titulo ?></td>
+                      <td><?php
+                        strlen($categoria)>10 ? $categoria=substr($categoria,0,10)."..." :  $categoria; 
+                        echo $categoria?></td>
+                      <td><?php 
+                        strlen($datetime)>12 ? $datetime=substr($datetime,0,12)."..." :  $datetime; 
+                        echo $datetime?></td>
+                      <td><?php
+                      strlen($autor)>6 ? $autor=substr($autor,0,6)."..." :  $autor;
+                      echo $autor
+                      ?></td>
+                      <td><img src="../assets/img_subidas/anuncios/<?php echo $imagen?>" width="170px;" height="50px"> </td>
+                      <td><div class="fluid">
+                      <?php
+                          $comentariossi = obtener_comentarios_aprobados_porid($id);
+                          if($comentariossi > 0){
+                            echo "<span class='badge verde'>$comentariossi</span>";
+                          }
+                          ?>
+                          <?php
+                          $comentariosno = obtener_comentarios_noaprobados_porid($id);
+                          if($comentariosno > 0){
+                            echo "<span class='badge rojo'>$comentariosno</span>";
+                          }
+                          ?>
+                          </div>
+                      </td>
+                      <td><div class="fluid">
+                        <a href="validar_anuncio.php?id=<?php echo $id ?>"><span class="boton verde"><i class="fas fa-check"></i> Validar</span></a>
+                        <a href="eliminar_anuncio.php?id=<?php echo $id ?>"><span class="boton rojo">Borrar</span></a></div>
+                      </td>
+                      <td><a href="anuncio_completo.php?id=<?php echo $id ?>" target="_blank"><span class="boton azul">Vista previa</span></a></td>
+                    </tr>
+                  </tbody>
+                  <?php }?>
+                  </tbody>
+                </table>
+              </section>
+            </main>
+            </section>
     <!-- final de main area -->
     <!-- FOOTER -->
     <?php include("../templates/footer.php"); ?>

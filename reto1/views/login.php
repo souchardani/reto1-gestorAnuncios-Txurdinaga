@@ -10,7 +10,6 @@ if (isset($_SESSION["usuario_global"])) {
   }else {
     Redireccionar_A("anuncios_inicio.php");
   }
-  Redireccionar_A("detalles_anuncios.php");
 }
 
 
@@ -20,7 +19,7 @@ if(isset($_POST["enviar"])){
   $usuario = $_POST["usuario"];
   $password = $_POST["password"];
 
-  $verificar_llenado = verificar_empty([$usuario, $password]);
+  $verificar_llenado = verificar_empty([$usuario, $password], "login.php");
   if ($verificar_llenado){
     //checkear si el usuario existe en la bbdd y redireccionar a detalles_inicio.php
     inicio_sesion($usuario, $password);
@@ -39,7 +38,7 @@ if(isset($_POST["enviar"])){
     <!-- HEADER END -->
     
     <!-- main area -->
-    <section class="container py-2 mb-4">
+    <section class="container py-2 my-5">
       <div class="row">
         <div class="offset-sm-3 col-sm-6" style="min-height: 400px;">
           <div class="card text-bg-light">
@@ -73,6 +72,7 @@ if(isset($_POST["enviar"])){
                 </div>
               </form>
           </div>
+          <p class="text-center">No tienes una cuenta? <a href="registro.php">Crea una</a></p>
         </div>
       </div>
     </section>
