@@ -22,7 +22,8 @@ if(isset($_POST["enviar"])){
   global $Conexionbbdd;
   
   
-  
+  validar_Miperfil($nombre, $apellido, $imagen);
+
   if (!$Conexionbbdd) {
     die("La conexión a la base de datos falló: " . mysqli_connect_error());
 }
@@ -47,6 +48,7 @@ if(isset($_POST["enviar"])){
     <title>Mi perfil</title>
   </head>
   <body>
+    
     <!-- NAVBAR -->
     <?php include("../templates/header.php"); ?>
     <!-- NAVBAR END -->
@@ -77,7 +79,7 @@ if(isset($_POST["enviar"])){
       echo MensajeError();
       echo MensajeExito();
        ?>
-      <form class="" action="miperfil.php" method="post" enctype="multipart/form-data">
+      <form id="form" class="" action="miperfil.php" method="post" enctype="multipart/form-data">
         <div class="card text-bg-secondary mb-3">
           <div class="card-header">
             <h4>Editar tu perfil</h4>
@@ -92,23 +94,24 @@ if(isset($_POST["enviar"])){
               <input class="form-control " type="text" name="apellido" id="apellido" placeholder="Escribe tu apellido">
             </div>
             <div class="form-group mb-5">
-              <label class="mb-3" for="tituloCategoria"><span class="FieldInfo">Escoge Tu Clase:</span></label>
-              <select class="form-control" id="tituloCategoria" name="Categoria">
+              <label class="mb-3" for="clase"><span class="FieldInfo">Escoge Tu Clase:</span></label>
+              <select disabled class="form-control" id="clase" name="clase">
                 <?php
                 //añadimos las categorias
-                $stmt = obtener_categorias();
+                $stmt = obtener_clase_pornick($user);
                 while ($fila = $stmt -> fetch()){
                   //$Id = $fila["id"];
-                  $NombreCategoria = $fila["titulo"];
+                  $NombreClase = $fila["Clase"];
                 ?>
-                <option value="<?php echo $NombreCategoria ?>"><?php echo $NombreCategoria ?></option>
+                <option value="<?php echo $NombreClase ?>"><?php echo $NombreClase ?></option>
                 <?php } //fin del while?> 
               </select>
             </div>
             <div class="form-group mb-5">
+            <!-- El campo de la imagen , solo acepta formate de JPG , PNG , JPEG -->
               <label class="mb-3" for="seleccionaImagen"><span class="FieldInfo">Carga tu foto de perfil:</span></label>
               <div >
-                <input class="form-control" type="file" name="imagen" id="seleccionaImagen" value=""/>
+                <input class="form-control" type="file" accept=".jpg, .png, .jpeg" name="imagen" id="seleccionaImagen" value=""/>
               </div>
             </div>
             <div class="form-group mb-5">
@@ -134,6 +137,7 @@ if(isset($_POST["enviar"])){
   <!-- END MAIN AREA -->
     <!-- FOOTER -->
     <?php include("../templates/footer.php"); ?>
+    <script src="../assets/js/miperfil.js" defer></script> 
      <!-- FOOTER END -->
     <script src="../assets/js/funciones.js"></script>
     <script>window.onload = () => createDynamicHeader('Mi Perfil');</script>
