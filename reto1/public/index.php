@@ -28,7 +28,7 @@
       <div class="container flex">
         <div class="left">
           <h3 class="display-03 flex">
-            Descubre todas las Noticias y Anuncios de cifp Txurdinaga
+            Descubre todas las Noticias y Anuncios de CIFP Txurdinaga
           </h3>
           <p class="body-large-400">Entérate de todas nuestras novedades!</p>
         </div>
@@ -90,22 +90,9 @@
         <h2 class="display-03">Anuncios Recientes</h2>
         <div class="columnas-anuncios flex">
         <?php
-        
-          //si le ha dado al boton buscar, mostramos anuncios personalziados
-           if(isset($_GET["btnBuscar"])){
-               $stmt = mostrar_anuncios_busqueda();
-          //busqueda para paginacion ex. anuncios_inicio.php?pagina=1
-           }else if(isset($_GET["pagina"])){
-               $stmt = mostrar_anuncios_paginacion();
-               //busqueda por categoria
-           }else if (isset($_GET["categoria"])){
-               $stmt = mostrar_anuncios_categoria();
 
-           }
-           else {
-            //por defecto, mostrar todos los anuncios (lo capamos en 5)
-              $stmt = mostrar_todos_anuncios();
-          }
+              $stmt = mostrar_3_anuncios();
+          
           while ($fila = $stmt -> fetch()){
             $id = $fila["id"];
             $datetime = $fila["Fecha_publi"];

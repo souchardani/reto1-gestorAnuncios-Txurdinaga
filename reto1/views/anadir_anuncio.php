@@ -88,7 +88,8 @@ if(isset($_POST["enviar"])){
             
             <div class="row">
             <div class="col-lg-6 mb-2">
-              <a class="btn btn-warning d-lg-block w-100" href="detalles_anuncios.php"><i class="fa-solid fa-arrow-left"></i> Volver al Panel de Control</a>
+              <a class="btn btn-warning d-lg-block w-100" <?php ($_SESSION["tipoUsuario_global"] == "Administrador") ? $temp="href='dashboard.php'" :$temp= "href='dashboarduser.php'";
+              echo $temp;?>><i class="fa-solid fa-arrow-left"></i> Volver al Panel de Control</a>
             </div>
             <div class="col-lg-6 mb-2  d-md-block ">
               <button type="submit" name="enviar" class="btn btn-success w-100"><i class="fa-solid fa-check"></i> Publicar</button>

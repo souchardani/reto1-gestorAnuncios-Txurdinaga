@@ -26,7 +26,7 @@ function comprobar_variable_url($variable_url, $ubicacion){
 
 function inicio_sesion($usuario, $password){
   global $Conexionbbdd;
-  $sql = "SELECT * FROM usuario WHERE BINARY Nick=:usuario AND BINARY Contraseña=:password LIMIT 1";
+  $sql = "SELECT * FROM usuario WHERE BINARY Nick=:usuario AND BINARY Contraseña=:password and Activo=1 LIMIT 1";
   $Stmt = $Conexionbbdd -> prepare($sql);
   $Stmt -> bindValue(":usuario", $usuario);
   $Stmt -> bindValue(":password", $password);
@@ -37,12 +37,13 @@ function inicio_sesion($usuario, $password){
     $_SESSION["usuario_global"] =  $fila["Nick"];
     $_SESSION["usuarionombre_global"] =  $fila["Nombre"];
     $_SESSION["tipoUsuario_global"] =  $fila["Rol"];
+    $_SESSION["foto_global"] =  $fila["Imagen"];
     $_SESSION["MensajeExito"] = "Bienvenid@ de nuevo ". $fila["Nick"];
     if ($fila["Rol"] == "Administrador") {
       if (isset($_SESSION["guardarURL"])) {
         Redireccionar_A($_SESSION["guardarURL"]);
       }else {
-        Redireccionar_A("detalles_anuncios.php");
+        Redireccionar_A("dashboard.php");
       }
       //si es un usuario normal
     }else {
@@ -57,11 +58,11 @@ function inicio_sesion($usuario, $password){
 
 
 //funcion para verificar los campos del formulario que no esten empty
-function verificar_empty($array){
+function verificar_empty($array, $ubicacion){
   foreach ($array as $campo){
     if(empty($campo)){
       $_SESSION["MensajeError"] = "Todos los campos deben estar rellenados";
-      Redireccionar_A("login.php");
+      Redireccionar_A($ubicacion);
     }
   }
   return true;
@@ -105,6 +106,9 @@ function obtener_datos_dashboard(){
   );
   return $datos;
 }
+
+
+
 
 
 //------------------------------------------------------------------//
@@ -261,10 +265,10 @@ function mostrar_anuncios_busqueda(){
     $busqueda = $_GET["buscador"];
     $busqueda = "%".$busqueda."%";
     $sql = "SELECT * from anuncio WHERE 
-    Título LIKE :busqueda 
+    (Título LIKE :busqueda 
     or Autor LIKE :busqueda 
     or Fecha_publi LIKE :busqueda 
-    or Descripción LIKE :busqueda";
+    or Descripción LIKE :busqueda) AND Aceptado=1";
     $stmt = $Conexionbbdd->prepare($sql);
     $stmt -> bindParam(":busqueda", $busqueda);
     $stmt -> execute();
@@ -277,6 +281,14 @@ function mostrar_anuncios_busqueda(){
 function mostrar_todos_anuncios(){
   global $Conexionbbdd;
   $sql = "SELECT * FROM anuncio WHERE Aceptado=1 ORDER BY id desc";
+  $stmt = $Conexionbbdd->query($sql);
+  return $stmt;
+}
+
+
+function mostrar_3_anuncios() {
+  global $Conexionbbdd;
+  $sql = "SELECT * FROM anuncio WHERE Aceptado=1 ORDER BY id desc LIMIT 0,3";
   $stmt = $Conexionbbdd->query($sql);
   return $stmt;
 }
@@ -295,6 +307,17 @@ function mostrar_anuncio_url($idAnuncio) {
   global $Conexionbbdd;
   $sql = "SELECT * FROM anuncio WHERE id=$idAnuncio";
   $stmt = $Conexionbbdd->query($sql);
+  return $stmt;
+}
+
+
+//funcion para obtener los anuncios por cada usuario
+function obtener_anuncios_poruser() {
+  global $Conexionbbdd;
+  $sql = "SELECT * FROM anuncio WHERE Autor=:Autor ORDER BY id desc";
+  $stmt = $Conexionbbdd->prepare($sql);
+  $stmt -> bindParam(":Autor", $_SESSION["usuario_global"]);
+  $stmt -> execute();
   return $stmt;
 }
 
@@ -446,16 +469,16 @@ function insertar_comentario_bbdd($nombre, $cuerpo,$validado, $idAnuncio){
 //------------------FUNCIONES PARA USUARIOS-------------------------//
 //------------------------------------------------------------------//
 //funcion para validar los datos del administrador
-function validar_data_user($username, $contrasena, $confirmar_contrasena) {
+function validar_data_user($username, $contrasena, $confirmar_contrasena, $ubicacion) {
   if(empty($username) || empty($contrasena) || empty($confirmar_contrasena)){
     $_SESSION["MensajeError"] = "Debes Completar todos los campos";
-    Redireccionar_A("users.php");
+    Redireccionar_A($ubicacion);
   }else if(strlen($contrasena)<=4){
     $_SESSION["MensajeError"] = "La contraseña debe tener mas de 4 caracteres";
-    Redireccionar_A("users.php");
+    Redireccionar_A($ubicacion);
   }else if($contrasena !== $confirmar_contrasena){
     $_SESSION["MensajeError"] = "Las contraseñas no coinciden";
-    Redireccionar_A("users.php");
+    Redireccionar_A($ubicacion);
   }else {
     return true;
   }
@@ -480,38 +503,41 @@ function verificar_existencia_user($username) {
 }
 
 //funcion para insertar administrador en la bbdd
-function insertar_user_bbdd($username,$nombre, $apellido,$rol,$correo,$clase, $nacimiento, $contrasena){
+function insertar_user_bbdd($username,$nombre, $apellido,$rol,$correo,$clase, $nacimiento, $contrasena, $activo){
     global $Conexionbbdd;
-    $sql = "INSERT INTO usuario(Nick, Nombre, Apellido, Rol, Activo, Contraseña, Correo, Fecha_naci, Clase) VALUES (:Nick, :Nombre, :Apellido, :Rol, :Activo, :Constrasena, :Correo, :Fecha_naci, :Clase)";
+    $sql = "INSERT INTO usuario(Nick, Nombre, Apellido, Rol, Activo, Contraseña, Correo, Fecha_naci, Clase, Imagen) VALUES (:Nick, :Nombre, :Apellido, :Rol, :Activo, :Constrasena, :Correo, :Fecha_naci, :Clase, :Imagen)";
     $stmt = $Conexionbbdd -> prepare($sql);
     $stmt -> bindValue(":Nick", $username);
     $stmt -> bindValue(":Nombre", $nombre);
     $stmt -> bindValue(":Apellido", $apellido);
     $stmt -> bindValue(":Rol", $rol);
-    $stmt -> bindValue(":Activo", 1);
-    $stmt -> bindValue(":Activo", 1);
+    $stmt -> bindValue(":Activo", $activo);
     $stmt -> bindValue(":Constrasena", $contrasena);
     $stmt -> bindValue(":Correo", $correo);
     $stmt -> bindValue(":Fecha_naci", $nacimiento);
     $stmt -> bindValue(":Clase", $clase);
+    $stmt -> bindValue(":Imagen", "avatar.png");
     $execute = $stmt -> execute();
-    if($execute){
-      $_SESSION["MensajeExito"] = "El Usuario $username se ha añadido Correctamente";
-      Redireccionar_A("users.php");
-    }else {
-      $_SESSION["MensajeError"] = "Ocurrio un error inesperado al insertar, vuelve a intentarlo";
-      Redireccionar_A("users.php");
-    }
+    return $execute;
   }
 
 
-  //funcion para obtener todos los admins
-  function obtener_usuarios(){
+  //funcion para obtener todos los users validados
+  function obtener_usuarios_validados(){
     global $Conexionbbdd;
-    $sql = "SELECT * FROM usuario ORDER BY Nick desc";
+    $sql = "SELECT * FROM usuario WHERE Activo=1 ORDER BY Nick desc";
     $stmt = $Conexionbbdd -> query($sql);
     return $stmt;
   }
+
+  function obtener_usuarios_novalidados() {
+    global $Conexionbbdd;
+    $sql = "SELECT * FROM usuario WHERE Activo=0 ORDER BY Nick desc";
+    $stmt = $Conexionbbdd -> query($sql);
+    return $stmt;
+  }
+
+
 
 
   //funcion para confirmar si un usuario es administrador
@@ -609,6 +635,14 @@ function mostrar_anuncios_categoria() {
 }
 
 
+function obtener_email($nick){
+  global $Conexionbbdd;
+  $sql = "SELECT Correo FROM usuario WHERE Nick='$nick'";
+  $stmt = $Conexionbbdd -> query($sql);
+  $email = $stmt -> fetch();
+  return $email[0];
+}
+
 
 
 function obtener_clase(){
@@ -617,6 +651,17 @@ function obtener_clase(){
   $stmt = $Conexionbbdd -> query($sql);
   return $stmt;
 }
+
+function obtener_clase_por_nick($user){
+  global $Conexionbbdd;
+  $sql = "SELECT Clase FROM usuario WHERE Nick='$user'";
+  $stmt = $Conexionbbdd -> query($sql);
+  $clase = $stmt -> fetch();
+  var_dump($clase);
+  return $clase[0];
+}
+
+
 
 ?>
 
