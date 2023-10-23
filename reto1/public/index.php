@@ -11,7 +11,6 @@
     <title>Gestor de Anuncios - cifp Txurdinaga</title>
     <link rel="stylesheet" href="../assets/css/style.css" />
     <link rel="stylesheet" href="../assets/css/header.css" />
-    <script src="../assets/js/app.js"></script>
 
     <!-- LIBRERIA DE ICONOS -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
@@ -38,12 +37,48 @@
     </section>
 
     <section id="pagina-inicio">
-      <div class="container">
-        <section id="carrusel" class="componente">
-          <button id="left"> < </button>
-              <img src="../assets/img_subidas/anuncios/administracion1-1024x683.jpg" alt="test">
-          <button id="right"> > </button>
-        </section>
+      <div class="carrusel">
+        <div id="slide">
+            <div class="item" style="background-image: url(../assets/img_subidas/anuncios/administracion1-1024x683.jpg);">
+                <div class="content">
+                    <div class="name">LUNDEV</div>
+                    <div class="des">text text text text text text text text text text text text text text text text text text</div>
+                    <button>See more</button>
+                </div>
+            </div>
+            <div class="item" style="background-image: url(../assets/img_subidas/anuncios/Comercio_chicas-scaled.jpg);">
+                <div class="content">
+                    <div class="name">title1</div>
+                    <div class="des">text text text text text text</div>
+                    <button>See more</button>
+                </div>
+            </div>
+            <div class="item" style="background-image: url(../assets/img_subidas/anuncios/electronica1-1024x683.jpg);">
+                <div class="content">
+                    <div class="name">title2</div>
+                    <div class="des">text text text text text text</div>
+                    <button>See more</button>
+                </div>
+            </div>
+            <div class="item" style="background-image: url(../assets/img_subidas/anuncios/marketing-1024x683.jpg);">
+                <div class="content">
+                    <div class="name">title3</div>
+                    <div class="des">text text text text text text</div>
+                    <button>See more</button>
+                </div>
+            </div>
+            <div class="item" style="background-image: url(../assets/img_subidas/anuncios/quimica2-1024x683.jpg);">
+                <div class="content">
+                    <div class="name">title4</div>
+                    <div class="des">text text text text text text</div>
+                    <button>See more</button>
+                </div>
+            </div>
+        </div>
+        <div class="buttons">
+            <button id="prev" onclick="updateCarr('prev')"> < </button>
+            <button id="next" onclick="updateCarr('next')"> > </button>
+        </div>
       </div>
 
       <div class="container">
@@ -114,5 +149,7 @@
     <footer>
       <?php include("../templates/footer.php"); ?>
     </footer>
+
+    <script src="../assets/js/app.js"></script>
   </body>
 </html>
