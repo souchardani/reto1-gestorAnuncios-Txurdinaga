@@ -146,7 +146,7 @@ CREATE TABLE `usuario` (
   `Apellido` varchar(100) NOT NULL,
   `Rol` enum('Administrador','Profesor','Alumno','') NOT NULL,
   `Activo` tinyint(1) NOT NULL,
-  `Contraseña` varchar(100) NOT NULL,
+  `Contraseña` varchar(255) NOT NULL,
   `Correo` varchar(100) NOT NULL,
   `Fecha_naci` date NOT NULL,
   `Clase` varchar(10) NOT NULL,
