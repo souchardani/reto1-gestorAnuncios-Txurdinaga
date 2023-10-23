@@ -24,11 +24,15 @@ $datos = obtener_datos_dashboard();
     <?php include("../templates/header.php"); ?>
     <!-- NAVBAR END -->
     <!-- HEADER -->
-     <section class="header-section">
       <div class="container">
-        <div class="titulo-header">
-            <h1><i class="fa-solid fa-cog" style="color: #e20035"></i> Panel de Control Administrador</h1>
-        </div>
+        <header>
+          <div class="container mt-bg mb-bg">
+            <h1>
+            <h1><i class="fa-solid fa-cog" style="color: #e20035"></i>
+                Panel de Control Administrador
+            </h1>
+          </div>
+        </header>
         <div class="botones-header">
           <div class="w-100">
             <a href="detalles_anuncios.php" class="boton tx-rosa w-100">
@@ -59,58 +63,60 @@ $datos = obtener_datos_dashboard();
     </header>
     <!-- HEADER END -->
     <!-- main area -->
-    <div class="container py-2 my-4">
-      <div class="row">
+    <div class="container mt-bg">
+      <div class="dash-main-top mt-bg">
+      <div class="main-left">
           <?php 
           //añadimos mensajes de error en caso de que los haya
             echo MensajeError();
             echo MensajeExito();
           ?>
           <!-- inicio aside area -->
-          <div class="col-lg-2 d-none d-md-block">
-            <div class="card text-center text-bg-dark mb-3">
+          <div class="tarjetas">
+            <div class="tarjeta">
               <div class="card-body">
-                <h1 class="lead">Anuncios</h1>
-                  <h4 class="fs-5">
+                <h1  class="caption-600">Anuncios</h1>
+                  <h4 class="caption-600">
                   <i class="fa-solid fa-newspaper"></i>
                     <?php echo $datos["anuncios"]; ?>
                   </h4>
               </div>
             </div>
-            <div class="card text-center text-bg-dark mb-3">
+            <div class="tarjeta">
               <div class="card-body">
-                <h1 class="lead">Categorias</h1>
-                  <h4 class="fs-5">
+                <h1 class="caption-600">Categorias</h1>
+                  <h4 class="caption-600">
                   <i class="fas fa-folder"></i>
                   <?php echo $datos["categorias"]; ?>
                   </h4>
               </div>
             </div>
-            <div class="card text-center text-bg-dark mb-3">
+            <div class="tarjeta">
               <div class="card-body">
-                <h1 class="lead">Administradores</h1>
-                  <h4 class="fs-5">
+                <h1 class="caption-600">Administradores</h1>
+                  <h4 class="caption-600">
                   <i class="fas fa-users"></i>
                   <?php echo $datos["admins"]; ?>
                   </h4>
               </div>
             </div>
-            <div class="card text-center text-bg-dark mb-3">
+            <div class="tarjeta">
               <div class="card-body">
-                <h1 class="lead">Comentarios</h1>
-                  <h4 class="fs-5">
+                <h1 class="caption-600">Comentarios</h1>
+                  <h4 class="caption-600">
                   <i class="fas fa-comments"></i>
                   <?php echo $datos["comentarios"]; ?>
                   </h4>
               </div>
             </div>
           </div>
+        </div>
            <!-- fin aside area -->
 
            <!-- inicio area central -->
            <main class="table">
             <section class="table__header">
-              <h1 class="heading-02">Ultimos anuncios validados</h1>
+              <h1 class="3">Ultimos anuncios validados</h1>
               <div class="input-group">
                   <input type="search" name="" id="" placeholder="Buscar" />
                   <i class="fa-solid fa-magnifying-glass"></i>
@@ -171,11 +177,12 @@ $datos = obtener_datos_dashboard();
                 </table>
               </section>
             </main>  
+          </div>
              <!--segunda tabla  -->
          
             <main class="table mt-bg">
               <section class="table__header">
-                <h1 class="heading-02">Validaciones pendientes</h1>
+                <h1 class="3">Validaciones pendientes</h1>
                   <div class="input-group">
                       <input type="search" name="" id="" placeholder="Buscar" />
                       <i class="fa-solid fa-magnifying-glass"></i>
