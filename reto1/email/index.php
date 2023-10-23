@@ -24,12 +24,13 @@ try {
     $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
     $mail->Username   = 'danielsou9782@gmail.com';                     //SMTP username
     $mail->Password   = 'FV48Nyvw3MY6RU0A';                               //SMTP password
-    $mail->SMTPSecure =   "tls";            //Enable implicit TLS encryption
-    $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+    //$mail->SMTPSecure =   "tls";            //Enable implicit TLS encryption
+    $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
     // //Recipients
     $mail->setFrom('grupo1reto1@proton.me', 'Grupo 1');
-    $mail->addAddress($mailuser, $nick);     //Add a recipient
+    // $mailuser, $nick
+    $mail->addAddress('danielsou9782@gmail.com', "daniel");     //Add a recipient
     $mail->addReplyTo('grupo1reto1@proton.me', 'Grupo 1');
 
     // //Attachments
