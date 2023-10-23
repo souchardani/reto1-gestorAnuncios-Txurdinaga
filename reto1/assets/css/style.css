@@ -474,7 +474,6 @@ header {
   width: 90%;
   height: 80%;
   box-shadow: none;
-  margin-top: 30px;
   border-radius: 16px;
 }
 .item:nth-child(3){
@@ -491,14 +490,15 @@ header {
   opacity: 0;
 }
 .item .content{
+  background-color: rgba(26, 163, 191, 0.5);
+  border-radius: 16px;
+  padding: 10px;
   position: relative;
-  top: 50%;
+  top: 30%;
   left: 100px;
-  width: 400px;
+  width: 500px;
   text-align: left;
-  padding: 0;
-  color: #eee;
-  transform: translate(0,-50%);
+  color: #000;
   display: none;
   font-family: system-ui;
 }
@@ -507,8 +507,10 @@ header {
   z-index: 11111;
 }
 .item .name{
+  line-height: 1em;
   font-size: 40px;
   font-weight: bold;
+  width: 500px;
   opacity: 0;
   animation:show-content 1s ease-in-out 1 forwards
 }
@@ -518,6 +520,7 @@ header {
   animation:show-content 1s ease-in-out 0.3s 1 forwards
 }
 .item button{
+  cursor: pointer;
   padding: 10px 20px;
   border: none;
   opacity: 0;
@@ -541,6 +544,7 @@ header {
   width: 100%;
 }
 .buttons button{
+  cursor: pointer;
   font-size: 25px;
   width: 60px;
   height: 60px;

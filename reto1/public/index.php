@@ -39,41 +39,26 @@
     <section id="pagina-inicio">
       <div class="carrusel">
         <div id="slide">
-            <div class="item" style="background-image: url(../assets/img_subidas/anuncios/administracion1-1024x683.jpg);">
-                <div class="content">
-                    <div class="name">LUNDEV</div>
-                    <div class="des">text text text text text text text text text text text text text text text text text text</div>
-                    <button>See more</button>
-                </div>
-            </div>
-            <div class="item" style="background-image: url(../assets/img_subidas/anuncios/Comercio_chicas-scaled.jpg);">
-                <div class="content">
-                    <div class="name">title1</div>
-                    <div class="des">text text text text text text</div>
-                    <button>See more</button>
-                </div>
-            </div>
-            <div class="item" style="background-image: url(../assets/img_subidas/anuncios/electronica1-1024x683.jpg);">
-                <div class="content">
-                    <div class="name">title2</div>
-                    <div class="des">text text text text text text</div>
-                    <button>See more</button>
-                </div>
-            </div>
-            <div class="item" style="background-image: url(../assets/img_subidas/anuncios/marketing-1024x683.jpg);">
-                <div class="content">
-                    <div class="name">title3</div>
-                    <div class="des">text text text text text text</div>
-                    <button>See more</button>
-                </div>
-            </div>
-            <div class="item" style="background-image: url(../assets/img_subidas/anuncios/quimica2-1024x683.jpg);">
-                <div class="content">
-                    <div class="name">title4</div>
-                    <div class="des">text text text text text text</div>
-                    <button>See more</button>
-                </div>
-            </div>
+        <?php
+
+        $stmt = mostrar_todos_anuncios();
+
+        while ($fila = $stmt -> fetch()){
+        $id = $fila["id"];
+        $titulo = $fila["Título"];
+        $imagen = $fila["Imagen"];
+        $descripcion = $fila["Descripción"];
+        ?>
+
+          <div class="item" style="background-image: url(../assets/img_subidas/anuncios/<?php echo $imagen?>);">
+              <div class="content">
+                  <p class="name"><?php echo $titulo?></p>
+                  <p class="des"><?php echo $descripcion?></p>
+                  <button onclick="location.href='../views/anuncio_completo.php?id=<?php echo $id ?>'">See more</button>
+              </div>
+          </div>
+
+        <?php } ?>
         </div>
         <div class="buttons">
             <button id="prev" onclick="updateCarr('prev')"> < </button>
