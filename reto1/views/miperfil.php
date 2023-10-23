@@ -9,24 +9,36 @@ confirmar_login();
 $user = $_SESSION["usuario_global"];
 $username = $_SESSION["usuarionombre_global"];
 
+
 //--------SI SE ENVIA EN ANUNCIO POR EL BOTON DE ENVIAR--------
 if(isset($_POST["enviar"])){
-  //obtenemos los campos del formulario
-  $tituloAnuncio = $_POST["tituloAnuncio"];
-  $categoria = $_POST["Categoria"];
-  $imagen = $_FILES["imagen"]["name"];
-  $target = "img_subidas/usuarios".basename($imagen);
-  $descripcionAnuncio = $_POST["DescripcionAnuncio"];
-  $Admin = $_SESSION["usuario_global"];
+  //obtenemos los campos del formulario];
   date_default_timezone_set("Europe/Madrid");
   $fechaActual = date("Y-m-d H:i:s"); 
-
-  //validaciones previas
-    $validado = validar_data_anuncio($tituloAnuncio, $descripcionAnuncio);
-    if ($validado){
-    //insertar_anuncio_bbdd($fechaActual,$tituloAnuncio,$categoria,$Admin,$imagen,$descripcionAnuncio, $target);
-  }
+  $nombre = $_POST["nombre"];
+  $apellido = $_POST["apellido"];
+  $imagen = $_FILES["imagen"]["name"];
+ 
+  global $Conexionbbdd;
+  
+  
+  
+  if (!$Conexionbbdd) {
+    die("La conexión a la base de datos falló: " . mysqli_connect_error());
 }
+  $consulta = "UPDATE usuario SET Nombre='$nombre', Apellido='$apellido', Imagen='$imagen' WHERE Nick='$user'";
+  
+  
+
+  $insertado = $Conexionbbdd -> query($consulta);
+  if ($insertado){
+    $_SESSION["MensajeExito"] = "El perfil se ha editado Correctamente, y ha sido validado";
+       }else {
+        $_SESSION["MensajeExito"] = "El perfil no ha sido editado Correctamente, Espera a que sea validado por un administrador";
+       }
+       Redireccionar_A("miperfil.php");
+      
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -73,7 +85,7 @@ if(isset($_POST["enviar"])){
           <div class="card-body text-bg-light">
             <div class="form-group mb-5">
               <label class="mb-3" for="nombre"><span class="FieldInfo">Nombre:</span></label>
-              <input class="form-control " type="text" name="nombre" id="nombre" placeholder="Escribe tu nombre">
+              <input class="form-control " type="text" name="nombre" id="nombre" placeholder="Escribe tu nombre" value="<?php echo $username?>">
             </div>
             <div class="form-group mb-5">
               <label class="mb-3" for="apellido"><span class="FieldInfo">Apellido:</span></label>
