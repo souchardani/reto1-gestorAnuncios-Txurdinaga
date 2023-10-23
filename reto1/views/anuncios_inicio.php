@@ -104,14 +104,7 @@
         <!-- fin seccion principal -->
         <!-- inicio aside area -->
         <div class="col-sm-4" style="min-height: 40px; ">
-          <div class="card mt-4 text-bg-light">
-            <div class="card-body text-center">
-              <p>Únete y crea tu anuncio!</p>
-              <br>
-              <a class="btn btn-primary" href="login.php">Iniciar Sesion</a>
-              <a class="btn btn-danger" href="login.php">Crear Cuenta</a>
-            </div>
-          </div>
+         
           <!-- tarjeta categorias -->
           <div class="card my-5">
             <div class="card-header text-bg-light text-center">

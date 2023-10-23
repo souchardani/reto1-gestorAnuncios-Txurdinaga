@@ -35,8 +35,15 @@ confirmar_admin();
 //si se ha enviado el formulario, eliminar el anuncio
 if(isset($_POST["enviar"])){
     //borrar el anuncio en la bbdd
-   eliminar_anuncio_bbdd($idAnuncio, $imagen_ant);
+   $eliminado = eliminar_anuncio_bbdd($idAnuncio, $imagen_ant);
+   if ($eliminado){
+    $_SESSION["MensajeExito"] = "El Anuncio se ha Eliminado Correctamente";
+    Redireccionar_A("detalles_anuncios.php");
+  }else {
+    $_SESSION["MensajeError"] = "Ocurrio un error inesperado al eliminar, vuelve a intentarlo";
+    Redireccionar_A("detalles_anuncios.php");
   }
+}
 ?>
 
 <!DOCTYPE html>
@@ -86,7 +93,7 @@ if(isset($_POST["enviar"])){
             
             <div class="row">
             <div class="col-lg-6 mb-2">
-              <a class="btn btn-warning d-lg-block w-100" href="detalles_anuncios.php"><i class="fa-solid fa-arrow-left"></i> Volver al Panel de Control</a>
+              <a class="btn btn-warning d-lg-block w-100" href="dashboard.php"><i class="fa-solid fa-arrow-left"></i> Volver al Panel de Control</a>
             </div>
             <div class="col-lg-6 mb-2  d-md-block ">
               <button onclick="return confirmarBorrado()" type="submit" name="enviar" class="btn btn-danger w-100"><i class="fas fa-trash"></i> Borrar</button>

@@ -15,7 +15,7 @@ if(isset($_POST["enviar"])){
   $tituloAnuncio = $_POST["tituloAnuncio"];
   $categoria = $_POST["Categoria"];
   $imagen = $_FILES["imagen"]["name"];
-  $target = "img_subidas/".basename($imagen);
+  $target = "img_subidas/usuarios".basename($imagen);
   $descripcionAnuncio = $_POST["DescripcionAnuncio"];
   $Admin = $_SESSION["usuario_global"];
   date_default_timezone_set("Europe/Madrid");
@@ -51,7 +51,7 @@ if(isset($_POST["enviar"])){
             <h3><?php echo $username ?></h3>
           </div>
           <div class="card-body">
-            <img src="../assets/img_subidas/avatar.png" class="block img-fluid mb-3" alt="">
+            <img src="../assets/img_subidas/usuarios/<?php echo $_SESSION['foto_global'] ?>" class="block img-fluid mb-3" alt="">
           </div>
           <div></div>
           
@@ -80,17 +80,13 @@ if(isset($_POST["enviar"])){
               <input class="form-control " type="text" name="apellido" id="apellido" placeholder="Escribe tu apellido">
             </div>
             <div class="form-group mb-5">
-              <label class="mb-3" for="tituloCategoria"><span class="FieldInfo">Escoge Tu Clase:</span></label>
-              <select class="form-control" id="tituloCategoria" name="Categoria">
+              <label class="mb-3" for="tituloCategoria"><span class="FieldInfo">Clase:</span></label>
+              <select class="form-control" id="tituloCategoria" name="Categoria" disabled>
                 <?php
-                //añadimos las categorias
-                $stmt = obtener_categorias();
-                while ($fila = $stmt -> fetch()){
-                  //$Id = $fila["id"];
-                  $NombreCategoria = $fila["titulo"];
+                //obtener clase por id
+                $clase = obtener_clase_por_nick($user);
                 ?>
-                <option value="<?php echo $NombreCategoria ?>"><?php echo $NombreCategoria ?></option>
-                <?php } //fin del while?> 
+                <option value="<?php echo $clase ?>"><?php echo $clase ?></option>
               </select>
             </div>
             <div class="form-group mb-5">
@@ -106,7 +102,7 @@ if(isset($_POST["enviar"])){
             
             <div class="row">
             <div class="col-lg-6 mb-2">
-              <a class="btn btn-warning d-lg-block w-100" href="detalles_anuncios.php"><i class="fa-solid fa-arrow-left"></i> Volver al Panel de Control</a>
+              <a class="btn btn-warning d-lg-block w-100" href="dashboard.php"><i class="fa-solid fa-arrow-left"></i> Volver al Panel de Control</a>
             </div>
             <div class="col-lg-6 mb-2  d-md-block ">
               <button type="submit" name="enviar" class="btn btn-success w-100"><i class="fa-solid fa-check"></i> Publicar</button>
