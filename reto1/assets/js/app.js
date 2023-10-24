@@ -13,7 +13,7 @@ function menu() {
 
 // Carrusel
 
-var myTimeout = setTimeout(timer, 10000);
+// var myTimeout = setTimeout(timer, 10000);
 function updateCarr(action){
 
     let item = document.querySelectorAll('.item');
