@@ -17,9 +17,6 @@ if(isset($_SESSION["usuario_global"])){
 }
 ?>
 
-
-
-
 <header>
   <div>
     <a href="../public/index.php">
