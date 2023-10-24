@@ -1,7 +1,7 @@
 <?php
 try {
-    $myPDO2 = "mysql:host=localhost;dbname=gestor_anuncios";
-    $Conexionbbdd = new PDO($myPDO2, "root", "");
+    $myPDO2 = "mysql:host=amarillodb.cttbfrc0bmsk.us-east-1.rds.amazonaws.com;dbname=gestor_anuncios";
+    $Conexionbbdd = new PDO($myPDO2, "admin", "admin123");
     $Conexionbbdd->exec("set names utf8");
 
 }catch(PDOException $e){
@@ -10,6 +10,4 @@ try {
 ?>
 
 <!-- 
-$myPDO2 = "mysql:host=amarillodb.cttbfrc0bmsk.us-east-1.rds.amazonaws.com;dbname=gestor_anuncios";
-    $Conexionbbdd = new PDO($myPDO2, "admin", "admin123");
-    $Conexionbbdd->exec("set names utf8"); -->
+ -->
