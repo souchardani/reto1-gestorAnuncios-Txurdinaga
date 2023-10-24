@@ -12,9 +12,6 @@ if (isset($_SESSION["usuario_global"])) {
   }
 } 
 
-
-
-
 if(isset($_POST["enviar"])){
   $nombre = $_POST["nombre"];
   $apellido = $_POST["apeliido"];
@@ -58,108 +55,107 @@ if(isset($_POST["enviar"])){
     
     <!-- main area -->
     <section class="container">
-              <?php
-              //llamamos a los mensajes de exito y error
-                echo MensajeError();
-                echo MensajeExito();
-              ?>
-            <!-- formulario -->
-            <section class="form">
-                  <div class="contenedor-formulario mt-bg w-70">
-                    <div class="titulo tx-morado-oscuro"><span>Añadir Nuevo Usuario</span></div>
-                    <form action="registro.php" method="post">
-                      <!-- fila 2 fluida -->
-                      <div class="fila-fluida">
-                        <div class="grow">
-                          <label for="nombre">Nombre:</label>
-                          <div class="fila">
-                            <i class="fas fa-user tx-morado-oscuro"></i>
-                            <input type="text" name="nombre" id="nombre" placeholder="Escribe el nombre">
-                          </div>
-                        </div>
-                        <div class="grow">
-                        <!-- fila 3 -->
-                          <label for="apellido">Apellido:</label>
-                          <div class="fila">
-                            <i class="fas fa-user tx-morado-oscuro"></i>
-                            <input type="text" name="apellido" id="apellido" placeholder="Escribe el apellido">
-                          </div>
-                        </div>
-                      </div>
-                      <!-- fila 1 -->
-                      <label for="nickname">Nombre de Usuario:</label>
-                      <div class="fila">
-                        <i class="fas fa-user tx-morado-oscuro"></i>
-                        <input type="text" name="nickname" id="nickname" placeholder="Escribe el nombre de usuario aqui">
-                      </div>
-                      <!-- fila 4 -->
-                      <label for="pass">Contraseña:</label>
-                      <div class="fila">
-                      <i class="fas fa-user tx-morado-oscuro"></i>
-                      <input type="password" name="pass" id="pass"  placeholder="Escribe la contraseña aqui">
-                      </div>
-                      <!-- fila 6 -->
-                      <label for="pass2">Confirmar Contraseña:</label>
-                      <div class="fila">
-                      <i class="fas fa-user tx-morado-oscuro"></i>
-                      <input type="password" name="pass2" id="pass2" placeholder="Vuelve a escribir la contraseña">
-                      </div>
-                        <!-- fila 5 -->
-                      <label for="email">Email:</label>
-                      <div class="fila">
-                        <i class="fas fa-user tx-morado-oscuro"></i>
-                        <input type="email" name="email" id="email" placeholder="Escribe tu correo">
-                      </div>
-                      <!-- fila 6 fluida -->
-                      <div class="fila-fluida">
-                        <div class="grow">
-                          <label for="fecha">Fecha Nacimiento:</label>
-                          <div class="fila">
-                            <i class="fas fa-user tx-morado-oscuro"></i>
-                            <input type="date" name="fecha" id="fecha" placeholder="Escribe tu Fecha de Nacimiento">
-                          </div>
-                        </div>
-                        <div class="grow">
-                        <!-- fila 3 -->
-                          <label for="clase">Clase:</label>
-                          <div class="fila">
-                            <i class="fas fa-user tx-morado-oscuro"></i>
-                            <select name="clase" id="clase">
-                                <?php
-                                $stmt = obtener_clase();
-                                while($fila = $stmt -> fetch()){
-                                  $nombre = $fila["Nombre"];
-                                  echo "<option value='$nombre'>$nombre</option>";
-                                }
-                                ?>
-                          </select>
-                          </div>
-                        </div>
-                        <div class="grow">
-                          <label for="tipo">Alumno/Profesor:</label>
-                          <div class="fila">
-                            <i class="fas fa-user tx-morado-oscuro"></i>
-                            <select name="tipo" id="tipo" class="form-control">
-                              <option value="Alumno">Alumno</option>
-                              <option value="Alumno">Profesor</option>
-                              <option value="Alumno">Administrador</option>
-                            </select>
-                          </div>
-                        </div>
-                      </div>
-                      <!-- fila condiciones -->
+      <?php
+      //llamamos a los mensajes de exito y error
+        echo MensajeError();
+        echo MensajeExito();
+      ?>
+      <!-- formulario -->
+      <section class="form">
+        <div class="contenedor-formulario mt-bg w-70">
+          <div class="titulo tx-morado-oscuro"><span>Añadir Nuevo Usuario</span></div>
+          <form action="registro.php" method="post" id="registroForm">
+            <!-- fila 2 fluida -->
+            <div class="fila-fluida">
+              <div class="grow">
+                <label for="nombre">Nombre:</label>
+                <div class="fila">
+                  <i class="fas fa-user tx-morado-oscuro"></i>
+                  <input type="text" name="nombre" id="nombre" placeholder="Escribe el nombre">
+                </div>
+              </div>
+              <div class="grow">
+              <!-- fila 3 -->
+                <label for="apellido">Apellido:</label>
+                <div class="fila">
+                  <i class="fas fa-user tx-morado-oscuro"></i>
+                  <input type="text" name="apellido" id="apellido" placeholder="Escribe el apellido">
+                </div>
+              </div>
+            </div>
+            <!-- fila 1 -->
+            <label for="nickname">Nombre de Usuario:</label>
+            <div class="fila">
+              <i class="fas fa-user tx-morado-oscuro"></i>
+              <input type="text" name="nickname" id="nickname" placeholder="Escribe el nombre de usuario aqui">
+            </div>
+            <!-- fila 4 -->
+            <label for="email">Email:</label>
+            <div class="fila">
+              <i class="fas fa-user tx-morado-oscuro"></i>
+              <input type="email" name="email" id="email" placeholder="Escribe tu correo">
+            </div>
+            <!-- fila 5 -->
+            <label for="pass">Contraseña:</label>
+            <div class="fila">
+            <i class="fas fa-user tx-morado-oscuro"></i>
+            <input type="password" name="pass" id="pass"  placeholder="Escribe la contraseña aqui">
+            </div>
+            <!-- fila 6 -->
+            <label for="pass2">Confirmar Contraseña:</label>
+            <div class="fila">
+            <i class="fas fa-user tx-morado-oscuro"></i>
+            <input type="password" name="pass2" id="pass2" placeholder="Vuelve a escribir la contraseña">
+            </div>
+            <!-- fila 6 fluida -->
+            <div class="fila-fluida">
+              <div class="grow">
+                <label for="fecha">Fecha Nacimiento:</label>
+                <div class="fila">
+                  <i class="fas fa-user tx-morado-oscuro"></i>
+                  <input type="date" name="fecha" id="fecha" placeholder="Escribe tu Fecha de Nacimiento">
+                </div>
+              </div>
+              <div class="grow">
+              <!-- fila 3 -->
+                <label for="clase">Clase:</label>
+                <div class="fila">
+                  <i class="fas fa-user tx-morado-oscuro"></i>
+                  <select name="clase" id="clase">
+                      <?php
+                      $stmt = obtener_clase();
+                      while($fila = $stmt -> fetch()){
+                        $nombre = $fila["Nombre"];
+                        echo "<option value='$nombre'>$nombre</option>";
+                      }
+                      ?>
+                </select>
+                </div>
+              </div>
+              <div class="grow">
+                <label for="tipo">Alumno/Profesor:</label>
+                <div class="fila">
+                  <i class="fas fa-user tx-morado-oscuro"></i>
+                  <select name="tipo" id="tipo" class="form-control">
+                    <option value="Alumno">Alumno</option>
+                    <option value="Alumno">Profesor</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <!-- fila condiciones -->
 
-                      <!-- fila para boton -->
-                      <div class="fila-boton">
-                      <button class="boton tx-morado-oscuro w-100" type="submit" name="enviar"><i class="fa-solid fa-check"></i>Crear Cuenta</button>
-                      <div class="subtexto">
-                      Ya tienes Cuenta? <a class="ctx-morado-oscuro" href="login.php">Inicia Sesion</a>
-                    </div>
-                    </div>
-                    </form>
-                  </div>
-                </section>
-        </section>
+            <!-- fila para boton -->
+            <div class="fila-boton">
+            <button class="boton tx-morado-oscuro w-100" type="submit" name="enviar"></i>Crear Cuenta</button>
+            <div class="subtexto">
+            Ya tienes cuenta? <a class="ctx-morado-oscuro" href="login.php">Inicia Sesion</a>
+          </div>
+          </div>
+          </form>
+        </div>
+      </section>
+      <script src="../assets//js/registro.js"></script>
     </section>
     <!-- end of main area -->
     <!-- FOOTER -->
