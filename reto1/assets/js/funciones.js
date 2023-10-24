@@ -24,7 +24,7 @@ function createDynamicHeader(headerText) {
   const dynamicHeader = document.getElementById("dynamicHeader");
   dynamicHeader.innerHTML = `
         <header>
-            <div class="container">
+            <div class="container mt-bg">
               <h1>
                   <i class="fa-solid fa-edit" style="color: #f3b82a"></i>
                   ${headerText}

@@ -20,13 +20,13 @@ confirmar_login();
     <!-- NAVBAR END -->
     <!-- HEADER -->
     <header class="header-section">
-      <div class="container">
+      <div class="container mt-bg">
         aqui van las tarjetas de info
       </div>
     </header>
     <!-- HEADER END -->
     <!-- main area -->
-    <div class="container">
+    <div class="container mt-bg">
           <?php 
           //añadimos mensajes de error en caso de que los haya
             echo MensajeError();

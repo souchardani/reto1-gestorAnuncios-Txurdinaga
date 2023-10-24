@@ -24,16 +24,16 @@ confirmar_admin();
     <!-- NAVBAR END -->
     <!-- HEADER -->
     <header>
-        <div class="container">
+        <div class="container mt-bg">
           <h1>
               <i class="fa-solid fa-list-ul" style="color: #f3b82a"></i>
               Volver al panel de control
           </h1>
         </div>
     </header>
-    <section class="container ">
+    <section class="container">
         <div class="d-flex flex-center mb-bg">
-            <a class="boton tx-rosa w-50" href="dashboard.php"><i class="fa-solid fa-arrow-left"></i> Volver al Panel de Control</a>
+            <a class="boton tx-rosa w-50 mt-bg" href="dashboard.php"><i class="fa-solid fa-arrow-left"></i> Volver al Panel de Control</a>
         </div>
 
     <!-- HEADER END -->
