@@ -24,7 +24,7 @@ confirmar_admin();
     <!-- HEADER END -->
     <section class="container ">
         <div class="d-flex flex-center mb-bg">
-            <a class="boton tx-rojo w-50" href="dashboard.php"><i class="fa-solid fa-arrow-left"></i> Volver al Panel de Control</a>
+            <a class="boton tx-rojo w-50 mt-bg" href="dashboard.php"><i class="fa-solid fa-arrow-left"></i> Volver al Panel de Control</a>
         </div>
 
         <?php

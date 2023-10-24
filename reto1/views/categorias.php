@@ -42,7 +42,7 @@ if(isset($_POST["enviar"])){
        ?>
 
         <div class="contenedor-boton-principal mb-bg">
-            <a class="boton boton-principal tx-verde-oscuro" 
+            <a class="boton boton-principal tx-verde-oscuro mt-bg" 
             <?php ($_SESSION["tipoUsuario_global"] == "Administrador") ? $temp="href='dashboard.php'" :$temp= "href='dashboarduser.php'";
               echo $temp;?>>
               <i class="fa-solid fa-arrow-left"></i> 

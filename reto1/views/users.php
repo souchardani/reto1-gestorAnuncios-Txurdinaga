@@ -56,7 +56,7 @@ if(isset($_POST["enviar"])){
       echo MensajeError();
       echo MensajeExito();
        ?>
-      <div class="contenedor-boton-principal mb-bg">
+      <div class="contenedor-boton-principal mb-bg mt-bg">
             <a class="boton boton-principal tx-morado-oscuro" 
             <?php ($_SESSION["tipoUsuario_global"] == "Administrador") ? $temp="href='dashboard.php'" :$temp= "href='dashboarduser.php'";
               echo $temp;?>>
