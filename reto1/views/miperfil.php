@@ -111,7 +111,7 @@ if(isset($_POST["enviar"])){
             <!-- El campo de la imagen , solo acepta formate de JPG , PNG , JPEG -->
               <label class="mb-3" for="seleccionaImagen"><span class="FieldInfo">Carga tu foto de perfil:</span></label>
               <div >
-                <input class="form-control" type="file" accept=".jpg, .png, .jpeg" name="imagen" id="seleccionaImagen" value=""/>
+                <input class="form-control" type="file"  name="imagen" id="seleccionaImagen" value=""/>
               </div>
             </div>
             <div class="form-group mb-5">
