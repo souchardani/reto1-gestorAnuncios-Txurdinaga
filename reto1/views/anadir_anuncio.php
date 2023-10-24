@@ -59,7 +59,7 @@ if(isset($_POST["enviar"])){
       echo MensajeError();
       echo MensajeExito();
        ?>
-    <section class="form">
+    <section class="form" id="form">
       <div class="contenedor-formulario mt-bg w-70">
         <div class="titulo tx-verde-oscuro"><span>Añadir Anuncio</span></div>
         <form action="anadir_anuncio.php" method="post" enctype="multipart/form-data">
@@ -107,6 +107,7 @@ if(isset($_POST["enviar"])){
   <!-- END MAIN AREA -->
     <!-- FOOTER -->
     <?php include("../templates/footer.php"); ?>
+    <script src="../assets/js/anadir_anuncio.js"></script>
      <!-- FOOTER END -->
     <script src="../assets/js/funciones.js"></script>
     <script>window.onload = () => createDynamicHeader('Añadir nuevo anuncio');</script>

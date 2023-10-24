@@ -1,3 +1,35 @@
+:root {
+  --primary: #eeeeee;
+  --secondary: #227c70;
+  --green: #82cd47;
+  --secondary-light: rgb(34, 124, 112, 0.2);
+  --secondary-light-2: rgb(127, 183, 126, 0.1);
+  --white: #fff;
+  --black: #393e46;
+  --morado: #ba007b;
+  --rojo: #e20035;
+  --tx-azul: #1aa3bf;
+  --tx-verde-oscuro: #229c69;
+  --tx-verde-claro: #57aa26;
+  --tx-amarillo: #d6d700;
+  --tx-amarillo-oscuro: #fcc204;
+  --tx-naranja: #e95f15;
+  --tx-rojo: #e20035;
+  --tx-rosa: #e6007c;
+  --tx-morado: #ba007b;
+  --tx-morado-oscuro: #5c2684;
+
+  --shadow: 0px 2px 8px 0px var(--secondary-light);
+}
+
+header {
+  background-color: #fff;
+  padding: 1rem 6rem;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+}
 #logo {
   width: 200px;
 }
@@ -84,24 +116,6 @@
   height: 3rem;
 }
 
-.animated-button span:last-child {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 20px;
-  height: 20px;
-  background-color: var(--tx-verde-oscuro);
-  border-radius: 50%;
-  opacity: 0;
-  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.animated-button span:first-child {
-  position: relative;
-  z-index: 1;
-}
-
 .animated-button:hover {
   box-shadow: 0 0 0 5px var(--tx-verde-claro);
   color: #ffffff;
@@ -115,32 +129,6 @@
   width: 155px;
   height: 155px;
   opacity: 1;
-}
-
-/* dropdown del perfil */
-
-:root {
-  --primary: #eeeeee;
-  --secondary: #227c70;
-  --green: #82cd47;
-  --secondary-light: rgb(34, 124, 112, 0.2);
-  --secondary-light-2: rgb(127, 183, 126, 0.1);
-  --white: #fff;
-  --black: #393e46;
-  --morado: #ba007b;
-  --rojo: #e20035;
-  --tx-azul: #1aa3bf;
-  --tx-verde-oscuro: #229c69;
-  --tx-verde-claro: #57aa26;
-  --tx-amarillo: #d6d700;
-  --tx-amarillo-oscuro: #fcc204;
-  --tx-naranja: #e95f15;
-  --tx-rojo: #e20035;
-  --tx-rosa: #e6007c;
-  --tx-morado: #ba007b;
-  --tx-morado-oscuro: #5c2684;
-
-  --shadow: 0px 2px 8px 0px var(--secondary-light);
 }
 
 .navbar-logo {
@@ -175,6 +163,7 @@
   color: var(--black);
 }
 
+/* dropdown del perfil */
 .profile-dropdown {
   position: relative;
   width: fit-content;
@@ -211,6 +200,22 @@
 .profile-dropdown-btn span {
   margin: 0 0.5rem;
   margin-right: 0;
+}
+
+
+/* */
+
+
+/* Media Query Tablet
+  Formato Ipad Air 
+  820*1080px*/
+
+  @media only screen
+and (min-width: 820px)
+and (max-width: 1180px)
+and (orientation: portrait)
+{
+
 }
 
 .profile-dropdown-list {
@@ -307,3 +312,57 @@
   width: 1rem;
   height: 1rem;
 }
+
+
+/* RESPONSIVE */
+/* Media query Movil */
+@media screen and (max-width: 500px) {
+  header {
+    gap: 50px;
+    padding: 1rem 4rem;
+  }
+  #logo {
+    max-width: max-content;
+    object-fit: fill;
+    width: 100px;
+  }
+  
+  /* NAVBAR */
+  #nav-links li {
+    padding: 18px 5px;
+  }
+  
+  #buscador input {
+    width: 100px;
+  }
+  
+  /* Estilos para el boton del login */
+  .animated-button {
+    padding: 0;
+    font-size: 12px;
+    width: 200px;
+    height: 2rem;
+  }
+}
+
+.container-perfil {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 2rem;
+}
+
+.container-perfil img {
+  object-fit: cover;
+}
+
+.container-perfil section.form {
+  display: block;
+}
+
+.container-perfil .contenedor-formulario {
+  display: block;
+  margin-top: 0;
+  flex-grow: 1;
+}
+
