@@ -10,24 +10,37 @@ $user = $_SESSION["usuario_global"];
 $userapellido  = $_SESSION["usuarioapellido_global"];
 $username = $_SESSION["usuarionombre_global"];
 
+
 //--------SI SE ENVIA EN ANUNCIO POR EL BOTON DE ENVIAR--------
 if(isset($_POST["enviar"])){
-  //obtenemos los campos del formulario
-  $tituloAnuncio = $_POST["tituloAnuncio"];
-  $categoria = $_POST["Categoria"];
-  $imagen = $_FILES["imagen"]["name"];
-  $target = "img_subidas/usuarios".basename($imagen);
-  $descripcionAnuncio = $_POST["DescripcionAnuncio"];
-  $Admin = $_SESSION["usuario_global"];
+  //obtenemos los campos del formulario];
   date_default_timezone_set("Europe/Madrid");
   $fechaActual = date("Y-m-d H:i:s"); 
+  $nombre = $_POST["nombre"];
+  $apellido = $_POST["apellido"];
+  $imagen = $_FILES["imagen"]["name"];
+ 
+  global $Conexionbbdd;
+  
+  
+  validar_Miperfil($nombre, $apellido, $imagen);
 
-  //validaciones previas
-    $validado = validar_data_anuncio($tituloAnuncio, $descripcionAnuncio);
-    if ($validado){
-    //insertar_anuncio_bbdd($fechaActual,$tituloAnuncio,$categoria,$Admin,$imagen,$descripcionAnuncio, $target);
-  }
+  if (!$Conexionbbdd) {
+    die("La conexión a la base de datos falló: " . mysqli_connect_error());
 }
+  $consulta = "UPDATE usuario SET Nombre='$nombre', Apellido='$apellido', Imagen='$imagen' WHERE Nick='$user'";
+  
+  
+
+  $insertado = $Conexionbbdd -> query($consulta);
+  if ($insertado){
+    $_SESSION["MensajeExito"] = "El perfil se ha editado Correctamente, y ha sido validado";
+       }else {
+        $_SESSION["MensajeExito"] = "El perfil no ha sido editado Correctamente, Espera a que sea validado por un administrador";
+       }
+       Redireccionar_A("miperfil.php");
+      
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,6 +49,7 @@ if(isset($_POST["enviar"])){
     <title>Mi perfil</title>
   </head>
   <body>
+    
     <!-- NAVBAR -->
     <?php include("../templates/header.php"); ?>
     <!-- NAVBAR END -->
@@ -67,7 +81,7 @@ if(isset($_POST["enviar"])){
        <section class="form w-70">
           <div class="contenedor-formulario mt-bg w-100">
             <div class="titulo tx-naranja"><span>Editar tu perfil</span></div>
-            <form action="miperfil.php" method="post" enctype="multipart/form-data">
+            <form id="form" action="miperfil.php" method="post" enctype="multipart/form-data">
               <!-- fila 2 fluida -->
                   <label for="nombre">Nombre:</label>
                   <div class="fila">
@@ -104,6 +118,7 @@ if(isset($_POST["enviar"])){
               <!-- fila para boton -->
               <div class="fila-boton">
               <button class="boton tx-naranja w-100" type="submit" name="enviar"><i class="fa-solid fa-check"></i>Editar Perfil</button>
+
             </div>
             </form>
           </div>
@@ -114,6 +129,7 @@ if(isset($_POST["enviar"])){
   <!-- END MAIN AREA -->
     <!-- FOOTER -->
     <?php include("../templates/footer.php"); ?>
+    <script src="../assets/js/miperfil.js" defer></script> 
      <!-- FOOTER END -->
     <script src="../assets/js/funciones.js"></script>
     <script>window.onload = () => createDynamicHeader('Mi Perfil');</script>

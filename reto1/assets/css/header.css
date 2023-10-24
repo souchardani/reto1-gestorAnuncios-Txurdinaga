@@ -202,6 +202,22 @@ header {
   margin-right: 0;
 }
 
+
+/* */
+
+
+/* Media Query Tablet
+  Formato Ipad Air 
+  820*1080px*/
+
+  @media only screen
+and (min-width: 820px)
+and (max-width: 1180px)
+and (orientation: portrait)
+{
+
+}
+
 .profile-dropdown-list {
   position: absolute;
   top: 68px;
@@ -349,3 +365,4 @@ header {
   margin-top: 0;
   flex-grow: 1;
 }
+

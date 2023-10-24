@@ -48,8 +48,7 @@ if(isset($_POST["Enviar"])){
       <div class="row mt-4">
         <!-- inicio seccion principal -->
         <div class="col-sm-8">
-          <h1>Anuncios y Noticias - FP Txurdinaga</h1>
-          <h1 class="lead mb-4">Mira los anuncios destacados del centro</h1>
+          
           <?php echo MensajeError();
               echo MensajeExito();
           ?>
@@ -67,26 +66,30 @@ if(isset($_POST["Enviar"])){
             $descripcion = $fila["Descripción"];
         ?>
         <div class="card">
-          <img class="img-fluid card-img-top" style="max-height: 450px; object-fit: cover;" src="../assets/img_subidas/anuncios/<?php echo $imagen?>" alt=""/>
+          
           <div class="card-body">
-            <h4 class="card-title"><?php echo htmlentities($titulo)?></h4>
-            <small class="text-muted">Categoria: <?php echo "<span class='text-dark'>$categoria</span>"?> Publicado Por: <?php echo "<span class='text-dark'>$autor</span>"?> el <?php echo "<span class='text-dark'>$datetime</span>"?></small>
-            <span class="badge text-bg-dark" style="float: right;">Comentarios:
-            <?php
-            $comentariossi = obtener_comentarios_aprobados_porid($id);
-            echo $comentariossi;
-            ?>
-            </span>
-            <hr>
+            <p class="card-title"><?php echo htmlentities($titulo)?></p>
+            <p><small class="text-muted">Categoria: <?php echo "<span class='text-dark'>$categoria</span>"?> Publicado Por: <?php echo "<span class='text-dark'>$autor</span>"?> el <?php echo "<span class='text-dark'>$datetime</span>"?></small></p>
             
-            <p class="card-text"><?php echo $descripcion?></p>
+         
+            
+          
           </div>
+          <img class="imgAnunCom" style="max-height: 450px; object-fit: cover;" src="../assets/img_subidas/anuncios/<?php echo $imagen?>" alt=""/>
+          <p class="descripcionAnun"><?php echo $descripcion?></p>
         </div>
+        
         <br>
         <?php } ?>
 
         <!-- seccion de comentarios -->
-        <h1 class="FieldInfo mb-3">Comentarios</h1>
+        <h1 class="comentarioss" >Comentarios:
+            <?php
+            $comentariossi = obtener_comentarios_aprobados_porid($id);
+            echo $comentariossi;
+            ?>
+            </h1>
+            <br>
         <!-- obtener comentarios existentes -->
         <?php
         $stmt = obtener_comentario_poranuncio($idAnuncio);
@@ -99,8 +102,8 @@ if(isset($_POST["Enviar"])){
           <div class="media bloque-comentario">
             <img class="img-fluid" src="../assets/img/avatar.svg" width="80px" alt="">
             <div class="media-body m-2">
-              <h6 class="lead mb-3"><?php echo $autor ?></h6>
-              <p><?php echo $texto ?></p>
+              <h3 class="lead mb-3"><?php echo $autor ?></h3>
+              <p class="descAnun"><?php echo $texto ?></p>
             </div>
           </div>
         </div>
@@ -138,7 +141,6 @@ if(isset($_POST["Enviar"])){
         <!-- fin seccion principal -->
         <!-- inicio aside area -->
         <div class="col-sm-4" style="min-height: 40px; ">
-         
           <!-- tarjeta categorias -->
           <div class="card my-5">
             <div class="card-header text-bg-light text-center">
