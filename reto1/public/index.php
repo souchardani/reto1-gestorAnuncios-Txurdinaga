@@ -36,6 +36,7 @@
       </div>
     </section>
 
+    
     <section id="pagina-inicio">
       <div class="carrusel">
         <div id="slide">
@@ -50,29 +51,29 @@
         $descripcion = $fila["Descripción"];
         ?>
 
-          <div class="item" style="background-image: url(../assets/img_subidas/anuncios/<?php echo $imagen?>);">
+          <div class="item" style="background-image:linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)),url(../assets/img_subidas/anuncios/<?php echo $imagen?>);">
               <div class="content">
-                  <p class="name"><?php echo $titulo?></p>
-                  <p class="des"><?php echo $descripcion?></p>
-                  <button onclick="location.href='../views/anuncio_completo.php?id=<?php echo $id ?>'">See more</button>
+                  <p class="name heading-03"><?php echo $titulo?></p>
+                  <p class="des body-large-600"><?php echo $descripcion?></p>
+                  <button class="boton tx-morado" onclick="location.href='../views/anuncio_completo.php?id=<?php echo $id ?>'">Ver Anuncio</button>
               </div>
           </div>
 
         <?php } ?>
         </div>
         <div class="buttons">
-            <button id="prev" onclick="updateCarr('prev')"> < </button>
-            <button id="next" onclick="updateCarr('next')"> > </button>
+            <button class="boton tx-verde-claro" id="prev" onclick="updateCarr('prev')"><i class="fa-solid fa-arrow-left"></i></button>
+            <button class="boton tx-verde-claro" id="next" onclick="updateCarr('next')"><i class="fa-solid fa-arrow-right"></i></button>
         </div>
       </div>
 
-      <div class="container">
+      <div class="container mt-bg">
         <?php 
           //añadimos el mensaje de exito o error para cada caso especifico
           echo MensajeError();
           echo MensajeExito();
         ?>
-        <h2 class="display-03">Anuncios Recientes</h2>
+        <h2 class="display-03 mt-bg">Anuncios Recientes</h2>
         <div class="columnas-anuncios flex">
         <?php
 

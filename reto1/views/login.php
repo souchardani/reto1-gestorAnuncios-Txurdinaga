@@ -38,43 +38,38 @@ if(isset($_POST["enviar"])){
     <!-- HEADER END -->
     
     <!-- main area -->
-    <section class="container py-2 my-5">
-      <div class="row">
-        <div class="offset-sm-3 col-sm-6" style="min-height: 400px;">
-          <div class="card text-bg-light">
-            <div class="card-header">
-              <h4>Bienvenido de nuevo!</h4>
+    <section class="container mt-bg">
+          <?php
+          //llamamos a los mensajes de exito y error
+            echo MensajeError();
+            echo MensajeExito();
+          ?>
+          <section class="form mb-bg">
+          <div class="contenedor-formulario mt-bg  w-50">
+            <div class="titulo tx-rojo"><span>Bienvenido de nuevo!</span></div>
+            <form action="login.php" method="post" enctype="multipart/form-data">
+              <!-- fila usuario -->
+              <label for="usuario">Nombre de Usuario:</label>
+              <div class="fila">
+                <i class="fas fa-user tx-rojo"></i>
+                <input type="text" name="usuario" id="usuario" placeholder="escribe tu nombre de usuario">
+              </div>
+               <!-- fila pass -->
+               <label for="password">Contraseña:</label>
+              <div class="fila">
+                <i class="fas fa-user tx-rojo"></i>
+                <input type="password" name="password" id="password" placeholder="escribe Contraseña">
+              </div>
+              <!-- fila para boton -->
+              <div class="fila-boton">
+              <button type="submit" name="enviar" value="Iniciar Sesion" class="boton tx-rojo w-100">Iniciar Sesion</button>
+              <div class="subtexto">
+              No tienes Cuenta? <a class="ctx-rojo" href="registro.php">Crea una</a>
             </div>
-              <div class="card-body text-bg-light">
-                <?php
-                //llamamos a los mensajes de exito y error
-                  echo MensajeError();
-                  echo MensajeExito();
-                ?>
-                <form action="login.php" method="post">
-                  <div class="form-group">
-                    <label for="usuario"><span class="FieldInfo">Nombre de Usuario: </span></label>
-                    <div class="input-group my-3">
-                      <div class="input-group-text" style="background-color: #FCC204;"><span><i class="fas fa-user"></i></span></div>
-                      <input type="text" class="form-control" name="usuario" id="usuario">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="password"><span class="FieldInfo">Contraseña: </span></label>
-                    <div class="input-group my-3">
-                      <div class="input-group-text" style="background-color: #FCC204;"><span><i class="fas fa-lock"></i></span></div>
-                      <input type="password" class="form-control" name="password" id="password">
-                    </div>
-                  </div>
-                  <div class="d-grid">
-                    <input type="submit" name="enviar" value="Iniciar Sesion" class="btn d-block text-white mt-3" style="background: #E95F15;">
-                  </div>
-                </div>
-              </form>
+              </div>
+            </form>
           </div>
-          <p class="text-center">No tienes una cuenta? <a href="registro.php">Crea una</a></p>
-        </div>
-      </div>
+        </section>
     </section>
     <!-- end of main area -->
     <!-- FOOTER -->

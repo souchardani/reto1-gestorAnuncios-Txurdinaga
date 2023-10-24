@@ -40,30 +40,35 @@ if(isset($_POST["enviar"])){
       echo MensajeError();
       echo MensajeExito();
        ?>
-      <form class="" action="categorias.php" method="post">
-        <div class="card text-bg-secondary mb-3">
-          <div class="card-header" style="background-color: #BA007B;">
-            <h1>Añadir Nueva Categoria</h1>
-          </div>
-          <div class="card-body text-bg-light">
-            <div class="form-group mb-5">
-              <label class="mb-3" for="title"><span class="FieldInfo">Titulo de la Categoria:</span></label>
-              <input class="form-control " type="text" name="tituloCategoria" id="title" placeholder="Escribe el titulo aqui">
-            </div>
-            <div class="d-flex">
-            <div>
-              <a class="boton tx-amarillo w-100" href="dashboard.php"><i class="fa-solid fa-arrow-left"></i> Volver al Panel de Control</a>
-            </div>
-            <div>
-              <button type="submit" name="enviar" class="boton tx-verde-claro w-100"><i class="fa-solid fa-check"></i> Publicar</button>
-            </div>
-          </div>
-          </div>
-        </div>
-      </form>
 
+        <div class="contenedor-boton-principal mb-bg">
+            <a class="boton boton-principal tx-verde-oscuro" 
+            <?php ($_SESSION["tipoUsuario_global"] == "Administrador") ? $temp="href='dashboard.php'" :$temp= "href='dashboarduser.php'";
+              echo $temp;?>>
+              <i class="fa-solid fa-arrow-left"></i> 
+              Volver al Panel de Control</a>
+        </div>
+
+
+      <section class="form mb-bg">
+      <div class="contenedor-formulario mt-bg w-70">
+        <div class="titulo tx-verde-oscuro"><span>Añadir Categoria</span></div>
+        <form action="categorias.php" method="post" enctype="multipart/form-data">
+          <!-- fila titulo -->
+          <label for="title">Titulo de la Categoria:</label>
+          <div class="fila">
+            <i class="fas fa-user tx-verde-oscuro"></i>
+            <input type="text" name="tituloCategoria" id="title" placeholder="Escribe el titulo aqui"/>
+          </div>
+          <!-- fila para boton -->
+          <div class="fila-boton">
+          <button type="submit" name="enviar" class="boton tx-verde-oscuro w-100" ><i class="fa-solid fa-check"></i>Publicar</button>
+          </div>
+        </form>
+      </div>
+    </section>
          <!-- tabla categorias -->
-         <main class="table mt-bg">
+      <main class="table mt-bg">
         <section class="table__header">
           <h1 class="heading-02">Categorias</h1>
           <div class="input-group">
@@ -97,7 +102,7 @@ if(isset($_POST["enviar"])){
               </tbody>
             </table>
           </section>
-        </main>
+      </main>
     </section>
   <!-- END MAIN AREA -->
     <!-- FOOTER -->

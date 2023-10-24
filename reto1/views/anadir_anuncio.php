@@ -45,62 +45,64 @@ if(isset($_POST["enviar"])){
     <div id="dynamicHeader"></div>
     <!-- HEADER END -->
   <!-- MAIN AREA -->
-  <section class="container py-2 mb-4">
-    <div class="row" >
-      <div class="offset-lg-1 col-lg-10" style="min-height: 50vh;">
+  <section class="container">
+    <!-- boton panel de control -->
+    <div class="contenedor-boton-principal mb-bg">
+            <a class="boton boton-principal tx-verde-oscuro" 
+            <?php ($_SESSION["tipoUsuario_global"] == "Administrador") ? $temp="href='dashboard.php'" :$temp= "href='dashboarduser.php'";
+              echo $temp;?>>
+              <i class="fa-solid fa-arrow-left"></i> 
+              Volver al Panel de Control</a>
+              </div>
       <?php 
       //añadimos el mensaje de exito o error para cada caso especifico
       echo MensajeError();
       echo MensajeExito();
        ?>
-      <form class="" action="anadir_anuncio.php" method="post" enctype="multipart/form-data">
-        <div class="card text-bg-secondary mb-3">
-          
-          <div class="card-body text-bg-light">
-            <div class="form-group mb-5">
-              <label class="mb-3" for="title"><span class="FieldInfo">Titulo del anuncio:</span></label>
-              <input class="form-control " type="text" name="tituloAnuncio" id="title" placeholder="Escribe el titulo aqui">
-            </div>
-            <div class="form-group mb-5">
-              <label class="mb-3" for="tituloCategoria"><span class="FieldInfo">Escoge la categoria:</span></label>
-              <select class="form-control" id="tituloCategoria" name="Categoria">
-                <?php
+    <section class="form">
+      <div class="contenedor-formulario mt-bg w-70">
+        <div class="titulo tx-verde-oscuro"><span>Añadir Anuncio</span></div>
+        <form action="anadir_anuncio.php" method="post" enctype="multipart/form-data">
+          <!-- fila titulo -->
+          <label for="title">Titulo del anuncio:</label>
+          <div class="fila">
+            <i class="fas fa-user tx-verde-oscuro"></i>
+            <input type="text" name="tituloAnuncio" id="title" placeholder="Escribe el titulo aqui"/>
+          </div>
+          <!-- fila categoria -->
+          <label for="tituloCategoria">Escoge la categoria:</label>
+          <div class="fila">
+            <i class="fas fa-user tx-verde-oscuro"></i>
+            <select id="tituloCategoria" name="Categoria">
+            <?php
                 //añadimos las categorias
                 $stmt = obtener_categorias();
                 while ($fila = $stmt -> fetch()){
                   //$Id = $fila["id"];
                   $NombreCategoria = $fila["Nombre"];
-                ?>
-                <option value="<?php echo $NombreCategoria ?>"><?php echo $NombreCategoria ?></option>
+              ?>
+               <option value="<?php echo $NombreCategoria ?>"><?php echo $NombreCategoria ?></option>
                 <?php } //fin del while?> 
-              </select>
-            </div>
-            <div class="form-group mb-5">
-              <label class="mb-3" for="seleccionaImagen"><span class="FieldInfo">Cargar Imagen:</span></label>
-              <div >
-                <input class="form-control" type="file" name="imagen" id="seleccionaImagen" value=""/>
-              </div>
-            </div>
-            <div class="form-group mb-5">
-            <label class="mb-3" for="anuncio"><span class="FieldInfo">Descripcion del anuncio:</span></label>
-            <textarea class="form-control" name="DescripcionAnuncio" id="anuncio" cols="30" rows="10"></textarea>
-            </div>
-            
-            <div class="row">
-            <div class="col-lg-6 mb-2">
-              <a class="btn btn-warning d-lg-block w-100" <?php ($_SESSION["tipoUsuario_global"] == "Administrador") ? $temp="href='dashboard.php'" :$temp= "href='dashboarduser.php'";
-              echo $temp;?>><i class="fa-solid fa-arrow-left"></i> Volver al Panel de Control</a>
-            </div>
-            <div class="col-lg-6 mb-2  d-md-block ">
-              <button type="submit" name="enviar" class="btn btn-success w-100"><i class="fa-solid fa-check"></i> Publicar</button>
-            </div>
+            </select>
           </div>
+          <!-- fila para imagen -->
+          <label for="seleccionaImagen">Cargar Imagen:</label>
+          <div class="fila">
+            <i class="fas fa-user tx-verde-oscuro"></i>
+            <input type="file" name="imagen" id="seleccionaImagen" value=""/>
           </div>
-        </div>
-
-      </form>
-    </div>
-    </div>
+           <!-- fila para descripcion -->
+           <label for="anuncio">Descripcion del anuncio:</label>
+          <div class="fila">
+            <textarea name="DescripcionAnuncio" id="anuncio" cols="30" rows="10"></textarea>
+          </div>
+          <!-- fila para boton -->
+          <div class="fila-boton">
+          <button class="boton tx-verde-oscuro w-100" type="submit" name="enviar"><i class="fa-solid fa-check"></i>Publicar</button>
+          </div>
+        </form>
+      </div>
+    </section>
   </section>
   <!-- END MAIN AREA -->
     <!-- FOOTER -->

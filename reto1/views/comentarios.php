@@ -20,11 +20,11 @@ confirmar_admin();
     <?php include("../templates/header.php"); ?>
     <!-- NAVBAR END -->
     <!-- HEADER -->
-    <div id="dynamicHeader" class="mb-bg"></div>
+    <div id="dynamicHeader"></div>
     <!-- HEADER END -->
     <section class="container ">
         <div class="d-flex flex-center mb-bg">
-            <a class="boton tx-morado-oscuro w-50" href="dashboard.php"><i class="fa-solid fa-arrow-left"></i> Volver al Panel de Control</a>
+            <a class="boton tx-rojo w-50" href="dashboard.php"><i class="fa-solid fa-arrow-left"></i> Volver al Panel de Control</a>
         </div>
 
         <?php

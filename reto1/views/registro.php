@@ -57,140 +57,109 @@ if(isset($_POST["enviar"])){
     <!-- HEADER END -->
     
     <!-- main area -->
-    <section class="container py-2 my-5">
-      <div class="row">
-        <div class="offset-sm-3 col-sm-6" style="min-height: 400px;">
-          <div class="card text-bg-light">
-            <div class="card-header">
-              <h4>Registro</h4>
-            </div>
-            <div class="card-body text-bg-light">
+    <section class="container">
               <?php
               //llamamos a los mensajes de exito y error
                 echo MensajeError();
                 echo MensajeExito();
               ?>
-              <form action="registro.php" method="post">
-                <div class="row">
-                  <div class="col-12 col-md-6">
-                    <div class="form-group">
-                      <label for="nombre"><span class="FieldInfo">Nombre: </span></label>
-                      <div class="input-group my-2">
-                        <div class="input-group-text" style="background-color: #FCC204;"><span><i class="fas fa-user"></i></span></div>
-                        <input type="text" class="form-control" name="nombre" id="nombre">
+            <!-- formulario -->
+            <section class="form">
+                  <div class="contenedor-formulario mt-bg w-70">
+                    <div class="titulo tx-morado-oscuro"><span>Añadir Nuevo Usuario</span></div>
+                    <form action="registro.php" method="post">
+                      <!-- fila 2 fluida -->
+                      <div class="fila-fluida">
+                        <div class="grow">
+                          <label for="nombre">Nombre:</label>
+                          <div class="fila">
+                            <i class="fas fa-user tx-morado-oscuro"></i>
+                            <input type="text" name="nombre" id="nombre" placeholder="Escribe el nombre">
+                          </div>
+                        </div>
+                        <div class="grow">
+                        <!-- fila 3 -->
+                          <label for="apellido">Apellido:</label>
+                          <div class="fila">
+                            <i class="fas fa-user tx-morado-oscuro"></i>
+                            <input type="text" name="apellido" id="apellido" placeholder="Escribe el apellido">
+                          </div>
+                        </div>
                       </div>
-                    </div>    
-                  </div>
-                  <div class="col-12 col-md-6">
-                    <div class="form-group">
-                      <label for="apellido"><span class="FieldInfo">Apelllido: </span></label>
-                      <div class="input-group my-2">
-                        <div class="input-group-text" style="background-color: #FCC204;"><span><i class="fas fa-user"></i></span></div>
-                        <input type="text" class="form-control" name="apeliido" id="apellido">
+                      <!-- fila 1 -->
+                      <label for="nickname">Nombre de Usuario:</label>
+                      <div class="fila">
+                        <i class="fas fa-user tx-morado-oscuro"></i>
+                        <input type="text" name="nickname" id="nickname" placeholder="Escribe el nombre de usuario aqui">
                       </div>
-                    </div>    
-                  </div>
-                  <div class="col-12">
-                    <div class="form-group">
-                      <label for="nickname"><span class="FieldInfo">Nickname: </span></label>
-                      <div class="input-group my-2">
-                        <div class="input-group-text" style="background-color: #FCC204;"><span><i class="fas fa-user"></i></span></div>
-                        <input type="text" class="form-control" name="nickname" id="nickname">
+                      <!-- fila 4 -->
+                      <label for="pass">Contraseña:</label>
+                      <div class="fila">
+                      <i class="fas fa-user tx-morado-oscuro"></i>
+                      <input type="password" name="pass" id="pass"  placeholder="Escribe la contraseña aqui">
                       </div>
-                    </div>    
-                  </div>
-                  <div class="col-12 col-md-6">
-                    <div class="form-group">
-                      <label for="pass"><span class="FieldInfo">Contraseña: </span></label>
-                      <div class="input-group my-2">
-                        <div class="input-group-text" style="background-color: #FCC204;"><span><i class="fas fa-lock"></i></span></div>
-                        <input type="password" class="form-control" name="pass" id="pass">
+                      <!-- fila 6 -->
+                      <label for="pass2">Confirmar Contraseña:</label>
+                      <div class="fila">
+                      <i class="fas fa-user tx-morado-oscuro"></i>
+                      <input type="password" name="pass2" id="pass2" placeholder="Vuelve a escribir la contraseña">
                       </div>
-                    </div>    
-                  </div>
-                  <div class="col-12 col-md-6">
-                    <div class="form-group">
-                      <label for="pass2"><span class="FieldInfo">Repetir contraseña: </span></label>
-                      <div class="input-group my-2">
-                        <div class="input-group-text" style="background-color: #FCC204;"><span><i class="fas fa-lock"></i></span></div>
-                        <input type="password" class="form-control" name="pass2" id="pass2">
+                        <!-- fila 5 -->
+                      <label for="email">Email:</label>
+                      <div class="fila">
+                        <i class="fas fa-user tx-morado-oscuro"></i>
+                        <input type="email" name="email" id="email" placeholder="Escribe tu correo">
                       </div>
-                    </div>    
-                  </div>
-                  <div class="col-12">
-                    <div class="form-group">
-                      <label for="email"><span class="FieldInfo">Email: </span></label>
-                      <div class="input-group my-2">
-                        <div class="input-group-text" style="background-color: #FCC204;"><span><i class="fas fa-envelope"></i></span></div>
-                        <input type="email" class="form-control" name="email" id="email">
+                      <!-- fila 6 fluida -->
+                      <div class="fila-fluida">
+                        <div class="grow">
+                          <label for="fecha">Fecha Nacimiento:</label>
+                          <div class="fila">
+                            <i class="fas fa-user tx-morado-oscuro"></i>
+                            <input type="date" name="fecha" id="fecha" placeholder="Escribe tu Fecha de Nacimiento">
+                          </div>
+                        </div>
+                        <div class="grow">
+                        <!-- fila 3 -->
+                          <label for="clase">Clase:</label>
+                          <div class="fila">
+                            <i class="fas fa-user tx-morado-oscuro"></i>
+                            <select name="clase" id="clase">
+                                <?php
+                                $stmt = obtener_clase();
+                                while($fila = $stmt -> fetch()){
+                                  $nombre = $fila["Nombre"];
+                                  echo "<option value='$nombre'>$nombre</option>";
+                                }
+                                ?>
+                          </select>
+                          </div>
+                        </div>
+                        <div class="grow">
+                          <label for="tipo">Alumno/Profesor:</label>
+                          <div class="fila">
+                            <i class="fas fa-user tx-morado-oscuro"></i>
+                            <select name="tipo" id="tipo" class="form-control">
+                              <option value="Alumno">Alumno</option>
+                              <option value="Alumno">Profesor</option>
+                              <option value="Alumno">Administrador</option>
+                            </select>
+                          </div>
+                        </div>
                       </div>
-                    </div>    
-                  </div>
-                  <div class="col-12 col-md-4">
-                    <div class="form-group">
-                      <label for="fecha"><span class="FieldInfo">Fecha Nacimiento: </span></label>
-                      <div class="input-group my-2">
-                        <div class="input-group-text" style="background-color: #FCC204;"><span><i class="fas fa-calendar"></i></span></div>
-                        <input type="date" class="form-control" name="fecha" id="fecha">
-                      </div>
-                    </div>    
-                  </div>
-                  <div class="col-12 col-md-4">
-                    <div class="form-group">
-                      <label for="clase"><span class="FieldInfo">Clase: </span></label>
-                      <div class="input-group my-2">
-                        <div class="input-group-text" style="background-color: #FCC204;"><span><i class="fas fa-graduation-cap"></i></span></div>
-                        <select name="clase" id="clase" class="form-control">
-                          <?php
-                          $stmt = obtener_clase();
-                          while ($fila = $stmt -> fetch()){
-                            $nombre = $fila["Nombre"];
-                            echo "<option value='$nombre'>$nombre</option>";
+                      <!-- fila condiciones -->
 
-                          }
-
-
-                          ?>
-
-                        </select>
-                      </div>
-                    </div>    
-                  </div>
-                  <div class="col-12 col-md-4">
-                    <div class="form-group">
-                      <label for="tipo"><span class="FieldInfo">Tipo de cuenta: </span></label>
-                      <div class="input-group my-2">
-                        <div class="input-group-text" style="background-color: #FCC204;"><span><i class="fas fa-gear"></i></span></div>
-                        <select name="tipo" id="tipo" class="form-control">
-                          <option value="Alumno">Alumno</option>
-                          <option value="Alumno">Profesor</option>
-                          <option value="Alumno">Administrador</option>
-                        </select>
-                      </div>
-                    </div>    
-                  </div>
-                </div>
-                <div class="row mt-3">
-                  <div class="col-12">
-                    <div class="checkbox">
-                      <label>
-                        <input type="checkbox" name="checkbox-authorization" id="checkbox-authorization" required> 
-                        Acepto las condiciones
-                      </label>
+                      <!-- fila para boton -->
+                      <div class="fila-boton">
+                      <button class="boton tx-morado-oscuro w-100" type="submit" name="enviar"><i class="fa-solid fa-check"></i>Crear Cuenta</button>
+                      <div class="subtexto">
+                      Ya tienes Cuenta? <a class="ctx-morado-oscuro" href="login.php">Inicia Sesion</a>
                     </div>
+                    </div>
+                    </form>
                   </div>
-                  <div class="d-grid">
-                    <input type="submit" name="enviar" value="Crear Cuenta" class="btn d-block text-white my-2" style="background: #E95F15;">
-                  </div>
-                  <div class="text-center col-12">
-                    <p>¿Tienes cuenta? <a href="login.php">Inicia Sesion</a></p>
-                  </div>
-                </div>                                  
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
+                </section>
+        </section>
     </section>
     <!-- end of main area -->
     <!-- FOOTER -->
