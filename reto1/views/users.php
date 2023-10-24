@@ -100,7 +100,7 @@ if(isset($_POST["enviar"])){
           <input type="password" name="password" id="password" placeholder="Escribe la contraseña aqui">
           </div>
           <!-- fila 6 -->
-          <label for="confirmar_password">Contraseña:</label>
+          <label for="confirmar_password">Cormfirmar Contraseña:</label>
           <div class="fila">
           <i class="fas fa-user tx-morado-oscuro"></i>
           <input type="password" name="confirmar_password" id="confirmar_password" placeholder="Vuelve a escribir la contraseña">
