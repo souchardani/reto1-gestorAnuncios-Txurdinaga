@@ -650,9 +650,15 @@ function obtener_categoria_porid($id) {
 
 function mostrar_anuncios_categoria() {
   global $Conexionbbdd;
-  $sql = "SELECT * FROM anuncio join categoria_anuncio ON anuncio.id = categoria_anuncio.Anuncio WHERE categoria_anuncio.categoria = :categoria";
-  $stmt = $Conexionbbdd -> prepare($sql);
-  $stmt -> bindParam(":categoria", $_GET["categoria"]);
+  $categoria = $_GET["categoria"];
+  if ($categoria == "Todos") {
+    $sql = "SELECT * FROM anuncio WHERE Aceptado=1 ORDER BY id desc";
+    $stmt = $Conexionbbdd -> query($sql);
+  }else {
+    $sql = "SELECT * FROM anuncio join categoria_anuncio ON anuncio.id = categoria_anuncio.Anuncio WHERE categoria_anuncio.categoria = :categoria";
+    $stmt = $Conexionbbdd -> prepare($sql);
+    $stmt -> bindParam(":categoria", $_GET["categoria"]);
+  }
   $stmt -> execute();
   return $stmt;
 }

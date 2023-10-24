@@ -116,6 +116,24 @@ header {
   height: 3rem;
 }
 
+.animated-button span:last-child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background-color: #82cd47;
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button span:first-child {
+  position: relative;
+  z-index: 1;
+}
+
 .animated-button:hover {
   box-shadow: 0 0 0 5px var(--tx-verde-claro);
   color: #ffffff;
@@ -131,6 +149,9 @@ header {
   opacity: 1;
 }
 
+.margen {
+  margin-top: 10rem;
+}
 .navbar-logo {
   width: 200px;
   margin-top: 20px;
@@ -346,6 +367,7 @@ header {
 
 .container-perfil img {
   object-fit: cover;
+  width: 20rem;
 }
 
 .container-perfil section.form {

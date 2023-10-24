@@ -112,7 +112,7 @@ if(isset($_POST["enviar"])){
                   <i class="fas fa-user tx-naranja"></i>
                   <input type="file" name="imagen" id="seleccionaImagen" value=""/>
                 </div>
-                <div class="fila">
+                <div class="fila mt-bg">
                 <span>Actualmente eres: <span class="badge tx-naranja"><?php echo $_SESSION["tipoUsuario_global"] ?></span></span>
                 </div>
               <!-- fila para boton -->

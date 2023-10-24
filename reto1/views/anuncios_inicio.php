@@ -24,8 +24,9 @@
         <h2 class="display-03 mt-bg">Anuncios y Noticias - CIFP Txurdinaga</h2>
         <div class="categorias mt-bg">
         <form action="anuncios_inicio.php">
-          <select name="categoria" id="categorias">
-            <option value="todos los anuncios">Todos</option>
+          <select name="categoria" id="categorias" class="categoria-select" placeholder="">
+            <option disabled selected>selecciona una categoria</option>
+            <option value="Todos">Todos</option>
             <?php
                 $categorias = obtener_categorias();
                 while ($fila = $categorias -> fetch()){

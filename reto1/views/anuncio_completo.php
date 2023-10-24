@@ -44,16 +44,13 @@ if(isset($_POST["Enviar"])){
     <?php include("../templates/header.php"); ?>
     <!-- NAVBAR END -->
     <!-- HEADER -->
-    <div class="container">
-      <div class="row mt-4">
-        <!-- inicio seccion principal -->
-        <div class="col-sm-8">
-          
-          <?php echo MensajeError();
+    <div class="container container-anuncio-completo mt-bg">
+      <div class="noticia-inicio mt-bg">
+          <?php 
+          echo MensajeError();
               echo MensajeExito();
           ?>
           <?php
-         
           //mostramos el anuncio pasado por la url
           $stmt = mostrar_anuncio_url($idAnuncio);
           while ($fila = $stmt -> fetch()){
@@ -65,28 +62,19 @@ if(isset($_POST["Enviar"])){
             $imagen = $fila["Imagen"];
             $descripcion = $fila["Descripción"];
         ?>
-        <div class="card">
-          
-          <div class="card-body">
-            <p class="card-title"><?php echo htmlentities($titulo)?></p>
-            <p><small class="text-muted">Categoria: <?php echo "<span class='text-dark'>$categoria</span>"?> Publicado Por: <?php echo "<span class='text-dark'>$autor</span>"?> el <?php echo "<span class='text-dark'>$datetime</span>"?></small></p>
-            
-         
-            
-          
-          </div>
+            <p class="card-title mt-bg"><?php echo htmlentities($titulo)?></p>
+            <p><small class="subtitulos">Categoria: <?php echo "<span class='ctx-azul'>$categoria</span>"?>| Publicado Por: <?php echo "<span class='ctx-azul'>$autor</span>"?> | el <?php echo "<span class='ctx-azul'>$datetime</span>"?></small></p>
           <img class="imgAnunCom" style="max-height: 450px; object-fit: cover;" src="../assets/img_subidas/anuncios/<?php echo $imagen?>" alt=""/>
-          <p class="descripcionAnun"><?php echo $descripcion?></p>
-        </div>
-        
+          <p class="descripcionAnun"><?php echo $descripcion?></p>        
         <br>
         <?php } ?>
-
+        </div>
         <!-- seccion de comentarios -->
+        <div class="comentarios-inicio mt-bg">
         <h1 class="comentarioss" >Comentarios:
             <?php
             $comentariossi = obtener_comentarios_aprobados_porid($id);
-            echo $comentariossi;
+            echo "<span class='ctx-azul'>$comentariossi</span>";
             ?>
             </h1>
             <br>
@@ -104,45 +92,47 @@ if(isset($_POST["Enviar"])){
             <div class="media-body m-2">
               <h3 class="lead mb-3"><?php echo $autor ?></h3>
               <p class="descAnun"><?php echo $texto ?></p>
-            </div>
           </div>
-        </div>
-        <hr>
-
-        <?php } ?>
-        <div>
-          <form action="anuncio_completo.php?id=<?php echo $idAnuncio ?>" method="post">
-          <div class="card mb-3">
-            <div class="card-header">
-              <h5 class="FieldInfo">Añade un Comentario:</h5>
-            </div>
-            <?php 
+          </div>
+          <?php } ?>
+          <?php 
               if (isset($_SESSION["tipoUsuario_global"])){
-            ?>
-            <div class="card-body">
-              <div class="form-group mb-3">
-              </div>
-              <div class="form-group mb-3">
-                <textarea name="cuerpoComentario" id="" cols="20" rows="5" class="form-control"></textarea>
-              </div>
-              <button type="submit" name="Enviar" class="btn btn-primary">Enviar Comentario</button>
-            </div>
-            <?php }
-            else {
-              echo "<div class='card-body'><p class='lead'>Inicia sesion para comentar</p></div>";
+          ?>
+          <!-- formulario -->
+          <div class="contenedor-formulario mt-bg">
+        <div class="titulo tx-verde-oscuro"><span>Añadir Comentario:</span></div>
+        <form action="anuncio_completo.php?id=<?php echo $idAnuncio ?>" method="post">
+          <!-- fila titulo -->
+          <div class="fila">
+            <textarea name="cuerpoComentario" id="" cols="20" rows="5" class="form-control"></textarea>
+          </div>
+          <!-- fila para boton -->
+          <div class="fila-boton">
+          <button type="submit" name="Enviar" class="boton tx-verde-oscuro w-100" ><i class="fa-solid fa-check"></i>Publicar</button>
+          </div>
+        </form>
+      </div>
+    </section>
+            <?php 
+            }else {
+              echo "<div class='falta-comentarios mt-bg'><p>Para poder poner un comentario tienes que estar registrado</div>";
             } 
             ?>
-          </div>
-          
+            </div>
+             </div>  
+            </div>  
         </form>
         </div>
-
-        </div>
-        <!-- fin seccion principal -->
       </div>
-    </div>
+        <!-- fin seccion principal -->
     <!-- HEADER END -->
     <!-- FOOTER -->
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="margen">
     <?php include("../templates/footer.php"); ?>
+    </div>
   </body>
 </html>

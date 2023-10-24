@@ -400,14 +400,21 @@ checkbox {
   background-color: #f6f7f9;
   padding: 0.8rem;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 1rem;
   border-radius: 8px;
+  padding-left: 4rem;
 }
 
 .container {
   padding-inline: 2em;
   max-width: 85rem;
+  margin-inline: auto;
+}
+
+.container-anuncio-completo {
+  padding-inline: 2em;
+  width: 80%;
   margin-inline: auto;
 }
 
@@ -1194,92 +1201,6 @@ section.form {
   margin-bottom: 0.5rem;
 }
 
-/* RESPONSIVE */
-/* Media query Movil */
-@media screen and (max-width: 500px) {
-  .display-03 {
-    font-size: 30px;
-  }
-
-  .body-large-400 {
-    font-size: 15px;
-  }
-  #home-hero img {
-    width: 100px;
-  }
-
-  #pagina-inicio {
-    padding: 0;
-  }
-  /* CARRUSEL */
-  .carrusel {
-    display: none;
-  }
-  /* Anuncios */
-  .anuncio {
-    width: 200px;
-    height: 360px;
-  }
-
-  .anuncio img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-  }
-
-  /* FOOTER */
-  .row-footer {
-    display: flex;
-    flex-direction: column;
-  }
-
-  #footer-logo {
-    max-width: max-content;
-    object-fit: fill;
-    width: 100px;
-    margin-bottom: 3em;
-  }
-
-  #footer-img1 {
-    max-width: max-content;
-    object-fit: fill;
-    margin-top: 2em;
-    height: 55px;
-  }
-
-  .formulario-imagen {
-    width: 20rem;
-  }
-
-  .anuncios-inicio {
-    text-align: center;
-  }
-
-  .categorias {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .categorias select {
-    padding-left: 1rem;
-    width: 25%;
-  }
-
-  .categorias form {
-    width: 100%;
-  }
-  .categorias form button {
-    border-radius: 50%;
-  }
-
-  boton .categorias form i {
-    font-size: large;
-    background-color: transparent;
-  }
-}
-
 /* Pagina  Anuncio Completa */
 .card-title {
   color: #000;
@@ -1294,13 +1215,13 @@ section.form {
   line-height: 120%; /* 6rem */
 }
 
-.text-muted {
+.subtitulos {
   color: #000;
   display: block;
   text-align: center;
   /* Heading/02 */
   font-family: PT Sans Narrow;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-style: normal;
   font-weight: 400;
   line-height: 2.5rem; /* 125% */
@@ -1315,7 +1236,6 @@ section.form {
 
 .descripcionAnun {
   color: #000;
-  width: 65%;
   display: block;
   text-align: justify;
   margin: auto;
@@ -1324,11 +1244,7 @@ section.form {
   font-size: 1.5rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 2rem; /* 120% */
-}
-
-.comentarioss {
-  float: left;
+  line-height: 2rem;
 }
 
 .bloque-comentario {
@@ -1336,17 +1252,92 @@ section.form {
   background-color: #f6f7f9;
 }
 
+.noticia-inicio {
+  margin-top: 6rem;
+}
+
 .descAnun {
   color: #000;
 
   /* Heading/01 */
   font-family: PT Sans Narrow;
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 3rem; /* 120% */
 }
 /* Pagina anuncio completo */
+
+.categorias {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.categorias form {
+  display: flex;
+  width: 30%;
+  gap: 1rem;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.formulario-imagen {
+  width: 20rem;
+}
+
+.anuncios-inicio {
+  text-align: center;
+}
+
+.categorias {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+  padding-left: 1rem;
+}
+
+.categorias #categorias {
+  padding-left: 1rem;
+  width: 25%;
+}
+
+.categorias form {
+  width: 100%;
+}
+.categorias form button {
+  border-radius: 50%;
+}
+
+boton .categorias form i {
+  font-size: large;
+  background-color: transparent;
+}
+
+.comentarios-inicio {
+  text-align: center;
+}
+
+.media-body {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.falta-comentarios {
+  background-color: #e20035a6;
+  border-radius: 1.875rem;
+  border: 10px solid var(--Rojo-Ttulo, #e20035);
+  padding: 2rem 4rem;
+  color: #fff;
+
+  font-family: PT Sans Narrow;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1rem;
+}
 
 /* Media Query Tablet
   Formato Ipad Air 
@@ -1519,5 +1510,59 @@ section.form {
 
   #footer-img1 {
     height: 70px;
+  }
+}
+
+/* RESPONSIVE */
+/* Media query Movil */
+@media screen and (max-width: 500px) {
+  .display-03 {
+    font-size: 30px;
+  }
+
+  .body-large-400 {
+    font-size: 15px;
+  }
+  #home-hero img {
+    width: 100px;
+  }
+
+  #pagina-inicio {
+    padding: 0;
+  }
+  /* CARRUSEL */
+  .carrusel {
+    display: none;
+  }
+  /* Anuncios */
+  .anuncio {
+    width: 200px;
+    height: 360px;
+  }
+
+  .anuncio img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+  }
+
+  /* FOOTER */
+  .row-footer {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #footer-logo {
+    max-width: max-content;
+    object-fit: fill;
+    width: 100px;
+    margin-bottom: 3em;
+  }
+
+  #footer-img1 {
+    max-width: max-content;
+    object-fit: fill;
+    margin-top: 2em;
+    height: 55px;
   }
 }
