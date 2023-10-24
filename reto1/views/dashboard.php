@@ -24,38 +24,41 @@ $datos = obtener_datos_dashboard();
     <?php include("../templates/header.php"); ?>
     <!-- NAVBAR END -->
     <!-- HEADER -->
-    <header class="text-bg-light py-3">
       <div class="container">
-        <div class="row ">
-          <div class="col-md-12 mb-3">
-            <h1><i class="fa-solid fa-cog" style="color: #f3b82a"></i> Panel de Control</h1>
+        <header>
+          <div class="container mt-bg mb-bg">
+            <h1>
+            <h1><i class="fa-solid fa-cog" style="color: #e20035"></i>
+                Panel de Control Administrador
+            </h1>
           </div>
-          <div class="col-lg-3 mb-2">
-            <a href="detalles_anuncios.php" class="btn btn-primary w-100">
+        </header>
+        <?php 
+          //añadimos mensajes de error en caso de que los haya
+            echo MensajeError();
+            echo MensajeExito();
+          ?>
+        <div class="botones-header">
+          <div class="w-100">
+            <a href="detalles_anuncios.php" class="boton tx-rosa w-100">
               <i class="fas fa-edit"></i>
               Gestionar Anuncios
             </a>
           </div>
-          <div class="col-lg-3 mb-2">
-            <a href="categorias.php" class="btn btn-info btn-block w-100">
+          <div class="w-100">
+            <a href="categorias.php" class="boton tx-verde-oscuro w-100">
               <i class="fas fa-folder-plus"></i>
               Gestionar Categorias
             </a>
           </div>
-          <div class="col-lg-3 mb-2">
-            <a href="users.php" class="btn btn-warning btn-block w-100">
+          <div class="w-100">
+            <a href="users.php" class="boton tx-morado-oscuro w-100">
               <i class="fas fa-user-plus"></i>
               Gestionar Usuarios
             </a>
           </div>
-          <!-- <div class="col-lg-3">
-            <a href="aprobarAnuncios.php" class="btn btn-success btn-block w-100">
-              <i class="fas fa-check"></i>
-                Aprobar Anuncios
-            </a>
-          </div> -->
-          <div class="col-lg-3">
-            <a href="comentarios.php" class="btn btn-success btn-block w-100">
+          <div class="w-100">
+            <a href="comentarios.php" class="boton tx-rojo w-100">
               <i class="fas fa-check"></i>
               Gestionar Comentarios
             </a>
@@ -65,69 +68,75 @@ $datos = obtener_datos_dashboard();
     </header>
     <!-- HEADER END -->
     <!-- main area -->
-    <div class="container py-2 my-4">
-      <div class="row">
-          <?php 
-          //añadimos mensajes de error en caso de que los haya
-            echo MensajeError();
-            echo MensajeExito();
-          ?>
+    <div class="container mt-bg">
+      <div class="dash-main-top mt-bg">
+      <div class="main-left">
+        
           <!-- inicio aside area -->
-          <div class="col-lg-2 d-none d-md-block">
-            <div class="card text-center text-bg-dark mb-3">
+          <div class="tarjetas">
+            <div class="tarjeta">
               <div class="card-body">
-                <h1 class="lead">Anuncios</h1>
-                  <h4 class="fs-5">
+                <h1  class="caption-600">Anuncios</h1>
+                  <h4 class="caption-600">
                   <i class="fa-solid fa-newspaper"></i>
                     <?php echo $datos["anuncios"]; ?>
                   </h4>
               </div>
             </div>
-            <div class="card text-center text-bg-dark mb-3">
+            <div class="tarjeta">
               <div class="card-body">
-                <h1 class="lead">Categorias</h1>
-                  <h4 class="fs-5">
+                <h1 class="caption-600">Categorias</h1>
+                  <h4 class="caption-600">
                   <i class="fas fa-folder"></i>
                   <?php echo $datos["categorias"]; ?>
                   </h4>
               </div>
             </div>
-            <div class="card text-center text-bg-dark mb-3">
+            <div class="tarjeta">
               <div class="card-body">
-                <h1 class="lead">Administradores</h1>
-                  <h4 class="fs-5">
+                <h1 class="caption-600">Administradores</h1>
+                  <h4 class="caption-600">
                   <i class="fas fa-users"></i>
                   <?php echo $datos["admins"]; ?>
                   </h4>
               </div>
             </div>
-            <div class="card text-center text-bg-dark mb-3">
+            <div class="tarjeta">
               <div class="card-body">
-                <h1 class="lead">Comentarios</h1>
-                  <h4 class="fs-5">
+                <h1 class="caption-600">Comentarios</h1>
+                  <h4 class="caption-600">
                   <i class="fas fa-comments"></i>
                   <?php echo $datos["comentarios"]; ?>
                   </h4>
               </div>
             </div>
           </div>
+        </div>
            <!-- fin aside area -->
 
            <!-- inicio area central -->
-           <div class="col-lg-10">
-            <h1>Ultimos Anuncios Validados</h1>
-            <table class="table table-stripped table-hover">
-              <thead class="table-dark">
-                <tr>
-                  <th>Nº</th>
-                  <th>Titulo</th>
-                  <th>Categoria</th>
-                  <th>Fecha</th>
-                  <th>Autor</th>
-                  <th>Comentarios</th>
-                  <th>Vista Previa</th>
-                </tr>
-              </thead>
+           <main class="table">
+            <section class="table__header">
+              <h1 class="3">Ultimos anuncios validados</h1>
+              <div class="input-group">
+                  <input type="search" name="" id="" placeholder="Buscar" />
+                  <i class="fa-solid fa-magnifying-glass"></i>
+              </div>
+            </section>
+            <section class="table__body">
+                    <table>
+                    <thead>
+                        <tr>
+                          <th>Nº</th>
+                          <th>Titulo</th>
+                          <th>Categoria</th>
+                          <th>Fecha</th>
+                          <th>Autor</th>
+                          <th>Comentarios</th>
+                          <th>Vista Previa</th>
+                        </tr>
+                    </thead>
+                  <tbody>
               <!-- obtenemos los ultimos 5 anuncios -->
               <?php
               $stmt = obtener_5_anuncios();
@@ -141,43 +150,55 @@ $datos = obtener_datos_dashboard();
                 $descripcion = $fila["Descripción"];
                 $contador++;
               ?>
-              <tbody>
                 <tr>
                   <td><?php echo $contador; ?></td>
                   <td><?php echo $titulo; ?></td>
                   <td><?php echo $categoria; ?></td>
                   <td><?php echo $datetime; ?></td>
                   <td><?php echo $autor; ?></td>
-                  <td>
+                  <td><div class="fluid">
                     <?php
                     $comentariossi = obtener_comentarios_aprobados_porid($id);
                     if($comentariossi > 0){
-                      echo "<span class='badge text-bg-success'>$comentariossi</span>";
+                      echo "<p class='badge verde'>$comentariossi</p>";
                     }
                     ?>
                     <?php
                     $comentariosno = obtener_comentarios_noaprobados_porid($id);
                     if($comentariosno > 0){
-                      echo "<span class='badge text-bg-danger'>$comentariosno</span>";
+                      echo "<p class='badge rojo'>$comentariossi</p>";
                     }
                     ?>
+                    </div>
                   </td>
-                  <td><a target="_blank" class="btn btn-info" href="anuncio_completo.php?id=<?php echo  $id ?>">Vista Previa</a></td>
+                  <td><a target="_blank" class="boton tx-azul" href="anuncio_completo.php?id=<?php echo  $id ?>">Vista Previa</a></td>
                 </tr>
-              </tbody>
               <?php } ?>
-            </table>
-            <h1>Validaciones pendientes</h1>
-            <table class="table table-stripped table-hover">
-              <thead class="table-dark">
-                <tr>
-                 <td>Campo</td>
-                  <td>Pendientes de validar</td>
-                  <td>Ir</td>
-                </tr>
-              </thead>
-              <tbody>
-              <!-- obtenemos los ultimos 5 anuncios -->
+                  </tbody>
+                </table>
+              </section>
+            </main>  
+          </div>
+             <!--segunda tabla  -->
+         
+            <main class="table mt-bg">
+              <section class="table__header">
+                <h1 class="3">Validaciones pendientes</h1>
+                  <div class="input-group">
+                      <input type="search" name="" id="" placeholder="Buscar" />
+                      <i class="fa-solid fa-magnifying-glass"></i>
+                  </div>
+                </section>
+                <section class="table__body">
+                    <table class="table-center">
+                    <thead>
+                        <tr>
+                        <th>Tipo</th>
+                        <th>Nº</th>
+                        <th>Accion</th>
+                        </tr>
+                    </thead>
+                    <tbody>
               <?php
               $contadores = obtener_validaciones_pendientes();
               ?>
@@ -185,34 +206,34 @@ $datos = obtener_datos_dashboard();
                 <td>Comentarios</td>
                 <td><?php 
                 if($contadores["comentarios"]>0) {
-                  echo "<span class='badge text-bg-danger'>". $contadores["comentarios"] . "</span>";
+                  echo "<span class='badge rojo'>". $contadores["comentarios"] . "</span>";
                   }else {
-                    echo "<span class='badge text-bg-success'>". $contadores["usuarios"] . "</span>";
+                    echo "<span class='badge verde'>". $contadores["usuarios"] . "</span>";
                   }
                 ?></td>
-                <td><a class="btn btn-warning" href="comentarios.php">Validar <i class="fas fa-check"></i></a></td>
+                <td><a class="boton tx-morado" href="comentarios.php">Validar <i class="fas fa-check"></i></a></td>
               </tr>
               <tr>
                 <td>Anuncios</td>
                 <td><?php 
                   if($contadores["anuncios"]>0) {
-                    echo "<span class='badge text-bg-danger'>". $contadores["anuncios"] . "</span>";
+                    echo "<span class='badge rojo'>". $contadores["anuncios"] . "</span>";
                     }else {
-                      echo "<span class='badge text-bg-success'>". $contadores["usuarios"] . "</span>";
+                      echo "<span class='badge verde'>". $contadores["usuarios"] . "</span>";
                     }
                  ?></td>
-                <td><a class="btn btn-warning" href="detalles_anuncios.php">Validar <i class="fas fa-check"></i></a></td>
+                <td><a class="boton tx-morado" href="detalles_anuncios.php">Validar <i class="fas fa-check"></i></a></td>
               </tr>
               <tr>
                 <td>Usuarios</td>
                 <td><?php
                  if($contadores["usuarios"]>0) {
-                  echo "<span class='badge text-bg-danger'>". $contadores["usuarios"] . "</span>";
+                  echo "<span class='badge rojo'>". $contadores["usuarios"] . "</span>";
                   }else {
-                    echo "<span class='badge text-bg-success'>". $contadores["usuarios"] . "</span>";
+                    echo "<span class='badge verde'>". $contadores["usuarios"] . "</span>";
                   }
                  ?></td>
-                <td><a class="btn btn-warning" href="validar_users.php">Validar <i class="fas fa-check"></i></a></td>
+                <td><a class="boton tx-morado" href="users.php">Validar <i class="fas fa-check"></i></a></td>
                 
               </tr>
               </tbody>

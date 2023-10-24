@@ -7,9 +7,16 @@ $id_categoria = $_GET["id"];
 
 confirmar_admin();
 //operacion sql
-global $Conexionbbdd;
-$consulta = "DELETE from categoria WHERE Nombre = '$id_categoria'";
-$execute = $Conexionbbdd -> query($consulta);
+try {
+    global $Conexionbbdd;
+    $consulta = "DELETE from categoria WHERE Nombre = '$id_categoria'";
+    $execute = $Conexionbbdd -> query($consulta);
+}catch(Exception $e){
+    echo "Existen anuncios creados con esa categoria, no se puede eliminar<br><br><br>";
+    echo "Error: " . $e -> getMessage();
+    return false;
+}
+
 if($execute){
     $_SESSION["MensajeExito"] = "Categoria eliminada correctamente";
     Redireccionar_A("categorias.php");

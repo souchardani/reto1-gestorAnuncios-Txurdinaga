@@ -35,64 +35,75 @@ if(isset($_POST["enviar"])){
     <!-- HEADER END -->
 
   <!-- MAIN AREA -->
-  <section class="container py-2 mb-4">
-    <div class="row" >
-      <div class="offset-lg-1 col-lg-10" style="min-height: 50vh;">
+  <section class="container">
       <?php 
       echo MensajeError();
       echo MensajeExito();
        ?>
-      <form class="" action="categorias.php" method="post">
-        <div class="card text-bg-secondary mb-3">
-          <div class="card-header" style="background-color: #BA007B;">
-            <h1>Añadir Nueva Categoria</h1>
-          </div>
-          <div class="card-body text-bg-light">
-            <div class="form-group mb-5">
-              <label class="mb-3" for="title"><span class="FieldInfo">Titulo de la Categoria:</span></label>
-              <input class="form-control " type="text" name="tituloCategoria" id="title" placeholder="Escribe el titulo aqui">
-            </div>
-            <div class="row">
-            <div class="col-lg-6 mb-2">
-              <a class="btn btn-warning d-lg-block w-100" href="detalles_anuncios.php"><i class="fa-solid fa-arrow-left"></i> Volver al Panel de Control</a>
-            </div>
-            <div class="col-lg-6 mb-2  d-md-block ">
-              <button type="submit" name="enviar" class="btn btn-success w-100"><i class="fa-solid fa-check"></i> Publicar</button>
-            </div>
-          </div>
-          </div>
+
+        <div class="contenedor-boton-principal mb-bg">
+            <a class="boton boton-principal tx-verde-oscuro" 
+            <?php ($_SESSION["tipoUsuario_global"] == "Administrador") ? $temp="href='dashboard.php'" :$temp= "href='dashboarduser.php'";
+              echo $temp;?>>
+              <i class="fa-solid fa-arrow-left"></i> 
+              Volver al Panel de Control</a>
         </div>
 
-      </form>
-      <h2>Categorias</h2>
-          <table class="table table-stripped table-hover">
-            <thead class="table-dark">
+
+      <section class="form mb-bg">
+      <div class="contenedor-formulario mt-bg w-70">
+        <div class="titulo tx-verde-oscuro"><span>Añadir Categoria</span></div>
+        <form action="categorias.php" method="post" enctype="multipart/form-data">
+          <!-- fila titulo -->
+          <label for="title">Titulo de la Categoria:</label>
+          <div class="fila">
+            <i class="fas fa-user tx-verde-oscuro"></i>
+            <input type="text" name="tituloCategoria" id="title" placeholder="Escribe el titulo aqui"/>
+          </div>
+          <!-- fila para boton -->
+          <div class="fila-boton">
+          <button type="submit" name="enviar" class="boton tx-verde-oscuro w-100" ><i class="fa-solid fa-check"></i>Publicar</button>
+          </div>
+        </form>
+      </div>
+    </section>
+         <!-- tabla categorias -->
+      <main class="table mt-bg">
+        <section class="table__header">
+          <h1 class="heading-02">Categorias</h1>
+          <div class="input-group">
+              <input type="search" name="" id="" placeholder="Buscar" />
+              <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+        </section>
+        <section class="table__body">
+          <table class="table-center">
+          <thead>
               <tr>
                 <th>Nº</th> 
                 <th>Nombre</th>
                 <th>Eliminar</th>
               </tr>
-            </thead>
+          </thead>
+        <tbody>         
           <?php
-          $stmt = obtener_categorias();
-          $contador = 0;
-          while ($fila = $stmt -> fetch()){          
-            $titulo = $fila["Nombre"];
-            $contador++;
-          ?>
-          <tbody>
-            <tr>
-              <td><?php echo $contador; ?></td>
-              <td><?php echo $titulo; ?></td>
-              <td><a href="eliminar_categoria.php?id=<?php echo $titulo; ?>" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a></td>
-            </tr>
-          </tbody>
-          <?php } ?>
-          </table>  
-    </div>
-    </div>
-  </section>
-
+            $stmt = obtener_categorias();
+            $contador = 0;
+            while ($fila = $stmt -> fetch()){          
+              $titulo = $fila["Nombre"];
+              $contador++;
+            ?>
+              <tr>
+                <td><?php echo $contador; ?></td>
+                <td><?php echo $titulo; ?></td>
+                <td><a onclick="return confirm('Debes verificar que no hay anuncios creados con esta categoria, de lo contrario, no se podra eliminar')" href="eliminar_categoria.php?id=<?php echo $titulo; ?>" class="boton rojo"><i class="fa-solid fa-trash-can"></i></a></td>
+              </tr>
+            <?php } ?>
+              </tbody>
+            </table>
+          </section>
+      </main>
+    </section>
   <!-- END MAIN AREA -->
     <!-- FOOTER -->
     <?php include("../templates/footer.php"); ?>

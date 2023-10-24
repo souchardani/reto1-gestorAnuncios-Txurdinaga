@@ -23,43 +23,62 @@
   <body>
     <!-- incluimos el header -->
     <?php include("../templates/header.php"); ?>
+
     <section id="home-hero">
       <div class="container flex">
         <div class="left">
           <h3 class="display-03 flex">
-            Descubre todas las Noticias y Anuncios de cifp Txurdinaga
+            Descubre todas las Noticias y Anuncios de CIFP Txurdinaga
           </h3>
           <p class="body-large-400">Entérate de todas nuestras novedades!</p>
         </div>
         <img src="../assets/img/logocuadro.png" alt="" />
       </div>
     </section>
+
+    
     <section id="pagina-inicio">
-      <div class="container">
+      <div class="carrusel">
+        <div id="slide">
+        <?php
+
+        $stmt = mostrar_todos_anuncios();
+
+        while ($fila = $stmt -> fetch()){
+        $id = $fila["id"];
+        $titulo = $fila["Título"];
+        $imagen = $fila["Imagen"];
+        $descripcion = $fila["Descripción"];
+        ?>
+
+          <div class="item" style="background-image:linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)),url(../assets/img_subidas/anuncios/<?php echo $imagen?>);">
+              <div class="content">
+                  <p class="name heading-03"><?php echo $titulo?></p>
+                  <p class="des body-large-600"><?php echo $descripcion?></p>
+                  <button class="boton tx-morado" onclick="location.href='../views/anuncio_completo.php?id=<?php echo $id ?>'">Ver Anuncio</button>
+              </div>
+          </div>
+
+        <?php } ?>
+        </div>
+        <div class="buttons">
+            <button class="boton tx-verde-claro" id="prev" onclick="updateCarr('prev')"><i class="fa-solid fa-arrow-left"></i></button>
+            <button class="boton tx-verde-claro" id="next" onclick="updateCarr('next')"><i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+      </div>
+
+      <div class="container mt-bg">
         <?php 
           //añadimos el mensaje de exito o error para cada caso especifico
           echo MensajeError();
           echo MensajeExito();
         ?>
-        <h2 class="display-03">Anuncios Recientes</h2>
+        <h2 class="display-03 mt-bg">Anuncios Recientes</h2>
         <div class="columnas-anuncios flex">
         <?php
-        
-          //si le ha dado al boton buscar, mostramos anuncios personalziados
-           if(isset($_GET["btnBuscar"])){
-               $stmt = mostrar_anuncios_busqueda();
-          //busqueda para paginacion ex. anuncios_inicio.php?pagina=1
-           }else if(isset($_GET["pagina"])){
-               $stmt = mostrar_anuncios_paginacion();
-               //busqueda por categoria
-           }else if (isset($_GET["categoria"])){
-               $stmt = mostrar_anuncios_categoria();
 
-           }
-           else {
-            //por defecto, mostrar todos los anuncios (lo capamos en 5)
-              $stmt = mostrar_todos_anuncios();
-          }
+              $stmt = mostrar_3_anuncios();
+          
           while ($fila = $stmt -> fetch()){
             $id = $fila["id"];
             $datetime = $fila["Fecha_publi"];
@@ -103,5 +122,7 @@
     <footer>
       <?php include("../templates/footer.php"); ?>
     </footer>
+
+    <script src="../assets/js/app.js"></script>
   </body>
 </html>
