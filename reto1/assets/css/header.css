@@ -202,20 +202,13 @@ header {
   margin-right: 0;
 }
 
-
 /* */
-
 
 /* Media Query Tablet
   Formato Ipad Air 
   820*1080px*/
 
-  @media only screen
-and (min-width: 820px)
-and (max-width: 1180px)
-and (orientation: portrait)
-{
-
+@media only screen and (min-width: 500px) and (max-width: 1180px) and (orientation: portrait) {
 }
 
 .profile-dropdown-list {
@@ -313,7 +306,6 @@ and (orientation: portrait)
   height: 1rem;
 }
 
-
 /* RESPONSIVE */
 /* Media query Movil */
 @media screen and (max-width: 500px) {
@@ -326,16 +318,16 @@ and (orientation: portrait)
     object-fit: fill;
     width: 100px;
   }
-  
+
   /* NAVBAR */
   #nav-links li {
     padding: 18px 5px;
   }
-  
+
   #buscador input {
     width: 100px;
   }
-  
+
   /* Estilos para el boton del login */
   .animated-button {
     padding: 0;
@@ -365,4 +357,3 @@ and (orientation: portrait)
   margin-top: 0;
   flex-grow: 1;
 }
-

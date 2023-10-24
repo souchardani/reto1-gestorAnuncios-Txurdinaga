@@ -1194,7 +1194,6 @@ section.form {
   margin-bottom: 0.5rem;
 }
 
-
 /* RESPONSIVE */
 /* Media query Movil */
 @media screen and (max-width: 500px) {
@@ -1208,7 +1207,7 @@ section.form {
   #home-hero img {
     width: 100px;
   }
-  
+
   #pagina-inicio {
     padding: 0;
   }
@@ -1233,14 +1232,14 @@ section.form {
     display: flex;
     flex-direction: column;
   }
-  
+
   #footer-logo {
     max-width: max-content;
     object-fit: fill;
     width: 100px;
     margin-bottom: 3em;
   }
-  
+
   #footer-img1 {
     max-width: max-content;
     object-fit: fill;
@@ -1248,40 +1247,41 @@ section.form {
     height: 55px;
   }
 
-.formulario-imagen {
-  width: 20rem;
-}
+  .formulario-imagen {
+    width: 20rem;
+  }
 
-.anuncios-inicio {
-  text-align: center;
-}
+  .anuncios-inicio {
+    text-align: center;
+  }
 
-.categorias {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 1rem;
-}
+  .categorias {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
+  }
 
-.categorias select {
-  padding-left: 1rem;
-  width: 25%;
-}
+  .categorias select {
+    padding-left: 1rem;
+    width: 25%;
+  }
 
-.categorias form {
-  width: 100%;
-}
-.categorias form button {
-  border-radius: 50%;
-}
+  .categorias form {
+    width: 100%;
+  }
+  .categorias form button {
+    border-radius: 50%;
+  }
 
-boton .categorias form i {
-  font-size: large;
-  background-color: transparent;
+  boton .categorias form i {
+    font-size: large;
+    background-color: transparent;
+  }
 }
 
 /* Pagina  Anuncio Completa */
-.card-title{
+.card-title {
   color: #000;
   margin-top: 20.87px;
   padding-bottom: 2%;
@@ -1294,7 +1294,7 @@ boton .categorias form i {
   line-height: 120%; /* 6rem */
 }
 
-.text-muted{
+.text-muted {
   color: #000;
   display: block;
   text-align: center;
@@ -1305,33 +1305,30 @@ boton .categorias form i {
   font-weight: 400;
   line-height: 2.5rem; /* 125% */
 }
-.imgAnunCom{
+.imgAnunCom {
   display: block;
   margin-top: 3%;
   margin-bottom: 3%;
   margin-inline: auto;
   border-radius: 1rem 1rem 1rem 1rem;
-
 }
 
-.descripcionAnun{
-color: #000;
-width: 65%;
-display: block;
-text-align: center;
-margin: auto;
-/* Heading/01 */
-font-family: PT Sans Narrow;
-font-size: 1.5rem;
-font-style: normal;
-font-weight: 400;
-line-height: 3rem; /* 120% */
-
+.descripcionAnun {
+  color: #000;
+  width: 65%;
+  display: block;
+  text-align: justify;
+  margin: auto;
+  /* Heading/01 */
+  font-family: PT Sans Narrow;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 2rem; /* 120% */
 }
 
-.comentarioss{
- float: left;
- 
+.comentarioss {
+  float: left;
 }
 
 .bloque-comentario {
@@ -1339,28 +1336,23 @@ line-height: 3rem; /* 120% */
   background-color: #f6f7f9;
 }
 
-.descAnun{
+.descAnun {
   color: #000;
 
-/* Heading/01 */
-font-family: PT Sans Narrow;
-font-size: 1rem;
-font-style: normal;
-font-weight: 400;
-line-height: 3rem; /* 120% */
+  /* Heading/01 */
+  font-family: PT Sans Narrow;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 3rem; /* 120% */
 }
 /* Pagina anuncio completo */
-
 
 /* Media Query Tablet
   Formato Ipad Air 
   820*1080px*/
 
-  @media only screen
-and (min-width: 820px)
-and (max-width: 1180px)
-and (orientation: portrait)
-{
+@media only screen and (min-width: 500px) and (max-width: 1180px) and (orientation: portrait) {
   .footer-container {
     max-width: 100%;
     padding-top: 2em;
@@ -1372,16 +1364,14 @@ and (orientation: portrait)
     align-items: center;
     margin-top: 5rem;
   }
-  .row-footer{
-  
+  .row-footer {
     width: 100%;
-    
- 
+
     justify-content: center;
     flex-wrap: wrap;
   }
-  
-  .footer-col1 { 
+
+  .footer-col1 {
     margin: auto;
     width: 30%;
     padding-top: 20px;
@@ -1390,7 +1380,7 @@ and (orientation: portrait)
     padding-left: 20px;
     flex-direction: column;
   }
-  
+
   #inicio-link {
     display: flex;
     flex-wrap: wrap;
@@ -1403,7 +1393,7 @@ and (orientation: portrait)
     align-items: flex-start;
     margin-bottom: 3em;
   }
-  
+
   .footer-col2 {
     width: 40%;
     display: flex;
@@ -1411,7 +1401,7 @@ and (orientation: portrait)
     flex-direction: column;
     align-items: flex-start;
   }
-  
+
   .footer-col3 {
     width: 100%;
     flex-direction: row;
@@ -1421,9 +1411,8 @@ and (orientation: portrait)
     text-align: justify;
     gap: 20px;
     justify-content: space-around;
-    
   }
-  
+
   .logos-arriba {
     width: 60%;
     flex-direction: row;
@@ -1431,7 +1420,7 @@ and (orientation: portrait)
     justify-content: space-between;
     text-align: justify;
   }
-  
+
   .logos-abajo {
     width: 100%;
     flex-direction: row;
@@ -1439,98 +1428,96 @@ and (orientation: portrait)
     justify-content: space-around;
     text-align: justify;
   }
-  
-  
+
   #footer-logo {
-   max-width: max-content;
-   flex-direction: row;
+    max-width: max-content;
+    flex-direction: row;
   }
-  
-  #datos1{
-    color: #229C69;
+
+  #datos1 {
+    color: #229c69;
     font-weight: 800;
     font-size: 1em;
   }
-  
+
   #datos2 {
-    color: #FCC204;
+    color: #fcc204;
     font-weight: 800;
     font-size: 1em;
     margin-bottom: 2em;
   }
-  
+
   #datos3 {
-    color: #1AA3BF;
+    color: #1aa3bf;
     font-weight: 800;
     font-size: 1em;
   }
-  
+
   #datos4 {
-    color: #DA0067;
+    color: #da0067;
     font-weight: 800;
     font-size: 1em;
   }
-  
+
   #datos5 {
-    background-color: #191F33;
-    color: #E20035;
+    background-color: #191f33;
+    color: #e20035;
     font-weight: 800;
     margin-top: 50px;
     font-size: 0.8em;
     padding: 0px 10px;
     margin-bottom: 10px;
   }
-  
+
   #datos6 {
     background-color: black;
-    color: #FCC204;
+    color: #fcc204;
     font-weight: 800;
     font-size: 0.8em;
     padding: 0px 10px;
     margin-bottom: 10px;
   }
-  
+
   #datos7 {
     background-color: black;
-    color: #1AA3BF;
+    color: #1aa3bf;
     font-weight: 800;
     font-size: 0.8em;
     padding: 0px 10px;
     margin-bottom: 10px;
   }
-  
+
   #datos8 {
-    background-color: #191F33;
-    color: #229C69;
+    background-color: #191f33;
+    color: #229c69;
     font-weight: 800;
     font-size: 0.8em;
     padding: 0px 10px;
     margin-bottom: 10px;
   }
-  
+
   #icon-insta {
     padding: 10px;
     border-radius: 100%;
-    background-color: #DA0067;
+    background-color: #da0067;
     color: white;
   }
-  
+
   #icon-twitter {
     padding: 10px;
     border-radius: 100%;
     background-color: #1aa4c1;
     color: white;
   }
-  
+
   #icon-link {
     padding: 10px;
     border-radius: 100%;
     background-color: #004c95;
     color: white;
   }
-  
+
   #footer-img1 {
     height: 70px;
   }
-  
 }

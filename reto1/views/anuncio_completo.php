@@ -139,27 +139,6 @@ if(isset($_POST["Enviar"])){
 
         </div>
         <!-- fin seccion principal -->
-        <!-- inicio aside area -->
-        <div class="col-sm-4" style="min-height: 40px; ">
-          <!-- tarjeta categorias -->
-          <div class="card my-5">
-            <div class="card-header text-bg-light text-center">
-              <h2 class="lead">Categorias</h2>
-              <div class="card-body">
-                <ul class="list-group">
-                <?php
-                $categorias = obtener_categorias();
-                while ($fila = $categorias -> fetch()){
-                  $categoria = $fila["Nombre"];
-                  echo "<a href='anuncios_inicio.php?categoria=$categoria' class='list-group-item list-group-item-action'>$categoria</a>";
-                }
-                ?>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- fin aside area -->
       </div>
     </div>
     <!-- HEADER END -->
