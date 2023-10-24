@@ -595,6 +595,7 @@ checkbox {
 
 .anuncio-info i {
   color: var(--verde-500);
+  z-index: 999;
 }
 
 .anuncio-ubicacion {
@@ -1194,12 +1195,6 @@ section.form {
 }
 
 
-
-
-
-
-
-
 /* RESPONSIVE */
 /* Media query Movil */
 @media screen and (max-width: 500px) {
@@ -1252,4 +1247,35 @@ section.form {
     margin-top: 2em;
     height: 55px;
   }
+
+.formulario-imagen {
+  width: 20rem;
+}
+
+.anuncios-inicio {
+  text-align: center;
+}
+
+.categorias {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+}
+
+.categorias select {
+  padding-left: 1rem;
+  width: 25%;
+}
+
+.categorias form {
+  width: 100%;
+}
+.categorias form button {
+  border-radius: 50%;
+}
+
+boton .categorias form i {
+  font-size: large;
+  background-color: transparent;
 }

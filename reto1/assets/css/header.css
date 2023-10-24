@@ -297,6 +297,7 @@ header {
   height: 1rem;
 }
 
+
 /* RESPONSIVE */
 /* Media query Movil */
 @media screen and (max-width: 500px) {
@@ -326,4 +327,25 @@ header {
     width: 200px;
     height: 2rem;
   }
+}
+
+.container-perfil {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 2rem;
+}
+
+.container-perfil img {
+  object-fit: cover;
+}
+
+.container-perfil section.form {
+  display: block;
+}
+
+.container-perfil .contenedor-formulario {
+  display: block;
+  margin-top: 0;
+  flex-grow: 1;
 }
