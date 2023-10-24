@@ -68,3 +68,16 @@
 }
 
 /* */
+
+
+/* Media Query Tablet
+  Formato Ipad Air 
+  820*1080px*/
+
+  @media only screen
+and (min-width: 820px)
+and (max-width: 1180px)
+and (orientation: portrait)
+{
+
+}
