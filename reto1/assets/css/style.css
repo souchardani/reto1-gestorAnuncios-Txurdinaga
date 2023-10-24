@@ -623,6 +623,7 @@ header {
 
 .anuncio-info i {
   color: var(--verde-500);
+  z-index: 999;
 }
 
 .anuncio-ubicacion {
@@ -1283,4 +1284,36 @@ section.form {
   display: inline-block;
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
+}
+
+.formulario-imagen {
+  width: 20rem;
+}
+
+.anuncios-inicio {
+  text-align: center;
+}
+
+.categorias {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+}
+
+.categorias select {
+  padding-left: 1rem;
+  width: 25%;
+}
+
+.categorias form {
+  width: 100%;
+}
+.categorias form button {
+  border-radius: 50%;
+}
+
+boton .categorias form i {
+  font-size: large;
+  background-color: transparent;
 }

@@ -37,6 +37,7 @@ function inicio_sesion($usuario, $password){
     $_SESSION["usuario_global"] =  $fila["Nick"];
     $_SESSION["usuarionombre_global"] =  $fila["Nombre"];
     $_SESSION["tipoUsuario_global"] =  $fila["Rol"];
+    $_SESSION["usuarioapellido_global"] =  $fila["Apellido"];
     $_SESSION["foto_global"] =  $fila["Imagen"];
     $_SESSION["MensajeExito"] = "Bienvenid@ de nuevo ". $fila["Nick"];
     if ($fila["Rol"] == "Administrador") {
