@@ -1339,6 +1339,30 @@ boton .categorias form i {
   line-height: 1rem;
 }
 
+/* Editar Perfil */
+.container-perfil {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 2rem;
+}
+
+.container-perfil img {
+  object-fit: cover;
+  width: 20rem;
+}
+
+.container-perfil section.form {
+  display: block;
+}
+
+.container-perfil .contenedor-formulario {
+  display: block;
+  margin-top: 0;
+  flex-grow: 1;
+}
+
+
 /* RESPONSIVE */
 /* Media Query Tablet */
 @media screen and (max-width: 800px) and (min-width: 499px) {
@@ -1431,8 +1455,17 @@ boton .categorias form i {
     height: 65px;
   }
   /* LOGIN */
+  .container{
+    text-align: center;
+  }
+  .contenedor-formulario form {
+    width: 350px;
+  }
+  .contenedor-formulario .titulo {
+    width: 350px;
+  }
   .contenedor-formulario {
-    width: 400px;
+    width: 350px;
     margin: 0 auto;
   }
   /* Pagina anuncio completo */
@@ -1448,6 +1481,42 @@ boton .categorias form i {
   }
   /* estilos para el boton principal */
   .boton-principal {
+    width: 250px;
+  }
+  /* Editar Perfil */
+  .container-perfil {
+    margin-top: 0;
+    display: inline-block;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .container-perfil img {
+    object-fit: cover;
+    width: 18rem;
+  }
+
+  .container-perfil .contenedor-formulario {
+    margin-top: 40px;
+    justify-content: center;
+  }
+  /* PANEL DE CONTROL */
+  .botones-header {
+    display: inline-block;
+    justify-content: center;
+  }
+  .dash-main-top {
+    display: block;
+  }
+  .tarjetas {
+    display: inline-block;
+    width: 300px;
+    height: 100%;
+  }
+  .tarjeta {
+    margin-bottom: 20px;
+  }
+  .table__header .input-group {
     width: 250px;
   }
   
@@ -1506,8 +1575,17 @@ boton .categorias form i {
   }
 
   /* LOGIN */
+  .container{
+    text-align: center;
+  }
+  .contenedor-formulario form {
+    width: 280px;
+  }
+  .contenedor-formulario .titulo {
+    width: 280px;
+  }
   .contenedor-formulario {
-    width: auto;
+    width: 280px;
     margin: 0 auto;
   }
   /* Pagina anuncio completo */
@@ -1523,6 +1601,45 @@ boton .categorias form i {
   }
   /* estilos para el boton principal */
   .boton-principal {
-    width: 250px;
+    width: 240px;
+  }
+  /* Editar Perfil */
+  .container-perfil {
+    margin-top: 0;
+    display: inline-block;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .container-perfil img {
+    object-fit: cover;
+    width: 14rem;
+  }
+
+  .container-perfil .contenedor-formulario {
+    margin-top: 40px;
+    justify-content: center;
+  }
+  /* PANEL DE CONTROL */
+  .botones-header {
+    display: inline-block;
+    justify-content: center;
+  }
+  .dash-main-top {
+    display: block;
+  }
+  .tarjetas {
+    display: inline-block;
+    width: 200px;
+    height: 100%;
+  }
+  .tarjeta {
+    margin-bottom: 20px;
+  }
+  .table__header .input-group {
+    width: 200px;
+  }
+  .table__header h1 {
+    font-size: 20px;
   }
 }
