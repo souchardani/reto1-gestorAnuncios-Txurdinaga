@@ -29,15 +29,12 @@ if(isset($_SESSION["usuario_global"])){
   // si el usuario es invitado
   if ($tipoUsuario == "Invitado") { 
   ?>
-  <button class="animated-button" onclick="location.href = '../views/login.php'">
-      <span>Iniciar Sesion</span>
-      <span></span>
-    </button> 
+  <button class="animated-button" onclick="location.href = '../views/login.php'"><span>Iniciar Sesión</span><span></span></button> 
   <?php }else if($tipoUsuario=="Administrador") { ?>
     <div class="profile-dropdown">
         <div class="profile-dropdown-btn" onclick="toggle()">
           <div class="profile-img">
-            <img src="../assets/img_subidas/usuarios/<?php echo $_SESSION["foto_global"] ?>" alt="" />
+            <img src="../assets/img_subidas/usuarios/<?php echo $_SESSION["foto_global"] ?>" />
           </div>
           <span>
             <?php echo $_SESSION["usuario_global"]; ?>

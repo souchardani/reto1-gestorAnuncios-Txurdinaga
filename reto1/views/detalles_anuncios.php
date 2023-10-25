@@ -24,16 +24,16 @@ confirmar_admin();
     <!-- NAVBAR END -->
     <!-- HEADER -->
     <header>
-        <div class="container">
+        <div class="container mt-bg">
           <h1>
               <i class="fa-solid fa-list-ul" style="color: #f3b82a"></i>
               Volver al panel de control
           </h1>
         </div>
     </header>
-    <section class="container ">
+    <section class="container">
         <div class="d-flex flex-center mb-bg">
-            <a class="boton tx-rosa w-50" href="dashboard.php"><i class="fa-solid fa-arrow-left"></i> Volver al Panel de Control</a>
+            <a class="boton tx-rosa w-50 mt-bg" href="dashboard.php"><i class="fa-solid fa-arrow-left"></i> Volver al Panel de Control</a>
         </div>
 
     <!-- HEADER END -->
@@ -110,8 +110,8 @@ confirmar_admin();
                 </td>
                 <td>
                   <div class="d-flex gap-tb">
-                    <a href="editar_anuncio.php?id=<?php echo $id ?>"><span class="boton rojo">Editar</span></a>
-                    <a href="eliminar_anuncio.php?id=<?php echo $id ?>"><span class="boton amarillo">Borrar</span></a>
+                    <a href="editar_anuncio.php?id=<?php echo $id ?>"><span class="boton amarillo">Editar</span></a>
+                    <a href="eliminar_anuncio.php?id=<?php echo $id ?>"><span class="boton rojo">Borrar</span></a>
                   </div>
                 </td>
                 <td><a href="anuncio_completo.php?id=<?php echo $id ?>" target="_blank"><span class="boton azul">Vista previa</span></a></td>
