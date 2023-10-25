@@ -1505,6 +1505,9 @@ boton .categorias form i {
     display: inline-block;
     justify-content: center;
   }
+  .botones-header .boton {
+    margin-bottom: 20px;
+  }
   .dash-main-top {
     display: block;
   }
@@ -1624,6 +1627,10 @@ boton .categorias form i {
   .botones-header {
     display: inline-block;
     justify-content: center;
+    margin-bottom: 20px;
+  }
+  .botones-header .boton {
+    margin-bottom: 20px;
   }
   .dash-main-top {
     display: block;
