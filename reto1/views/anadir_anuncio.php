@@ -9,6 +9,7 @@ confirmar_login();
 
 //--------SI SE ENVIA EN ANUNCIO POR EL BOTON DE ENVIAR--------
 if(isset($_POST["enviar"])){
+  echo "entra aqui";
   //obtenemos los campos del formulario
   $tituloAnuncio = $_POST["tituloAnuncio"];
   $categoria = $_POST["Categoria"];
@@ -27,6 +28,7 @@ if(isset($_POST["enviar"])){
   //validaciones previas
     $validado = validar_data_anuncio($tituloAnuncio, $descripcionAnuncio);
     if ($validado){
+     
       insertar_anuncio_bbdd($tituloAnuncio, $Autor, $Aceptado, $Fecha_publi, $categoria, $descripcionAnuncio, $imagen, $UbicacionImagen);
   }
 }
@@ -59,10 +61,10 @@ if(isset($_POST["enviar"])){
       echo MensajeError();
       echo MensajeExito();
        ?>
-    <section class="form" id="form">
+    <section class="form" >
       <div class="contenedor-formulario mt-bg w-70">
         <div class="titulo tx-verde-oscuro"><span>Añadir Anuncio</span></div>
-        <form action="anadir_anuncio.php" method="post" enctype="multipart/form-data">
+        <form id="formulario" action="anadir_anuncio.php" method="post" enctype="multipart/form-data">
           <!-- fila titulo -->
           <label for="title">Titulo del anuncio:</label>
           <div class="fila">
@@ -98,7 +100,7 @@ if(isset($_POST["enviar"])){
           </div>
           <!-- fila para boton -->
           <div class="fila-boton">
-          <button class="boton tx-verde-oscuro w-100" type="submit" name="enviar"><i class="fa-solid fa-check"></i>Publicar</button>
+          <button class="boton tx-verde-oscuro w-100" type="submit"  value ="Publicar" name="enviar"><i class="fa-solid fa-check"></i>Publicar</button>
           </div>
         </form>
       </div>

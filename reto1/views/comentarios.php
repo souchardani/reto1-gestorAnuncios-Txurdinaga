@@ -91,14 +91,14 @@ confirmar_admin();
               <th>Nº</th>
                 <th>Autor</th>
                 <th>Texto</th>
-                <th>Aprobar</th>
+                <th>Quitar</th>
                 <th>Eliminar</th>
                 <th>Detalles</th>
               </tr>
           </thead>
         <tbody>
           <?php
-          $execute = obtener_comentarios_noaprobados();
+          $execute = obtener_comentarios_aprobados();
           $contador = 0;
           while ($fila = $execute -> fetch()){
             $id = $fila["id"];

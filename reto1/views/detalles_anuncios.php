@@ -32,6 +32,11 @@ confirmar_admin();
         </div>
     </header>
     <section class="container">
+      <?php 
+        //añadimos el mensaje de exito o error para cada caso especifico
+        echo MensajeError();
+        echo MensajeExito();
+      ?>
         <div class="d-flex flex-center mb-bg">
             <a class="boton tx-rosa w-50 mt-bg" href="dashboard.php"><i class="fa-solid fa-arrow-left"></i> Volver al Panel de Control</a>
         </div>
@@ -81,7 +86,7 @@ confirmar_admin();
               <tr>
                 <td><?php echo $contador?></td>
                 <td><?php  
-                  strlen($titulo)>20 ? $titulo=substr($titulo,0,40)."..." :  $titulo;  //if else para verificar la logitud de caracteres
+                  strlen($titulo)>20 ? $titulo=substr($titulo,0,30)."..." :  $titulo;  //if else para verificar la logitud de caracteres
                   echo $titulo ?></td>
                 <td><?php
                   strlen($categoria)>10 ? $categoria=substr($categoria,0,10)."..." :  $categoria; 
