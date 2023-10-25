@@ -1430,6 +1430,27 @@ boton .categorias form i {
     object-fit: fill;
     height: 65px;
   }
+  /* LOGIN */
+  .contenedor-formulario {
+    width: 400px;
+    margin: 0 auto;
+  }
+  /* Pagina anuncio completo */
+  .card-title {
+    font-size: 2.5rem;
+  }
+  .subtitulos {
+    font-size: 1.2rem;
+  }
+  .categorias #categorias {
+    padding-left: 1rem;
+    width: 250px;
+  }
+  /* estilos para el boton principal */
+  .boton-principal {
+    width: 250px;
+  }
+  
 }
 
 /* Media query Movil */
@@ -1482,5 +1503,26 @@ boton .categorias form i {
     object-fit: fill;
     margin-top: 2em;
     height: 55px;
+  }
+
+  /* LOGIN */
+  .contenedor-formulario {
+    width: auto;
+    margin: 0 auto;
+  }
+  /* Pagina anuncio completo */
+  .card-title {
+    font-size: 2rem;
+  }
+  .subtitulos {
+    font-size: 0.9rem;
+  }
+  .categorias #categorias {
+    padding-left: 1rem;
+    width: 200px;
+  }
+  /* estilos para el boton principal */
+  .boton-principal {
+    width: 250px;
   }
 }
