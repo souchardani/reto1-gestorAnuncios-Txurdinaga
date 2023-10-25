@@ -1,8 +1,6 @@
 <?php
-echo "esto aun no funciona";
+// echo "esto aun no funciona";
 
-// require_once("../assets/includes/DB.php"); 
-// require_once("../assets/includes/funciones.php"); 
 // require_once("../assets/includes/sesiones.php"); 
 
 // //Import PHPMailer classes into the global namespace
@@ -26,17 +24,14 @@ echo "esto aun no funciona";
 //     $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
 //     $mail->Username   = 'danielsou9782@gmail.com';                     //SMTP username
 //     $mail->Password   = 'FV48Nyvw3MY6RU0A';                               //SMTP password
-//     //$mail->SMTPSecure =   "tls";            //Enable implicit TLS encryption
+//     $mail->SMTPSecure =   "tls";            //Enable implicit TLS encryption
 //     $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
 //     // //Recipients
 //     $mail->setFrom('grupo1reto1@proton.me', 'Grupo 1');
 //     // $mailuser, $nick
 //     $mail->addAddress('danielsou9782@gmail.com', "daniel");     //Add a recipient
-//     $mail->addReplyTo('grupo1reto1@proton.me', 'Grupo 1');
-
-//     // //Attachments
-//     // $mail->addAttachment('../assets/img/emailvalidado.png');         //Add attachments
+//     $mail->addReplyTo('grupo1reto1@proton.me', 'Grupo 1');      //Add attachments
 
 //     //Content
 //     $mail->isHTML(true);                                  //Set email format to HTML
