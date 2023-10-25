@@ -71,53 +71,58 @@ if(isset($_POST["enviar"])){
         $descripcion_ant = $fila["Descripción"];
       } 
        ?>
-      <form class="" action="editar_anuncio.php?id=<?php echo $idAnuncio ?>" method="post" enctype="multipart/form-data">
-        <div class="card text-bg-secondary mb-3">
-          <div class="card-body text-bg-light">
-            <div class="form-group mb-5">
-              <label class="mb-3" for="title"><span class="FieldInfo">Titulo del anuncio:</span></label>
-              <input class="form-control " type="text" name="tituloAnuncio" id="title" value='<?php echo $titulo_ant ?>'>
-            </div>
-            <div class="form-group mb-5">
-              <label class="mb-3" for="tituloCategoria"><span class="FieldInfo">Escoge la categoria:</span></label>
-              <select class="form-control" id="tituloCategoria" name="Categoria" disabled>
-                <?php
+       <section class="form" >
+      <div class="contenedor-formulario mt-bg w-70">
+        <div class="titulo tx-verde-oscuro"><span>Editar Anuncio</span></div>
+        <form id="formulario" action="editar_anuncio.php?id=<?php echo $idAnuncio ?>" method="post" enctype="multipart/form-data">
+          <!-- fila titulo -->
+          <label for="title">Titulo del anuncio:</label>
+          <div class="fila">
+            <i class="fas fa-user tx-verde-oscuro"></i>
+            <input type="text" name="tituloAnuncio" id="title" value="<?php echo $titulo_ant ?>"/>
+          </div>
+          <!-- fila categoria -->
+          <label for="tituloCategoria">Escoge la categoria:</label>
+          <div class="fila">
+            <i class="fas fa-user tx-verde-oscuro"></i>
+            <select id="tituloCategoria" name="Categoria">
+            <?php
                 //añadimos las categorias
-                  $stmt = obtener_categorias();
-                  while ($fila = $stmt -> fetch()){
-                    $NombreCategoria = $fila["Nombre"];
-                ?>
-                <option value="<?php echo $NombreCategoria ?>" <?php $categoria_ant == $NombreCategoria ? $selected="selected" : $selected=""; echo $selected?>>
+                $stmt = obtener_categorias();
+                while ($fila = $stmt -> fetch()){
+                  //$Id = $fila["id"];
+                  $NombreCategoria = $fila["Nombre"];
+              ?>
+               <option value="<?php echo $NombreCategoria ?>" <?php $categoria_ant == $NombreCategoria ? $selected="selected" : $selected=""; echo $selected?>>
                 <?php echo $NombreCategoria ?></option>
-                <?php } } //fin del while y del else?> 
-              </select>
-            </div>
-            <div class="form-group mb-5">
-            <span class="FieldInfo">Imagen Anterior:</span>
+                <?php } //fin del while?> 
+            </select>
+          </div>
+          <!-- fila para ver la imagen -->
+          <label for="tituloCategoria">Imagen Anterior:</label>
+          <div class="fila">
             <img class="mb-1" src="../assets/img_subidas/anuncios/<?php echo $imagen_ant?>" width="170px" height="70px" alt="">
-              
-              <br>
-              <label class="mb-3" for="seleccionaImagen"><span class="FieldInfo">Cargar Imagen:</span></label>
-              <div >
-                <input class="form-control" type="file" name="imagen" id="seleccionaImagen" value=""/>
-              </div>
-            </div>
-            <div class="form-group mb-5">
-            <label class="mb-3" for="anuncio"><span class="FieldInfo">Descripcion del anuncio:</span></label>
-            <textarea class="form-control" name="DescripcionAnuncio" id="anuncio" cols="30" rows="10"><?php echo $descripcion_ant ?></textarea>
-            </div>
-            
-            <div class="row">
-            <div class="col-lg-6 mb-2">
-              <a class="btn btn-warning d-lg-block w-100" href="dashboard.php"><i class="fa-solid fa-arrow-left"></i> Volver al Panel de Control</a>
-            </div>
-            <div class="col-lg-6 mb-2  d-md-block ">
-              <button type="submit" name="enviar" class="btn btn-success w-100"><i class="fa-solid fa-check"></i> Editar</button>
-            </div>
           </div>
+          <!-- fila para imagen -->
+          <label for="seleccionaImagen">Cargar Imagen:</label>
+          <div class="fila">
+            <i class="fas fa-user tx-verde-oscuro"></i>
+            <input type="file" name="imagen" id="seleccionaImagen" value=""/>
           </div>
-        </div>
-      </form>
+           <!-- fila para descripcion -->
+           <label for="anuncio">Descripcion del anuncio:</label>
+          <div class="fila">
+            <textarea name="DescripcionAnuncio" id="anuncio" cols="30" rows="10"><?php echo $descripcion_ant ?></textarea>
+          </div>
+          <!-- fila para boton -->
+          <div class="fila-boton">
+          <button class="boton tx-verde-oscuro w-100" type="submit"  value ="Publicar" name="enviar"><i class="fa-solid fa-check"></i>Editar</button>
+          </div>
+        </form>
+      </div>
+    </section>
+    <?php }  //fin del else?> 
+
     </div>
     </div>
   </section>
