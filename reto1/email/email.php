@@ -402,7 +402,7 @@
                           todos los alumnos del centro
                         </p>
                         <p>
-                          Mucha suerte! Contactanos si tienes algun problema.
+                          Mucha suerte! Contáctanos si tienes algun problema.
                         </p>
                       </td>
                     </tr>
