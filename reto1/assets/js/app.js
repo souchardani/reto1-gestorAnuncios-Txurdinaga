@@ -25,8 +25,8 @@ function updateCarr(action) {
   }
 }
 
-// function timer() {
-//   document.getElementById("next").click();
-//   clearTimeout(myTimeout);
-//   var myTimeout = setTimeout(timer, 10000);
-// }
+function timer() {
+  document.getElementById("next").click();
+  clearTimeout(myTimeout);
+  var myTimeout = setTimeout(timer, 10000);
+}
