@@ -8,7 +8,7 @@ comprobar_variable_url('id', "detalles_anuncios.php");
 //obtenemos el id del anuncio
 $idAnuncio = $_GET["id"];
 
-//verificamos que el usuario este logueado como administrador
+//verificamos que el usuario este logueado
 confirmar_login();
 
 
@@ -85,7 +85,7 @@ if(isset($_POST["enviar"])){
           <label for="tituloCategoria">Escoge la categoria:</label>
           <div class="fila">
             <i class="fas fa-user tx-verde-oscuro"></i>
-            <select id="tituloCategoria" name="Categoria">
+            <select disabled id="tituloCategoria" name="Categoria">
             <?php
                 //añadimos las categorias
                 $stmt = obtener_categorias();
