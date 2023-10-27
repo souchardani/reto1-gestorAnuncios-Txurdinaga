@@ -201,13 +201,13 @@ function insertar_anuncio_bbdd($tituloAnuncio, $Autor, $Aceptado, $Fecha_publi, 
       //insertar en la tabla categoria anuncio
       insertar_categoria_poranuncio($categoria);
       //guardar la imagen en la carpeta de imagenes
-       move_uploaded_file($_FILES["imagen"]["tmp_name"], $UbicacionImagen);
-       if ($Aceptado == 1) {
-        $_SESSION["MensajeExito"] = "El Anuncio se ha añadido Correctamente, y ha sido validado";
-       }else {
-        $_SESSION["MensajeExito"] = "El Anuncio se ha añadido Correctamente, Espera a que sea validado por un administrador";
-       }
-       Redireccionar_A("anadir_anuncio.php");
+        move_uploaded_file($_FILES["imagen"]["tmp_name"], $UbicacionImagen);
+        if ($Aceptado == 1) {
+          $_SESSION["MensajeExito"] = "El Anuncio se ha añadido Correctamente, y ha sido validado";
+        }else {
+          $_SESSION["MensajeExito"] = "El Anuncio se ha añadido Correctamente, Espera a que sea validado por un administrador";
+        }
+        Redireccionar_A("anadir_anuncio.php");
       
     }else {
       $_SESSION["MensajeError"] = "Ocurrio un error inesperado al insertar, vuelve a intentarlo";
@@ -286,10 +286,16 @@ function mostrar_todos_anuncios(){
   return $stmt;
 }
 
-
 function mostrar_3_anuncios() {
   global $Conexionbbdd;
   $sql = "SELECT * FROM anuncio WHERE Aceptado=1 ORDER BY id desc LIMIT 0,3";
+  $stmt = $Conexionbbdd->query($sql);
+  return $stmt;
+}
+
+function mostrar_mis_anuncios($usuario) {
+  global $Conexionbbdd;
+  $sql = "SELECT * FROM anuncio WHERE Aceptado=1 AND Autor = '$usuario' ORDER BY id DESC LIMIT 0,3";
   $stmt = $Conexionbbdd->query($sql);
   return $stmt;
 }
