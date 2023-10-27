@@ -14,8 +14,8 @@
 
     <!-- LIBRERIA DE ICONOS -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
-      <!-- FONT AWESOME LINK -->
-      <script
+    <!-- FONT AWESOME LINK -->
+    <script
       src="https://kit.fontawesome.com/e1e88c9db5.js"
       crossorigin="anonymous"
     ></script>
@@ -119,9 +119,7 @@
         </div>
       </div>
     </section>
-    <footer>
-      <?php include("../templates/footer.php"); ?>
-    </footer>
+    <?php include("../templates/footer.php"); ?>
 
     <script src="../assets/js/app.js"></script>
   </body>
