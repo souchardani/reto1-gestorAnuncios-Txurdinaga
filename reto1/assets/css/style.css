@@ -1609,6 +1609,14 @@ boton .categorias form i {
     width: 300px;
   }
 
+  #datos5 {
+    width: 200px;
+  }
+
+  #datos7 {
+    width: 100px;
+  }
+
   #footer-img1 {
     max-width: max-content;
     object-fit: fill;
