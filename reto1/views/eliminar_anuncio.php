@@ -54,56 +54,55 @@ if(isset($_POST["enviar"])){
   </head>
   <body>
     <!-- NAVBAR -->
-    <?php include("../templates/navbaradmin.php"); ?>
+    <?php include("../templates/header.php"); ?>
     <!-- NAVBAR END -->
     <!-- HEADER -->
     <div id="dynamicHeader"></div>
     <!-- HEADER END -->
   <!-- MAIN AREA -->
-  <section class="container py-2 mb-4">
-    <div class="row" >
-      <div class="offset-lg-1 col-lg-10" style="min-height: 50vh;">
+  <section class="container">
       <?php 
       //añadimos el mensaje de exito o error para cada caso especifico
       echo MensajeError();
       echo MensajeExito();
        ?>
-      <form class="" action="eliminar_anuncio.php?id=<?php echo $idAnuncio ?>" method="post" enctype="multipart/form-data">
-        <div class="card text-bg-secondary mb-3">
-          <div class="card-body text-bg-light">
-            <div class="form-group mb-5">
-              <label class="mb-3" for="title"><span class="FieldInfo">Titulo del anuncio:</span></label>
-              <input class="form-control" type="text" name="tituloAnuncio" id="title" value='<?php echo $titulo_ant ?>' disabled>
-            </div>
-            <div class="form-group mb-5">
-              <label class="mb-3" for="tituloCategoria"><span class="FieldInfo">Categoria:</span></label>
-              <select class="form-control" id="tituloCategoria" name="Categoria" disabled>
-                <option value="<?php echo $categoria_ant ?>"><?php echo $categoria_ant ?></option>
-              </select>
-            </div>
-            <div class="form-group mb-5">
-            <span class="FieldInfo">Imagen:</span>
+       <section class="form" >
+      <div class="contenedor-formulario mt-bg w-70">
+        <div class="titulo tx-rojo"><span>Borrar Anuncio</span></div>
+        <form id="formulario" action="eliminar_anuncio.php?id=<?php echo $idAnuncio ?>" method="post" enctype="multipart/form-data">
+          <!-- fila titulo -->
+          <label for="title">Titulo del anuncio:</label>
+          <div class="fila">
+            <i class="fas fa-user tx-rojo"></i>
+            <input type="text" name="tituloAnuncio" id="title" value="<?php echo $titulo_ant ?>" disabled/>
+          </div>
+          <!-- fila categoria -->
+          <label for="tituloCategoria">Escoge la categoria:</label>
+          <div class="fila">
+            <i class="fas fa-user tx-rojo"></i>
+            <select id="tituloCategoria" name="Categoria">
+              <option value="<?php echo $categoria_ant ?>"><?php echo $categoria_ant ?></option>
+            </select>
+          </div>
+          <!-- fila para ver la imagen -->
+          <label for="tituloCategoria">Imagen:</label>
+          <div class="fila">
             <img class="mb-1" src="../assets/img_subidas/anuncios/<?php echo $imagen_ant?>" width="170px" height="70px" alt="">
-              <br>
-            </div>
-            <div class="form-group mb-5">
-            <label class="mb-3" for="anuncio"><span class="FieldInfo">Descripcion del anuncio:</span></label>
-            <textarea disabled class="form-control" name="DescripcionAnuncio" id="anuncio" cols="30" rows="10"><?php echo $descripcion_ant ?></textarea>
-            </div>
-            
-            <div class="row">
-            <div class="col-lg-6 mb-2">
-              <a class="btn btn-warning d-lg-block w-100" href="dashboard.php"><i class="fa-solid fa-arrow-left"></i> Volver al Panel de Control</a>
-            </div>
-            <div class="col-lg-6 mb-2  d-md-block ">
-              <button onclick="return confirmarBorrado()" type="submit" name="enviar" class="btn btn-danger w-100"><i class="fas fa-trash"></i> Borrar</button>
-            </div>
           </div>
+           <!-- fila para descripcion -->
+           <label for="anuncio">Descripcion del anuncio:</label>
+          <div class="fila">
+            <textarea disabled name="DescripcionAnuncio" id="anuncio" cols="30" rows="10"><?php echo $descripcion_ant ?></textarea>
           </div>
+          <!-- fila para boton -->
+          <div class="fila-boton">
+          <button onclick="return confirmarBorrado()" type="submit" name="enviar" class="boton tx-rojo w-100"><i class="fas fa-trash"></i> Borrar</button>
+          </div>
+        </form>
+      </div>
+    </section>
         </div>
       </form>
-    </div>
-    </div>
   </section>
 
   <!-- END MAIN AREA -->

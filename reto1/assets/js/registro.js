@@ -1,7 +1,7 @@
 const form = document.getElementById("registroForm");
 const inputs = form.querySelectorAll("input");
 const selects = form.querySelectorAll("select");
-const pass1 = document.getElementById("pass1");
+const pass1 = document.getElementById("pass");
 const pass2 = document.getElementById("pass2");
 const fecha = document.getElementById("fecha");
 
@@ -10,7 +10,6 @@ const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d{6,}).*$/;
 
 // Funcion que calcula la edad (minimo 15 años)
 fecha.addEventListener("change", function () {
-
   const fechaNacimiento = new Date(this.value);
   const fechaActual = new Date();
 
@@ -29,8 +28,8 @@ function validarContrasena(contrasena) {
 }
 
 // Validacion de los inputs
-inputs.forEach(input => {
-  input.addEventListener("keyup", function() {
+inputs.forEach((input) => {
+  input.addEventListener("keyup", function () {
     if (input.value === "") {
       input.classList.remove("azul", "verde");
       input.classList.add("rojo");
@@ -46,8 +45,8 @@ inputs.forEach(input => {
 });
 
 // Validacion de los select
-selects.forEach(select => {
-  select.addEventListener("click", function(){
+selects.forEach((select) => {
+  select.addEventListener("click", function () {
     if (select.value === "") {
       select.classList.remove("azul", "verde");
       select.classList.add("rojo");
@@ -59,12 +58,11 @@ selects.forEach(select => {
         select.classList.add("azul");
       }
     }
-  })
-
-})
+  });
+});
 
 // Comprueba que las contraseñas coinciden
-pass2.addEventListener("keyup", function() {
+pass2.addEventListener("keyup", function () {
   if (pass1.value === pass2.value) {
     pass1.classList.remove("rojo");
     pass1.classList.add("verde");

@@ -385,25 +385,3 @@ header {
     height: 2rem;
   }
 }
-
-.container-perfil {
-  display: flex;
-  justify-content: center;
-  align-items: baseline;
-  gap: 2rem;
-}
-
-.container-perfil img {
-  object-fit: cover;
-  width: 20rem;
-}
-
-.container-perfil section.form {
-  display: block;
-}
-
-.container-perfil .contenedor-formulario {
-  display: block;
-  margin-top: 0;
-  flex-grow: 1;
-}

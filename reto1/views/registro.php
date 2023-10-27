@@ -14,7 +14,7 @@ if (isset($_SESSION["usuario_global"])) {
 
 if(isset($_POST["enviar"])){
   $nombre = $_POST["nombre"];
-  $apellido = $_POST["apeliido"];
+  $apellido = $_POST["apellido"];
   $nickname = $_POST["nickname"];
   $pass = $_POST["pass"];
   $pass2 = $_POST["pass2"];
@@ -155,7 +155,7 @@ if(isset($_POST["enviar"])){
           </form>
         </div>
       </section>
-      <script src="../assets//js/registro.js"></script>
+      <script src="../assets/js/registro.js"></script>
     </section>
     <script src="../assets//js/registro.js"></script>
     <!-- end of main area -->

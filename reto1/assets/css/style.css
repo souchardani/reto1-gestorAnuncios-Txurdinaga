@@ -1375,6 +1375,30 @@ boton .categorias form i {
   line-height: 1rem;
 }
 
+/* Editar Perfil */
+.container-perfil {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 2rem;
+}
+
+.container-perfil img {
+  object-fit: cover;
+  width: 20rem;
+}
+
+.container-perfil section.form {
+  display: block;
+}
+
+.container-perfil .contenedor-formulario {
+  display: block;
+  margin-top: 0;
+  flex-grow: 1;
+}
+
+
 /* RESPONSIVE */
 /* Media Query Tablet */
 @media screen and (max-width: 800px) and (min-width: 499px) {
@@ -1466,6 +1490,75 @@ boton .categorias form i {
     object-fit: fill;
     height: 65px;
   }
+  /* LOGIN */
+  .container{
+    text-align: center;
+  }
+  .contenedor-formulario form {
+    width: 350px;
+  }
+  .contenedor-formulario .titulo {
+    width: 350px;
+  }
+  .contenedor-formulario {
+    width: 350px;
+    margin: 0 auto;
+  }
+  /* Pagina anuncio completo */
+  .card-title {
+    font-size: 2.5rem;
+  }
+  .subtitulos {
+    font-size: 1.2rem;
+  }
+  .categorias #categorias {
+    padding-left: 1rem;
+    width: 250px;
+  }
+  /* estilos para el boton principal */
+  .boton-principal {
+    width: 250px;
+  }
+  /* Editar Perfil */
+  .container-perfil {
+    margin-top: 0;
+    display: inline-block;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .container-perfil img {
+    object-fit: cover;
+    width: 18rem;
+  }
+
+  .container-perfil .contenedor-formulario {
+    margin-top: 40px;
+    justify-content: center;
+  }
+  /* PANEL DE CONTROL */
+  .botones-header {
+    display: inline-block;
+    justify-content: center;
+  }
+  .botones-header .boton {
+    margin-bottom: 20px;
+  }
+  .dash-main-top {
+    display: block;
+  }
+  .tarjetas {
+    display: inline-block;
+    width: 300px;
+    height: 100%;
+  }
+  .tarjeta {
+    margin-bottom: 20px;
+  }
+  .table__header .input-group {
+    width: 250px;
+  }
+  
 }
 
 /* Media query Movil */
@@ -1518,5 +1611,78 @@ boton .categorias form i {
     object-fit: fill;
     margin-top: 2em;
     height: 55px;
+  }
+
+  /* LOGIN */
+  .container{
+    text-align: center;
+  }
+  .contenedor-formulario form {
+    width: 280px;
+  }
+  .contenedor-formulario .titulo {
+    width: 280px;
+  }
+  .contenedor-formulario {
+    width: 280px;
+    margin: 0 auto;
+  }
+  /* Pagina anuncio completo */
+  .card-title {
+    font-size: 2rem;
+  }
+  .subtitulos {
+    font-size: 0.9rem;
+  }
+  .categorias #categorias {
+    padding-left: 1rem;
+    width: 200px;
+  }
+  /* estilos para el boton principal */
+  .boton-principal {
+    width: 240px;
+  }
+  /* Editar Perfil */
+  .container-perfil {
+    margin-top: 0;
+    display: inline-block;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .container-perfil img {
+    object-fit: cover;
+    width: 14rem;
+  }
+
+  .container-perfil .contenedor-formulario {
+    margin-top: 40px;
+    justify-content: center;
+  }
+  /* PANEL DE CONTROL */
+  .botones-header {
+    display: inline-block;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  .botones-header .boton {
+    margin-bottom: 20px;
+  }
+  .dash-main-top {
+    display: block;
+  }
+  .tarjetas {
+    display: inline-block;
+    width: 200px;
+    height: 100%;
+  }
+  .tarjeta {
+    margin-bottom: 20px;
+  }
+  .table__header .input-group {
+    width: 200px;
+  }
+  .table__header h1 {
+    font-size: 20px;
   }
 }
