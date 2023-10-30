@@ -159,8 +159,12 @@ $datos = obtener_datos_dashboard();
                   <td><div class="fluid">
                     <?php
                     $comentariossi = obtener_comentarios_aprobados_porid($id);
+                    $contadores = obtener_validaciones_pendientes();
                     if($comentariossi > 0){
                       echo "<p class='badge verde'>$comentariossi</p>";
+                    }
+                    else{
+                       echo "<span class='badge rojo'>". $contadores["comentarios"] . "</span>";
                     }
                     ?>
                     <?php
