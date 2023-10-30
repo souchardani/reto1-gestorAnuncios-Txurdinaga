@@ -1410,6 +1410,7 @@ boton .categorias form i {
     object-fit: cover;
   }
 
+  /* boton '+' */
   .circle-button {
     width: 80px;
     height: 80px;
@@ -1601,6 +1602,7 @@ boton .categorias form i {
     object-fit: cover;
   }
 
+  /* boton '+' */
   .circle-button {
     width: 60px;
     height: 60px;
