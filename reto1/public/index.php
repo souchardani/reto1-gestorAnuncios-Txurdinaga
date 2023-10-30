@@ -42,7 +42,7 @@
         <div id="slide">
         <?php
 
-        $stmt = mostrar_todos_anuncios();
+        $stmt = mostrar_5_anuncios();
 
         while ($fila = $stmt -> fetch()){
         $id = $fila["id"];

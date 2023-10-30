@@ -294,6 +294,13 @@ function mostrar_3_anuncios() {
   return $stmt;
 }
 
+function mostrar_5_anuncios() {
+  global $Conexionbbdd;
+  $sql = "SELECT * FROM anuncio WHERE Aceptado=1 ORDER BY id desc LIMIT 0,5";
+  $stmt = $Conexionbbdd->query($sql);
+  return $stmt;
+}
+
 function mostrar_todos_anuncios_novalidado() {
   global $Conexionbbdd;
   $sql = "SELECT * FROM anuncio WHERE Aceptado=0 ORDER BY id desc";
