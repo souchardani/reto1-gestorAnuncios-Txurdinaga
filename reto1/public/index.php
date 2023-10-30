@@ -119,6 +119,9 @@
           </div>
           <?php } ?>
         </div>
+        <form method="post" action="../views/anuncios_inicio.php">
+              <button class="circle-button" type="submit"></button>
+            </form>
       </div>
     </section>
     <footer>
