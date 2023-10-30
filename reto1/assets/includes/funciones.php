@@ -394,7 +394,7 @@ function obtener_5_anuncios(){
 
 //funcion para verificar que los campos de mi perfil han sido completados correctamente
 function validar_Miperfil($nombre,$apellido,$imagen){
-  if(empty($nombre) || empty($apellido) || empty($imagen)){
+  if(empty($nombre) || empty($apellido)){
     $_SESSION["MensajeError"] = "Debes de completar todos los campos";
     Redireccionar_A("miperfil.php?id='". $_SESSION['usuario_global'] ."'");
   }else if(strlen($nombre)<=3){
@@ -403,12 +403,7 @@ function validar_Miperfil($nombre,$apellido,$imagen){
   }else if(strlen($apellido)<=3){
     $_SESSION["MensajeError"] = "Tu apellido debe tener mas de 3 caracteres";
     Redireccionar_A("miperfil.php?id=$nombre");
-  }
-  else if ($_FILES['imagen']['error'] != UPLOAD_ERR_OK) {
-    $_SESSION["MensajeError"] = "Debes seleccionar una imagen.";
-    Redireccionar_A("miperfil.php?id=$nombre");
-}
-  else {
+  }else {
    return true;
 }
   

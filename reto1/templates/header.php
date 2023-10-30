@@ -54,12 +54,6 @@ if(isset($_SESSION["usuario_global"])){
           </li>
           <li class="profile-dropdown-list-item">
             <a href="../views/dashboard.php">
-              <i class="fa-regular fa-envelope"></i>
-              Tareas Pendientes
-            </a>
-          </li>
-          <li class="profile-dropdown-list-item">
-            <a href="../views/dashboard.php">
               <i class="fa-solid fa-chart-line"></i>
               Panel de Control
             </a>
@@ -104,12 +98,6 @@ if(isset($_SESSION["usuario_global"])){
             <a href="dashboarduser.php">
               <i class="fa-solid fa-chart-line"></i>
               Mis Anuncios
-            </a>
-          </li>
-          <li class="profile-dropdown-list-item">
-            <a href="comentariosuser.php">
-              <i class="fa-regular fa-envelope"></i>
-              Mis Comentarios
             </a>
           </li>
           <hr />

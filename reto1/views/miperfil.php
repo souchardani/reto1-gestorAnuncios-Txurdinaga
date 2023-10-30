@@ -19,27 +19,29 @@ if(isset($_POST["enviar"])){
   $nombre = $_POST["nombre"];
   $apellido = $_POST["apellido"];
   $imagen = $_FILES["imagen"]["name"];
- 
-  global $Conexionbbdd;
-  
-  
+  $target = $target = "../assets/img_subidas/usuarios/".basename($imagen);
   validar_Miperfil($nombre, $apellido, $imagen);
+  
 
+  //hacemos la insersion en la bbdd
+  global $Conexionbbdd;
   if (!$Conexionbbdd) {
     die("La conexión a la base de datos falló: " . mysqli_connect_error());
 }
-  $consulta = "UPDATE usuario SET Nombre='$nombre', Apellido='$apellido', Imagen='$imagen' WHERE Nick='$user'";
-  
-  
-
+  if (empty($imagen)){
+    $consulta = "UPDATE usuario SET Nombre='$nombre', Apellido='$apellido' WHERE Nick='$user'";
+  }else {
+    $consulta = "UPDATE usuario SET Nombre='$nombre', Apellido='$apellido', Imagen='$imagen' WHERE Nick='$user'";
+  }
   $insertado = $Conexionbbdd -> query($consulta);
   if ($insertado){
-    $_SESSION["MensajeExito"] = "El perfil se ha editado Correctamente, y ha sido validado";
+     //guardar la imagen en la carpeta de imagenes
+     move_uploaded_file($_FILES["imagen"]["tmp_name"], $target);
+    $_SESSION["MensajeExito"] = "El perfil se ha editado Correctamente, y ha sido validado. Vuelve a iniciar sesion para ver los cambios <a class='boton tx-verde-claro' href='cerrar_sesion.php'>Cerrar Sesion</a>";
        }else {
         $_SESSION["MensajeExito"] = "El perfil no ha sido editado Correctamente, Espera a que sea validado por un administrador";
        }
        Redireccionar_A("miperfil.php");
-      
   }
 ?>
 <!DOCTYPE html>
@@ -86,7 +88,7 @@ if(isset($_POST["enviar"])){
                   <label for="nombre">Nombre:</label>
                   <div class="fila">
                     <i class="fas fa-user tx-naranja"></i>
-                    <input  type="text" name="nombre" id="nombre" value="<?php echo $user ?>">
+                    <input  type="text" name="nombre" id="nombre" value="<?php echo $username ?>">
                   </div>
                 <!-- fila 3 -->
                   <label for="apellido">Apellido:</label>

@@ -54,7 +54,9 @@
           <div class="item" style="background-image:linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)),url(../assets/img_subidas/anuncios/<?php echo $imagen?>);">
               <div class="content">
                   <p class="name heading-03"><?php echo $titulo?></p>
-                  <p class="des body-large-600"><?php echo $descripcion?></p>
+                  <p class="des body-large-600"><?php
+                  strlen($descripcion)>250 ? $descripcion=substr($descripcion,0,250)."..." :  $descripcion;  //if else para verificar la logitud de caracteres
+                  echo $descripcion ?></p>
                   <button class="boton tx-morado" onclick="location.href='../views/anuncio_completo.php?id=<?php echo $id ?>'">Ver Anuncio</button>
               </div>
           </div>
@@ -117,6 +119,9 @@
           </div>
           <?php } ?>
         </div>
+        <form method="post" action="../views/anuncios_inicio.php">
+              <button class="circle-button" type="submit"></button>
+            </form>
       </div>
     </section>
     <footer>
