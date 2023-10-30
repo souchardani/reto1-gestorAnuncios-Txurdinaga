@@ -164,12 +164,6 @@ $datos = obtener_datos_dashboard();
                       echo "<p class='badge verde'>$comentariossi</p>";
                     }
                     else{
-                       echo "<span class='badge rojo'>". $contadores["comentarios"] . "</span>";
-                    }
-                    ?>
-                    <?php
-                    $comentariosno = obtener_comentarios_noaprobados_porid($id);
-                    if($comentariosno > 0){
                       echo "<p class='badge rojo'>$comentariossi</p>";
                     }
                     ?>
