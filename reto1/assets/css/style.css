@@ -458,8 +458,8 @@ checkbox {
 .item:nth-child(2) {
   transform: translate(0, 0);
   border-radius: 0;
-  width: 90%;
-  height: 80%;
+  width: 1350px;
+  height: 600px;
   box-shadow: none;
   border-radius: 16px;
   margin-top: 30px;
