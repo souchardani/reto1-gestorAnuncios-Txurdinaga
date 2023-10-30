@@ -120,9 +120,9 @@
         <?php } ?>
       </div>
       
-      <!-- Botón que te lleva a la pagina de Anuncios -->
+      <!-- Botón '+' que te lleva a la pagina de Anuncios -->
       <button class="circle-button" onclick="location.href='../views/anuncios_inicio.php'"> + </button>
-      
+
     </section>
     <footer>
       <?php include("../templates/footer.php"); ?>

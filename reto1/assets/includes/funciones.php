@@ -278,7 +278,7 @@ function mostrar_anuncios_busqueda(){
 
 
 
-//funcion para mostrar todos los anuncios
+// Función para mostrar todos los anuncios
 function mostrar_todos_anuncios(){
   global $Conexionbbdd;
   $sql = "SELECT * FROM anuncio WHERE Aceptado=1 ORDER BY id desc";
@@ -286,7 +286,7 @@ function mostrar_todos_anuncios(){
   return $stmt;
 }
 
-
+// Para la pagina de Inicio
 function mostrar_3_anuncios() {
   global $Conexionbbdd;
   $sql = "SELECT * FROM anuncio WHERE Aceptado=1 ORDER BY id desc LIMIT 0,3";
@@ -294,6 +294,7 @@ function mostrar_3_anuncios() {
   return $stmt;
 }
 
+// Para el carrusel
 function mostrar_5_anuncios() {
   global $Conexionbbdd;
   $sql = "SELECT * FROM anuncio WHERE Aceptado=1 ORDER BY id desc LIMIT 0,5";
