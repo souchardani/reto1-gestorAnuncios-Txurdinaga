@@ -1600,9 +1600,18 @@ boton .categorias form i {
     width: 100px;
     margin-bottom: 3em;
   }
+
+  .socials-icons {
+    display: flex;
+    gap: 10px;
+  }
   
   #datos1 {
     width: 160px;
+  }
+
+  #datos2 {
+    width: 120px;
   }
 
   #datos3 {
@@ -1703,5 +1712,22 @@ boton .categorias form i {
   }
   .contenedor-formulario form .fila-fluida {
     display: block;
+  }
+  /* Comentarios Anuncios Completos */
+  .comentarioss {
+    font-size: 20px;
+  }
+  .bloque-comentario {
+    padding-left: 50px;
+    font-size: 14px;
+  }
+  .descAnun {
+    font-size: 14px;
+  }
+  .img-fluid {
+    width: 60px;
+  }
+  .comentarios-inicio {
+    width: 250px;
   }
 }
