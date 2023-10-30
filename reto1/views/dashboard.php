@@ -159,7 +159,7 @@ $datos = obtener_datos_dashboard();
                   <td><div class="fluid">
                     <?php
                     $comentariossi = obtener_comentarios_aprobados_porid($id);
-                    $contadores = obtener_validaciones_pendientes();
+                    
                     if($comentariossi > 0){
                       echo "<p class='badge verde'>$comentariossi</p>";
                     }
@@ -167,6 +167,7 @@ $datos = obtener_datos_dashboard();
                       echo "<p class='badge rojo'>$comentariossi</p>";
                     }
                     ?>
+
                     </div>
                   </td>
                   <td><a target="_blank" class="boton tx-azul" href="anuncio_completo.php?id=<?php echo  $id ?>">Vista Previa</a></td>
