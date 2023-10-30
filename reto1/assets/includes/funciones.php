@@ -8,6 +8,8 @@
   //------------------FUNCIONES GLOBALES------------------------------//
   //------------------------------------------------------------------//
 
+
+
   //funcion para redireccionar a la paginas que queramos
   function Redireccionar_A($ubicacion){
     header("location:".$ubicacion);
@@ -280,6 +282,14 @@
   function mostrar_3_anuncios() {
     global $Conexionbbdd;
     $sql = "SELECT * FROM anuncio WHERE Aceptado=1 ORDER BY id desc LIMIT 0,3";
+    $stmt = $Conexionbbdd->query($sql);
+    return $stmt;
+  }
+
+    // funcion para mostras 5 anuncios en el carrousel
+  function mostrar_5_anuncios() {
+    global $Conexionbbdd;
+    $sql = "SELECT * FROM anuncio WHERE Aceptado=1 ORDER BY id desc LIMIT 0,5";
     $stmt = $Conexionbbdd->query($sql);
     return $stmt;
   }

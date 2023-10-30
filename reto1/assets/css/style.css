@@ -830,7 +830,6 @@ ul {
   grid-gap: 8px;
   align-items: center;
   color: #fff;
-  border: 1px solid #000;
   border-radius: 4px;
   cursor: pointer;
   display: inline-flex;
@@ -950,7 +949,6 @@ main.table {
   box-shadow: 0 0.4rem 0.8rem, #0005;
   border-radius: 0.8rem;
   overflow: hidden;
-  padding-bottom: 3rem;
   background: var(--gris-100);
 }
 
@@ -1113,6 +1111,12 @@ tbody tr.hidden {
   min-height: 90vh;
 }
 
+.dash-main-bottom {
+  display: flex;
+  gap: 2rem;
+  min-height: 90vh;
+}
+
 .tarjetas {
   display: flex;
   flex-direction: column;
@@ -1208,7 +1212,6 @@ section.form {
 
 .contenedor-formulario form .fila-fluida {
   min-height: 40px;
-  margin-bottom: 1.4rem;
   position: relative;
   display: flex;
   justify-content: space-between;
