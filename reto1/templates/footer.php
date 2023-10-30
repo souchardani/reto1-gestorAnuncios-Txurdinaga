@@ -10,7 +10,7 @@
       <div id="datos4">Email: idazkaria@fpTXurdinaga.com</div>
     </div>
     <div class="footer-col2">
-      <div>
+      <div class="socials-icons">
         <i class="fa fa-instagram fa-2x" id="icon-insta"></i>
         <i class="fa fa-twitter fa-2x" id="icon-twitter"></i>
         <i class="fa fa-linkedin fa-2x" id="icon-link"></i>

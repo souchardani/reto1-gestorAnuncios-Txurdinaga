@@ -42,7 +42,7 @@
         <div id="slide">
         <?php
 
-        $stmt = mostrar_todos_anuncios();
+        $stmt = mostrar_5_anuncios();
 
         while ($fila = $stmt -> fetch()){
         $id = $fila["id"];
@@ -119,6 +119,9 @@
           </div>
           <?php } ?>
         </div>
+        <form method="post" action="../views/anuncios_inicio.php">
+              <button class="circle-button" type="submit"></button>
+            </form>
       </div>
     </section>
     <?php include("../templates/footer.php"); ?>

@@ -458,8 +458,8 @@ checkbox {
 .item:nth-child(2) {
   transform: translate(0, 0);
   border-radius: 0;
-  width: 90%;
-  height: 80%;
+  width: 1350px;
+  height: 600px;
   box-shadow: none;
   border-radius: 16px;
   margin-top: 30px;
@@ -1151,6 +1151,25 @@ tbody tr.hidden {
   margin-left: 0 auto;
 }
 
+.circle-button {
+  width: 100px;
+  height: 100px;
+  background-color: #3498db; /* Color de fondo del círculo */
+  border-radius: 50%; /* Hace que el botón sea un círculo */
+  border: none; /* Elimina el borde del botón */
+  color: #fff; /* Color del texto */
+  font-size: 24px; /* Tamaño del texto */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+  position: relative; /* Necesario para posicionar el signo + en el centro */
+}
+
+.circle-button::before {
+  content: "+"; /* Agrega el signo + como contenido antes del botón */
+  position: absolute;
+  top: 50%; /* Lo posiciona en el centro verticalmente */
+  left: 50%; /* Lo posiciona en el centro horizontalmente */
+  transform: translate(-50%, -50%); /* Lo ajusta perfectamente en el centro */
+}
 /* estilos de formularios */
 
 section.form {
@@ -1425,8 +1444,15 @@ boton .categorias form i {
     display: none;
   }
   /* Anuncios */
+  .columnas-anuncios {
+    margin: 80px 0;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+  }
   .anuncio {
-    width: 250px;
+    width: 240px;
     height: 400px;
   }
 
@@ -1491,6 +1517,14 @@ boton .categorias form i {
   #footer-logo {
     max-width: max-content;
     flex-direction: row;
+  }
+
+  #datos1 {
+    width: 160px;
+  }
+
+  #datos3 {
+    width: 300px;
   }
 
   #footer-img1 {
@@ -1566,6 +1600,14 @@ boton .categorias form i {
   .table__header .input-group {
     width: 250px;
   }
+  /* Gestiona Usuario */
+  .heading-02 {
+    font-size: 25px;
+    line-height: 1.5rem;
+  }
+  .contenedor-formulario form .fila-fluida {
+    display: block;
+  }
   
 }
 
@@ -1590,6 +1632,10 @@ boton .categorias form i {
     display: none;
   }
   /* Anuncios */
+  .columnas-anuncios {
+    margin: 80px;
+    flex-direction: column;
+  }
   .anuncio {
     width: 200px;
     height: 360px;
@@ -1607,11 +1653,40 @@ boton .categorias form i {
     flex-direction: column;
   }
 
+  .footer-col3 {
+    gap: 20px;
+  }
+
   #footer-logo {
     max-width: max-content;
     object-fit: fill;
     width: 100px;
     margin-bottom: 3em;
+  }
+
+  .socials-icons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  #datos1 {
+    width: 160px;
+  }
+
+  #datos2 {
+    width: 120px;
+  }
+
+  #datos3 {
+    width: 300px;
+  }
+
+  #datos5 {
+    width: 200px;
+  }
+
+  #datos7 {
+    width: 100px;
   }
 
   #footer-img1 {
@@ -1620,6 +1695,7 @@ boton .categorias form i {
     margin-top: 2em;
     height: 55px;
   }
+
 
   /* LOGIN */
   .container{
@@ -1692,5 +1768,30 @@ boton .categorias form i {
   }
   .table__header h1 {
     font-size: 20px;
+  }
+  /* Gestiona Usuario */
+  .heading-02 {
+    font-size: 20px;
+    line-height: 1.5rem;
+  }
+  .contenedor-formulario form .fila-fluida {
+    display: block;
+  }
+  /* Comentarios Anuncios Completos */
+  .comentarioss {
+    font-size: 20px;
+  }
+  .bloque-comentario {
+    padding-left: 50px;
+    font-size: 14px;
+  }
+  .descAnun {
+    font-size: 14px;
+  }
+  .img-fluid {
+    width: 60px;
+  }
+  .comentarios-inicio {
+    width: 250px;
   }
 }
