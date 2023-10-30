@@ -30,7 +30,10 @@
           echo MensajeError();
           echo MensajeExito();
         ?>
-        <h2 class="display-03 mt-sm">Mis Ultimos Anuncios</h2>
+        <h2 class="display-03 mt-bg">
+          <i class="fa-solid fa-chart-line" style="color: #fcc204"></i>
+          Mis Ultimos Anuncios
+        </h2>
         <div class="columnas-anuncios flex">
           <?php
             $stmt = mostrar_mis_anuncios($usuario);
@@ -74,8 +77,7 @@
           </div>
           <?php }} else {?>
               <h3>Todavia no has publicado ningun anuncio</h3>
-          <?php }
-          ?>
+          <?php }?>
         </div>
       </div>
     </header>
@@ -158,7 +160,57 @@
             </tbody>
           </table>
         </section>
-      </main>   
+      </main>  
+      <!-- Mis comentarios -->
+      <div class="container mt-bg">
+        <h2 class="display-03 mt-sm">
+          <i class="fa-regular fa-comments" style="color: #fcc204"></i>
+          Mis Comentarios
+        </h2>
+      </div>
+      <main class="table mt-bg">
+        <section class="table__header">
+          <h1 class="heading-02">Mis Comentarios</h1>
+          <div class="input-group">
+              <input type="search" name="" id="" placeholder="Buscar" />
+              <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+        </section>
+        <section class="table__body">
+          <table class="table-center">
+            <thead>
+                <tr>
+                  <th>Nº</th>
+                  <th>Anuncio</th>
+                  <th>Texto</th>
+                  <th>Eliminar</th>
+                  <th>Detalles</th>
+                </tr>
+            </thead>
+            <tbody>
+              <?php
+                $execute = obtener_mis_comentarios($usuario);
+                $contador = 0;
+                while ($fila = $execute -> fetch()){
+                  $id = $fila["id"];
+                  $autor = $usuario;
+                  $idAnuncio = $fila["Anuncio"];
+                  $tituloAnuncio = $fila["Título"];
+                  $texto = $fila["Texto"];
+                  $contador++;
+              ?>
+              <tr>
+                <td><?php echo $contador; ?></td>
+                <td><?php echo $tituloAnuncio; ?></td>
+                <td><?php echo $texto; ?></td>
+                <td><a href="eliminarcomentario.php?id=<?php echo $id; ?>" class="boton rojo"><i class="fa-solid fa-trash-can"></i></a></td>
+                <td><a href="anuncio_completo.php?id=<?php echo $idAnuncio ?>" class="boton azul" target="_blank">Ver Anuncio</a></td>
+              </tr>
+              <?php } ?>
+            </tbody>
+          </table>
+        </section>
+      </main>
     </div>
     <!-- final de main area -->
     <!-- FOOTER -->

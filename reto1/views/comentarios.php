@@ -91,7 +91,7 @@ confirmar_admin();
               <th>Nº</th>
                 <th>Autor</th>
                 <th>Texto</th>
-                <th>Quitar</th>
+                <th>Aprobar</th>
                 <th>Eliminar</th>
                 <th>Detalles</th>
               </tr>

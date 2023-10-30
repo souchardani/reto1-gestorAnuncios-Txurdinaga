@@ -4,14 +4,13 @@
 <?php require_once("../assets/includes/sesiones.php"); ?>
 
 <?php
-$_SESSION["guardarURL"] = $_SERVER["PHP_SELF"]; //utilizamos esto para guardar el nombre de la pagina actual 
-//verificamos que el usuario este logueado
-confirmar_login();
-//verificamos que el usuario sea administrador
-confirmar_admin();
-//obtenemos los datos del panel aside del dashboard 
-$datos = obtener_datos_dashboard();
-
+  $_SESSION["guardarURL"] = $_SERVER["PHP_SELF"]; //utilizamos esto para guardar el nombre de la pagina actual 
+  //verificamos que el usuario este logueado
+  confirmar_login();
+  //verificamos que el usuario sea administrador
+  confirmar_admin();
+  //obtenemos los datos del panel aside del dashboard 
+  $datos = obtener_datos_dashboard();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +28,7 @@ $datos = obtener_datos_dashboard();
           <div class="container mt-bg mb-bg">
             <h1>
             <h1><i class="fa-solid fa-cog" style="color: #e20035"></i>
-                Panel de Control Administrador
+              Panel de Control Administrador
             </h1>
           </div>
         </header>
@@ -112,10 +111,10 @@ $datos = obtener_datos_dashboard();
             </div>
           </div>
         </div>
-           <!-- fin aside area -->
+          <!-- fin aside area -->
 
-           <!-- inicio area central -->
-           <main class="table">
+          <!-- inicio area central -->
+          <main class="table">
             <section class="table__header">
               <h1 class="3">Ultimos anuncios validados</h1>
               <div class="input-group">
