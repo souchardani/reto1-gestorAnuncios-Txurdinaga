@@ -9,4 +9,5 @@
 
 <!-- CSS LINK -->
 <link rel="stylesheet" href="../assets/css/style.css" />
-<link rel="stylesheet" href="../assets/css/header.css" />
+<link rel="stylesheet" href="../assets/css/header.css"/>
+<link rel="shortcut icon" href="../assets/img/FP_ico.jpg">
