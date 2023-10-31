@@ -480,6 +480,14 @@ function insertar_comentario_bbdd($nombre, $cuerpo,$validado, $idAnuncio){
     $n_anuncios = $execute -> fetch();
     return $n_anuncios[0];
   }
+  function obtener_comentarios_aprobado($id){
+    global $Conexionbbdd;
+    $sql = "SELECT COUNT(*) FROM comentario WHERE Validado=1 AND Anuncio=$id";
+    $execute = $Conexionbbdd->query($sql);
+    $n_anuncios = $execute -> fetch();
+    return $n_anuncios[0];
+  }
+
 
   function obtener_comentarios_aprobados(){
     global $Conexionbbdd;
