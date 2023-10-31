@@ -22,12 +22,14 @@
     $nacimiento = $_POST["nacimiento"];
     $contrasena = $_POST["password"];
     $activo = 1; //al ser administrador, se le asigna el valor 1 ya que esta validado
+    // ciframos la contraseña
+    $passif = hash('sha1', $pass);
     $confirmar_contrasena = $_POST["confirmar_password"];
     $validar_data = validar_data_user($username, $contrasena, $confirmar_contrasena, "users.php");
-    $verificar_existencia = verificar_existencia_user($username);
+    $verificar_existencia = verificar_existencia_user($username, "users.php");
     if($validar_data & $verificar_existencia){
       //si validamos los campos y verificamos que no existe, insertar el administrador en la bbdd
-      $insertado = insertar_user_bbdd($username,$nombre, $apellido,$rol,$correo,$clase, $nacimiento, $contrasena, $activo);
+      $insertado = insertar_user_bbdd($username,$nombre, $apellido,$rol,$correo,$clase, $nacimiento, $passif, $activo);
       if($insertado){
         $_SESSION["MensajeExito"] = "El Usuario $username se ha añadido Correctamente";
         Redireccionar_A("users.php");
