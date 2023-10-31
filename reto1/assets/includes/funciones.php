@@ -28,6 +28,8 @@
 
   function inicio_sesion($usuario, $password){
     global $Conexionbbdd;
+    //cifrarcontraseña
+    $password = hash('sha1',$password);
     $sql = "SELECT * FROM usuario WHERE BINARY Nick=:usuario AND BINARY Contraseña=:password and Activo=1 LIMIT 1";
     $Stmt = $Conexionbbdd -> prepare($sql);
     $Stmt -> bindValue(":usuario", $usuario);
@@ -517,7 +519,7 @@
   }
 
   //funcion para verificar la existencia del administrador
-  function verificar_existencia_user($username) {
+  function verificar_existencia_user($username, $ubicacion) {
     global $Conexionbbdd;
     $sql = "SELECT * FROM usuario WHERE Nick=:Nick";
     $stmt = $Conexionbbdd -> prepare($sql);
@@ -526,7 +528,7 @@
     $resultado = $stmt -> rowCount();
     if($resultado == 1){
       $_SESSION["MensajeError"] = "El nombre de usuario ya existe, prueba con otro";
-      Redireccionar_A("users.php");
+      Redireccionar_A($ubicacion);
       return false;
     }else {
       return true;
