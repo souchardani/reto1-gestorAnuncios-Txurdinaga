@@ -24,14 +24,16 @@
     $clase = $_POST["clase"];
     $tipo = $_POST["tipo"];
     $activo = 0; //al ser el registro, activo siempre esta en 0
+    // ciframos la contraseña
+    $passif = hash('sha1', $pass);
     //verificamos que todos los campos esten validados
     $verificar_llenado= verificar_empty([$nombre, $apellido, $nickname, $pass, $pass2, $email, $fechaNac, $clase, $tipo], "registro.php");
     validar_data_user($nombre, $pass, $pass2, "registro.php");
     //verificamos que el user no exista
-    $verificar_existencia = verificar_existencia_user($nickname);
+    $verificar_existencia = verificar_existencia_user($nickname, "registro.php");
     if($verificar_existencia){
       //si validamos los campos y verificamos que no existe, insertar el administrador en la bbdd
-      $insertado = insertar_user_bbdd($nickname, $nombre, $apellido, $tipo, $email, $clase, $fechaNac, $pass, $activo);
+      $insertado = insertar_user_bbdd($nickname, $nombre, $apellido, $tipo, $email, $clase, $fechaNac, $passif, $activo);
       if($insertado){
         $_SESSION["MensajeExito"] = "Se ha enviado tu solicitud, te llegará un correo cuando un administrador la valide";
         Redireccionar_A("registro.php");
