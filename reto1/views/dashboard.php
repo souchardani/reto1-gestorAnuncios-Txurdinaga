@@ -138,44 +138,44 @@
             <tbody>
               <!-- obtenemos los ultimos 5 anuncios -->
               <?php
-              $stmt = obtener_5_anuncios();
-              $contador = 0;
-              while ($fila = $stmt->fetch()) {
-                $id = $fila["id"];
-                $datetime = $fila["Fecha_publi"];
-                $titulo = $fila["Título"];
-                $categoria = obtener_categoria_porid($id);
-                $autor = $fila["Autor"];
-                $descripcion = $fila["Descripción"];
-                $contador++;
+                $stmt = obtener_5_anuncios();
+                $contador = 0;
+                while ($fila = $stmt->fetch()) {
+                  $id = $fila["id"];
+                  $datetime = $fila["Fecha_publi"];
+                  $titulo = $fila["Título"];
+                  $categoria = obtener_categoria_porid($id);
+                  $autor = $fila["Autor"];
+                  $descripcion = $fila["Descripción"];
+                  $contador++;
               ?>
-                <tr>
-                  <td><?php echo $contador; ?></td>
-                  <td><?php echo $titulo; ?></td>
-                  <td><?php echo $categoria; ?></td>
-                  <td><?php echo $datetime; ?></td>
-                  <td><?php echo $autor; ?></td>
-                  <td>
-                    <div class="fluid">
-                      <?php
-                        $comentariossi = obtener_comentarios_aprobados_porid($id);
-                        $contadores = obtener_validaciones_pendientes();
-                        if ($comentariossi > 0) {
-                          echo "<p class='badge verde'>$comentariossi</p>";
-                        } else {
-                          echo "<span class='badge rojo'>" . $contadores["comentarios"] . "</span>";
-                        }
-                      ?>
-                      <?php
-                        $comentariosno = obtener_comentarios_noaprobados_porid($id);
-                        if ($comentariosno > 0) {
-                          echo "<p class='badge rojo'>$comentariossi</p>";
-                        }
-                      ?>
-                    </div>
-                  </td>
-                  <td><a target="_blank" class="boton tx-azul" href="anuncio_completo.php?id=<?php echo  $id ?>">Vista Previa</a></td>
-                </tr>
+              <tr>
+                <td><?php echo $contador; ?></td>
+                <td><?php echo $titulo; ?></td>
+                <td><?php echo $categoria; ?></td>
+                <td><?php echo $datetime; ?></td>
+                <td><?php echo $autor; ?></td>
+                <td>
+                  <div class="fluid">
+                    <?php
+                      $comentariossi = obtener_comentarios_aprobados_porid($id);
+                      $contadores = obtener_validaciones_pendientes();
+                      if ($comentariossi > 0) {
+                        echo "<p class='badge verde'>$comentariossi</p>";
+                      } else {
+                        echo "<span class='badge rojo'>" . $contadores["comentarios"] . "</span>";
+                      }
+                    ?>
+                    <?php
+                      $comentariosno = obtener_comentarios_noaprobados_porid($id);
+                      if ($comentariosno > 0) {
+                        echo "<p class='badge rojo'>$comentariossi</p>";
+                      }
+                    ?>
+                  </div>
+                </td>
+                <td><a target="_blank" class="boton tx-azul" href="anuncio_completo.php?id=<?php echo  $id ?>">Vista Previa</a></td>
+              </tr>
               <?php } ?>
             </tbody>
           </table>
@@ -184,71 +184,71 @@
       <!-- fin primera tabla -->
     </div>
     <!-- <div class="dash-main-bottom mt-bg"> -->
-      <!--segunda tabla  -->
-      <main class="table mt-bg">
-        <section class="table__header">
-          <h1 class="3">Validaciones pendientes</h1>
-          <div class="input-group">
-            <input type="search" name="" id="" placeholder="Buscar" />
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </div>
-        </section>
-        <section class="table__body">
-          <table class="table-center">
-            <thead>
-              <tr>
-                <th>Tipo</th>
-                <th>Nº</th>
-                <th>Accion</th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php
-                $contadores = obtener_validaciones_pendientes();
-              ?>
-              <tr>
-                <td>Comentarios</td>
-                <td>
-                  <?php
-                    if ($contadores["comentarios"] > 0) {
-                      echo "<span class='badge rojo'>" . $contadores["comentarios"] . "</span>";
-                    } else {
-                      echo "<span class='badge verde'>" . $contadores["usuarios"] . "</span>";
-                    }
-                  ?>
-                </td>
-                <td><a class="boton tx-morado" href="comentarios.php">Validar <i class="fas fa-check"></i></a></td>
-              </tr>
-              <tr>
-                <td>Anuncios</td>
-                <td>
-                  <?php
-                    if ($contadores["anuncios"] > 0) {
-                      echo "<span class='badge rojo'>" . $contadores["anuncios"] . "</span>";
-                    } else {
-                      echo "<span class='badge verde'>" . $contadores["usuarios"] . "</span>";
-                    }
-                  ?>
-                </td>
-                <td><a class="boton tx-morado" href="detalles_anuncios.php">Validar <i class="fas fa-check"></i></a></td>
-              </tr>
-              <tr>
-                <td>Usuarios</td>
-                <td>
-                  <?php
-                    if ($contadores["usuarios"] > 0) {
-                      echo "<span class='badge rojo'>" . $contadores["usuarios"] . "</span>";
-                    } else {
-                      echo "<span class='badge verde'>" . $contadores["usuarios"] . "</span>";
-                    }
-                  ?>
-                </td>
-                <td><a class="boton tx-morado" href="users.php">Validar <i class="fas fa-check"></i></a></td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
-      </main>
+    <!--segunda tabla  -->
+    <main class="table mt-bg">
+      <section class="table__header">
+        <h1 class="3">Validaciones pendientes</h1>
+        <div class="input-group">
+          <input type="search" name="" id="" placeholder="Buscar" />
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+      </section>
+      <section class="table__body">
+        <table class="table-center">
+          <thead>
+            <tr>
+              <th>Tipo</th>
+              <th>Nº</th>
+              <th>Accion</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+              $contadores = obtener_validaciones_pendientes();
+            ?>
+            <tr>
+              <td>Anuncios</td>
+              <td>
+                <?php
+                  if ($contadores["anuncios"] > 0) {
+                    echo "<span class='badge rojo'>" . $contadores["anuncios"] . "</span>";
+                  } else {
+                    echo "<span class='badge verde'>" . $contadores["usuarios"] . "</span>";
+                  }
+                ?>
+              </td>
+              <td><a class="boton tx-morado" href="detalles_anuncios.php">Validar <i class="fas fa-check"></i></a></td>
+            </tr>
+            <tr>
+              <td>Usuarios</td>
+              <td>
+                <?php
+                  if ($contadores["usuarios"] > 0) {
+                    echo "<span class='badge rojo'>" . $contadores["usuarios"] . "</span>";
+                  } else {
+                    echo "<span class='badge verde'>" . $contadores["usuarios"] . "</span>";
+                  }
+                ?>
+              </td>
+              <td><a class="boton tx-morado" href="users.php">Validar <i class="fas fa-check"></i></a></td>
+            </tr>
+            <tr>
+              <td>Comentarios</td>
+              <td>
+                <?php
+                  if ($contadores["comentarios"] > 0) {
+                    echo "<span class='badge rojo'>" . $contadores["comentarios"] . "</span>";
+                  } else {
+                    echo "<span class='badge verde'>" . $contadores["usuarios"] . "</span>";
+                  }
+                ?>
+              </td>
+              <td><a class="boton tx-morado" href="comentarios.php">Validar <i class="fas fa-check"></i></a></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
       <!-- fin segunda tabla -->
     <!-- </div> -->
   </div>

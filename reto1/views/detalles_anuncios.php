@@ -118,7 +118,7 @@
                   <a href="eliminar_anuncio.php?id=<?php echo $id ?>"><span class="boton rojo">Borrar</span></a>
                 </div>
               </td>
-              <td><a href="anuncio_completo.php?id=<?php echo $id ?>" target="_blank"><span class="boton azul">Vista previa</span></a></td>
+              <td><a href="anuncio_completo.php?id=<?php echo $id ?>" target="_blank"><span class="boton tx-azul">Vista previa</span></a></td>
             </tr>
             <?php }?>
           </tbody>
@@ -201,7 +201,7 @@
                   <a href="eliminar_anuncio.php?id=<?php echo $id ?>"><span class="boton rojo">Borrar</span></a>
                 </div>
               </td>
-              <td><a href="anuncio_completo.php?id=<?php echo $id ?>" target="_blank"><span class="boton azul">Vista previa</span></a></td>
+              <td><a href="anuncio_completo.php?id=<?php echo $id ?>" target="_blank"><span class="boton tx-azul">Vista previa</span></a></td>
             </tr>
             <?php }?>
           </tbody>

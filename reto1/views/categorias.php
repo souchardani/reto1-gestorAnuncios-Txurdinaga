@@ -2,20 +2,21 @@
 <?php require_once("../assets/includes/DB.php"); ?>
 <?php require_once("../assets/includes/funciones.php"); ?>
 <?php require_once("../assets/includes/sesiones.php"); ?>
-<?php
-$_SESSION["guardarURL"] = $_SERVER["PHP_SELF"]; //utilizamos esto para guardar el nombre de la pagina actual 
-//verificamos que el usuario este logueado como administrador
-confirmar_login();
-//verificamos que el usuario sea administrador
-confirmar_admin();
 
-if(isset($_POST["enviar"])){
-  $categoria = $_POST["tituloCategoria"];
-  $Admin = $_SESSION["usuario_global"];
+<?php
+  $_SESSION["guardarURL"] = $_SERVER["PHP_SELF"]; //utilizamos esto para guardar el nombre de la pagina actual 
+  //verificamos que el usuario este logueado como administrador
+  confirmar_login();
+  //verificamos que el usuario sea administrador
+  confirmar_admin();
+
+  if(isset($_POST["enviar"])){
+    $categoria = $_POST["tituloCategoria"];
+    $Admin = $_SESSION["usuario_global"];
 
     $campos = comprobar_campos_categorias($categoria);
     if($campos){
-       //insertar la categoria en la bbdd
+      //insertar la categoria en la bbdd
       insertar_categoria_bbdd($categoria);
     }
   }
@@ -36,28 +37,29 @@ if(isset($_POST["enviar"])){
 
   <!-- MAIN AREA -->
   <section class="container">
-      <?php 
+    <?php 
       echo MensajeError();
       echo MensajeExito();
-       ?>
+    ?>
 
-        <div class="contenedor-boton-principal mb-bg">
-            <a class="boton boton-principal tx-verde-oscuro mt-bg" 
-            <?php ($_SESSION["tipoUsuario_global"] == "Administrador") ? $temp="href='dashboard.php'" :$temp= "href='dashboarduser.php'";
-              echo $temp;?>>
-              <i class="fa-solid fa-arrow-left"></i> 
-              Volver al Panel de Control</a>
-        </div>
+    <div class="contenedor-boton-principal">
+      <a class="boton boton-principal tx-verde-oscuro mt-bg" 
+        <?php ($_SESSION["tipoUsuario_global"] == "Administrador") ? $temp="href='dashboard.php'" :$temp= "href='dashboarduser.php'";
+          echo $temp;
+        ?>>
+        <i class="fa-solid fa-arrow-left"></i> 
+        Volver al Panel de Control
+      </a>
+    </div>
 
-
-      <section class="form mb-bg">
+    <section class="form mb-bg">
       <div class="contenedor-formulario mt-bg w-70">
         <div class="titulo tx-verde-oscuro"><span>Añadir Categoria</span></div>
         <form action="categorias.php" method="post" enctype="multipart/form-data">
           <!-- fila titulo -->
           <label for="title">Titulo de la Categoria:</label>
           <div class="fila">
-            <i class="fas fa-user tx-verde-oscuro"></i>
+            <i class="fas fa-bookmark tx-verde-oscuro"></i>
             <input type="text" name="tituloCategoria" id="title" placeholder="Escribe el titulo aqui"/>
           </div>
           <!-- fila para boton -->

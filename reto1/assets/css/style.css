@@ -847,7 +847,7 @@ ul {
 }
 
 .boton:hover {
-  box-shadow: 4px 4px 0 #000;
+  box-shadow: 4px 4px 0 var(--gris-500);
   transform: translate(-4px, -4px);
 }
 .boton:focus-visible {
@@ -1049,13 +1049,13 @@ tbody tr:hover {
 }
 
 .verde {
-  background-color: #86e49d;
-  color: #006b21;
+  background-color: var(--verde-200);
+  color: var(--tx-verde-oscuro);
 }
 
 .rojo {
-  background-color: #d893a3;
-  color: #b30021;
+  background-color: var(--rojo-300);
+  color: var(--tx-rojo);
 }
 
 .amarillo {
@@ -1063,8 +1063,8 @@ tbody tr:hover {
 }
 
 .azul {
-  background-color: #6fcaea;
-  color: #004b7a;
+  background-color: var(--azul-200);
+  color: var(--tx-azul);
 }
 
 .fluid {

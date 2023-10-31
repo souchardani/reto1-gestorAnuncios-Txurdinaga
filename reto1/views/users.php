@@ -168,7 +168,7 @@
       </section>
       <!-- formulario fin -->
             <!-- tabla pendientes -->
-            <main class="table mt-bg">
+      <main class="table mt-bg">
         <section class="table__header">
           <h1 class="heading-02">Usuarios Pendientes de Validar</h1>
           <div class="input-group">

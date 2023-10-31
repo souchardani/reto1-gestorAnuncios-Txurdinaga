@@ -46,10 +46,10 @@ if(isset($_POST["enviar"])){
           ?>
           <section class="form mb-bg">
           <div class="contenedor-formulario mt-bg  w-50">
-            <div class="titulo tx-rojo"><span>Bienvenido de nuevo!</span></div>
+            <div class="titulo tx-rojo"><span>¡Bienvenido de nuevo!</span></div>
             <form action="login.php" method="post" enctype="multipart/form-data">
               <!-- fila usuario -->
-              <label for="usuario">Nombre de Usuario:</label>
+              <label for="usuario">Usuario:</label>
               <div class="fila">
                 <i class="fas fa-user tx-rojo"></i>
                 <input type="text" name="usuario" id="usuario" placeholder="escribe tu nombre de usuario">
@@ -57,14 +57,14 @@ if(isset($_POST["enviar"])){
               <!-- fila pass -->
               <label for="password">Contraseña:</label>
               <div class="fila">
-                <i class="fas fa-user tx-rojo"></i>
-                <input type="password" name="password" id="password" placeholder="escribe Contraseña">
+                <i class="fas fa-lock tx-rojo"></i>
+                <input type="password" name="password" id="password" placeholder="escribe tu contraseña">
               </div>
               <!-- fila para boton -->
               <div class="fila-boton">
               <button type="submit" name="enviar" value="Iniciar Sesion" class="boton tx-rojo w-100">Iniciar Sesion</button>
               <div class="subtexto">
-              No tienes Cuenta? <a class="ctx-rojo" href="registro.php">Crea una</a>
+              ¿No tienes Cuenta? <a class="ctx-rojo" href="registro.php">Crea una</a>
             </div>
               </div>
             </form>

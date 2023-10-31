@@ -107,7 +107,7 @@
     <li id="li-buscador">
       <form id="buscador" action="../views/anuncios_inicio.php">
         <div class="group">
-          <input id="busqueda" type="text" name="buscador" placeholder="Buscar anuncio..." class="buscar-inicio">
+          <input type="search" name="buscador" id="busqueda" class="buscar-inicio" placeholder="Buscar anuncio..." />
           <button id="btnBuscar" name="btnBuscar" type="submit"><i class="fa fa-search"></i></button>
         </div>
       </form>
