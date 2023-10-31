@@ -82,10 +82,7 @@ confirmar_login();
                     if($comentariossi > 0){
                       echo "<p class='badge verde'>$comentariossi</p>";
                     }
-                    ?>
-                    <?php
-                    $comentariosno = obtener_comentarios_noaprobados_porid($id);
-                    if($comentariosno > 0){
+                    else{
                       echo "<p class='badge rojo'>$comentariossi</p>";
                     }
                     ?>

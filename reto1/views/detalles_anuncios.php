@@ -105,13 +105,11 @@ confirmar_admin();
                     if($comentariossi > 0){
                       echo "<span class='badge verde'>$comentariossi</span>";
                     }
-                    ?>
-                    <?php
-                    $comentariosno = obtener_comentarios_noaprobados_porid($id);
-                    if($comentariosno > 0){
-                      echo "<span class='badge rojo'>$comentariosno</span>";
+                    else{
+                      echo "<span class='badge rojo'>$comentariossi</span>";
                     }
                     ?>
+
                 </td>
                 <td>
                   <div class="d-flex gap-tb">
@@ -184,18 +182,16 @@ confirmar_admin();
                       ?></td>
                       <td><img src="../assets/img_subidas/anuncios/<?php echo $imagen?>" width="170px;" height="50px"> </td>
                       <td><div class="fluid">
-                      <?php
-                          $comentariossi = obtener_comentarios_aprobados_porid($id);
-                          if($comentariossi > 0){
-                            echo "<span class='badge verde'>$comentariossi</span>";
-                          }
-                          ?>
                           <?php
-                          $comentariosno = obtener_comentarios_noaprobados_porid($id);
-                          if($comentariosno > 0){
-                            echo "<span class='badge rojo'>$comentariosno</span>";
-                          }
-                          ?>
+                        $comentariossi = obtener_comentarios_aprobados_porid($id);
+                        
+                        if($comentariossi > 0){
+                          echo "<p class='badge verde'>$comentariossi</p>";
+                        }
+                        else{
+                          echo "<p class='badge rojo'>$comentariossi</p>";
+                        }
+                        ?>
                           </div>
                       </td>
                       <td><div class="fluid">

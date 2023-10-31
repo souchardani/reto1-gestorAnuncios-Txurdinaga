@@ -91,7 +91,7 @@ if(isset($_POST["enviar"])){
           <label for="seleccionaImagen">Cargar Imagen:</label>
           <div class="fila">
             <i class="fas fa-user tx-verde-oscuro"></i>
-            <input type="file" name="imagen" id="seleccionaImagen" value=""/>
+            <input type="file" name="imagen" id="seleccionaImagen" required value=""/>
           </div>
            <!-- fila para descripcion -->
            <label for="anuncio">Descripcion del anuncio:</label>
