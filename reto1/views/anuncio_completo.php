@@ -3,34 +3,33 @@
 <?php require_once("../assets/includes/funciones.php"); ?>
 <?php require_once("../assets/includes/sesiones.php"); ?>
 <?php
-//verificamos si se ha pasado un anuncio por la url, si no se redirecciona a anuncios
-comprobar_variable_url('id', "anuncios_inicio.php");
-//obtenemos el id del anuncion para usarlo en toda la pagina
-$idAnuncio = $_GET['id']; 
-//echo $_SESSION["tipoUsuario_global"];
-//validamos que el usuario sea administrador para insertar directamente el comentario
-if(isset($_SESSION["tipoUsuario_global"])) {
-  if ($_SESSION["tipoUsuario_global"] == "Administrador") {
-    $validado = 1;
-  }else {
-    $validado = 0;
+  //verificamos si se ha pasado un anuncio por la url, si no se redirecciona a anuncios
+  comprobar_variable_url('id', "anuncios_inicio.php");
+  //obtenemos el id del anuncion para usarlo en toda la pagina
+  $idAnuncio = $_GET['id']; 
+  //echo $_SESSION["tipoUsuario_global"];
+  //validamos que el usuario sea administrador para insertar directamente el comentario
+  if(isset($_SESSION["tipoUsuario_global"])) {
+    if ($_SESSION["tipoUsuario_global"] == "Administrador") {
+      $validado = 1;
+    }else {
+      $validado = 0;
+    }
   }
-}
-
 ?>
 <!-- codigo para insertar el comentario en la bbdd -->
 <?php
-if(isset($_POST["Enviar"])){
-  //OBTENEMOS TODOS LOS DATOS DEL COMENTARIO
-  $nombre = $_SESSION["usuario_global"];
-  //validar_nombre_comentario(); //verificar si el nombre del comentario esta en la bbdd
-  $cuerpo = $_POST["cuerpoComentario"];
-  $comprobar_campos = verificar_campos_comentario($nombre, $cuerpo, $idAnuncio);
-  //si esta correcto, insertar comentario en la bbdd
-  if ($comprobar_campos){
-    insertar_comentario_bbdd($nombre, $cuerpo, $validado, $idAnuncio);
+  if(isset($_POST["Enviar"])){
+    //OBTENEMOS TODOS LOS DATOS DEL COMENTARIO
+    $nombre = $_SESSION["usuario_global"];
+    //validar_nombre_comentario(); //verificar si el nombre del comentario esta en la bbdd
+    $cuerpo = $_POST["cuerpoComentario"];
+    $comprobar_campos = verificar_campos_comentario($nombre, $cuerpo, $idAnuncio);
+    //si esta correcto, insertar comentario en la bbdd
+    if ($comprobar_campos){
+      insertar_comentario_bbdd($nombre, $cuerpo, $validado, $idAnuncio);
+    }
   }
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">

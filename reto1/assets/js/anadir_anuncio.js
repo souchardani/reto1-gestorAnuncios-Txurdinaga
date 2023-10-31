@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const imagenA = document.getElementById("seleccionaImagen");
     const imagen = imagenA.files[0]; // Obtiene el archivo seleccionado
 
-    if (titulo === "" || descripcion === "" || !imagen === "") {
+    if (titulo === "" || descripcion === "" || imagen === "") {
       alert("Todos los campos tienen que estar rellenados.");
       event.preventDefault();
     }

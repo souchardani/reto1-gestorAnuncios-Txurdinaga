@@ -79,7 +79,7 @@
         <div class="columnas-anuncios flex">
         <?php
 
-          $stmt = mostrar_3_anuncios();
+              $stmt = mostrar_3_anuncios();
           
           while ($fila = $stmt -> fetch()){
             $id = $fila["id"];
@@ -117,12 +117,12 @@
               </div>
             </div>
           </div>
-        <?php } ?>
+          <?php } ?>
+        </div>
+        <form method="post" action="../views/anuncios_inicio.php">
+              <button class="circle-button" type="submit"></button>
+            </form>
       </div>
-      
-      <!-- Botón '+' que te lleva a la pagina de Anuncios -->
-      <button class="circle-button" onclick="location.href='../views/anuncios_inicio.php'"> + </button>
-
     </section>
     <footer>
       <?php include("../templates/footer.php"); ?>

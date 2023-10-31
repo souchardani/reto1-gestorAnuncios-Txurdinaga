@@ -28,7 +28,7 @@ if(isset($_POST["enviar"])){
   //validaciones previas
     $validado = validar_data_anuncio($tituloAnuncio, $descripcionAnuncio);
     if ($validado){
-     
+    
       insertar_anuncio_bbdd($tituloAnuncio, $Autor, $Aceptado, $Fecha_publi, $categoria, $descripcionAnuncio, $imagen, $UbicacionImagen);
   }
 }
@@ -60,7 +60,7 @@ if(isset($_POST["enviar"])){
       //añadimos el mensaje de exito o error para cada caso especifico
       echo MensajeError();
       echo MensajeExito();
-       ?>
+      ?>
     <section class="form" >
       <div class="contenedor-formulario mt-bg w-70">
         <div class="titulo tx-verde-oscuro"><span>Añadir Anuncio</span></div>
@@ -68,13 +68,13 @@ if(isset($_POST["enviar"])){
           <!-- fila titulo -->
           <label for="title">Titulo del anuncio:</label>
           <div class="fila">
-            <i class="fas fa-user tx-verde-oscuro"></i>
+            <i class="fas fa-newspaper tx-verde-oscuro"></i>
             <input type="text" name="tituloAnuncio" id="title" placeholder="Escribe el titulo aqui"/>
           </div>
           <!-- fila categoria -->
           <label for="tituloCategoria">Escoge la categoria:</label>
           <div class="fila">
-            <i class="fas fa-user tx-verde-oscuro"></i>
+            <i class="fas fa-bookmark tx-verde-oscuro"></i>
             <select id="tituloCategoria" name="Categoria">
             <?php
                 //añadimos las categorias
@@ -90,8 +90,8 @@ if(isset($_POST["enviar"])){
           <!-- fila para imagen -->
           <label for="seleccionaImagen">Cargar Imagen:</label>
           <div class="fila">
-            <i class="fas fa-user tx-verde-oscuro"></i>
-            <input type="file" name="imagen" id="seleccionaImagen" required value=""/>
+            <i class="fas fa-image tx-verde-oscuro"></i>
+            <input type="file" name="imagen" id="seleccionaImagen" value=""/>
           </div>
            <!-- fila para descripcion -->
            <label for="anuncio">Descripcion del anuncio:</label>

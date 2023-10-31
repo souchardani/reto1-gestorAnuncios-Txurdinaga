@@ -3,22 +3,19 @@
 <?php require_once("../assets/includes/sesiones.php"); ?>
 
 <?php
-//verificamos login
-if(isset($_SESSION["usuario_global"])){
-  if(isset($_SESSION["tipoUsuario_global"])){
-    if($_SESSION["tipoUsuario_global"] == "Administrador"){
-      $tipoUsuario = "Administrador";
-    }else{
-      $tipoUsuario = "Usuario";
+  //verificamos login
+  if(isset($_SESSION["usuario_global"])){
+    if(isset($_SESSION["tipoUsuario_global"])){
+      if($_SESSION["tipoUsuario_global"] == "Administrador"){
+        $tipoUsuario = "Administrador";
+      }else{
+        $tipoUsuario = "Usuario";
+      }
     }
+  }else {
+    $tipoUsuario = "Invitado";
   }
-}else {
-  $tipoUsuario = "Invitado";
-}
 ?>
-
-
-
 
 <header>
   <div>
@@ -27,98 +24,80 @@ if(isset($_SESSION["usuario_global"])){
     </a>
   </div>
 
-
   <?php 
-  // si el usuario es invitado
-  if ($tipoUsuario == "Invitado") { 
+    // si el usuario es invitado
+    if ($tipoUsuario == "Invitado") { 
   ?>
   <button class="animated-button" onclick="location.href = '../views/login.php'"><span>Iniciar Sesión</span><span></span></button> 
   <?php }else if($tipoUsuario=="Administrador") { ?>
     <div class="profile-dropdown">
-        <div class="profile-dropdown-btn" onclick="toggle()">
-          <div class="profile-img">
-            <img src="../assets/img_subidas/usuarios/<?php echo $_SESSION["foto_global"] ?>" />
-          </div>
-          <span>
-            <?php 
-            $username = $_SESSION["usuario_global"]; 
-            strlen($username)>8 ? $username=substr($username,0,8)."..." :  $username;  //if else para verificar la logitud de caracteres
-            echo $username;?>
-            <i-fa-solid class="fa-solid fa-angle-down"></i-fa-solid>
-          </span>
+      <div class="profile-dropdown-btn" onclick="toggle()">
+        <div class="profile-img">
+          <img src="../assets/img_subidas/usuarios/<?php echo $_SESSION["foto_global"] ?>" />
         </div>
-
-        <ul class="profile-dropdown-list">
-          <li class="profile-dropdown-list-item">
-            <a href="../views/miperfil.php">
-              <i class="fa-regular fa-user"></i>
-              Editar perfil
-            </a>
-          </li>
-          <li class="profile-dropdown-list-item">
-            <a href="../views/dashboard.php">
-              <i class="fa-solid fa-chart-line"></i>
-              Panel de Control
-            </a>
-          </li>
-          <!-- <li class="profile-dropdown-list-item">
-            <a href="#">
-              <i class="fa-solid fa-circle-question"></i>
-              Ayuda y Soporte
-            </a>
-          </li> -->
-          <hr />
-          <li class="profile-dropdown-list-item">
-            <a href="../views/cerrar_sesion.php">
-              <i class="fa-solid fa-arrow-right-from-bracket"></i>
-              Cerrar Sesion
-            </a>
-          </li>
-        </ul>
+        <span>
+          <?php echo $_SESSION["usuario_global"]; ?>
+          <i-fa-solid class="fa-solid fa-angle-down"></i-fa-solid>
+        </span>
       </div>
 
-
+      <ul class="profile-dropdown-list">
+        <li class="profile-dropdown-list-item">
+          <a href="../views/miperfil.php">
+            <i class="fa-regular fa-user"></i>
+            Editar perfil
+          </a>
+        </li>
+        <li class="profile-dropdown-list-item">
+          <a href="../views/dashboard.php">
+            <i class="fa-solid fa-chart-line"></i>
+            Panel de Control
+          </a>
+        </li>
+        <hr />
+        <li class="profile-dropdown-list-item">
+          <a href="../views/cerrar_sesion.php">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            Cerrar Sesion
+          </a>
+        </li>
+      </ul>
+    </div>
   <?php }else {?>
-    <div class="profile-dropdown">
-        <div class="profile-dropdown-btn" onclick="toggle()">
-          <div class="profile-img">
-            <img src="../assets/img_subidas/usuarios/<?php echo $_SESSION["foto_global"] ?>" alt="" />
-          </div>
-          <span>
-            <?php
-           
-            $username = $_SESSION["usuario_global"];
-            strlen($username)>10 ? $username=substr($username,0,10)."..." :  $username;  //if else para verificar la logitud de caracteres
-            echo $username; ?>
-            <i-fa-solid class="fa-solid fa-angle-down"></i-fa-solid>
-          </span>
-        </div>
-
-        <ul class="profile-dropdown-list">
-          <li class="profile-dropdown-list-item">
-            <a href="../views/miperfil.php">
-              <i class="fa-regular fa-user"></i>
-              Editar perfil
-            </a>
-          </li>
-          <li class="profile-dropdown-list-item">
-            <a href="dashboarduser.php">
-              <i class="fa-solid fa-chart-line"></i>
-              Mis Anuncios
-            </a>
-          </li>
-          <hr />
-          <li class="profile-dropdown-list-item">
-            <a href="../views/cerrar_sesion.php">
-              <i class="fa-solid fa-arrow-right-from-bracket"></i>
-              Cerrar Sesion
-            </a>
-          </li>
-        </ul>
+  <div class="profile-dropdown">
+    <div class="profile-dropdown-btn" onclick="toggle()">
+      <div class="profile-img">
+        <img src="../assets/img_subidas/usuarios/<?php echo $_SESSION["foto_global"] ?>" alt="" />
       </div>
-
+      <span>
+        <?php echo $_SESSION["usuario_global"]; ?>
+        <i-fa-solid class="fa-solid fa-angle-down"></i-fa-solid>
+      </span>
+    </div>
+    <ul class="profile-dropdown-list">
+      <li class="profile-dropdown-list-item">
+        <a href="../views/miperfil.php">
+          <i class="fa-regular fa-user"></i>
+          Editar perfil
+        </a>
+      </li>
+      <li class="profile-dropdown-list-item">
+        <a href="dashboarduser.php">
+          <i class="fa-solid fa-chart-line"></i>
+          Mis Anuncios
+        </a>
+      </li>
+      <hr />
+      <li class="profile-dropdown-list-item">
+        <a href="../views/cerrar_sesion.php">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+          Cerrar Sesion
+        </a>
+      </li>
+    </ul>
+  </div>
     <?php } ?>
- </header>
+</header>
 
 <nav id="nav-links">
   <ul>
@@ -128,7 +107,7 @@ if(isset($_SESSION["usuario_global"])){
     <li id="li-buscador">
       <form id="buscador" action="../views/anuncios_inicio.php">
         <div class="group">
-          <input id="busqueda" type="text" name="buscador" placeholder="Buscar anuncio..." class="buscar-inicio">
+          <input type="search" name="buscador" id="busqueda" class="buscar-inicio" placeholder="Buscar anuncio..." />
           <button id="btnBuscar" name="btnBuscar" type="submit"><i class="fa fa-search"></i></button>
         </div>
       </form>

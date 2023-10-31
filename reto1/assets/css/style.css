@@ -773,6 +773,42 @@ footer {
   height: 70px;
 }
 
+/* bootstrap overwrite */
+dl,
+ol,
+ul {
+  margin-top: 0;
+  margin-bottom: 0rem;
+  padding-left: 0rem;
+}
+
+.input-group-text {
+  background-color: #FCC204;
+}
+
+.btn-send-data {
+  display: block;
+  margin: 2;
+  background-color: #E95F15;
+}
+
+.rojo {
+  border-color: var(--rojo-500);
+}
+
+.azul {
+  border-color: var(--azul-500);
+}
+
+.verde {
+  border-color: var(--verde-500);
+}
+.w-50 {
+  width: 50%;
+}
+
+/* anuncios inicio */
+
 /* Anuncios inicio */
 .header-section {
   padding: 1.2rem 0;
@@ -794,7 +830,6 @@ footer {
   grid-gap: 8px;
   align-items: center;
   color: #fff;
-  border: 1px solid #000;
   border-radius: 4px;
   cursor: pointer;
   display: inline-flex;
@@ -812,7 +847,7 @@ footer {
 }
 
 .boton:hover {
-  box-shadow: 4px 4px 0 #000;
+  box-shadow: 4px 4px 0 var(--gris-500);
   transform: translate(-4px, -4px);
 }
 .boton:focus-visible {
@@ -914,7 +949,6 @@ main.table {
   box-shadow: 0 0.4rem 0.8rem, #0005;
   border-radius: 0.8rem;
   overflow: hidden;
-  padding-bottom: 3rem;
   background: var(--gris-100);
 }
 
@@ -1015,13 +1049,13 @@ tbody tr:hover {
 }
 
 .verde {
-  background-color: #86e49d;
-  color: #006b21;
+  background-color: var(--verde-200);
+  color: var(--tx-verde-oscuro);
 }
 
 .rojo {
-  background-color: #d893a3;
-  color: #b30021;
+  background-color: var(--rojo-300);
+  color: var(--tx-rojo);
 }
 
 .amarillo {
@@ -1029,8 +1063,8 @@ tbody tr:hover {
 }
 
 .azul {
-  background-color: #6fcaea;
-  color: #004b7a;
+  background-color: var(--azul-200);
+  color: var(--tx-azul);
 }
 
 .fluid {
@@ -1055,7 +1089,15 @@ tbody tr.hidden {
   margin-top: 3rem;
 }
 
+.mt-sm {
+  margin-top: 1rem;
+}
+
 .mb-bg {
+  margin-bottom: 3rem;
+}
+
+.mb-sm {
   margin-bottom: 3rem;
 }
 
@@ -1064,6 +1106,12 @@ tbody tr.hidden {
 }
 
 .dash-main-top {
+  display: flex;
+  gap: 2rem;
+  min-height: 90vh;
+}
+
+.dash-main-bottom {
   display: flex;
   gap: 2rem;
   min-height: 90vh;
@@ -1114,12 +1162,20 @@ tbody tr.hidden {
   border-radius: 50%; /* Hace que el botón sea un círculo */
   border: none; /* Elimina el borde del botón */
   color: #fff; /* Color del texto */
-  font-size: 50px; /* Tamaño del texto */
+  font-size: 24px; /* Tamaño del texto */
   cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
   position: relative; /* Necesario para posicionar el signo + en el centro */
 }
 
+.circle-button::before {
+  content: "+"; /* Agrega el signo + como contenido antes del botón */
+  position: absolute;
+  top: 50%; /* Lo posiciona en el centro verticalmente */
+  left: 50%; /* Lo posiciona en el centro horizontalmente */
+  transform: translate(-50%, -50%); /* Lo ajusta perfectamente en el centro */
+}
 /* estilos de formularios */
+
 section.form {
   display: grid;
   place-items: center;
@@ -1156,7 +1212,6 @@ section.form {
 
 .contenedor-formulario form .fila-fluida {
   min-height: 40px;
-  margin-bottom: 1.4rem;
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -1376,7 +1431,7 @@ boton .categorias form i {
 
 /* RESPONSIVE */
 /* Media Query Tablet */
-@media screen and (max-width: 820px) and (min-width: 499px) {
+@media screen and (max-width: 800px) and (min-width: 499px) {
   .display-03 {
     font-size: 40px;
   }
@@ -1408,13 +1463,6 @@ boton .categorias form i {
     width: 100%;
     height: 200px;
     object-fit: cover;
-  }
-
-  /* boton '+' */
-  .circle-button {
-    width: 80px;
-    height: 80px;
-    font-size: 40px;
   }
 
   /* FOOTER */
@@ -1600,13 +1648,6 @@ boton .categorias form i {
     width: 100%;
     height: 150px;
     object-fit: cover;
-  }
-
-  /* boton '+' */
-  .circle-button {
-    width: 60px;
-    height: 60px;
-    font-size: 30px;
   }
 
   /* FOOTER */
