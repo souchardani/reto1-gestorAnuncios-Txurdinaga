@@ -40,7 +40,10 @@ if(isset($_SESSION["usuario_global"])){
             <img src="../assets/img_subidas/usuarios/<?php echo $_SESSION["foto_global"] ?>" />
           </div>
           <span>
-            <?php echo $_SESSION["usuario_global"]; ?>
+            <?php 
+            $username = $_SESSION["usuario_global"]; 
+            strlen($username)>8 ? $username=substr($username,0,8)."..." :  $username;  //if else para verificar la logitud de caracteres
+            echo $username;?>
             <i-fa-solid class="fa-solid fa-angle-down"></i-fa-solid>
           </span>
         </div>
@@ -85,7 +88,6 @@ if(isset($_SESSION["usuario_global"])){
             <?php
            
             $username = $_SESSION["usuario_global"];
-            var_dump($username);
             strlen($username)>10 ? $username=substr($username,0,10)."..." :  $username;  //if else para verificar la logitud de caracteres
             echo $username; ?>
             <i-fa-solid class="fa-solid fa-angle-down"></i-fa-solid>
@@ -114,10 +116,6 @@ if(isset($_SESSION["usuario_global"])){
           </li>
         </ul>
       </div>
-
-
-
-
 
     <?php } ?>
  </header>
