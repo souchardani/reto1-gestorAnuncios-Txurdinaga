@@ -26,6 +26,8 @@ function comprobar_variable_url($variable_url, $ubicacion){
 
 function inicio_sesion($usuario, $password){
   global $Conexionbbdd;
+  //cifrarcontraseña
+  $password = hash('sha1',$password);
   $sql = "SELECT * FROM usuario WHERE BINARY Nick=:usuario AND BINARY Contraseña=:password and Activo=1 LIMIT 1";
   $Stmt = $Conexionbbdd -> prepare($sql);
   $Stmt -> bindValue(":usuario", $usuario);
@@ -278,7 +280,7 @@ function mostrar_anuncios_busqueda(){
 
 
 
-//funcion para mostrar todos los anuncios
+// Función para mostrar todos los anuncios
 function mostrar_todos_anuncios(){
   global $Conexionbbdd;
   $sql = "SELECT * FROM anuncio WHERE Aceptado=1 ORDER BY id desc";
@@ -286,7 +288,7 @@ function mostrar_todos_anuncios(){
   return $stmt;
 }
 
-
+// Para la pagina de Inicio
 function mostrar_3_anuncios() {
   global $Conexionbbdd;
   $sql = "SELECT * FROM anuncio WHERE Aceptado=1 ORDER BY id desc LIMIT 0,3";
@@ -294,6 +296,7 @@ function mostrar_3_anuncios() {
   return $stmt;
 }
 
+// Para el carrusel
 function mostrar_5_anuncios() {
   global $Conexionbbdd;
   $sql = "SELECT * FROM anuncio WHERE Aceptado=1 ORDER BY id desc LIMIT 0,5";
@@ -519,7 +522,7 @@ function validar_data_user($username, $contrasena, $confirmar_contrasena, $ubica
 
 
 //funcion para verificar la existencia del administrador
-function verificar_existencia_user($username) {
+function verificar_existencia_user($username, $ubicacion) {
   global $Conexionbbdd;
   $sql = "SELECT * FROM usuario WHERE Nick=:Nick";
   $stmt = $Conexionbbdd -> prepare($sql);
@@ -528,7 +531,7 @@ function verificar_existencia_user($username) {
   $resultado = $stmt -> rowCount();
   if($resultado == 1){
     $_SESSION["MensajeError"] = "El nombre de usuario ya existe, prueba con otro";
-    Redireccionar_A("users.php");
+    Redireccionar_A($ubicacion);
     return false;
   }else {
     return true;
