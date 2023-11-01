@@ -2,8 +2,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const miformulario = document.getElementById("formulario");
 
   miformulario.addEventListener("submit", function (event) {
-    // Detiene el envío del formulario
-
     const titulo = document.getElementById("title").value.trim();
     const descripcion = document.getElementById("anuncio").value.trim();
     const imagenA = document.getElementById("seleccionaImagen");

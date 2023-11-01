@@ -32,6 +32,8 @@
     //verificamos que el user no exista
     $verificar_existencia = verificar_existencia_user($nickname, "registro.php");
     if($verificar_existencia){
+      //establecemos una bandera en la sesión para indicar que se debe limpiar el localStorage
+      $_SESSION['limpiarLocalStorage'] = true;
       //si validamos los campos y verificamos que no existe, insertar el administrador en la bbdd
       $insertado = insertar_user_bbdd($nickname, $nombre, $apellido, $tipo, $email, $clase, $fechaNac, $passif, $activo);
       if($insertado){
@@ -51,6 +53,13 @@
     <title>Crear Cuenta</title>
   </head>
   <body>
+  <?php
+    //si hace falta, limpiamos el localstorage
+    if (isset($_SESSION['limpiarLocalStorage']) && $_SESSION['limpiarLocalStorage']){
+      echo '<script>localStorage.clear();</script>';
+      $_SESSION['limpiarLocalStorage'] = false; // Restablecer la bandera después de limpiar el localStorage
+    }
+    ?>
     <!-- HEADER -->
     <?php include("../templates/header.php"); ?>
     <!-- HEADER END -->
@@ -161,7 +170,8 @@
       </section>
       <script src="../assets/js/registro.js"></script>
     </section>
-    <script src="../assets//js/registro.js"></script>
+    <script src="../assets/js/registro.js"></script>
+    <script src="../assets/js/storageRegistro.js"></script>
     <!-- end of main area -->
     <!-- FOOTER -->
     <?php include("../templates/footer.php"); ?>

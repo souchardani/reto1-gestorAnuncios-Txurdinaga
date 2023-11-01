@@ -172,7 +172,7 @@
       $_SESSION["MensajeError"] = "El titulo debe tener mas de 5 caracteres";
       Redireccionar_A("anadir_anuncio.php");
       return false;
-    }else if(strlen($descripcionAnuncio)>4999){
+    }else if(strlen($descripcionAnuncio)>1000){
       $_SESSION["MensajeError"] = "El contenido del anuncio no puede tener mas de 1000 caracteres";
       Redireccionar_A("anadir_anuncio.php");
       return false;

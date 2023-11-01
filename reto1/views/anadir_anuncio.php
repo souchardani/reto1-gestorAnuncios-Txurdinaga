@@ -1,15 +1,15 @@
 <!-- requerimos al menos una vez la coneccion a la base de datos categorias, a funciones y sesiones -->
+
 <?php require_once("../assets/includes/DB.php"); ?>
 <?php require_once("../assets/includes/funciones.php"); ?>
 <?php require_once("../assets/includes/sesiones.php"); ?>
+
 <?php
 $_SESSION["guardarURL"] = $_SERVER["PHP_SELF"]; //utilizamos esto para guardar el nombre de la pagina actual 
 //verificamos que el usuario este logueado 
 confirmar_login();
-
 //--------SI SE ENVIA EN ANUNCIO POR EL BOTON DE ENVIAR--------
 if(isset($_POST["enviar"])){
-  echo "entra aqui";
   //obtenemos los campos del formulario
   $tituloAnuncio = $_POST["tituloAnuncio"];
   $categoria = $_POST["Categoria"];
@@ -28,8 +28,13 @@ if(isset($_POST["enviar"])){
   //validaciones previas
     $validado = validar_data_anuncio($tituloAnuncio, $descripcionAnuncio);
     if ($validado){
-    
+      //establecemos una bandera en la sesión para indicar que se debe limpiar el localStorage
+      $_SESSION['limpiarLocalStorage'] = true;
+      //insertamos el anuncio en la base de datos
       insertar_anuncio_bbdd($tituloAnuncio, $Autor, $Aceptado, $Fecha_publi, $categoria, $descripcionAnuncio, $imagen, $UbicacionImagen);
+    
+
+      
   }
 }
 ?>
@@ -40,6 +45,13 @@ if(isset($_POST["enviar"])){
     <title>Añadir Anuncio</title>
   </head>
   <body>
+    <?php
+    //si hace falta, limpiamos el localstorage
+    if (isset($_SESSION['limpiarLocalStorage']) && $_SESSION['limpiarLocalStorage']){
+      echo '<script src="../assets/js/limpiarLocalStorage.js"></script>';
+      $_SESSION['limpiarLocalStorage'] = false; // Restablecer la bandera después de limpiar el localStorage
+    }
+    ?>
     <!-- NAVBAR -->
     <?php include("../templates/header.php"); ?>
     <!-- NAVBAR END -->
@@ -109,9 +121,13 @@ if(isset($_POST["enviar"])){
   <!-- END MAIN AREA -->
     <!-- FOOTER -->
     <?php include("../templates/footer.php"); ?>
+      <!-- añadimos funcion para manejar el local storage-->
+   
     <script src="../assets/js/anadir_anuncio.js"></script>
      <!-- FOOTER END -->
     <script src="../assets/js/funciones.js"></script>
+    <script src="../assets/js/storage.js" ></script> 
+
     <script>window.onload = () => createDynamicHeader('Añadir nuevo anuncio');</script>
   </body>
 </html>

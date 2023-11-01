@@ -83,7 +83,7 @@
             <tr>
               <td><?php echo $contador?></td>
               <td><?php  
-                strlen($titulo)>20 ? $titulo=substr($titulo,0,40)."..." :  $titulo;  //if else para verificar la logitud de caracteres
+                strlen($titulo)>20 ? $titulo=substr($titulo,0,20)."..." :  $titulo;  //if else para verificar la logitud de caracteres
                 echo $titulo ?></td>
               <td><?php
                 strlen($categoria)>10 ? $categoria=substr($categoria,0,10)."..." :  $categoria; 
@@ -170,7 +170,7 @@
             <tr>
               <td><?php echo $contador?></td>
               <td><?php  
-                strlen($titulo)>20 ? $titulo=substr($titulo,0,30)."..." :  $titulo;  //if else para verificar la logitud de caracteres
+                strlen($titulo)>20 ? $titulo=substr($titulo,0,20)."..." :  $titulo;  //if else para verificar la logitud de caracteres
                 echo $titulo ?></td>
               <td><?php
                 strlen($categoria)>10 ? $categoria=substr($categoria,0,10)."..." :  $categoria; 
