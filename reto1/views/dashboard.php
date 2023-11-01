@@ -168,9 +168,7 @@
                     ?>
                     <?php
                       $comentariosno = obtener_comentarios_noaprobados_porid($id);
-                      if ($comentariosno > 0) {
-                        echo "<p class='badge rojo'>$comentariossi</p>";
-                      }
+                      echo "<p class='badge rojo'>$comentariosno</p>";
                     ?>
                   </div>
                 </td>

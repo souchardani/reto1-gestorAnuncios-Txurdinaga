@@ -783,13 +783,13 @@ ul {
 }
 
 .input-group-text {
-  background-color: #FCC204;
+  background-color: #fcc204;
 }
 
 .btn-send-data {
   display: block;
   margin: 2;
-  background-color: #E95F15;
+  background-color: #e95f15;
 }
 
 .rojo {
@@ -1125,7 +1125,7 @@ tbody tr.hidden {
 }
 
 .tarjeta {
-  background-color: var(--gris-900);
+  background-color: #fcc204;
   padding: 0.5rem 1rem;
   border-radius: 1rem;
   height: 20%;
@@ -1135,7 +1135,7 @@ tbody tr.hidden {
 }
 
 .card-body {
-  color: var(--blanco);
+  color: var(--gris-900);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1428,7 +1428,6 @@ boton .categorias form i {
   flex-grow: 1;
 }
 
-
 /* RESPONSIVE */
 /* Media Query Tablet */
 @media screen and (max-width: 800px) and (min-width: 499px) {
@@ -1536,7 +1535,7 @@ boton .categorias form i {
     height: 65px;
   }
   /* LOGIN */
-  .container{
+  .container {
     text-align: center;
   }
   .contenedor-formulario form {
@@ -1611,7 +1610,6 @@ boton .categorias form i {
   .contenedor-formulario form .fila-fluida {
     display: block;
   }
-  
 }
 
 /* Media query Movil */
@@ -1671,7 +1669,7 @@ boton .categorias form i {
     display: flex;
     gap: 10px;
   }
-  
+
   #datos1 {
     width: 160px;
   }
@@ -1699,9 +1697,8 @@ boton .categorias form i {
     height: 55px;
   }
 
-
   /* LOGIN */
-  .container{
+  .container {
     text-align: center;
   }
   .contenedor-formulario form {

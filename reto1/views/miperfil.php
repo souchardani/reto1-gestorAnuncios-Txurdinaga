@@ -32,15 +32,15 @@
     if (empty($imagen)){
       $consulta = "UPDATE usuario SET Nombre='$nombre', Apellido='$apellido' WHERE Nick='$user'";
     }else {
-      $consulta = "UPDATE usuario SET Nombre='$nombre', Apellido='$apellido' Imagen='$imagen' WHERE Nick='$user'";
+      $consulta = "UPDATE usuario SET Nombre='$nombre', Apellido='$apellido', Imagen='$imagen' WHERE Nick='$user'";
     }
     $insertado = $Conexionbbdd -> query($consulta);
     if ($insertado){
       //guardar la imagen en la carpeta de imagenes
       move_uploaded_file($_FILES["imagen"]["tmp_name"], $target);
-      $_SESSION["MensajeExito"] = "El perfil se ha editado Correctamente, y ha sido validado. Vuelve a iniciar sesion para ver los cambios <a class='boton tx-verde-claro' href='cerrar_sesion.php'>Cerrar Sesion</a>";
+      $_SESSION["MensajeExito"] = "El perfil se ha editado Correctamente. Vuelve a iniciar sesion para ver los cambios <a class='boton tx-verde-claro' href='cerrar_sesion.php'>Cerrar Sesion</a>";
     }else {
-      $_SESSION["MensajeExito"] = "El perfil no ha sido editado Correctamente, Espera a que sea validado por un administrador";
+      $_SESSION["MensajeError"] = "Ocurrio un error inserperado. Vuelve a intentarlo";
     }
     Redireccionar_A("miperfil.php");
   }
