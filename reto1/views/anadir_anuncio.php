@@ -66,7 +66,14 @@ if(isset($_POST["enviar"])){
             <?php ($_SESSION["tipoUsuario_global"] == "Administrador") ? $temp="href='dashboard.php'" :$temp= "href='dashboarduser.php'";
               echo $temp;?>>
               <i class="fa-solid fa-arrow-left"></i> 
-              Volver al Panel de Control</a>
+              <?php
+              if ($_SESSION["tipoUsuario_global"] == "Administrador"){
+                echo "Volver al Panel de Control";
+              }else {
+                echo "Volver a Mis Anuncios";
+              }
+              ?>
+            </a>
               </div>
       <?php 
       //añadimos el mensaje de exito o error para cada caso especifico
