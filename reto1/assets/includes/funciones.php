@@ -43,6 +43,7 @@
       $_SESSION["tipoUsuario_global"] =  $fila["Rol"];
       $_SESSION["usuarioapellido_global"] =  $fila["Apellido"];
       $_SESSION["foto_global"] =  $fila["Imagen"];
+      $_SESSION["usuariocorreo_global"] =  $fila["Correo"];
       $_SESSION["MensajeExito"] = "Bienvenid@ de nuevo ". $fila["Nick"];
       if ($fila["Rol"] == "Administrador") {
         if (isset($_SESSION["guardarURL"])) {
@@ -172,7 +173,7 @@
       $_SESSION["MensajeError"] = "El titulo debe tener mas de 5 caracteres";
       Redireccionar_A("anadir_anuncio.php");
       return false;
-    }else if(strlen($descripcionAnuncio)>4999){
+    }else if(strlen($descripcionAnuncio)>1000){
       $_SESSION["MensajeError"] = "El contenido del anuncio no puede tener mas de 1000 caracteres";
       Redireccionar_A("anadir_anuncio.php");
       return false;

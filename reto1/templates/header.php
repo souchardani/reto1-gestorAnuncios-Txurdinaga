@@ -54,6 +54,12 @@
             Panel de Control
           </a>
         </li>
+        <li class="profile-dropdown-list-item">
+          <a href="../views/dashboarduser.php">
+          <i class="fa-solid fa-folder-open"></i>
+           Mis Anuncios
+          </a>
+        </li>
         <hr />
         <li class="profile-dropdown-list-item">
           <a href="../views/cerrar_sesion.php">

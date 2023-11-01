@@ -141,14 +141,16 @@
 
                       if($comentariossi > 0){
                         echo "<p class='badge verde'>$comentariossi</p>";
+                      }else {
+                        echo "<p class='badge rojo'>0</p>";
                       }
                     ?>
                     <?php
-                      $comentariosno = obtener_comentarios_noaprobados_porid($id);
+                      // $comentariosno = obtener_comentarios_noaprobados_porid($id);
 
-                      if($comentariosno > 0){
-                        echo "<p class='badge rojo'>$comentariossi</p>";
-                      }
+                      // if($comentariosno > 0){
+                      //   echo "<p class='badge rojo'>$comentariosno</p>";
+                      // }
                     ?>
                   </div>
                 </td>
