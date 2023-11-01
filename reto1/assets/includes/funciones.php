@@ -43,6 +43,7 @@
       $_SESSION["tipoUsuario_global"] =  $fila["Rol"];
       $_SESSION["usuarioapellido_global"] =  $fila["Apellido"];
       $_SESSION["foto_global"] =  $fila["Imagen"];
+      $_SESSION["usuariocorreo_global"] =  $fila["Correo"];
       $_SESSION["MensajeExito"] = "Bienvenid@ de nuevo ". $fila["Nick"];
       if ($fila["Rol"] == "Administrador") {
         if (isset($_SESSION["guardarURL"])) {

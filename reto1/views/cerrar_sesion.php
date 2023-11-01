@@ -10,6 +10,7 @@
     $_SESSION["tipoUsuario_global"] =  null;
     $_SESSION["usuarioapellido_global"] =  null;
     $_SESSION["foto_global"] =  null;
+    $_SESSION["usuariocorreo_global"] =  null;
     session_destroy();
     
     // Agregar script de redirección después de un tiempo de espera
