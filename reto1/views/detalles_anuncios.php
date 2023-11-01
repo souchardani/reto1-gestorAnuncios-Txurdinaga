@@ -102,12 +102,14 @@
                     $comentariossi = obtener_comentarios_aprobados_porid($id);
                     if($comentariossi > 0){
                       echo "<span class='badge verde'>$comentariossi</span>";
+                    }else {
+                      echo "<span class='badge verde'>0</span>";
                     }
                   ?>
                   <?php
                     $comentariosno = obtener_comentarios_noaprobados_porid($id);
                     if($comentariosno > 0){
-                      echo "<span class='badge rojo'>$comentariosno</span>";
+                      echo "<span class='badge verde'>$comentariosno</span>";
                     }
                   ?>
                 </div>
@@ -186,6 +188,8 @@
                   $comentariossi = obtener_comentarios_aprobados_porid($id);
                   if($comentariossi > 0){
                     echo "<span class='badge verde'>$comentariossi</span>";
+                  }else {
+                    echo "<span class='badge verde'>0</span>";
                   }
                   ?>
                   <?php
