@@ -68,7 +68,7 @@
                   <?php
                     $comentariossi = obtener_comentarios_aprobados_porid($id);
                   ?>
-                  <i class="ph ph-chat-circle-dots"></i>
+                  <i class="fa-solid fa-message"></i>
                   <span class="body-small-400 anuncio-ubicacion"> <?php echo $comentariossi ?></span>
                 </div>
                 <span class="fecha"><?php echo $datetime ?></span>
