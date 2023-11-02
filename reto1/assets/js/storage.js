@@ -17,9 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("title").addEventListener("input", function () {
     localStorage.setItem("tituloAnuncio", this.value);
   });
-  document
-    .getElementById("tituloCategoria")
-    .addEventListener("change", function () {
+  document.getElementById("tituloCategoria").addEventListener("change", function () {
       localStorage.setItem("Categoria", this.value);
     });
   document.getElementById("anuncio").addEventListener("input", function () {
