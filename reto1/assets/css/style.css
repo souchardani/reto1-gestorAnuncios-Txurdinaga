@@ -1156,8 +1156,8 @@ tbody tr.hidden {
 }
 
 .circle-button {
-  width: 100px;
-  height: 100px;
+  width: 70px;
+  height: 70px;
   background-color: #3498db; /* Color de fondo del círculo */
   border-radius: 50%; /* Hace que el botón sea un círculo */
   border: none; /* Elimina el borde del botón */
@@ -1165,6 +1165,10 @@ tbody tr.hidden {
   font-size: 24px; /* Tamaño del texto */
   cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
   position: relative; /* Necesario para posicionar el signo + en el centro */
+  transition: var(--transition);
+}
+.circle-button:hover {
+  background-color: #2980b9; /* Color de fondo del botón al pasar el cursor */
 }
 
 .circle-button::before {

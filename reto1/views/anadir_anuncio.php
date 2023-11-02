@@ -16,6 +16,8 @@ if(isset($_POST["enviar"])){
   $imagen = $_FILES["imagen"]["name"];
   $UbicacionImagen = "../assets/img_subidas/anuncios/".basename($imagen);
   $descripcionAnuncio = $_POST["DescripcionAnuncio"];
+  //añadimos saltos de linea
+  $descripcionAnuncio = nl2br($descripcionAnuncio);
   $Autor = $_SESSION["usuario_global"];
   date_default_timezone_set("Europe/Madrid");
   $Fecha_publi = date("Y-m-d");
