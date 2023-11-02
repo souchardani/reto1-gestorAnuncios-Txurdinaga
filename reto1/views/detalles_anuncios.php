@@ -21,7 +21,14 @@
     <?php include("../templates/header.php"); ?>
     <!-- NAVBAR END -->
     <!-- HEADER -->
-    <div id="dynamicHeader"></div>
+    <header>
+      <div class="container mt-bg">
+        <h1>
+          <i class="fa-solid fa-edit" style="color: #f3b82a"></i>
+          Gestionar Anuncios
+        </h1>
+      </div>
+    </header>
     <!-- HEADER END -->
     <section class="container">
       <?php 
