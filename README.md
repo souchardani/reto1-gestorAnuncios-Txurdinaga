@@ -1,10 +1,10 @@
 # Gestor de Anuncios - CIFP Txurdinaga
 
-Una aplicación de gestión de anuncios diseñada para permitir a los estudiantes publicar anuncios y comentarios, mientras que los administradores pueden gestionarlos en el contexto del Centro Integrado de Formación Profesional (CIFP) Txurdinaga.
+La aplicación de gestión de anuncios está diseñada para permitir a los estudiantes publicar anuncios y comentarios, mientras que los administradores pueden gestionarlos con facilidad, en la comunidad educativa del Centro Integrado de Formación Profesional (CIFP) Txurdinaga.
 
 ## Descripción
 
-El Gestor de Anuncios del CIFP Txurdinaga es una aplicación web diseñada para permitir a los estudiantes publicar anuncios y comentarios relacionados con eventos, actividades, oportunidades laborales, y más, dentro del entorno del centro educativo. Los administradores pueden supervisar y gestionar estos anuncios para mantener un entorno de comunicación efectivo y seguro.
+El Gestor de Anuncios del CIFP Txurdinaga es una aplicación web diseñada para permitir a los estudiantes publicar anuncios y comentarios relacionados con eventos, actividades, servicios, Noticias, Exámenes y más, dentro del entorno del centro educativo. Los administradores pueden supervisar y gestionar estos anuncios para mantener un entorno de comunicación efectivo y seguro.
 
 ## Características
 
@@ -17,8 +17,9 @@ El Gestor de Anuncios del CIFP Txurdinaga es una aplicación web diseñada para 
 
 - HTML5, CSS3, JavaScript, PHP
 - Base de datos: MySQL
-- Otras herramientas: Figma
-
+- Despliegue: AWS
+- Otras herramientas: Figma.
+  
 ## Testing y Usuarios de Prueba
 
 -Se puede entrar al link publico a través del siguiente enlace:-----.
@@ -32,6 +33,7 @@ El Gestor de Anuncios del CIFP Txurdinaga es una aplicación web diseñada para 
 1. Clona este repositorio en tu máquina local.
 2. Configura la base de datos MySQL siguiendo los pasos del punto siguiente.
 4. Ejecuta la pagina ../public/index.php desde tu servidor local.
+5. La base de datos está configurada desde el servidor de Amazon AWS, y la aplicacion, aunque se instale y ejecute en local, funciona con esta base de datos. en caso de querer funcionar con la base de datos local, se deben seguir los pasos del siguiente punto.
 
 ## Configuración de la Base de Datos
 
@@ -39,6 +41,7 @@ El Gestor de Anuncios del CIFP Txurdinaga es una aplicación web diseñada para 
 2. Inicia el servidor local y asegúrate de que el servicio de MySQL esté en ejecución.
 3. Abre el panel de control de MySQL y crea una nueva base de datos llamada `gestor_anuncios`.
 4. Importa el archivo `gestor_anuncios.sql` que se encuentra en la carpeta `aws` del proyecto. Este archivo contiene la estructura de la base de datos necesaria para la aplicación.
+5. modifica el archivo: reto1/assets/DB.php y cambia los datos de $hostDB="localhost", y usuario y password a tu caso concreto
 
 ## Uso
 
