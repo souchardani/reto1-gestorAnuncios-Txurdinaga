@@ -569,6 +569,19 @@ checkbox {
   object-fit: cover;
 }
 
+.columnas-anuncios-inicio {
+  margin: 80px 0;
+  flex-direction: row;
+  /* flex-wrap: wrap; */
+  gap: 25px;
+  justify-content: center;
+}
+
+.btnMasAnuncios {
+  display: flex;
+  align-items: center;
+}
+
 .columnas-anuncios {
   margin: 80px 0;
   flex-direction: row;
@@ -806,8 +819,6 @@ ul {
 .w-50 {
   width: 50%;
 }
-
-/* anuncios inicio */
 
 /* Anuncios inicio */
 .header-section {
@@ -1427,6 +1438,14 @@ boton .categorias form i {
     display: none;
   }
   /* Anuncios */
+  .columnas-anuncios-inicio {
+    margin: 80px 0;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+  }
+
   .columnas-anuncios {
     margin: 80px 0;
     flex-direction: row;
@@ -1614,6 +1633,17 @@ boton .categorias form i {
     display: none;
   }
   /* Anuncios */
+  .columnas-anuncios-inicio {
+    margin: 80px;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+
+  .btnMasAnuncios {
+    display: flex;
+    align-items: center;
+  }
+
   .columnas-anuncios {
     margin: 80px;
     flex-direction: column;

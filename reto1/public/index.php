@@ -63,7 +63,7 @@
           echo MensajeExito();
         ?>
         <h2 class="display-03 mt-bg">Anuncios Recientes</h2>
-        <div class="columnas-anuncios flex">
+        <div class="columnas-anuncios-inicio flex" >
           <?php
             $stmt = mostrar_3_anuncios();
             
@@ -102,8 +102,11 @@
             </div>
           </div>
           <?php } ?>
+          <div class="btnMasAnuncios">
+            <a href="../views/anuncios_inicio.php" class="boton tx-azul"><span><i class="fa-solid fa-plus"></i></span></a>
+          </div>
         </div>
-        <a href="../views/anuncios_inicio.php" class="boton tx-azul"><span><i class="fa-solid fa-plus"></i></span></a>
+        <!-- <a href="../views/anuncios_inicio.php" class="boton tx-azul"><span><i class="fa-solid fa-plus"></i></span></a> -->
       </div>
     </section>
     <!-- FOOTER -->
