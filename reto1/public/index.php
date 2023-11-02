@@ -102,11 +102,8 @@
             </div>
           </div>
           <?php } ?>
-          <div class="btnMasAnuncios">
-            <a href="../views/anuncios_inicio.php" class="boton tx-azul"><span><i class="fa-solid fa-plus"></i></span></a>
-          </div>
         </div>
-        <!-- <a href="../views/anuncios_inicio.php" class="boton tx-azul"><span><i class="fa-solid fa-plus"></i></span></a> -->
+        <a href="../views/anuncios_inicio.php" class="boton tx-azul"><span>Ver mas</span></a>
       </div>
     </section>
     <!-- FOOTER -->
