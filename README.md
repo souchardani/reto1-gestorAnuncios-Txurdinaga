@@ -57,7 +57,7 @@ Si deseas contribuir a este proyecto, sigue estos pasos:
 2. Crea una rama para tu función: `git checkout -b nueva-funcionalidad`
 3. Realiza tus cambios y haz commit: `git commit -m 'Añade nueva funcionalidad'`
 4. Envía tus cambios: `git push origin nueva-funcionalidad`
-5. Abre una solicitud pull.
+5. Abre un pull request.
 
 ## Licencia
 

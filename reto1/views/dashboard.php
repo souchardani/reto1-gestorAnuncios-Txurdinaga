@@ -27,14 +27,12 @@
   <!-- NAVBAR END -->
   <!-- HEADER -->
   <div class="container">
-    <header>
-      <div class="container mt-bg mb-bg">
-        <h1>
-          <h1><i class="fa-solid fa-cog" style="color: #e20035"></i>
-            Panel de Control Administrador
-          </h1>
-      </div>
-    </header>
+    <div class="container mt-bg mb-bg">
+      <h1>
+        <h1><i class="fa-solid fa-cog" style="color: #e20035"></i>
+          Panel de Control Administrador
+        </h1>
+    </div>
     <?php
     //añadimos mensajes de error en caso de que los haya
     echo MensajeError();
