@@ -412,6 +412,10 @@ checkbox {
   margin-inline: auto;
 }
 
+.container h1 {
+  line-height: 1em;
+}
+
 .container-anuncio-completo {
   padding-inline: 2em;
   width: 80%;
@@ -1156,6 +1160,7 @@ tbody tr.hidden {
 
 /* estilos para el boton principal */
 .contenedor-boton-principal {
+  margin-bottom: 3rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1564,6 +1569,9 @@ boton .categorias form i {
   .boton-principal {
     width: 250px;
   }
+  .d-flex .boton {
+    width: 250px;
+  }
   /* Editar Perfil */
   .container-perfil {
     margin-top: 0;
@@ -1736,6 +1744,9 @@ boton .categorias form i {
   }
   /* estilos para el boton principal */
   .boton-principal {
+    width: 240px;
+  }
+  .d-flex .boton {
     width: 240px;
   }
   /* Editar Perfil */
