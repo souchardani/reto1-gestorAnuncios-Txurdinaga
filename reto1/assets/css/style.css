@@ -1642,7 +1642,7 @@ boton .categorias form i {
 
   .btnMasAnuncios {
     display: flex;
-    align-items: center;
+    justify-content: center;
   }
 
   .columnas-anuncios {
