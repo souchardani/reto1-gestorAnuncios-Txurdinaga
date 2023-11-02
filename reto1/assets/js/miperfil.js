@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("form");
-  const warnings = document.getElementById("warnings");
 
   form.addEventListener("submit", function (event) {
     // Detiene el envío del formulario
