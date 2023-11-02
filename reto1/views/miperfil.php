@@ -10,6 +10,7 @@
   $user = $_SESSION["usuario_global"];
   $userapellido  = $_SESSION["usuarioapellido_global"];
   $username = $_SESSION["usuarionombre_global"];
+  $correo = $_SESSION["usuariocorreo_global"];
 
   //--------SI SE ENVIA EN ANUNCIO POR EL BOTON DE ENVIAR--------//
   if(isset($_POST["enviar"])){
@@ -20,6 +21,7 @@
     $apellido = $_POST["apellido"];
     $imagen = $_FILES["imagen"]["name"];
     $target = $target = "../assets/img_subidas/usuarios/".basename($imagen);
+    $email = $_POST["email"];
     validar_Miperfil($nombre, $apellido, $imagen);
 
     //hacemos la insersion en la bbdd
@@ -30,17 +32,17 @@
     }
 
     if (empty($imagen)){
-      $consulta = "UPDATE usuario SET Nombre='$nombre', Apellido='$apellido' WHERE Nick='$user'";
+      $consulta = "UPDATE usuario SET Nombre='$nombre', Apellido='$apellido', Correo='$email' WHERE Nick='$user'";
     }else {
-      $consulta = "UPDATE usuario SET Nombre='$nombre', Apellido='$apellido' Imagen='$imagen' WHERE Nick='$user'";
+      $consulta = "UPDATE usuario SET Nombre='$nombre', Apellido='$apellido',Correo='$email', Imagen='$imagen' WHERE Nick='$user'";
     }
     $insertado = $Conexionbbdd -> query($consulta);
     if ($insertado){
       //guardar la imagen en la carpeta de imagenes
       move_uploaded_file($_FILES["imagen"]["tmp_name"], $target);
-      $_SESSION["MensajeExito"] = "El perfil se ha editado Correctamente, y ha sido validado. Vuelve a iniciar sesion para ver los cambios <a class='boton tx-verde-claro' href='cerrar_sesion.php'>Cerrar Sesion</a>";
+      $_SESSION["MensajeExito"] = "El perfil se ha editado Correctamente. Vuelve a iniciar sesion para ver los cambios <a class='boton tx-verde-claro' href='cerrar_sesion.php'>Cerrar Sesion</a>";
     }else {
-      $_SESSION["MensajeExito"] = "El perfil no ha sido editado Correctamente, Espera a que sea validado por un administrador";
+      $_SESSION["MensajeError"] = "Ocurrio un error inserperado. Vuelve a intentarlo";
     }
     Redireccionar_A("miperfil.php");
   }
@@ -109,10 +111,10 @@
                     <option value="<?php echo $clase ?>"><?php echo $clase ?></option>
                   </select>
                 </div>
-                <label for="apellido">Email:</label>
+                <label for="email">Email:</label>
                 <div class="fila">
                   <i class="fas fa-user tx-naranja"></i>
-                  <!-- <input type="text" name="apellido" id="apellido" value="<?php echo $correo ?>"> -->
+                  <input type="text" name="email" id="email" value="<?php echo $correo ?>"> 
                 </div>
                 <!-- fila 4 -->
                 <label for="seleccionaImagen">Carga tu foto de perfil:</label>

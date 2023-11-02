@@ -163,14 +163,12 @@
                       if ($comentariossi > 0) {
                         echo "<p class='badge verde'>$comentariossi</p>";
                       } else {
-                        echo "<span class='badge rojo'>" . $contadores["comentarios"] . "</span>";
+                        echo "<span class='badge rojo'>0</span>";
                       }
                     ?>
                     <?php
-                      $comentariosno = obtener_comentarios_noaprobados_porid($id);
-                      if ($comentariosno > 0) {
-                        echo "<p class='badge rojo'>$comentariossi</p>";
-                      }
+                      // $comentariosno = obtener_comentarios_noaprobados_porid($id);
+                      // echo "<p class='badge rojo'>$comentariosno</p>";
                     ?>
                   </div>
                 </td>

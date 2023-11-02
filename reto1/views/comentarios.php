@@ -94,7 +94,7 @@
                 <th>Nº</th>
                 <th>Autor</th>
                 <th>Texto</th>
-                <th>Aprobar</th>
+                <th>Quitar</th>
                 <th>Eliminar</th>
                 <th>Detalles</th>
               </tr>
@@ -114,7 +114,7 @@
                 <td><?php echo $contador; ?></td>
                 <td><?php echo $autor; ?></td>
                 <td><?php echo $texto; ?></td>
-                <td><a href="aprobarcomentario.php?id=<?php echo $id; ?>" class="boton amarillo"><i class="fa-solid fa-check"></i></a></td>
+                <td><a href="desaprobarcomentario.php?id=<?php echo $id; ?>" class="boton amarillo"><i class="fa-solid fa-check"></i></a></td>
                 <td><a href="eliminarcomentario.php?id=<?php echo $id; ?>" class="boton rojo"><i class="fa-solid fa-trash-can"></i></a></td>
                 <td><a href="anuncio_completo.php?id=<?php echo $idAnuncio ?>" class="boton tx-azul" target="_blank">Vista Previa</a></td>
               </tr>

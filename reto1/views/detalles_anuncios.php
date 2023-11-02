@@ -83,7 +83,7 @@
             <tr>
               <td><?php echo $contador?></td>
               <td><?php  
-                strlen($titulo)>20 ? $titulo=substr($titulo,0,40)."..." :  $titulo;  //if else para verificar la logitud de caracteres
+                strlen($titulo)>20 ? $titulo=substr($titulo,0,20)."..." :  $titulo;  //if else para verificar la logitud de caracteres
                 echo $titulo ?></td>
               <td><?php
                 strlen($categoria)>10 ? $categoria=substr($categoria,0,10)."..." :  $categoria; 
@@ -102,12 +102,14 @@
                     $comentariossi = obtener_comentarios_aprobados_porid($id);
                     if($comentariossi > 0){
                       echo "<span class='badge verde'>$comentariossi</span>";
+                    }else {
+                      echo "<span class='badge verde'>0</span>";
                     }
                   ?>
                   <?php
                     $comentariosno = obtener_comentarios_noaprobados_porid($id);
                     if($comentariosno > 0){
-                      echo "<span class='badge rojo'>$comentariosno</span>";
+                      echo "<span class='badge verde'>$comentariosno</span>";
                     }
                   ?>
                 </div>
@@ -168,7 +170,7 @@
             <tr>
               <td><?php echo $contador?></td>
               <td><?php  
-                strlen($titulo)>20 ? $titulo=substr($titulo,0,30)."..." :  $titulo;  //if else para verificar la logitud de caracteres
+                strlen($titulo)>20 ? $titulo=substr($titulo,0,20)."..." :  $titulo;  //if else para verificar la logitud de caracteres
                 echo $titulo ?></td>
               <td><?php
                 strlen($categoria)>10 ? $categoria=substr($categoria,0,10)."..." :  $categoria; 
@@ -186,6 +188,8 @@
                   $comentariossi = obtener_comentarios_aprobados_porid($id);
                   if($comentariossi > 0){
                     echo "<span class='badge verde'>$comentariossi</span>";
+                  }else {
+                    echo "<span class='badge verde'>0</span>";
                   }
                   ?>
                   <?php
