@@ -22,7 +22,7 @@ El Gestor de Anuncios del CIFP Txurdinaga es una aplicación web diseñada para 
   
 ## Testing y Usuarios de Prueba
 
-- Se puede entrar al link publico a través del siguiente enlace:-----.
+- Se puede entrar al link publico a través del siguiente enlace: http://35.172.74.23/public/.
 - Para probar toda la funcionalidad de la app como administrador, entrar con el siguiente usuario: {User: admin}, {Contraseña: admin123}
 - Para probar la funcionalidad de la app como un usuario standard, entrar con el siguiente usuario: {User: Alumno}, {Contraseña: alumno}
 
