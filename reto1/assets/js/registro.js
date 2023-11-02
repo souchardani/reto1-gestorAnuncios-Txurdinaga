@@ -17,6 +17,7 @@ fecha.addEventListener("change", function () {
 
   if (edad < 15) {
     fecha.classList.add("rojo");
+    alert("Debes tener al menos 15 años para registrarte");
   } else {
     fecha.classList.add("verde");
   }
