@@ -800,13 +800,13 @@ ul {
 }
 
 .input-group-text {
-  background-color: #FCC204;
+  background-color: #fcc204;
 }
 
 .btn-send-data {
   display: block;
   margin: 2;
-  background-color: #E95F15;
+  background-color: #e95f15;
 }
 
 .rojo {
@@ -1401,7 +1401,6 @@ boton .categorias form i {
   font-weight: 400;
   line-height: 2.5rem;
 }
-
 
 /* Editar Perfil */
 .container-perfil {

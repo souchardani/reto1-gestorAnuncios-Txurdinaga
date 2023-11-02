@@ -1,6 +1,6 @@
-const form = document.getElementById("registroForm");
-const inputs = form.querySelectorAll("input");
-const selects = form.querySelectorAll("select");
+const formulario = document.getElementById("registroForm");
+const inputs = formulario.querySelectorAll("input");
+const selects = formulario.querySelectorAll("select");
 const pass1 = document.getElementById("pass");
 const pass2 = document.getElementById("pass2");
 const fecha = document.getElementById("fecha");
@@ -25,7 +25,24 @@ function validarContrasena(contrasena) {
   return passwordRegex.test(contrasena);
 }
 
-form.addEventListener("submit", function (e) {});
+formulario.addEventListener("submit", function (e) {
+  for (let i = 0; i < inputs.length; i++) {
+    if (inputs[i].value === "") {
+      e.preventDefault();
+      alert("Por favor, rellene todos los campos");
+      break;
+    }
+    let completado = true;
+  }
+  if (completado) {
+    if (!(pass1.value === pass2.value)) {
+      e.preventDefault();
+      alert(
+        "Las contraseñas no coinciden, por favor, introduzca la misma contraseña en ambos campos"
+      );
+    }
+  }
+});
 
 // Validacion de los inputs por colores
 // inputs.forEach((input) => {
@@ -63,18 +80,11 @@ form.addEventListener("submit", function (e) {});
 
 // Comprueba que las contraseñas coinciden
 pass1.addEventListener("blur", function () {
-  // if (pass1.value === pass2.value && validarContrasena(pass1.value)) {
-  //   pass1.classList.remove("rojo");
-  //   pass1.classList.add("verde");
-  // } else {
-  //   pass1.classList.remove("verde");
-  //   pass1.classList.add("rojo");
-  // }
-
   if (!validarContrasena(pass1.value)) {
     alert(
       "La contraseña debe tener al menos 6 caracteres, una mayuscula y una minuscula como minimo"
     );
+    pass1.value = "";
   }
 });
 
