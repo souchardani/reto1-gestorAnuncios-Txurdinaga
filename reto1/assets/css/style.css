@@ -1622,6 +1622,9 @@ boton .categorias form i {
 
 /* Media query Movil */
 @media screen and (max-width: 500px) {
+  html {
+    width: 100vw;
+  }
   .display-03 {
     font-size: 30px;
   }
