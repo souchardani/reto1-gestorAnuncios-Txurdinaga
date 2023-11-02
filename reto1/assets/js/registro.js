@@ -25,6 +25,8 @@ function validarContrasena(contrasena) {
   return passwordRegex.test(contrasena);
 }
 
+form.addEventListener("submit", function (e) {});
+
 // Validacion de los inputs por colores
 // inputs.forEach((input) => {
 //   input.addEventListener("keyup", function () {

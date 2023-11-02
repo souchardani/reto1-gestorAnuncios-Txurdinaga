@@ -661,7 +661,7 @@
       $sql = "SELECT * FROM anuncio WHERE Aceptado=1 ORDER BY id desc";
       $stmt = $Conexionbbdd -> query($sql);
     }else {
-      $sql = "SELECT * FROM anuncio join categoria_anuncio ON anuncio.id = categoria_anuncio.Anuncio WHERE categoria_anuncio.categoria = :categoria";
+      $sql = "SELECT * FROM anuncio join categoria_anuncio ON anuncio.id = categoria_anuncio.Anuncio WHERE categoria_anuncio.categoria = :categoria and Aceptado=1 ORDER BY id desc";
       $stmt = $Conexionbbdd -> prepare($sql);
       $stmt -> bindParam(":categoria", $_GET["categoria"]);
     }
