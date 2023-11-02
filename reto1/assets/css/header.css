@@ -65,21 +65,34 @@ header {
 #li-inicio {
   width: 100%;
   background-color: #63b32eff;
+  color: white;
+  text-decoration: none;
+  text-align: center;
 }
 
 #li-perfil {
   width: 100%;
   background-color: #1aa3bf;
+  color: white;
+  text-decoration: none;
+  text-align: center;
 }
 
 #li-crear {
   width: 100%;
   background-color: #fcc204;
+  color: white;
+  text-decoration: none;
+  text-align: center;
 }
 
 #li-buscador {
   width: 100%;
   background-color: #ec612bff;
+}
+
+.li-text {
+  margin-top: 5px;
 }
 
 #buscador {
