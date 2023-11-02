@@ -21,14 +21,7 @@
     <?php include("../templates/header.php"); ?>
     <!-- NAVBAR END -->
     <!-- HEADER -->
-    <header>
-      <div class="container mt-bg">
-        <h1>
-          <i class="fa-solid fa-list-ul" style="color: #f3b82a"></i>
-          Volver al panel de control
-        </h1>
-      </div>
-    </header>
+    <div id="dynamicHeader"></div>
     <!-- HEADER END -->
     <section class="container">
       <?php 
