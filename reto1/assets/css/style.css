@@ -1155,27 +1155,7 @@ tbody tr.hidden {
   margin-left: 0 auto;
 }
 
-.circle-button {
-  width: 100px;
-  height: 100px;
-  background-color: #3498db; /* Color de fondo del círculo */
-  border-radius: 50%; /* Hace que el botón sea un círculo */
-  border: none; /* Elimina el borde del botón */
-  color: #fff; /* Color del texto */
-  font-size: 24px; /* Tamaño del texto */
-  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
-  position: relative; /* Necesario para posicionar el signo + en el centro */
-}
-
-.circle-button::before {
-  content: "+"; /* Agrega el signo + como contenido antes del botón */
-  position: absolute;
-  top: 50%; /* Lo posiciona en el centro verticalmente */
-  left: 50%; /* Lo posiciona en el centro horizontalmente */
-  transform: translate(-50%, -50%); /* Lo ajusta perfectamente en el centro */
-}
 /* estilos de formularios */
-
 section.form {
   display: grid;
   place-items: center;
@@ -1292,6 +1272,7 @@ section.form {
   font-weight: 400;
   line-height: 2.5rem; /* 125% */
 }
+
 .imgAnunCom {
   display: block;
   margin-top: 3%;
@@ -1331,8 +1312,8 @@ section.form {
   font-style: normal;
   font-weight: 400;
 }
-/* Pagina anuncio completo */
 
+/* Pagina anuncio completo */
 .categorias {
   display: flex;
   justify-content: flex-end;

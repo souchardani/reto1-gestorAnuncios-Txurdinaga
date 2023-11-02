@@ -2,10 +2,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <!-- FONT AWESOME LINK -->
-<script
-  src="https://kit.fontawesome.com/e1e88c9db5.js"
-  crossorigin="anonymous"
-></script>
+<script src="https://kit.fontawesome.com/e1e88c9db5.js" crossorigin="anonymous"></script>
+
+<!-- LIBRERIA DE ICONOS -->
+<script src="https://unpkg.com/@phosphor-icons/web"></script>
 
 <!-- CSS LINK -->
 <link rel="stylesheet" href="../assets/css/style.css" />
