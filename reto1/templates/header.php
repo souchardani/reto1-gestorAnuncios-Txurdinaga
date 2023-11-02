@@ -107,9 +107,9 @@
 
 <nav id="nav-links">
   <ul>
-    <li id="li-inicio"><a href="../public/index.php">Inicio</a></li>
-    <li id="li-perfil"><a href="../views/anuncios_inicio.php">Anuncios</a></li>
-    <li id="li-crear"><a href="../views/anadir_anuncio.php"><i class="fas fa-edit"></i> Añadir anuncio</a></li>
+    <a id="li-inicio" href="../public/index.php"><li class="li-text">Inicio</li></a>
+    <a id="li-perfil" href="../views/anuncios_inicio.php"><li class="li-text">Anuncios</li></a>
+    <a id="li-crear" href="../views/anadir_anuncio.php"><li class="li-text"><i class="fas fa-edit"></i> Añadir anuncio</li></a>
     <li id="li-buscador">
       <form id="buscador" action="../views/anuncios_inicio.php">
         <div class="group">

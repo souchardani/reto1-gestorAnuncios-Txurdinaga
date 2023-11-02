@@ -1394,8 +1394,9 @@ boton .categorias form i {
   font-size: 2rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 1rem;
+  line-height: 2.5rem;
 }
+
 
 /* Editar Perfil */
 .container-perfil {
