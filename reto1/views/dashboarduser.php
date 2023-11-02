@@ -206,7 +206,7 @@
                 <td><?php echo $tituloAnuncio; ?></td>
                 <td><?php echo $texto; ?></td>
                 <td><a href="eliminarcomentario.php?id=<?php echo $id; ?>" class="boton rojo"><i class="fa-solid fa-trash-can"></i></a></td>
-                <td><a href="anuncio_completo.php?id=<?php echo $idAnuncio ?>" class="boton azul" target="_blank">Ver Anuncio</a></td>
+                <td><a href="anuncio_completo.php?id=<?php echo $idAnuncio ?>" class="boton tx-azul" target="_blank">Vista Previa</a></td>
               </tr>
               <?php } ?>
             </tbody>
