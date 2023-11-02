@@ -212,7 +212,7 @@
                 <td><?php echo $Rol; ?></td>
                 <td><?php echo $Clase; ?></td>
                 <td><?php echo $Correo; ?></td>
-                <td><a onclick="return confirm('Al Validar se envía un email de confirmación al usuario')" href="validar_users.php?id=<?php echo $Nick  ?>" class="boton verde"><i class="fa-solid fa-check"></a></td>
+                <td><a href="validar_users.php?id=<?php echo $Nick  ?>" class="boton verde"><i class="fa-solid fa-check"></a></td>
                 <td><a onclick="return confirm('Al eliminar el usuario, se eliminarán todos sus anuncios. Estas de acuerdo?')" href="eliminar_user.php?id=<?php echo $Nick; ?>" class="boton rojo"><i class="fa-solid fa-trash-can"></i></a></td>
               </tr>
               <?php } ?>

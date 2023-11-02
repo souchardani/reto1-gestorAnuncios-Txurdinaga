@@ -61,17 +61,13 @@ function validarContrasena(contrasena) {
 
 // Comprueba que las contraseñas coinciden
 pass1.addEventListener("blur", function () {
-  if (pass1.value === pass2.value && validarContrasena(pass1.value)) {
-    pass1.classList.remove("rojo");
-    pass1.classList.add("verde");
-    pass2.classList.remove("rojo");
-    pass2.classList.add("verde");
-  } else {
-    pass1.classList.remove("verde");
-    pass1.classList.add("rojo");
-    pass2.classList.remove("verde");
-    pass2.classList.add("rojo");
-  }
+  // if (pass1.value === pass2.value && validarContrasena(pass1.value)) {
+  //   pass1.classList.remove("rojo");
+  //   pass1.classList.add("verde");
+  // } else {
+  //   pass1.classList.remove("verde");
+  //   pass1.classList.add("rojo");
+  // }
 
   if (!validarContrasena(pass1.value)) {
     alert(
@@ -80,22 +76,18 @@ pass1.addEventListener("blur", function () {
   }
 });
 
-pass2.addEventListener("blur", function () {
-  if ((pass1.value === pass2.value) && validarContrasena(pass2.value)) {
-    pass1.classList.remove("rojo");
-    pass1.classList.add("verde");
-    pass2.classList.remove("rojo");
-    pass2.classList.add("verde");
-  } else {
-    pass1.classList.remove("verde");
-    pass1.classList.add("rojo");
-    pass2.classList.remove("verde");
-    pass2.classList.add("rojo");
-  }
+// pass2.addEventListener("blur", function () {
+//   if (pass1.value === pass2.value && validarContrasena(pass2.value)) {
+//     pass2.classList.remove("rojo");
+//     pass2.classList.add("verde");
+//   } else {
+//     pass2.classList.remove("verde");
+//     pass2.classList.add("rojo");
+//   }
 
-  if (!(pass1.value === pass2.value)) {
-    alert(
-      "Las contraseñas no coinciden, por favor, introduzca la misma contraseña en ambos campos"
-    );
-  }
-});
+//   // if (!(pass1.value === pass2.value)) {
+//   //   alert(
+//   //     "Las contraseñas no coinciden, por favor, introduzca la misma contraseña en ambos campos"
+//   //   );
+//   // }
+// });
