@@ -6,7 +6,6 @@ const pass2 = document.getElementById("pass2");
 const fecha = document.getElementById("fecha");
 
 // Regex 6 caracteres, una mayuscula y una minuscula como minimo
-// const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d{5,}).*$/;
 const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z]).{6,}$/;
 
 // Funcion que calcula la edad (minimo 15 años)
@@ -26,7 +25,7 @@ function validarContrasena(contrasena) {
   return passwordRegex.test(contrasena);
 }
 
-// // Validacion de los inputs por colores
+// Validacion de los inputs por colores
 // inputs.forEach((input) => {
 //   input.addEventListener("keyup", function () {
 //     if (input.value === "") {
@@ -62,17 +61,17 @@ function validarContrasena(contrasena) {
 
 // Comprueba que las contraseñas coinciden
 pass1.addEventListener("blur", function () {
-  // if (pass1.value === pass2.value) {
-  //   pass1.classList.remove("rojo");
-  //   pass1.classList.add("verde");
-  //   pass2.classList.remove("rojo");
-  //   pass2.classList.add("verde");
-  // } else {
-  //   pass1.classList.remove("verde");
-  //   pass1.classList.add("rojo");
-  //   pass2.classList.remove("verde");
-  //   pass2.classList.add("rojo");
-  // }
+  if (pass1.value === pass2.value && validarContrasena(pass1.value)) {
+    pass1.classList.remove("rojo");
+    pass1.classList.add("verde");
+    pass2.classList.remove("rojo");
+    pass2.classList.add("verde");
+  } else {
+    pass1.classList.remove("verde");
+    pass1.classList.add("rojo");
+    pass2.classList.remove("verde");
+    pass2.classList.add("rojo");
+  }
 
   if (!validarContrasena(pass1.value)) {
     alert(
@@ -82,6 +81,18 @@ pass1.addEventListener("blur", function () {
 });
 
 pass2.addEventListener("blur", function () {
+  if ((pass1.value === pass2.value) && validarContrasena(pass2.value)) {
+    pass1.classList.remove("rojo");
+    pass1.classList.add("verde");
+    pass2.classList.remove("rojo");
+    pass2.classList.add("verde");
+  } else {
+    pass1.classList.remove("verde");
+    pass1.classList.add("rojo");
+    pass2.classList.remove("verde");
+    pass2.classList.add("rojo");
+  }
+
   if (!(pass1.value === pass2.value)) {
     alert(
       "Las contraseñas no coinciden, por favor, introduzca la misma contraseña en ambos campos"
